@@ -5,7 +5,7 @@
 ![MQTT](https://img.shields.io/badge/Protocol-MQTT-660066?style=flat-square&logo=mqtt&logoColor=white)
 ![C](https://img.shields.io/badge/Language-C-A8B9CC?style=flat-square&logo=c&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-em%20desenvolvimento-yellow?style=flat-square)
-![License](https://img.shields.io/badge/License-TBD-lightgrey?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 ## Sobre o projeto
 
