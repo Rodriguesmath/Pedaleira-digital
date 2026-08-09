@@ -16,6 +16,11 @@ build/
 .settings/language.settings.xml
 *.launch
 
+# ESP-IDF (firmware/esp32)
+managed_components/
+sdkconfig
+sdkconfig.old
+
 # OS / editor
 .DS_Store
 Thumbs.db
