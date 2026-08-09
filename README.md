@@ -55,7 +55,10 @@ potenciômetros físicos para cada parâmetro.
 .
 ├── firmware/
 │   ├── stm32/        # Firmware do processamento de áudio (STM32H7xx, STM32CubeIDE)
-│   └── esp32/        # Firmware de comunicação MQTT (a adicionar)
+│   └── esp32/        # Firmware de comunicação MQTT (ESP-IDF, a adicionar)
+├── app/
+│   ├── backend/      # Serviço de intermediação com a pedaleira via MQTT
+│   └── frontend/     # Aplicação de configuração dos efeitos
 └── docs/
     ├── code/         # Documentação relacionada ao firmware/software
     ├── hardware/      # Esquemáticos, PCB e documentação de hardware
