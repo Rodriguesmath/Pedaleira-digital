@@ -53,8 +53,9 @@ potenciômetros físicos para cada parâmetro.
 
 ```
 .
-├── firmware-stm32/   # Firmware do processamento de áudio (STM32H7xx, STM32CubeIDE)
-├── firmware-esp32/   # Firmware de comunicação MQTT (a adicionar)
+├── firmware/
+│   ├── stm32/        # Firmware do processamento de áudio (STM32H7xx, STM32CubeIDE)
+│   └── esp32/        # Firmware de comunicação MQTT (a adicionar)
 └── docs/
     ├── code/         # Documentação relacionada ao firmware/software
     ├── hardware/      # Esquemáticos, PCB e documentação de hardware
