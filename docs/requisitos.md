@@ -26,41 +26,27 @@ Documentação formal de Engenharia de Requisitos para o projeto **Pedaleira Dig
 
 O sistema consiste em uma pedaleira de áudio digital baseada em processamento digital de sinais (DSP) em tempo real executado no microcontrolador de alta performance **STM32H723VG** (ARM Cortex-M7 com FPU de precisão dupla), integrada a um codec de áudio de alta fidelidade (**Cirrus Logic CS4272**) e a um módulo de conectividade **ESP32** para controle remoto e telemetria via protocolo **MQTT**.
 
-```
-                           +-------------------------------------------------------+
-                           |               Pedaleira Digital (Hardware)            |
-                           |                                                       |
-+-------------------+      |  +--------------------+      +---------------------+  |      +--------------------+
-| Guitarra / Baixo  | ---> |  | Condicionador P10  | ---> | Codec CS4272        |  | ---> | Amplificador /     |
-| (Sinal Analógico) |      |  | Hi-Z / Buffer TL072|      | 24-bit 48kHz (ADC)  |  |      | Fones de Ouvido    |
-+-------------------+      |  +--------------------+      +----------+----------+  |      +--------------------+
-                           |                                         | I2S/SAI     |                ^
-                           |                                         v             |                | Linha Analógica
-                           |                              +---------------------+  |                |
-                           |  +--------------------+      | STM32H723VG (DSP)   |  |                |
-                           |  | Chaves de Retenção | ---> | - Overdrive Suave   |  |                |
-                           |  | Mecânica (Toggle)  | GPIO | - Equalizador 3-band|  |                |
-                           |  | + LEDs de Estado   | <--- | - Crossfade Anti-Pop|  |                |
-                           |  +--------------------+      +----------+----------+  |                |
-                           |                                         | I2S/SAI     |                |
-                           |                                         v             |                |
-                           |                              +---------------------+  |                |
-                           |                              | Codec CS4272        | -+----------------+
-                           |                              | 24-bit 48kHz (DAC)  |
-                           |                                       ^
-                           |                                       | UART Assíncrona
-                           |                                       v
-                           |                              +---------------------+
-                           |                              | ESP32 DevKit        |
-                           |                              | Ponte Wi-Fi / MQTT  |
-                           +------------------------------+----------+----------+
-                                                                     |
-                                                                     | Wi-Fi (802.11 b/g/n)
-                                                                     v
-                                                          +---------------------+
-                                                          | Broker MQTT         |
-                                                          | App Mobile/Web      |
-                                                          +---------------------+
+```mermaid
+flowchart TD
+    subgraph PEDAL["Pedaleira Digital (Hardware de Bancada)"]
+        direction TB
+        BUF["Condicionador P10<br/>Hi-Z Buffer TL072"]
+        ADC["Codec CS4272 (ADC)<br/>24-bit 48kHz"]
+        DAC["Codec CS4272 (DAC)<br/>24-bit 48kHz"]
+        STM["STM32H723VG (DSP Core C++)<br/>• Overdrive Suave<br/>• Equalizador 3-band<br/>• Crossfade Anti-Pop"]
+        SW["Chaves de Retenção (Toggle)<br/>+ LEDs de Status"]
+        ESP["ESP32 DevKit<br/>Ponte Wi-Fi / MQTT"]
+
+        BUF -->|"Sinal Analógico"| ADC
+        ADC -->|"SAI1 / I2S (DMA)"| STM
+        STM -->|"SAI1 / I2S (DMA)"| DAC
+        SW <-->|"GPIO (Pull-Up / Output)"| STM
+        STM <-->|"UART Assíncrona (115200)"| ESP
+    end
+
+    INST["Guitarra / Baixo<br/>(Sinal Analógico)"] -->|"Jack P10"| BUF
+    DAC -->|"Jack P10 (Linha)"| OUT["Amplificador / Fones de Ouvido"]
+    ESP <-->|"Wi-Fi (802.11 b/g/n)"| MQTT["Broker MQTT<br/>App Mobile / Web"]
 ```
 
 ---

@@ -1,7 +1,7 @@
 # Firmware STM32
 
 ![STM32](https://img.shields.io/badge/MCU-STM32H723VG-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white)
-![C](https://img.shields.io/badge/Language-C-A8B9CC?style=flat-square&logo=c&logoColor=white)
+![C++](https://img.shields.io/badge/Language-C++17-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![STM32CubeIDE](https://img.shields.io/badge/IDE-STM32CubeIDE-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-em%20desenvolvimento-yellow?style=flat-square)
 

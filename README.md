@@ -3,7 +3,7 @@
 ![STM32](https://img.shields.io/badge/MCU-STM32H723VG-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white)
 ![ESP32](https://img.shields.io/badge/Connectivity-ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white)
 ![MQTT](https://img.shields.io/badge/Protocol-MQTT-660066?style=flat-square&logo=mqtt&logoColor=white)
-![C](https://img.shields.io/badge/Language-C-A8B9CC?style=flat-square&logo=c&logoColor=white)
+![C++](https://img.shields.io/badge/Language-C++17-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-em%20desenvolvimento-yellow?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
@@ -42,12 +42,14 @@ potenciômetros físicos adicionais.
 
 ## Arquitetura (visão geral)
 
-```
-[Instrumento] -> [Buffer Hi-Z TL072] -> [Codec CS4272] <-> [STM32H7xx (DSP Core)] -> [Saída de áudio]
-                                                                  ^
-                                                                  | (UART estruturada)
-                                                                  v
-                                              [ESP32: Wi-Fi/MQTT] <-> [Aplicação Web/Mobile]
+```mermaid
+flowchart LR
+    INST["Instrumento (Guitarra/Baixo)"] --> BUF["Buffer Hi-Z (TL072)"]
+    BUF --> CODEC["Codec CS4272 (ADC/DAC)"]
+    CODEC <-->|"SAI1 / I2S (DMA)"| STM["STM32H7xx (DSP Core C++)"]
+    CODEC --> OUT["Saída de Áudio (Amp/Fone)"]
+    STM <-->|"UART (Quadro Binário)"| ESP["ESP32 (Wi-Fi/MQTT)"]
+    ESP <-->|"MQTT (JSON)"| APP["Aplicação Web/Mobile"]
 ```
 
 ## Documentação do Projeto

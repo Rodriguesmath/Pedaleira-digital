@@ -19,38 +19,20 @@ O hardware da pedaleira é composto por cinco blocos fundamentais interconectado
 
 ### Diagrama em Blocos de Interconexão
 
-```
-[ Guitarra / Baixo ]
-         │ (Cabo P10)
-         ▼
-┌─────────────────────────────────┐
-│   Buffer de Entrada Hi-Z        │ (Amp-Op TL072, Zin ~ 1 MΩ, Vref = 4.5V)
-└─────────────────────────────────┘
-         │ (Nível de linha, 1 Vrms)
-         ▼
-┌─────────────────────────────────┐       I2S / SAI (Audio DMA)      ┌─────────────────────────────────┐
-│   Codec de Áudio CS4272         │◄────────────────────────────────►│   Processador DSP               │
-│   (ADC 24-bit / DAC 24-bit)     │       I2C (Controle de Config)   │   STM32H723VGT6 (LQFP100)       │
-└─────────────────────────────────┘◄─────────────────────────────────┤   - ARM Cortex-M7 @ 550 MHz     │
-         │ (Áudio Analógico L/R)                                     │   - Processamento de DSP        │
-         ▼                                                           │   - Leitura Chaves Físicas      │
-┌─────────────────────────────────┐                                  │   - Controle LEDs Indicadores   │
-│   Filtro Ativo de Reconstrução  │                                  └────────────────┬────────────────┘
-│   (Amp-Op TL072/NE5532 + Jack)  │                                                   │
-└─────────────────────────────────┘                                                   │ UART Serial
-         │ (Cabo P10)                                                                 │ (115200 bps, 3.3V)
-         ▼                                                                            ▼
-[ Amplificador / Fone ]                                              ┌─────────────────────────────────┐
-                                                                     │   Módulo de Conectividade       │
-┌─────────────────────────────────┐                                  │   ESP32 DevKit V1               │
-│   Chaves Físicas com Retenção   │─────(GPIOs com Pull-Up)─────────►│   - Wi-Fi 802.11 b/g/n          │
-│   (Alavanca / Gangorra SPST)    │                                  │   - Cliente MQTT (Broker/App)   │
-└─────────────────────────────────┘                                  └────────────────┬────────────────┘
-                                                                                      │
-┌─────────────────────────────────┐                                                   │ Wi-Fi / MQTT
-│   LEDs Indicadores de Status    │◄────(GPIOs com Resistor 330Ω)────┘                ▼
-│   (Overdrive, EQ, Delay, Bypass)│                                           [ App Mobile / Web ]
-└─────────────────────────────────┘
+```mermaid
+flowchart TD
+    INST["Guitarra / Baixo (Instrumento)"] -->|"Cabo P10 (Sinal Analógico)"| BUF["Buffer de Entrada Hi-Z<br/>(TL072, Zin ~ 1 MΩ, Vref = 4.5V)"]
+    BUF -->|"Nível de Linha (1 Vrms)"| CODEC["Codec de Áudio CS4272<br/>(ADC 24-bit / DAC 24-bit)"]
+    CODEC <-->|"SAI1 / I2S (DMA de Áudio)"| STM["Processador DSP (STM32H723VGT6)<br/>• ARM Cortex-M7 @ 550 MHz (C++17)<br/>• Processamento DSP e DMA Circular<br/>• Leitura de Chaves e Controle de LEDs"]
+    CODEC <-->|"I2C1 (Configuração e Volumes)"| STM
+    CODEC -->|"Áudio Analógico L/R"| FILT["Filtro Ativo de Reconstrução<br/>(Amp-Op TL072/NE5532 + Jack P10)"]
+    FILT -->|"Cabo P10"| OUT["Amplificador / Fones de Ouvido"]
+
+    SW["Chaves Físicas com Retenção<br/>(Alavanca / Gangorra SPST)"] -->|"GPIOs com Pull-Up Interno"| STM
+    STM -->|"GPIOs Push-Pull (Resistor 330Ω)"| LEDS["LEDs Indicadores de Status<br/>(Overdrive, EQ, Delay, Bypass)"]
+
+    STM <-->|"UART3 Serial (115200 bps, 3.3V)"| ESP["Módulo de Conectividade ESP32<br/>• Wi-Fi 802.11 b/g/n<br/>• Cliente MQTT (Broker/App)"]
+    ESP <-->|"Wi-Fi / Protocolo MQTT"| APP["Aplicação Mobile / Web"]
 ```
 
 ---
@@ -133,14 +115,13 @@ O ESP32 atua como o controlador de rede e telemetria:
 
 As chaves mecânicas utilizam o recurso de **pull-up interno** do STM32 (`GPIO_PULLUP`), eliminando a necessidade de resistores discretos externos na bancada:
 
-```
-                  +3.3V
-                    │
-                 [Pull-Up Interno ~40kΩ]
-                    │
-Pino STM32 (PE10) ──┴───────────────o  /  o─────── GND
-                                   Chave Retenção
-                                (Fechada = LOW / Aberta = HIGH)
+```mermaid
+flowchart LR
+    VCC["+3.3V (VDD)"] --> R_PULL["Pull-Up Interno (~40 kΩ)"]
+    R_PULL --> NODE["Pino STM32 (PE10)"]
+    NODE --> SW{"Chave de Retenção (Toggle)"}
+    SW -->|"Fechada (ON)"| GND1["GND (Nível LOW = Efeito Ativo)"]
+    SW -.->|"Aberta (OFF)"| NC["Flutuante (Nível HIGH = Bypass)"]
 ```
 
 | ID Físico | Tipo de Chave | Pino STM32 | Estado em Aberto (HIGH) | Estado em Fechado (LOW) | Ação de Processamento DSP |
@@ -153,8 +134,11 @@ Pino STM32 (PE10) ──┴───────────────o  /  o�
 #### Conexão dos LEDs de Feedback
 
 Cada LED é acionado diretamente por um pino de saída configurado como Push-Pull:
-```
-Pino STM32 (PE0) ───[ Resistor 330Ω ]───[ Ânodo |>| Cátodo ]─── GND
+```mermaid
+flowchart LR
+    P_LED["Pino STM32 (PE0 - Push-Pull)"] --> R_LIMIT["Resistor Limitador (330 Ω)"]
+    R_LIMIT --> LED["LED Difuso (Ânodo ➔ Cátodo)"]
+    LED --> GND["GND (0V)"]
 ```
 - Corrente por pino: $(3.3\text{V} - 2.0\text{V}) / 330\Omega \approx 3.9\text{ mA}$ (seguro para o STM32H7, cujo limite por I/O é 20 mA).
 
@@ -170,35 +154,27 @@ O circuito buffer seguidor de tensão (*voltage follower*) com o amp-op de entra
 
 #### Esquemático do Buffer de Entrada (Alimentação Simples +9V com Terra Virtual)
 
-```
-                     +9V (Fonte de Bancada / Pedal)
-                      │
-                     [R1: 100kΩ]
-                      │
-       Vref (+4.5V) ──┴───[ C3: 47µF Eletrolítico ]─── GND
-                      │
-                     [R2: 100kΩ]
-                      │
-                     GND
-                      
-                    +9V
-                     │ (Pino 8 - VCC+)
-                  ┌──┴──┐
-                  │ \   │
-Jack P10 In       │  \  │
-Sinal ──[ C1: 100nF ]─┤ + \ │
-                      │    ├───┬─────────────[ C2: 10µF ]───► Para ADC CS4272
-                  ┌───┤ - /    │                               (Nível de Linha)
-                  │   │  /     │
-                  │   └──┬──┘  │
-                  │      │     │
-                  └──────┴─────┘ (Feedback Unitário / Seguidor)
-                  │
-                 GND (Pino 4 - VEE/GND)
-                  │
-        [ R3: 1MΩ ]
-                  │
-             Vref (+4.5V)
+```mermaid
+flowchart TD
+    subgraph VREF_GEN["Geração de Terra Virtual (Vref = +4.5V)"]
+        direction TB
+        V9["+9V (Fonte DC)"] --> R1["R1 (100 kΩ)"]
+        R1 --> VREF_NODE["Nó Vref (+4.5V)"]
+        VREF_NODE --> R2["R2 (100 kΩ)"] --> GND_VREF1["GND"]
+        VREF_NODE --> C3["C3 (47 µF Eletrolítico)"] --> GND_VREF2["GND"]
+    end
+
+    subgraph BUFFER_STAGE["Estágio Seguidor de Tensão Hi-Z"]
+        direction TB
+        JACK_IN["Jack P10 In (Guitarra)"] --> C1["C1 (100 nF - Bloqueio DC)"]
+        C1 --> NON_INV["Entrada Não-Inversora (+)"]
+        VREF_NODE -.->|"Bias DC"| R3["R3 (1 MΩ Hi-Z)"] --> NON_INV
+        NON_INV --> OPAMP["Amp-Op TL072 (Pino 8: +9V, Pino 4: GND)"]
+        OPAMP --> OUT_NODE["Saída do Amp-Op"]
+        OUT_NODE -->|"Feedback Unitário"| INV["Entrada Inversora (-)"] --> OPAMP
+        OUT_NODE --> C2["C2 (10 µF - Acoplamento AC)"]
+        C2 --> ADC_IN["Para ADC do Codec CS4272 (Nível de Linha)"]
+    end
 ```
 
 **Parâmetros de Projeto**:
@@ -214,13 +190,19 @@ Sinal ──[ C1: 100nF ]─┤ + \ │
 
 A conversão D/A do codec gera imagens espectrais de alta frequência (*aliases*) acima da banda de Nyquist ($f_s / 2 = 24\text{ kHz}$). Um filtro passa-baixas ativo ou passivo de 2ª ordem atenua resíduos de clock e ruído de chaveamento antes de enviar o sinal para o amplificador:
 
-```
-CS4272 AOUTL ──[ R4: 1kΩ ]──┬──[ R5: 1kΩ ]──┬──[ Amp-Op Seguidor ]──[ C5: 10µF ]──┬── Jack P10 Out
-                            │                │                      │             │
-                        [ C4: 4.7nF ]    [ C6: 1.5nF ]              │        [ R6: 100kΩ ]
-                            │                │                      │             │
-                           GND              GND                    GND           GND
-                                                                             (Anti-Pop)
+```mermaid
+flowchart LR
+    AOUT["CS4272 AOUTL (DAC)"] --> R4["R4 (1 kΩ)"]
+    R4 --> N1["Nó de Filtragem 1"]
+    N1 --> C4["C4 (4.7 nF)"] --> GND1["GND"]
+    N1 --> R5["R5 (1 kΩ)"]
+    R5 --> N2["Nó de Filtragem 2"]
+    N2 --> C6["C6 (1.5 nF)"] --> GND2["GND"]
+    N2 --> BUF_OUT["Amp-Op Buffer Seguidor (TL072)"]
+    BUF_OUT --> C5["C5 (10 µF - Bloqueio DC)"]
+    C5 --> N_OUT["Nó de Saída P10"]
+    N_OUT --> R6["R6 (100 kΩ Anti-Pop)"] --> GND3["GND"]
+    N_OUT --> P10_OUT["Jack P10 Out (Amplificador)"]
 ```
 - Filtro passa-baixas Sallen-Key com frequência de corte em $f_c \approx 22\text{ kHz}$.
 - Resistor de pull-down $R_6$ de $100\text{ k}\Omega$ elimina transientes e estalos (*pop noise*) ao plugar ou despolarizar o cabo P10.

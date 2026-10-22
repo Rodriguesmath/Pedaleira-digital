@@ -85,7 +85,7 @@ O desenvolvimento deste protótipo no IFPB justifica-se pedagogicamente e tecnic
 | Usuário ou Público | Necessidade | Cenário de Uso Típico |
 | :--- | :--- | :--- |
 | **Músico Instrumentista (Guitarrista / Baixista)** | Tocar ao vivo ou ensaiar com resposta imediata e timbres clássicos (overdrive e equalização) sem sofrer com atraso perceptível de som (*latência*) nem ruídos de estalo ao ligar o efeito. | Conecta o instrumento na entrada P10 e a saída na caixa amplificadora; aciona a chave de alavanca com o dedo/pé para ligar o Overdrive no início do solo e desliga ao retornar à base; ouve o som instantâneo sem chiados. |
-| **Estudante / Pesquisador de Engenharia e DSP** | Plataforma de desenvolvimento aberta para criar novos algoritmos de efeitos (chorus, delay, filtros não-lineares) e mensurar variáveis físicas de áudio (latência, THD, resposta em frequência). | Conecta a placa de desenvolvimento STM32 ao depurador ST-LINK, monitora buffers DMA e testa rotinas em C com CMSIS-DSP em bancada de laboratório. |
+| **Estudante / Pesquisador de Engenharia e DSP** | Plataforma de desenvolvimento aberta para criar novos algoritmos de efeitos (chorus, delay, filtros não-lineares) e mensurar variáveis físicas de áudio (latência, THD, resposta em frequência). | Conecta a placa de desenvolvimento STM32 ao depurador ST-LINK, monitora buffers DMA e testa rotinas em C++ com CMSIS-DSP em bancada de laboratório. |
 | **Operador de Áudio / Ajustador de Estúdio** | Configurar e parametrizar curvas finas de ganho e equalização em tempo real sem precisar interromper o músico ou intervir fisicamente no instrumento. | Utiliza um smartphone conectado à rede Wi-Fi local para enviar comandos via MQTT, afinando os parâmetros de ganho e frequências de corte no dashboard da aplicação. |
 
 ---
@@ -100,7 +100,7 @@ Desenvolver, integrar e validar experimentalmente um protótipo funcional de **P
 
 1. **Condicionamento de Sinal**: Projetar e montar em matriz de contato/placa perfurada um circuito de entrada analógico de alta impedância (*Hi-Z*) com amp-op (TL072/NE5532) para acoplar instrumentos musicais à faixa dinâmica do codec de áudio.
 2. **Interface de Áudio e DMA**: Configurar os periféricos seriais de áudio (SAI/I2S) e canais de Direct Memory Access (DMA circular duplo) da STM32H7 para aquisição e emissão ininterrupta de áudio digital a 24 bits / 48 kHz.
-3. **Desenvolvimento de Algoritmos DSP**: Implementar em linguagem C eficiente (Cortex-M7 FPU / CMSIS-DSP) os blocos matemáticos de Overdrive com soft-clipping não-linear e Equalizador de 3 bandas paramétrico biquad IIR.
+3. **Desenvolvimento de Algoritmos DSP**: Implementar em linguagem C++ eficiente (C++17 bare-metal / Cortex-M7 FPU / CMSIS-DSP) os blocos matemáticos de Overdrive com soft-clipping não-linear e Equalizador de 3 bandas paramétrico biquad IIR.
 4. **Interface Física com Retenção**: Conectar e tratar em firmware a leitura direta de chaves estáticas com retenção mecânica (alavanca/gangorra) utilizando pull-up interno e filtro temporal de debounce contra repiques.
 5. **Algoritmo de Transição Suave**: Implementar rampa de atenuação/crossfade digital para chaveamento *anti-pop*, eliminando descontinuidades acústicas no acionamento dos efeitos.
 6. **Comunicação Inter-MCU e Conectividade IoT**: Estruturar protocolo serial leve UART com controle de integridade entre STM32H7 e ESP32, e implementar firmware no ESP32 para publicação e subscrição de tópicos MQTT.
@@ -157,44 +157,17 @@ Para assegurar a viabilidade técnica dentro dos prazos, limitações orçament�
 
 ### 10.1 Diagrama Conceitual
 
-```
-+----------------------------------------------------------------------------------------------------+
-|                                         DIAGRAMA CONCEITUAL                                        |
-|                                                                                                    |
-|  [ Instrumento ]                                                                                   |
-|         |                                                                                          |
-|         v (Sinal Acústico / Elétrico)                                                              |
-|  +--------------------+                                                                            |
-|  | SENSORIAMENTO /    | Condicionador Hi-Z P10                                                     |
-|  | ENTRADA ANALÓGICA  | Adapta impedância e ganho                                                  |
-|  +---------+----------+                                                                            |
-|            |                                                                                       |
-|            v (Tensão Analógica Condicionada)                                                       |
-|  +--------------------+                                                                            |
-|  | CONVERSÃO DE       | Codec Cirrus CS4272                                                        |
-|  | ÁUDIO (ADC / DAC)  | 24-bit / 48 kHz                                                            |
-|  +---------+----------+                                                                            |
-|            |                                                                                       |
-|            | Barramento I2S/SAI Digital                                                            |
-|            v                                                                                       |
-|  +--------------------+       Controle Físico        +---------------------+                       |
-|  | PROCESSAMENTO      | <=========================== | Chaves de Retenção  | (Alavanca Toggle)     |
-|  | DSP EM TEMPO REAL  |                              | Mecânica + LEDs     |                       |
-|  | (STM32H723)        | ===========================> +---------------------+                       |
-|  +---------+----------+       Telemetria / LEDs                                                    |
-|            |                                                                                       |
-|            | Ponte UART Serial                                                                     |
-|            v                                                                                       |
-|  +--------------------+                                                                            |
-|  | COMUNICAÇÃO IoT    | ESP32 DevKit                                                               |
-|  | (ESP32 / Wi-Fi)    | Cliente MQTT Assíncrono                                                    |
-|  +---------+----------+                                                                            |
-|            |                                                                                       |
-|            v (Rede Wi-Fi / Protocolo MQTT)                                                         |
-|  +--------------------+                                                                            |
-|  | APLICAÇÃO EXTERNA  | Dashboard Web / Mobile de Configuração                                     |
-|  +--------------------+                                                                            |
-+----------------------------------------------------------------------------------------------------+
+```mermaid
+flowchart TD
+    INST["Instrumento Musical (Guitarra / Baixo)"] -->|"Sinal Elétrico (Jack P10)"| COND["Condicionamento Hi-Z (TL072)<br/>Adaptação de Ganho e Impedância"]
+    COND -->|"Tensão Analógica (1 Vrms)"| CODEC_ADC["Codec CS4272 (ADC)<br/>24-bit / 48 kHz"]
+    CODEC_ADC -->|"Barramento SAI1 / I2S (DMA Circular)"| DSP["Processamento DSP Real-Time (C++17)<br/>STM32H723VG (Cortex-M7 @ 550 MHz)"]
+    DSP -->|"Barramento SAI1 / I2S (DMA Circular)"| CODEC_DAC["Codec CS4272 (DAC)<br/>24-bit / 48 kHz"]
+    CODEC_DAC -->|"Sinal Analógico Reconstruído"| OUT["Saída de Áudio (Jack P10)<br/>Amplificador / Fone"]
+
+    SW["Chaves com Retenção Mecânica<br/>(Alavanca Toggle) + LEDs"] <-->|"Controle Físico (GPIO Pull-Up) / LEDs"| DSP
+    DSP <-->|"Ponte UART Serial (115200 baud)"| ESP["Comunicação IoT (ESP32)<br/>Cliente MQTT Assíncrono"]
+    ESP <-->|"Wi-Fi (802.11 b/g/n) / MQTT"| APP["Aplicação Externa (Dashboard Web / Mobile)"]
 ```
 
 ### 10.2 Divisão em Subsistemas de Hardware e Software
@@ -203,7 +176,7 @@ Para assegurar a viabilidade técnica dentro dos prazos, limitações orçament�
 | :--- | :--- | :--- |
 | **SS01: Condicionamento Analógico** | Casamento de impedância de entrada ($1\text{ M}\Omega$), filtragem passa-altas de corte DC ($10\text{ Hz}$) e buffer de saída de linha com proteção contra curtos. | Amp-Op TL072 ou NE5532, resistores de precisão 1%, capacitores de poliéster/cerâmica, conectores Jack P10 mono fêmea. |
 | **SS02: Conversão de Áudio (Codec)** | Amostragem estéreo de 24 bits a 48 kHz, geração/sincronismo de relógio mestre (MCLK) e conversão DAC para saída. | Placa breakout Cirrus Logic CS4272 com interface I2S/SAI e controle I2C/Hardware Mode. |
-| **SS03: Processamento DSP (MCU)** | Aquisição por DMA circular, processamento matemático de Overdrive e Equalizador 3 bandas, crossfade anti-pop e controle de fluxo. | Placa de desenvolvimento STM32H723VG (Cortex-M7 a 550 MHz), firmware em C com biblioteca CMSIS-DSP. |
+| **SS03: Processamento DSP (MCU)** | Aquisição por DMA circular, processamento matemático de Overdrive e Equalizador 3 bandas, crossfade anti-pop e controle de fluxo. | Placa de desenvolvimento STM32H723VG (Cortex-M7 a 550 MHz), firmware em C++ (C++17) com biblioteca CMSIS-DSP. |
 | **SS04: Interface Física de Bancada** | Leitura mecânica determinística de bypass dos efeitos e sinalização luminosa de estado para o usuário. | 2 Chaves tipo alavanca toggle SPST com retenção mecânica, 2 LEDs difusos (Vermelho e Verde) com resistores de $330\Omega$. |
 | **SS05: Comunicação e Conectividade** | Manutenção da pilha Wi-Fi 802.11 b/g/n, conexão com broker MQTT e serialização/desserialização de mensagens com a STM32. | ESP32 DevKit v1, firmware ESP-IDF ou FreeRTOS com cliente MQTT integrado. |
 | **SS06: Alimentação Elétrica** | Regulação de tensão e filtragem de ruídos para alimentação dos circuitos analógicos e digitais. | Fonte DC 9V externa com reguladores LDO lineares de baixo ruído (7805 / AMS1117-3.3V) e rede de capacitores de desacoplamento. |
@@ -246,31 +219,36 @@ O ciclo de vida dos sinais no sistema divide-se em dois planos independentes:
 
 O desenvolvimento do protótipo seguirá o modelo incremental e iterativo prescrito pelo IFPB, minimizando riscos de integração e permitindo entregas intermediárias mensuráveis:
 
-```
-+------------------------------------------------------------------------------------+
-|                       EVOLUÇÃO DOS PROTÓTIPOS (IFPB)                               |
-|                                                                                    |
-|  [ V0: Prova de Conceito ]                                                         |
-|  • Validação do codec CS4272 com STM32 em loopback digital direto (SAI DMA).      |
-|  • Teste de entrada e saída analógica simples em protoboard.                       |
-|  • Verificação da latência básica de transporte de amostras.                       |
-|                                                                                    |
-|                                         |                                          |
-|                                         v                                          |
-|  [ V1: Integração de Bancada ]                                                     |
-|  • Inserção dos algoritmos DSP (Overdrive e Equalizador) em C no firmware STM32.  |
-|  • Ligação das chaves de alavanca com debounce e acionamento de LEDs.              |
-|  • Implementação do crossfade anti-pop.                                            |
-|  • Integração serial UART entre STM32 e ESP32 com publicação básica MQTT.         |
-|                                                                                    |
-|                                         |                                          |
-|                                         v                                          |
-|  [ V2: Protótipo Funcional Final ]                                                 |
-|  • Migração dos circuitos discretos para placa perfurada consolidada.             |
-|  • Montagem mecânica dos conectores Jack P10 e chaves em suporte de bancada.       |
-|  • Sincronização bidirecional de parâmetros com painel MQTT.                      |
-|  • Bateria completa de testes experimentais de áudio, ruído e latência.           |
-+------------------------------------------------------------------------------------+
+```mermaid
+flowchart TD
+    subgraph V0["V0: Prova de Conceito (Loopback Mínimo)"]
+        direction TB
+        V0_1["Validação do codec CS4272 com STM32 em loopback digital direto (SAI DMA)"]
+        V0_2["Teste de entrada e saída analógica simples em protoboard"]
+        V0_3["Verificação da latência básica de transporte de amostras"]
+        V0_1 --> V0_2 --> V0_3
+    end
+
+    subgraph V1["V1: Integração de Bancada (DSP Core & IoT)"]
+        direction TB
+        V1_1["Inserção dos algoritmos DSP (Overdrive e Equalizador) em C++ no firmware STM32"]
+        V1_2["Ligação das chaves de alavanca com debounce e acionamento de LEDs"]
+        V1_3["Implementação do crossfade anti-pop digital"]
+        V1_4["Integração serial UART entre STM32 e ESP32 com publicação básica MQTT"]
+        V1_1 --> V1_2 --> V1_3 --> V1_4
+    end
+
+    subgraph V2["V2: Protótipo Funcional Final (Consolidação Física)"]
+        direction TB
+        V2_1["Migração dos circuitos discretos para placa perfurada consolidada"]
+        V2_2["Montagem mecânica dos conectores Jack P10 e chaves em suporte de bancada"]
+        V2_3["Sincronização bidirecional de parâmetros com painel MQTT"]
+        V2_4["Bateria completa de testes experimentais de áudio, ruído e latência"]
+        V2_1 --> V2_2 --> V2_3 --> V2_4
+    end
+
+    V0 -->|"Avanço após validação de áudio"| V1
+    V1 -->|"Avanço após estabilização de DSP e conectividade"| V2
 ```
 
 ---
@@ -297,7 +275,7 @@ Conforme a Seção 26 do Roteiro de Prototipagem do IFPB, os riscos técnicos in
 | :--- | :--- | :---: | :--- |
 | **M1: Especificação & Arquitetura** | Formalização de Requisitos (RF/RNF), Escopo e Arquitetura no padrão IFPB. | Semanas 1 a 2 | Documentos `requisitos.md` e `escopo.md`. |
 | **M2: Validação de Bancada (V0)** | Montagem do estágio de entrada analógica e loopback digital de áudio via codec CS4272. | Semanas 3 a 4 | Firmware básico SAI DMA e circuito analógico testado com gerador de áudio. |
-| **M3: DSP Core & Comunicação** | Codificação dos algoritmos de Overdrive, Equalizador 3 bandas e ponte UART STM32 <-> ESP32. | Semanas 5 a 7 | Código em C com CMSIS-DSP e protocolo serial implementado e testado. |
+| **M3: DSP Core & Comunicação** | Codificação dos algoritmos de Overdrive, Equalizador 3 bandas e ponte UART STM32 <-> ESP32. | Semanas 5 a 7 | Código em C++ com CMSIS-DSP e protocolo serial implementado e testado. |
 | **M4: Chaves Físicas & App MQTT** | Leitura de chaves com retenção mecânica, crossfade anti-pop e integração com broker MQTT. | Semanas 8 a 10 | Firmware integrado com chaves físicas e aplicativo MQTT funcional. |
 | **M5: Consolidação & Testes Finais** | Montagem em placa perfurada, medições experimentais de latência e elaboração do relatório final. | Semanas 11 a 12 | Protótipo V2 operacional, medições em osciloscópio e relatório final IFPB. |
 

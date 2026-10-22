@@ -12,29 +12,11 @@ Este documento especifica formalmente a arquitetura de comunicação da **Pedale
 
 O ecossistema de software é dividido em camadas desacopladas para assegurar que a pilha de rede sem fio não introduza latência ou interrupções concorrentes (*jitter*) no loop crítico de processamento digital de sinal (DSP):
 
-```
-┌────────────────────────────────┐
-│      Aplicação do Usuário      │ (Interface gráfica: Mobile Android/iOS ou Desktop)
-│     (Flutter / React Native)   │
-└───────────────▲────────────────┘
-                │ JSON via TCP/IP
-                ▼
-┌────────────────────────────────┐
-│          Broker MQTT           │ (Mosquitto / EMQX local ou na nuvem)
-│ (pedaleira/v1/{device_id}/...) │
-└───────────────▲────────────────┘
-                │ Wi-Fi 802.11 b/g/n (MQTT QoS 1)
-                ▼
-┌────────────────────────────────┐
-│          ESP32 DevKit          │ (Ponte de rede, parsing de JSON, serialização)
-│ (FreeRTOS: Wi-Fi + MQTT Tasks) │
-└───────────────▲────────────────┘
-                │ UART Full-Duplex (115200 bps, 8-N-1, Frame Binário com CRC)
-                ▼
-┌────────────────────────────────┐
-│      STM32H723VGT6 (DSP)       │ (DMA Circular I2S, Algoritmos de Efeito CMSIS-DSP,
-│  (Cortex-M7 @ 550 MHz, Bare)   │  Leitura de Chaves Mecânicas com Debounce)
-└────────────────────────────────┘
+```mermaid
+flowchart TD
+    APP["Aplicação do Usuário<br/>(Interface Gráfica: Web / Mobile)"] <-->|"JSON via TCP/IP"| BROKER["Broker MQTT<br/>(Mosquitto / EMQX)"]
+    BROKER <-->|"Wi-Fi 802.11 b/g/n (MQTT QoS 1)<br/>pedaleira/v1/{device_id}/..."| ESP["ESP32 DevKit<br/>(FreeRTOS: Wi-Fi + MQTT Tasks)"]
+    ESP <-->|"UART Full-Duplex (115200 bps)<br/>Frame Binário com CRC-8"| STM["STM32H723VGT6 (DSP Core C++)<br/>• DMA Circular I2S / Audio Pipeline<br/>• Leitura de Chaves Mecânicas com Debounce"]
 ```
 
 ---
@@ -57,13 +39,9 @@ O ecossistema de software é dividido em camadas desacopladas para assegurar que
 
 Para eliminar o overhead de CPU associado a parsers de texto/JSON no STM32, a comunicação direta adota um protocolo em **quadro binário determinístico** com bytes de sincronismo e verificação de redundância cíclica (CRC-8):
 
-```
-+------------+------------+--------+--------+--------------------------+----------+
-| SYNC_1     | SYNC_2     | CMD    | LEN    | PAYLOAD (0 a 64 bytes)   | CRC8     |
-| 1 byte     | 1 byte     | 1 byte | 1 byte | N bytes                  | 1 byte   |
-| (0xAA)     | (0x55)     |        | (N)    |                          |          |
-+------------+------------+--------+--------+--------------------------+----------+
-```
+| SYNC_1 | SYNC_2 | CMD | LEN | PAYLOAD (0 a 64 bytes) | CRC8 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 byte (`0xAA`) | 1 byte (`0x55`) | 1 byte | 1 byte ($N$) | $N$ bytes | 1 byte (CRC-8 CCITT) |
 
 | Campo | Tamanho | Descrição |
 | :--- | :---: | :--- |
@@ -147,28 +125,28 @@ Os comandos que operam sobre efeitos (`CMD_SET_PARAM`, `CMD_STATE_REPORT`) utili
 
 ---
 
-### 2.6. Algoritmo de Verificação de Integridade (CRC-8 CCITT)
+### 2.6. Algoritmo em C++ de Verificação de Integridade (CRC-8 CCITT)
 
 O cálculo de redundância utiliza o polinômio padrão $x^8 + x^2 + x + 1$ (valor `0x07` ou `0x8C` refletido) com valor inicial `0x00`:
 
-```c
-#include <stdint.h>
-#include <stddef.h>
+```cpp
+#include <cstdint>
+#include <cstddef>
 
 /**
- * @brief  Calcula o CRC-8 CCITT de um buffer contíguo sem tabelas grandes na ROM.
+ * @brief  Calcula o CRC-8 CCITT de um buffer contíguo em C++.
  * @param  data: Ponteiro para os dados (CMD, LEN e PAYLOAD)
  * @param  length: Quantidade total de bytes a processar
  * @retval Valor CRC-8 calculado
  */
-uint8_t Protocol_CalculateCRC8(const uint8_t *data, size_t length)
+inline uint8_t Protocol_CalculateCRC8(const uint8_t *data, std::size_t length) noexcept
 {
     uint8_t crc = 0x00;
     while (length--) {
         crc ^= *data++;
-        for (uint8_t i = 0; i < 8; i++) {
+        for (uint8_t i = 0; i < 8; ++i) {
             if (crc & 0x80) {
-                crc = (crc << 1) ^ 0x07;
+                crc = static_cast<uint8_t>((crc << 1) ^ 0x07);
             } else {
                 crc <<= 1;
             }
@@ -184,26 +162,20 @@ uint8_t Protocol_CalculateCRC8(const uint8_t *data, size_t length)
 
 Para processar a recepção de bytes assíncronos via DMA circular de forma determinística e com tolerância a ruídos de bancada:
 
-```
-    [ IDLE ] ──(Recebe 0xAA)──► [ WAIT_SYNC2 ]
-       ▲                              │
-       │ (Byte != 0x55)               │ (Recebe 0x55)
-       ├──────────────────────────────┘
-       │                              ▼
-       │                        [ WAIT_CMD ]
-       │                              │ (Salva CMD)
-       │                              ▼
-       │                        [ WAIT_LEN ]
-       │                              │ (Se LEN <= MAX_LEN)
-       │ (Se LEN > MAX)               ▼
-       ├──────────────────────── [ WAIT_PAYLOAD ] ◄──┐
-       │                              │ (Lê byte)    │ (Ainda faltam bytes)
-       │                              │              └───┘
-       │                              ▼ (Todos os bytes lidos)
-       │                         [ WAIT_CRC ]
-       │                              │
-       │ (CRC Inválido -> NACK)       │ (CRC Válido -> Processa Comando & Envia ACK)
-       └──────────────────────────────┴──────────────► [ DISPATCH ]
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> WAIT_SYNC2 : Byte == 0xAA
+    WAIT_SYNC2 --> WAIT_CMD : Byte == 0x55
+    WAIT_SYNC2 --> IDLE : Byte != 0x55
+    WAIT_CMD --> WAIT_LEN : Salva CMD
+    WAIT_LEN --> WAIT_PAYLOAD : LEN <= MAX_LEN
+    WAIT_LEN --> IDLE : LEN > MAX_LEN
+    WAIT_PAYLOAD --> WAIT_PAYLOAD : Lê byte (faltam bytes)
+    WAIT_PAYLOAD --> WAIT_CRC : Todos os bytes lidos
+    WAIT_CRC --> DISPATCH : CRC Válido (Processa & ACK)
+    WAIT_CRC --> IDLE : CRC Inválido (NACK)
+    DISPATCH --> IDLE : Concluído
 ```
 
 ---
@@ -214,18 +186,19 @@ Para processar a recepção de bytes assíncronos via DMA circular de forma dete
 
 Todos os tópicos seguem o padrão padronizado com versionamento de API `v1` e identificador unívoco do dispositivo (`{device_id}` derivado do MAC address do ESP32 ou configurado via firmware, ex.: `pedal-01`):
 
-```
-pedaleira/v1/{device_id}/
-   ├── status              (Publicado pelo ESP32: LWT Online / Offline - Retained)
-   ├── state               (Publicado pelo ESP32: Estado completo dos parâmetros - Retained)
-   ├── switches            (Publicado pelo ESP32: Eventos instantâneos de comutação física)
-   ├── telemetry           (Publicado pelo ESP32: Métricas de CPU, latência e sinal Wi-Fi)
-   └── set/                (Assinado pelo ESP32: Comandos enviados pelo aplicativo)
-       ├── overdrive       (Ajusta parâmetros do bloco de overdrive)
-       ├── eq              (Ajusta parâmetros do equalizador de 3 bandas)
-       ├── delay           (Ajusta parâmetros do delay)
-       ├── master          (Ajusta volume mestre e mute)
-       └── cmd             (Comandos administrativos: sync, reset, preset)
+```mermaid
+flowchart LR
+    ROOT["pedaleira/v1/{device_id}/"]
+    ROOT --> STATUS["status<br/><i>(LWT Online / Offline - Retained)</i>"]
+    ROOT --> STATE["state<br/><i>(Estado completo dos parâmetros - Retained)</i>"]
+    ROOT --> SWITCHES["switches<br/><i>(Eventos instantâneos de comutação física)</i>"]
+    ROOT --> TELEMETRY["telemetry<br/><i>(Métricas de CPU, latência e sinal Wi-Fi)</i>"]
+    ROOT --> SET["set/ (Subscrito pelo ESP32)<br/><i>(Comandos enviados pelo app)</i>"]
+    SET --> OVERDRIVE["overdrive (Drive, Tone, Level)"]
+    SET --> EQ["eq (Bass, Mid, Treble)"]
+    SET --> DELAY["delay (Time, Feedback, Mix)"]
+    SET --> MASTER["master (Volume, Bypass Geral)"]
+    SET --> CMD["cmd (Sync, Reset, Preset)"]
 ```
 
 ---

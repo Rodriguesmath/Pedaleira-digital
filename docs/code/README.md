@@ -17,7 +17,7 @@ Esta seção reúne a documentação de firmware, arquitetura de software e prot
   - Estrutura de frame binário determinístico (`SYNC_1`, `SYNC_2`, `CMD`, `LEN`, `PAYLOAD`, `CRC8`).
   - Tabela formal de comandos (`CMD_SET_PARAM`, `CMD_GET_STATE`, `CMD_STATE_REPORT`, `CMD_SWITCH_EVENT`, `CMD_ACK`, `CMD_NACK`, `CMD_HEARTBEAT`).
   - Mapeamento de módulos e parâmetros de efeitos (Overdrive, EQ de 3 bandas, Delay e Master Volume).
-  - Implementação em código C do cálculo de CRC-8 e Máquina de Estados Finita (FSM) de recepção.
+  - Implementação em código C++ do cálculo de CRC-8 e Máquina de Estados Finita (FSM) de recepção.
   - Hierarquia de tópicos MQTT versionada (`pedaleira/v1/{device_id}/...`) com esquemas JSON completos e suporte a Last Will and Testament (LWT).
   - Mecanismo de resolução de conflitos e sincronização bidirecional entre chaves de retenção mecânica (*Hardware Master Gate*) e ajustes finos pelo aplicativo.
 
@@ -25,26 +25,17 @@ Esta seção reúne a documentação de firmware, arquitetura de software e prot
 
 ## Arquitetura de Software Resumida
 
-```
-[ App Mobile / Web ]
-         ▲
-         │ JSON / TCP-IP
-         ▼
-[ Broker MQTT (Mosquitto/EMQX) ]
-         ▲
-         │ Wi-Fi 802.11 b/g/n (Tópicos pedaleira/v1/...)
-         ▼
-[ ESP32 DevKit V1: Firmware IoT ]
-         ▲
-         │ UART Full-Duplex (Quadro Binário + CRC-8)
-         ▼
-[ STM32H723: Firmware DSP de Áudio ]
+```mermaid
+flowchart TD
+    APP["App Mobile / Web (Frontend)"] <-->|"JSON / WebSockets / TCP"| BROKER["Broker MQTT (Mosquitto / EMQX)"]
+    BROKER <-->|"Wi-Fi 802.11 b/g/n (Tópicos pedaleira/v1/...)"| ESP["ESP32 DevKit V1 (Firmware IoT C++)"]
+    ESP <-->|"UART Full-Duplex (Quadro Binário + CRC-8)"| STM["STM32H723 (DSP Core C++)"]
 ```
 
 | Módulo de Software | Plataforma / Ferramenta | Responsabilidades Principais |
 | :--- | :--- | :--- |
-| **DSP Core & Audio Engine** | STM32H723 (C / CMSIS-DSP / STM32CubeIDE) | Aquisição e reprodução de áudio via DMA circular (SAI/I2S), algoritmos de efeito em tempo real, debounce de chaves e acionamento de LEDs |
-| **IoT & Communications Bridge** | ESP32 (C / ESP-IDF ou Arduino-ESP32 / FreeRTOS) | Conexão Wi-Fi, cliente MQTT com auto-reconexão, parsing/validação de JSON e ponte serial UART assíncrona |
+| **DSP Core & Audio Engine** | STM32H723 (C++17 / CMSIS-DSP / STM32CubeIDE) | Aquisição e reprodução de áudio via DMA circular (SAI/I2S), algoritmos de efeito em tempo real, debounce de chaves e acionamento de LEDs |
+| **IoT & Communications Bridge** | ESP32 (C++ / ESP-IDF ou Arduino-ESP32 / FreeRTOS) | Conexão Wi-Fi, cliente MQTT com auto-reconexão, parsing/validação de JSON e ponte serial UART assíncrona |
 | **Application Layer** | Mobile / Web / Desktop | Interface visual do usuário, ajuste em tempo real de parâmetros, gerenciador de presets e monitoramento de telemetria |
 
 ---
