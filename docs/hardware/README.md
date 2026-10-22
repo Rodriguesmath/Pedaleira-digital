@@ -11,6 +11,11 @@ Esta seção reúne as especificações de hardware, esquemáticos de condiciona
 
 ## Documentos Técnicos Disponíveis
 
+- [**Guia Prático para Criação do Esquemático no EasyEDA Web**](./guia_esquematico_easyeda.md):
+  - Passo a passo para montar o esquemático no EasyEDA Web sem instalar nada.
+  - Tabela completa de códigos de componentes **LCSC** (footprints Through-Hole para protoboard).
+  - Tabela de NetLabels para interconexão pino a pino limpa sem emaranhado de fios.
+  - Link interativo do **Simulador Falstad** com o circuito analógico operando.
 - [**Mapeamento de Pinout, Conexões e Lista de Materiais (BOM de Bancada)**](./pinout_e_bom.md):
   - Diagrama em blocos da interconexão entre placas e circuitos.
   - Tabela completa de pinagem do **STM32H723VGT6 (LQFP100)**: barramentos SAI/I2S, I2C de controle, UART serial e GPIOs de chaves e LEDs.
