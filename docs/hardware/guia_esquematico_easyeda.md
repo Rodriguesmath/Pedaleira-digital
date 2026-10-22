@@ -8,16 +8,35 @@ Este guia orienta passo a passo a montagem do esquemático elétrico do protóti
 
 ---
 
-## 1. Acesso e Configuração Inicial no EasyEDA
+## 1. Importação Direta do Arquivo JSON no EasyEDA Web (Recomendado)
 
-1. Acesse o editor web gratuito: **[https://easyeda.com/editor](https://easyeda.com/editor)**.
-2. Crie um novo projeto: **`File` $\to$ `New` $\to$ `Project...`** com o nome `Pedaleira-Digital`.
-3. Um esquemático em branco será aberto. Pressione a tecla **`Space`** para rotacionar componentes e **`W`** para puxar fios (*wires*).
-4. **Boas Práticas de Projeto**: Em vez de cruzar fios longos pela tela inteira, utilize **NetLabels** (atalho **`N`**). Pinos com o mesmo NetLabel conectam-se automaticamente de forma limpa.
+O projeto disponibiliza o código-fonte nativo do esquemático em formato JSON padrão EasyEDA Standard em:
+[`docs/hardware/pedaleira_digital_easyeda.json`](file:///home/rodrigues/Pedaleira-digital/docs/hardware/pedaleira_digital_easyeda.json).
+
+Para abrir o esquemático pronto com 1 clique:
+1. Acesse o editor web gratuito do EasyEDA: **[https://easyeda.com/editor](https://easyeda.com/editor)** (modo Standard).
+2. No menu superior, clique em: **`File` $\to$ `Open` $\to$ `EasyEDA Source...`**
+3. Clique em **`Load File`** e selecione o arquivo `pedaleira_digital_easyeda.json` (ou abra o arquivo de texto, copie todo o seu conteúdo JSON e cole na janela).
+4. Clique no botão **`Apply`**.
+5. O esquemático completo será aberto imediatamente, perfeitamente renderizado, com moldura técnica do IFPB, componentes Through-Hole, conexões elétricas, atributos LCSC para BOM e barramentos alinhados!
 
 ---
 
-## 2. Catálogo de Componentes Oficiais (Códigos LCSC)
+## 2. Visão Geral da Arquitetura do Esquemático
+
+A folha única foi organizada em 8 seções lógicas:
+1. **Alimentação Analógica & VREF (+4.5V)**: Jack DC 9V, diodo 1N4007, divisor de terra virtual de baixo ruído (100kΩ / 47µF). As dev boards são alimentadas via USB.
+2. **Entrada de Áudio & Buffer Hi-Z (TL072 U1A)**: Jack P10 In, desacoplamento C1 (100nF), resistor de bias R3 (1MΩ) em VREF e seguidor de tensão.
+3. **Filtro de Reconstrução & Saída de Áudio (TL072 U1B)**: Filtro passa-baixas Sallen-Key 22 kHz, capacitor de saída C5 (10µF), resistor anti-pop R6 (100kΩ) e Jack P10 Out.
+4. **Módulo Codec CS4272**: Breakout 24-bit 48kHz com pinos analógicos à esquerda e barramento digital à direita.
+5. **DSP Core (WeAct STM32H723VGT6)**: Modelado como conector header contendo apenas os pinos utilizados, mapeados livres de conflitos onboard.
+6. **Conectividade IoT (ESP32 DevKit)**: Header com 4 pinos (5V, GND e barramento serial UART3 com o STM32).
+7. **Interface do Usuário (4 Chaves MTS-102 & 4 LEDs)**: Chaves de alavanca com retenção lidas diretamente via pull-up interno da STM32 e LEDs acionados via resistores de 330Ω.
+8. **Notas Técnicas de Montagem**: Regras de prototipagem para bancada/placa perfurada da disciplina.
+
+---
+
+## 3. Catálogo de Componentes Oficiais (Códigos LCSC)
 
 Para adicionar qualquer componente no EasyEDA com o símbolo elétrico e o footprint de furos (Through-Hole) corretos:
 1. Pressione **`Shift + B`** (ou clique na aba **`Library`** na barra lateral esquerda).
@@ -71,7 +90,7 @@ flowchart TD
     end
 
     subgraph S5["Bloco 5: Interface Física (Chaves & LEDs)"]
-        B5["Chaves de Alavanca ligadas em PE10..PE13 ➔ GND<br/>LEDs com resistores 330Ω ligados em PE0..PE8 ➔ GND"]
+        B5["Chaves de Alavanca ligadas em PC0..PC3 ➔ GND<br/>LEDs com resistores 330Ω ligados em PE7, PE8, PE9, PE15 ➔ GND"]
     end
 ```
 
@@ -82,34 +101,34 @@ flowchart TD
 Ao colocar um pino ou conector, basta ligar um pedaço de fio e anexar um **NetLabel** (tecla **`N`**) com exatamente o mesmo nome. O EasyEDA cuidará da conexão lógica:
 
 ### A. Barramento de Áudio e Controle (STM32 $\leftrightarrow$ Codec CS4272)
-| NetLabel | Pino STM32H723 | Pino Módulo CS4272 | Função Elétrica |
+| NetLabel | Pino STM32H723 (WeAct) | Pino Módulo CS4272 | Função Elétrica |
 | :--- | :---: | :---: | :--- |
-| `SAI1_MCLK` | `PE2` | `MCLK` | Master Clock do Codec ($12.288\text{ MHz}$) |
-| `SAI1_LRCK` | `PE4` | `LRCK` / `FS` | Frame Sync / Left-Right Clock ($48\text{ kHz}$) |
-| `SAI1_SCK` | `PE5` | `SCLK` / `BCLK` | Serial Bit Clock ($3.072\text{ MHz}$) |
-| `SAI1_SDA` | `PE6` | `SDIN` | Dados de Áudio do STM32 para o DAC do Codec |
-| `SAI1_SDB` | `PE3` | `SDOUT` | Dados de Áudio do ADC do Codec para o STM32 |
-| `I2C1_SCL` | `PB6` | `SCL` | Linha de Clock de Controle (com pull-up 4.7kΩ para 3.3V) |
-| `I2C1_SDA` | `PB7` | `SDA` | Linha de Dados de Controle (com pull-up 4.7kΩ para 3.3V) |
-| `CODEC_RST` | `PD11` | `/RST` | Reset ativo em nível baixo do CS4272 |
+| `SAI4_MCLK` | `PE0` (P1.4) | `MCLK` | Master Clock do Codec ($12.288\text{ MHz}$) |
+| `SAI4_FS` | `PE4` (P2.5) | `LRCK` / `FS` | Frame Sync / Left-Right Clock ($48\text{ kHz}$) |
+| `SAI4_SCK` | `PE5` (P2.6) | `SCLK` / `BCLK` | Serial Bit Clock ($3.072\text{ MHz}$) |
+| `SAI4_SD_OUT` | `PE6` (P2.7) | `SDIN` | Dados de Áudio do STM32 para o DAC do Codec |
+| `SAI4_SD_IN` | `PA0` (P2.17) | `SDOUT` | Dados de Áudio do ADC do Codec para o STM32 |
+| `I2C1_SCL` | `PB8` (P1.6) | `SCL` | Linha I2C Clock (pull-up 4.7kΩ soldado na WeAct) |
+| `I2C1_SDA` | `PB9` (P1.5) | `SDA` | Linha I2C Dados (pull-up 4.7kΩ soldado na WeAct) |
+| `CODEC_RST` | `PD10` (P1.38) | `/RESET` | Reset de hardware ativo em LOW |
 
 ### B. Ponte Serial Inter-MCU (STM32 $\leftrightarrow$ ESP32)
-| NetLabel | Pino STM32H723 | Pino ESP32 DevKit | Função Elétrica |
+| NetLabel | Pino STM32H723 (WeAct) | Pino ESP32 DevKit | Função Elétrica |
 | :--- | :---: | :---: | :--- |
-| `UART_TX_STM` | `PD8` (USART3_TX) | `GPIO16` (RX2) | Envio de telemetria e estado para o ESP32 |
-| `UART_RX_STM` | `PD9` (USART3_RX) | `GPIO17` (TX2) | Recepção de parâmetros do App/MQTT pelo STM32 |
+| `UART_TX_STM` | `PD8` (P1.40 - USART3_TX) | `GPIO16` (RX2) | Envio de telemetria e estado para o ESP32 |
+| `UART_RX_STM` | `PD9` (P1.39 - USART3_RX) | `GPIO17` (TX2) | Recepção de parâmetros do App/MQTT pelo STM32 |
 
 ### C. Chaves com Retenção Mecânica e LEDs de Status
-| NetLabel | Pino STM32 | Componente Físico | Conexão Externa |
+| NetLabel | Pino STM32 (WeAct) | Componente Físico | Conexão Externa |
 | :--- | :---: | :--- | :--- |
-| `SW_OVERDRIVE` | `PE10` | Chave Alavanca SW1 | Um terminal no pino `PE10`, outro no `GND` |
-| `SW_EQ` | `PE11` | Chave Alavanca SW2 | Um terminal no pino `PE11`, outro no `GND` |
-| `SW_DELAY` | `PE12` | Chave Alavanca SW3 | Um terminal no pino `PE12`, outro no `GND` |
-| `SW_MUTE` | `PE13` | Chave Alavanca SW4 | Um terminal no pino `PE13`, outro no `GND` |
-| `LED_OD_DRV` | `PE0` | Ânodo do LED Vermelho (via R 330Ω) | Cátodo do LED ligado no `GND` |
-| `LED_EQ_DRV` | `PE1` | Ânodo do LED Verde (via R 330Ω) | Cátodo do LED ligado no `GND` |
-| `LED_DLY_DRV` | `PE7` | Ânodo do LED Amarelo (via R 330Ω) | Cátodo do LED ligado no `GND` |
-| `LED_STATUS_DRV` | `PE8` | Ânodo do LED Azul (via R 330Ω) | Cátodo do LED ligado no `GND` |
+| `SW_OVERDRIVE` | `PC0` (P2.11) | Chave Alavanca SW1 | Um terminal no pino `PC0`, outro no `GND` |
+| `SW_EQ` | `PC1` (P2.12) | Chave Alavanca SW2 | Um terminal no pino `PC1`, outro no `GND` |
+| `SW_DELAY` | `PC2` (P2.13) | Chave Alavanca SW3 | Um terminal no pino `PC2`, outro no `GND` |
+| `SW_MUTE` | `PC3` (P2.14) | Chave Alavanca SW4 | Um terminal no pino `PC3`, outro no `GND` |
+| `LED_OD_DRV` | `PE7` (P2.30) | Ânodo do LED Vermelho (via R 330Ω) | Cátodo do LED ligado no `GND` |
+| `LED_EQ_DRV` | `PE8` (P2.31) | Ânodo do LED Verde (via R 330Ω) | Cátodo do LED ligado no `GND` |
+| `LED_DLY_DRV` | `PE9` (P2.32) | Ânodo do LED Amarelo (via R 330Ω) | Cátodo do LED ligado no `GND` |
+| `LED_STAT_DRV` | `PE15` (P2.38) | Ânodo do LED Azul (via R 330Ω) | Cátodo do LED ligado no `GND` |
 
 ---
 

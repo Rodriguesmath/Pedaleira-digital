@@ -39,33 +39,33 @@ flowchart TD
 
 ## 2. Mapeamento de Pinout e Pinagem de Bancada
 
-### 2.1. STM32H723VGT6 (LQFP100)
+### 2.1. STM32H723VGT6 (WeAct Studio MiniSTM32H723)
 
-O microcontrolador opera a 3.3V nos seus domínios de I/O. A tabela abaixo especifica os pinos selecionados para garantir ausência de conflitos de temporizadores, barramentos e canais de DMA:
+O microcontrolador opera a 3.3V nos seus domínios de I/O. A pinagem foi rigorosamente mapeada e auditada contra o esquemático da placa **WeAct MiniSTM32H723 V1.2 (DS13313)** para **eliminar conflitos onboard** com a memória QSPI Flash (`PE2`, `PB6`, `PD11`) e o transistor do LED onboard VT2 (`PE3`):
 
-| Pino (LQFP100) | Nome do Pino | Periférico / Sinal | Função no Projeto | Modo elétrico | Conexão de Destino |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Pino 1** | `PE2` | `SAI1_MCLK_A` | Master Clock do Codec de Áudio | AF6 (Push-Pull, High Speed) | CS4272 - Pino `MCLK` |
-| **Pino 2** | `PE4` | `SAI1_FS_A` | Frame Sync / Word Select (LRCK) | AF6 (Push-Pull, High Speed) | CS4272 - Pino `LRCK` |
-| **Pino 3** | `PE5` | `SAI1_SCK_A` | Serial Bit Clock (BCLK) | AF6 (Push-Pull, High Speed) | CS4272 - Pino `SCLK` |
-| **Pino 4** | `PE6` | `SAI1_SD_A` | Serial Audio Data Out (DAC Data) | AF6 (Push-Pull, High Speed) | CS4272 - Pino `SDIN` |
-| **Pino 5** | `PE3` | `SAI1_SD_B` | Serial Audio Data In (ADC Data) | AF6 (Input Float, High Speed) | CS4272 - Pino `SDOUT` |
-| **Pino 92** | `PB6` | `I2C1_SCL` | I2C Clock de Controle do Codec | AF4 (Open-Drain, Pull-Up 4.7kΩ) | CS4272 - Pino `SCL/CCLK` |
-| **Pino 93** | `PB7` | `I2C1_SDA` | I2C Data de Controle do Codec | AF4 (Open-Drain, Pull-Up 4.7kΩ) | CS4272 - Pino `SDA/CDIN` |
-| **Pino 81** | `PD11` | `GPIO_Output` | Reset de Hardware do Codec (`/RST`) | Output Push-Pull (Ativo em nível LOW) | CS4272 - Pino `RESET` |
-| **Pino 55** | `PD8` | `USART3_TX` | Linha de Transmissão UART para ESP32 | AF7 (Push-Pull, 115200 baud) | ESP32 - Pino `GPIO16 (RX2)` |
-| **Pino 56** | `PD9` | `USART3_RX` | Linha de Recepção UART do ESP32 | AF7 (Input, 115200 baud) | ESP32 - Pino `GPIO17 (TX2)` |
-| **Pino 39** | `PE10` | `GPIO_Input` | Chave SW1: Overdrive On/Off | Input com Pull-Up interno | Chave Alavanca 1 -> GND |
-| **Pino 40** | `PE11` | `GPIO_Input` | Chave SW2: Equalizador 3-Band On/Off| Input com Pull-Up interno | Chave Alavanca 2 -> GND |
-| **Pino 41** | `PE12` | `GPIO_Input` | Chave SW3: Delay On/Off | Input com Pull-Up interno | Chave Alavanca 3 -> GND |
-| **Pino 42** | `PE13` | `GPIO_Input` | Chave SW4: Master Bypass / Mute | Input com Pull-Up interno | Chave Alavanca 4 -> GND |
-| **Pino 97** | `PE0` | `GPIO_Output` | LED1: Indicador Overdrive Ativo | Output Push-Pull | Ânodo LED1 (via Resistor 330Ω) |
-| **Pino 98** | `PE1` | `GPIO_Output` | LED2: Indicador Equalizador Ativo | Output Push-Pull | Ânodo LED2 (via Resistor 330Ω) |
-| **Pino 37** | `PE7` | `GPIO_Output` | LED3: Indicador Delay Ativo | Output Push-Pull | Ânodo LED3 (via Resistor 330Ω) |
-| **Pino 38** | `PE8` | `GPIO_Output` | LED4: Indicador de Status / Link | Output Push-Pull | Ânodo LED4 (via Resistor 330Ω) |
-| **Pino 72** | `PA13` | `SWDIO` | Linha de Dados de Depuração ST-LINK | Debug AF | ST-LINK V2 / V3 |
-| **Pino 76** | `PA14` | `SWCLK` | Linha de Clock de Depuração ST-LINK | Debug AF | ST-LINK V2 / V3 |
-| VDD / VSS | Múltiplos | Alimentação 3.3V e GND | Barramento de Alimentação Digital | Alimentação | Barramento 3.3V / GND Comum |
+| Pino (LQFP100) | Nome do Pino | Header WeAct | Periférico / Sinal | Função no Projeto | Modo elétrico | Conexão de Destino |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pino 97** | `PE0` | Header P1.4 | `SAI4_MCLK_A` | Master Clock do Codec de Áudio | AF10 (Push-Pull, High Speed) | CS4272 - Pino `MCLK` |
+| **Pino 2** | `PE4` | Header P2.5 | `SAI4_FS_A` | Frame Sync / Word Select (LRCK) | AF10 (Push-Pull, High Speed) | CS4272 - Pino `LRCK` |
+| **Pino 3** | `PE5` | Header P2.6 | `SAI4_SCK_A` | Serial Bit Clock (BCLK) | AF10 (Push-Pull, High Speed) | CS4272 - Pino `SCLK` |
+| **Pino 4** | `PE6` | Header P2.7 | `SAI4_SD_A` | Serial Audio Data Out (DAC Data)| AF10 (Push-Pull, High Speed) | CS4272 - Pino `SDIN` |
+| **Pino 23** | `PA0` | Header P2.17| `SAI4_SD_B` | Serial Audio Data In (ADC Data) | AF10 (Input Float, High Speed) | CS4272 - Pino `SDOUT` |
+| **Pino 95** | `PB8` | Header P1.6 | `I2C1_SCL` | I2C Clock de Controle do Codec | AF4 (Open-Drain, Pull-up 4.7kΩ onboard) | CS4272 - Pino `SCL/CCLK` |
+| **Pino 96** | `PB9` | Header P1.5 | `I2C1_SDA` | I2C Data de Controle do Codec | AF4 (Open-Drain, Pull-up 4.7kΩ onboard) | CS4272 - Pino `SDA/CDIN` |
+| **Pino 80** | `PD10` | Header P1.38| `GPIO_Output` | Reset de Hardware do Codec (`/RST`)| Output Push-Pull (Ativo em nível LOW) | CS4272 - Pino `RESET` |
+| **Pino 55** | `PD8` | Header P1.40| `USART3_TX` | Linha de Transmissão UART para ESP32| AF7 (Push-Pull, 115200 baud) | ESP32 - Pino `GPIO16 (RX2)` |
+| **Pino 56** | `PD9` | Header P1.39| `USART3_RX` | Linha de Recepção UART do ESP32 | AF7 (Input, 115200 baud) | ESP32 - Pino `GPIO17 (TX2)` |
+| **Pino 15** | `PC0` | Header P2.11| `GPIO_Input` | Chave SW1: Overdrive On/Off | Input com Pull-Up interno | Chave Alavanca 1 -> GND |
+| **Pino 16** | `PC1` | Header P2.12| `GPIO_Input` | Chave SW2: Equalizador 3-Band On/Off| Input com Pull-Up interno | Chave Alavanca 2 -> GND |
+| **Pino 17** | `PC2` | Header P2.13| `GPIO_Input` | Chave SW3: Delay On/Off | Input com Pull-Up interno | Chave Alavanca 3 -> GND |
+| **Pino 18** | `PC3` | Header P2.14| `GPIO_Input` | Chave SW4: Master Bypass / Mute | Input com Pull-Up interno | Chave Alavanca 4 -> GND |
+| **Pino 37** | `PE7` | Header P2.30| `GPIO_Output` | LED1: Indicador Overdrive Ativo | Output Push-Pull | Ânodo LED1 (via Resistor 330Ω) |
+| **Pino 38** | `PE8` | Header P2.31| `GPIO_Output` | LED2: Indicador Equalizador Ativo | Output Push-Pull | Ânodo LED2 (via Resistor 330Ω) |
+| **Pino 39** | `PE9` | Header P2.32| `GPIO_Output` | LED3: Indicador Delay Ativo | Output Push-Pull | Ânodo LED3 (via Resistor 330Ω) |
+| **Pino 45** | `PE15`| Header P2.38| `GPIO_Output` | LED4: Indicador de Status / Link | Output Push-Pull | Ânodo LED4 (via Resistor 330Ω) |
+| **Pino 72** | `PA13`| Header P1.24| `SWDIO` | Linha de Dados de Depuração ST-LINK| Debug AF | ST-LINK V2 / V3 |
+| **Pino 76** | `PA14`| Header P1.23| `SWCLK` | Linha de Clock de Depuração ST-LINK| Debug AF | ST-LINK V2 / V3 |
+| **5V / 3V3 / GND** | Múltiplos | P1.1, P1.2, P2.2 | Alimentação e GND | Alimentado via porta USB da WeAct | Alimentação | Barramento USB / GND Comum |
 
 ---
 
@@ -75,16 +75,16 @@ O CS4272 opera no modo de controle via software (I2C) para flexibilidade de volu
 
 | Pino CS4272 | Sinal do Módulo | Nível Lógico / Tensão | Conexão no Protótipo | Descrição Técnica |
 | :--- | :--- | :--- | :--- | :--- |
-| `MCLK` | Master Clock | 3.3V CMOS | STM32 `PE2` (`SAI1_MCLK_A`) | Clock mestre síncrono (ex: 12.288 MHz para 48 kHz Fs a 256x Fs) |
-| `SCLK` | Serial Clock | 3.3V CMOS | STM32 `PE5` (`SAI1_SCK_A`) | Clock de bits (BCLK = 64 * Fs = 3.072 MHz) |
-| `LRCK` | Frame Sync | 3.3V CMOS | STM32 `PE4` (`SAI1_FS_A`) | Seleção de canal esquerdo/direito (Fs = 48 kHz) |
-| `SDIN` | Serial Data In | 3.3V CMOS | STM32 `PE6` (`SAI1_SD_A`) | Dados de áudio serial transmitidos do STM32 para o DAC |
-| `SDOUT` | Serial Data Out | 3.3V CMOS | STM32 `PE3` (`SAI1_SD_B`) | Dados de áudio serial captados pelo ADC enviados ao STM32 |
-| `SCL / CCLK` | I2C SCL | 3.3V (Pull-Up 4.7kΩ) | STM32 `PB6` (`I2C1_SCL`) | Clock da interface I2C de controle dos registradores |
-| `SDA / CDIN` | I2C SDA | 3.3V (Pull-Up 4.7kΩ) | STM32 `PB7` (`I2C1_SDA`) | Dados bidirecionais I2C |
+| `MCLK` | Master Clock | 3.3V CMOS | STM32 `PE0` (`SAI4_MCLK_A`) | Clock mestre síncrono (ex: 12.288 MHz para 48 kHz Fs a 256x Fs) |
+| `SCLK` | Serial Clock | 3.3V CMOS | STM32 `PE5` (`SAI4_SCK_A`) | Clock de bits (BCLK = 64 * Fs = 3.072 MHz) |
+| `LRCK` | Frame Sync | 3.3V CMOS | STM32 `PE4` (`SAI4_FS_A`) | Seleção de canal esquerdo/direito (Fs = 48 kHz) |
+| `SDIN` | Serial Data In | 3.3V CMOS | STM32 `PE6` (`SAI4_SD_A`) | Dados de áudio serial transmitidos do STM32 para o DAC |
+| `SDOUT` | Serial Data Out | 3.3V CMOS | STM32 `PA0` (`SAI4_SD_B`) | Dados de áudio serial captados pelo ADC enviados ao STM32 |
+| `SCL / CCLK` | I2C SCL | 3.3V (Pull-Up 4.7kΩ) | STM32 `PB8` (`I2C1_SCL`) | Clock da interface I2C de controle (pull-up soldado na WeAct) |
+| `SDA / CDIN` | I2C SDA | 3.3V (Pull-Up 4.7kΩ) | STM32 `PB9` (`I2C1_SDA`) | Dados bidirecionais I2C (pull-up soldado na WeAct) |
 | `AD0 / CS` | I2C Endereço | 0V (GND) | GND | Define o endereço I2C do chip como `0x20` (0010000b) |
-| `RESET` | Reset Hardware | 3.3V (Ativo em LOW) | STM32 `PD11` | Pulso em nível LOW (> 100ns) para inicialização confiável |
-| `VA` | Analog Power | +5.0V DC | Saída do Regulador Analógico +5V | Alimentação dos circuitos analógicos (ADC/DAC) |
+| `RESET` | Reset Hardware | 3.3V (Ativo em LOW) | STM32 `PD10` | Pulso em nível LOW (> 100ns) para inicialização confiável |
+| `VA` | Analog Power | +5.0V DC | Barramento USB (+5V_USB) | Alimentação dos circuitos analógicos (ADC/DAC) |
 | `VD` | Digital Power | +3.3V DC | Barramento +3.3V | Alimentação do núcleo digital do codec |
 | `VL` | Logic Power | +3.3V DC | Barramento +3.3V | Define o nível de tensão da interface I/O (compatível STM32) |
 | `AGND / DGND` | Terra Analógico / Digital | 0V | Ponto Único de Terra (Star Ground) | Planos de terra desacoplados com capacitores cerâmicos de 100nF |
@@ -118,7 +118,7 @@ As chaves mecânicas utilizam o recurso de **pull-up interno** do STM32 (`GPIO_P
 ```mermaid
 flowchart LR
     VCC["+3.3V (VDD)"] --> R_PULL["Pull-Up Interno (~40 kΩ)"]
-    R_PULL --> NODE["Pino STM32 (PE10)"]
+    R_PULL --> NODE["Pino STM32 (PC0..PC3)"]
     NODE --> SW{"Chave de Retenção (Toggle)"}
     SW -->|"Fechada (ON)"| GND1["GND (Nível LOW = Efeito Ativo)"]
     SW -.->|"Aberta (OFF)"| NC["Flutuante (Nível HIGH = Bypass)"]
@@ -126,21 +126,25 @@ flowchart LR
 
 | ID Físico | Tipo de Chave | Pino STM32 | Estado em Aberto (HIGH) | Estado em Fechado (LOW) | Ação de Processamento DSP |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **SW1** | Alavanca / Gangorra | `PE10` | Bypass do Efeito | Efeito Ativo | Habilita algoritmo de Distorção / Overdrive |
-| **SW2** | Alavanca / Gangorra | `PE11` | Bypass do Efeito | Efeito Ativo | Habilita algoritmo de Equalização 3-Band |
-| **SW3** | Alavanca / Gangorra | `PE12` | Bypass do Efeito | Efeito Ativo | Habilita algoritmo de Delay / Modulação |
-| **SW4** | Alavanca / Gangorra | `PE13` | Pedaleira Operacional | Master Mute / Bypass | Ativa Bypass transparente global do sinal |
+| **SW1** | Alavanca MTS-102 | `PC0` | Bypass do Efeito | Efeito Ativo | Habilita algoritmo de Distorção / Overdrive |
+| **SW2** | Alavanca MTS-102 | `PC1` | Bypass do Efeito | Efeito Ativo | Habilita algoritmo de Equalização 3-Band |
+| **SW3** | Alavanca MTS-102 | `PC2` | Bypass do Efeito | Efeito Ativo | Habilita algoritmo de Delay / Modulação |
+| **SW4** | Alavanca MTS-102 | `PC3` | Pedaleira Operacional | Master Mute / Bypass | Ativa Bypass transparente global do sinal |
 
 #### Conexão dos LEDs de Feedback
 
 Cada LED é acionado diretamente por um pino de saída configurado como Push-Pull:
 ```mermaid
 flowchart LR
-    P_LED["Pino STM32 (PE0 - Push-Pull)"] --> R_LIMIT["Resistor Limitador (330 Ω)"]
-    R_LIMIT --> LED["LED Difuso (Ânodo ➔ Cátodo)"]
+    P_LED["Pino STM32 (PE7, PE8, PE9, PE15 - Push-Pull)"] --> R_LIMIT["Resistor Limitador (330 Ω)"]
+    R_LIMIT --> LED["LED Difuso 5mm (Ânodo ➔ Cátodo)"]
     LED --> GND["GND (0V)"]
 ```
 - Corrente por pino: $(3.3\text{V} - 2.0\text{V}) / 330\Omega \approx 3.9\text{ mA}$ (seguro para o STM32H7, cujo limite por I/O é 20 mA).
+- **LED1 (Overdrive)**: Acionado por `PE7` (Header P2.30)
+- **LED2 (Equalizador)**: Acionado por `PE8` (Header P2.31)
+- **LED3 (Delay)**: Acionado por `PE9` (Header P2.32)
+- **LED4 (Status / Link)**: Acionado por `PE15` (Header P2.38)
 
 ---
 
@@ -209,14 +213,18 @@ flowchart LR
 
 ---
 
-### 3.3. Distribuição de Alimentação de Bancada
+### 3.3. Distribuição de Alimentação (Arquitetura Enxuta de Bancada)
 
-Para evitar ruídos digitais de chaveamento e ripple do ESP32 na linha de áudio do codec e do TL072:
-1. **Entrada Principal**: Fonte DC de +9V conectada via conector P4 (2.1 x 5.5 mm) ou terminais de bornes de bancada.
-2. **Diodo de Proteção**: 1N4007 em série com a entrada de +9V contra inversão de polaridade.
-3. **Barramento +5V Analógico ($V_A$)**: Regulador linear L7805 ou AMS1117-5.0 dedicado, filtrado com capacitores de $100\mu\text{F}$ eletrolítico e $100\text{nF}$ cerâmico.
-4. **Barramento +3.3V Digital ($V_D / V_L$)**: Regulador linear AMS1117-3.3 fornecendo energia para STM32, ESP32 e lógica digital.
-5. **Aterramento Estrela (*Star Ground*)**: Os terras analógico (AGND) e digital (DGND) são mantidos isolados ao longo da protoboard e interligados em um único ponto físico próximo ao capacitor de desacoplamento da fonte principal.
+Para minimizar componentes, aquecimento e ruídos de chaveamento em protótipo acadêmico (placa perfurada):
+1. **Alimentação Digital & Codec via USB**:
+   - A placa **WeAct STM32H723** e a placa **ESP32 DevKit** são alimentadas diretamente via suas portas USB.
+   - O pino `5V` (VBUS USB) alimenta os pinos analógicos `VA` (+5V) do Codec CS4272.
+   - Os reguladores LDO onboard de alta eficiência das próprias dev boards geram os barramentos de +3.3V para as linhas lógicas e o núcleo do microcontrolador.
+2. **Alimentação Analógica Exclusiva (+9V DC)**:
+   - Fonte DC de +9V (Jack P4/DC-005) com diodo **1N4007** em série (proteção contra inversão de polaridade) alimenta exclusivamente o amplificador operacional **TL072** (pino 8 = +9V, pino 4 = GND) e o divisor de terra virtual $V_{ref} = +4.5\text{V}$ ($R_1 / R_2 = 100\text{ k}\Omega$ e $C_3 = 47\mu\text{F}$).
+   - Isso garante imunidade total do sinal de áudio analógico contra qualquer ruído de ripple ou chaveamento das portas USB dos computadores.
+3. **Plano de Terra Unificado (GND Comum)**:
+   - Os terras analógico (Jacks P10, TL072, AGND do Codec) e digital (DGND do Codec, WeAct STM32, ESP32) são interligados firmemente em um plano de terra comum na placa perfurada.
 
 ---
 
