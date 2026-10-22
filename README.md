@@ -29,25 +29,33 @@ O projeto é dividido em duas frentes de hardware que se comunicam entre si:
   essas configurações para a STM32 através de uma interface de comunicação
   entre os dois microcontroladores.
 
-A interação física com a pedaleira segue o padrão de uma pedaleira real:
-botões (footswitches) para acionar e alternar entre os efeitos, com a
-vantagem de que toda a configuração fina (ganho, frequências, mix, presets)
-pode ser feita remotamente pela aplicação, sem necessidade de displays ou
-potenciômetros físicos para cada parâmetro.
+A interação física com a pedaleira utiliza chaves normais com retenção mecânica
+(alavanca/gangorra) para acionar/bypassar os efeitos de forma determinística
+(leitura direta de nível lógico GPIO sem dependência de estado em software), com a
+vantagem de que toda a configuração fina (ganho, frequências de EQ, mix, presets)
+pode ser feita remotamente pela aplicação via MQTT, sem necessidade de displays ou
+potenciômetros físicos adicionais.
 
-> O projeto está em fase inicial de desenvolvimento. Arquitetura, escopo de
-> efeitos e protocolo de comunicação entre STM32 e ESP32 ainda estão sendo
-> definidos e podem mudar.
+> O projeto é desenvolvido no âmbito da disciplina de Técnicas de Prototipagem
+> do IFPB, adotando prototipagem ágil em bancada com dev boards e placa
+> perfurada/ilhada (sem confecção de PCB industrial).
 
 ## Arquitetura (visão geral)
 
 ```
-[Instrumento] -> [STM32H7xx: captação e DSP] -> [Saída de áudio]
-                          ^
-                          | (interface STM32 <-> ESP32)
-                          v
-                    [ESP32: MQTT] <-> [Aplicação de configuração]
+[Instrumento] -> [Buffer Hi-Z TL072] -> [Codec CS4272] <-> [STM32H7xx (DSP Core)] -> [Saída de áudio]
+                                                                  ^
+                                                                  | (UART estruturada)
+                                                                  v
+                                              [ESP32: Wi-Fi/MQTT] <-> [Aplicação Web/Mobile]
 ```
+
+## Documentação do Projeto
+
+- **Requisitos do Sistema**: [`docs/requisitos.md`](docs/requisitos.md) (RF01–RF07 e RNF01–RNF06)
+- **Escopo e Planejamento IFPB**: [`docs/escopo.md`](docs/escopo.md) (Limites, riscos e divisões de trabalho)
+- **Hardware & BOM**: [`docs/hardware/pinout_e_bom.md`](docs/hardware/pinout_e_bom.md) (Pinout STM32/ESP32, circuito Hi-Z e orçamento)
+- **Protocolos de Comunicação**: [`docs/code/protocolo_comunicacao.md`](docs/code/protocolo_comunicacao.md) (UART binária e tópicos MQTT)
 
 ## Estrutura do repositório
 
@@ -55,29 +63,31 @@ potenciômetros físicos para cada parâmetro.
 .
 ├── firmware/
 │   ├── stm32/        # Firmware do processamento de áudio (STM32H7xx, STM32CubeIDE)
-│   └── esp32/        # Firmware de comunicação MQTT (ESP-IDF, a adicionar)
+│   └── esp32/        # Firmware de comunicação MQTT (ESP-IDF)
 ├── app/
 │   ├── backend/      # Serviço de intermediação com a pedaleira via MQTT
 │   └── frontend/     # Aplicação de configuração dos efeitos
 └── docs/
     ├── code/         # Documentação relacionada ao firmware/software
-    ├── hardware/      # Esquemáticos, PCB e documentação de hardware
+    ├── hardware/      # Esquemáticos de bancada e documentação de hardware
     └── components/    # Datasheets e documentação dos componentes utilizados
 ```
 
 ## Hardware
 
-| Função                  | Componente     |
-|--------------------------|----------------|
-| Processamento de áudio   | STM32H723VG    |
-| Comunicação / MQTT       | ESP32          |
-| Codec de áudio           | CS4272         |
+| Função                  | Componente / Módulo |
+|--------------------------|---------------------|
+| Processamento de áudio   | STM32H723VG (Dev Board) |
+| Comunicação / MQTT       | ESP32 DevKit        |
+| Codec de áudio           | CS4272 (Breakout)   |
+| Condicionamento Hi-Z     | TL072 (Amp-op JFET) |
+| Acionamento físico       | Chaves com retenção mecânica (toggle) |
 
-## Status
+## Status das Milestones
 
-- [x] Estrutura inicial do repositório e do firmware STM32
-- [ ] Pipeline de aquisição e saída de áudio (codec CS4272)
-- [ ] Primeiros efeitos digitais (equalização, distorção)
-- [ ] Firmware ESP32 (MQTT)
-- [ ] Interface STM32 <-> ESP32
-- [ ] Aplicação de configuração
+- [x] **M1: Especificação & Arquitetura Inicial** (Requisitos, Escopo, Pinout/BOM e Protocolos)
+- [ ] **M2: Validação Mínima de Áudio em Bancada** (Audio Pass-Through e buffer Hi-Z)
+- [ ] **M3: DSP Core & Comunicação Inter-MCU** (Overdrive, EQ 3 bandas e ponte MQTT)
+- [ ] **M4: Chaves Físicas com Retenção & Integração com App** (Controle físico e remoto)
+- [ ] **M5: Consolidação do Protótipo Físico** (Placa perfurada, chicotes e chassi simples)
+- [ ] **M6: Validação Experimental, Homologação & Entrega IFPB** (Latência, testes ao vivo)
