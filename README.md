@@ -58,6 +58,7 @@ flowchart LR
 - **Escopo e Planejamento IFPB**: [`docs/escopo.md`](docs/escopo.md) (Limites, riscos e divisões de trabalho)
 - **Hardware & BOM**: [`docs/hardware/pinout_e_bom.md`](docs/hardware/pinout_e_bom.md) (Pinout STM32/ESP32, circuito Hi-Z e orçamento)
 - **Protocolos de Comunicação**: [`docs/code/protocolo_comunicacao.md`](docs/code/protocolo_comunicacao.md) (UART binária e tópicos MQTT)
+- **Plano de Testes de Bancada dos Efeitos**: [`docs/code/plano_testes_bancada_efeitos.md`](docs/code/plano_testes_bancada_efeitos.md) (Procedimento de homologação experimental em 6 etapas)
 
 ## Estrutura do repositório
 

@@ -12,6 +12,10 @@ Esta seção reúne a documentação de firmware, arquitetura de software e prot
 
 ## Documentos Técnicos Disponíveis
 
+- [**Plano Experimental de Testes de Bancada: Efeitos de Áudio (DSP)**](./plano_testes_bancada_efeitos.md):
+  - Procedimento operacional padrão (POP) em 6 etapas determinísticas (Pass-Through, Overdrive, EQ 3 bandas, Delay, Crossfade anti-pop e Cadeia Completa).
+  - Configuração de instrumentos de medição (osciloscópio, gerador de funções e medições True-RMS).
+  - Critérios objetivos de aceitação (PASS/FAIL) e folha formal de homologação e assinaturas.
 - [**Especificação do Protocolo de Comunicação Serial e Tópicos MQTT**](./protocolo_comunicacao.md):
   - Camada física serial UART (115200 bps, 8-N-1, níveis 3.3V).
   - Estrutura de frame binário determinístico (`SYNC_1`, `SYNC_2`, `CMD`, `LEN`, `PAYLOAD`, `CRC8`).
