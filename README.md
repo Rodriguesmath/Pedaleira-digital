@@ -93,3 +93,13 @@ flowchart LR
 - [ ] **M4: Chaves Físicas com Retenção & Integração com App** (Controle físico e remoto)
 - [ ] **M5: Consolidação do Protótipo Físico** (Placa perfurada, chicotes e chassi simples)
 - [ ] **M6: Validação Experimental, Homologação & Entrega IFPB** (Latência, testes ao vivo)
+
+## Equipe de Desenvolvimento
+
+- **Arthur Ramalho**
+- **Isabelle Lavínia**
+- **João Paulo**
+- **Rodrigues Matheus**
+
+> O desenvolvimento e a padronização do firmware seguem rigorosamente as normas de codificação do manual *Assert Capacita v1.0* (Polo de Inovação IFPB).
+

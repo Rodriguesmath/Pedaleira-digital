@@ -16,7 +16,7 @@ Documento formal de definição de Escopo, Arquitetura Preliminar e Estratégia 
 | **Sigla / Identificador** | `PED-DIGITAL` |
 | **Curso / Turma** | Engenharia Elétrica / Engenharia de Computação — IFPB |
 | **Disciplina** | Técnicas de Prototipagem |
-| **Equipe de Desenvolvimento** | Discentes da disciplina de Prototipagem (Repositório `Rodriguesmath/Pedaleira-digital`) |
+| **Equipe de Desenvolvimento** | Arthur Ramalho, Isabelle Lavínia, João Paulo, Rodrigues Matheus |
 | **Data da Versão** | Outubro de 2026 |
 | **Versão da Documentação** | 1.0.0 |
 
