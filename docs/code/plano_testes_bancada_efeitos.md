@@ -9,7 +9,7 @@
 | **Normas Técnicas** | Manual *Assert Capacita v1.0* (Polo de Inovação IFPB / Laboratório ASSERT) |
 | **Plataforma DSP** | WeAct Studio MiniSTM32H723 V1.2 (STM32H723VGT6 @ 550 MHz, ARM Cortex-M7) |
 | **Codec de Áudio** | Cirrus Logic CS4272 (I2C1 + SAI4 DMA, 48 kHz / 24-bit estéreo) |
-| **Versão do Documento** | 1.1.0 (Outubro de 2026) |
+| **Versão do Documento** | 1.2.0 (Outubro de 2026) |
 
 ---
 
@@ -63,14 +63,14 @@ flowchart LR
         OUTDEV["Fone de Ouvido / Amplificador de Bancada"]
     end
 
-    GEN -->|"Sinal Analógico (0,1 a 1,0 Vpp)"| JIN
-    GEN -.->|"Monitoramento de Entrada"| PROBE1
+    GEN -->|Sinal Analógico 0.1 a 1.0 Vpp| JIN
+    GEN -.->|Monitoramento Entrada| PROBE1
     JIN --> HIZ
-    HIZ -->|"Entrada Analógica (AINL/AINR)"| CODEC_ADC
-    CODEC_ADC <==|"SAI4 DMA I2S (48 kHz)"| STM
-    STM ==>|"SAI4 DMA I2S (48 kHz)"| CODEC_DAC
-    CODEC_DAC -->|"Saída Analógica (AOUTL/AOUTR)"| JOUT
-    JOUT -.->|"Monitoramento de Saída"| PROBE2
+    HIZ -->|Entrada Analógica AINL e AINR| CODEC_ADC
+    CODEC_ADC -->|SAI4 DMA I2S Rx 48 kHz| STM
+    STM -->|SAI4 DMA I2S Tx 48 kHz| CODEC_DAC
+    CODEC_DAC -->|Saída Analógica AOUTL e AOUTR| JOUT
+    JOUT -.->|Monitoramento Saída| PROBE2
     JOUT --> OUTDEV
 ```
 
@@ -121,14 +121,14 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    IN["Sinal de Entrada (x)"] --> PRE["Pre-Gain (1x a 25x)"]
-    PRE --> CLIP["Função SoftLimit Cúbica: x*(27+x^2)/(27+9*x^2)"]
+    IN["Sinal de Entrada x"] --> PRE["Pre-Gain (1x a 25x)"]
+    PRE --> CLIP["Função SoftLimit Cúbica (Soft-Clipping)"]
     CLIP --> POST["Post-Gain Normalizador"]
     POST --> TONE["Filtro de Tom Dinâmico (DspSvf Low-Pass)"]
     TONE --> OUT["Saída Saturada com Harmônicos"]
 
-    CH1_OBS["Osciloscópio CH1"] -.->|"Monitora"| IN
-    CH2_OBS["Osciloscópio CH2 / FFT"] -.->|"Verifica Picos Arredondados e Harmônicos Ímpares"| OUT
+    CH1_OBS["Osciloscópio CH1"] -.->|Monitora| IN
+    CH2_OBS["Osciloscópio CH2 / FFT"] -.->|Verifica Picos e Harmônicos| OUT
 ```
 
 #### Procedimento Passo a Passo
@@ -217,11 +217,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    IN["Sinal de Entrada (Dry)"] --> SUM_IN["Somador de Entrada"]
+    IN["Sinal de Entrada Dry"] --> SUM_IN["Somador de Entrada"]
     SUM_IN --> BUF["Buffer Circular RAM (48000 Amostras Floats / 1000 ms)"]
     BUF --> INTERP["Leitura Interpolada Fracionária (Delay Line Read)"]
     INTERP --> FB_GAIN["Ganho de Feedback (0% a 90%)"]
-    FB_GAIN -->|"Realimentação"| SUM_IN
+    FB_GAIN -->|Realimentação| SUM_IN
 
     INTERP --> WET_MUL["Atenuador Wet (Mix)"]
     IN --> DRY_MUL["Atenuador Dry (1 - Mix)"]
@@ -278,7 +278,7 @@ flowchart TD
     SLEW --> POS["Posição Instantânea de Crossfade (0.0 a 1.0)"]
 
     subgraph XFADE["Motor Anti-Pop de Potência Constante"]
-        POS --> CALC_GAIN["Cálculo Trigonométrico de Curva 3 dB: cos(pos*pi/2) e sin(pos*pi/2)"]
+        POS --> CALC_GAIN["Cálculo Trigonométrico de Curva 3 dB (Cosseno e Seno)"]
         CALC_GAIN --> GAIN_WET["Ganho Wet"]
         CALC_GAIN --> GAIN_DRY["Ganho Dry"]
 
@@ -342,7 +342,7 @@ flowchart LR
     DAC --> AMP["Amplificador de Guitarra / Fone"]
 
     subgraph BENCHMARK["Monitoramento de Tempo Real"]
-        DWT["Contador de Ciclos DWT Cortex-M7"] -.->|"Mede Delta-Ciclos de Processamento"| ENGINE
+        DWT["Contador de Ciclos DWT Cortex-M7"] -.->|Mede Ciclos CPU| ENGINE
     end
 ```
 
