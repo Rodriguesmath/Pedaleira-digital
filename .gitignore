@@ -30,3 +30,9 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Transient artifacts and simulation outputs
+output/
+tmp/
+scratch/
+
