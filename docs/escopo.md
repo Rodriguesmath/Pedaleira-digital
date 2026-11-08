@@ -1,5 +1,8 @@
 # Especificação de Escopo do Projeto — Pedaleira Digital
 
+> Revisão elétrica 4.8: o CS4272 disponível é somente o CI TSSOP-28 em adaptador passivo. Os auxiliares são externos; usar a [documentação atual de hardware](hardware/README.md). A passagem de áudio permanece condicionada às correções de firmware e ensaios descritos na auditoria. Orçamentos anteriores não incluem necessariamente a revisão 4.8.
+
+
 ![Status](https://img.shields.io/badge/Status-Aprovado-brightgreen?style=flat-square)
 ![Documento](https://img.shields.io/badge/Documento-Escopo%20e%20Arquitetura-blue?style=flat-square)
 ![Padrão](https://img.shields.io/badge/Instituição-IFPB-red?style=flat-square)
@@ -113,7 +116,7 @@ Desenvolver, integrar e validar experimentalmente um protótipo funcional de **P
 Na versão final do protótipo acadêmico entregue na disciplina de Prototipagem do IFPB, estarão contemplados:
 
 - [x] **Circuito de Condicionamento Analógico de Bancada**: Estágio de entrada P10 mono de alta impedância com resistor de carga de $1\text{ M}\Omega$ e buffer com amplificador operacional (TL072 ou equivalente) alimentado com tensão regulada simétrica/virtual; estágio de saída analógica com filtro reconstrutor passa-baixas passivo.
-- [x] **Conversão Analógica/Digital e Digital/Analógica**: Módulo breakout com o circuito integrado Cirrus Logic CS4272 operando como escravo I2S/SAI em 48 kHz / 24 bits.
+- [x] **Conversão Analógica/Digital e Digital/Analógica**: CI Cirrus Logic CS4272 TSSOP-28 em adaptador passivo, com circuitos externos da rev.4.8 operando como escravo I2S/SAI em 48 kHz / 24 bits.
 - [x] **Processamento Digital de Sinais (STM32H723)**:
   - Buffer duplo circular em DMA (ping-pong) com tamanho de bloco configurado entre 32 e 64 amostras.
   - Efeito de Overdrive com controle de saturação (drive), modelado com função contínua de soft-clipping.
@@ -175,7 +178,7 @@ flowchart TD
 | Subsistema | Função Principal | Principais Componentes / Módulos |
 | :--- | :--- | :--- |
 | **SS01: Condicionamento Analógico** | Casamento de impedância de entrada ($1\text{ M}\Omega$), filtragem passa-altas de corte DC ($10\text{ Hz}$) e buffer de saída de linha com proteção contra curtos. | Amp-Op TL072 ou NE5532, resistores de precisão 1%, capacitores de poliéster/cerâmica, conectores Jack P10 mono fêmea. |
-| **SS02: Conversão de Áudio (Codec)** | Amostragem estéreo de 24 bits a 48 kHz, geração/sincronismo de relógio mestre (MCLK) e conversão DAC para saída. | Placa breakout Cirrus Logic CS4272 com interface I2S/SAI e controle I2C/Hardware Mode. |
+| **SS02: Conversão de Áudio (Codec)** | Amostragem estéreo de 24 bits a 48 kHz, geração/sincronismo de relógio mestre (MCLK) e conversão DAC para saída. | CI Cirrus Logic CS4272 TSSOP-28 em adaptador passivo com interface I2S/SAI e controle I2C/Hardware Mode. |
 | **SS03: Processamento DSP (MCU)** | Aquisição por DMA circular, processamento matemático de Overdrive e Equalizador 3 bandas, crossfade anti-pop e controle de fluxo. | Placa de desenvolvimento STM32H723VG (Cortex-M7 a 550 MHz), firmware em C++ (C++17) com biblioteca CMSIS-DSP. |
 | **SS04: Interface Física de Bancada** | Leitura mecânica determinística de bypass dos efeitos e sinalização luminosa de estado para o usuário. | 2 Chaves tipo alavanca toggle SPST com retenção mecânica, 2 LEDs difusos (Vermelho e Verde) com resistores de $330\Omega$. |
 | **SS05: Comunicação e Conectividade** | Manutenção da pilha Wi-Fi 802.11 b/g/n, conexão com broker MQTT e serialização/desserialização de mensagens com a STM32. | ESP32 DevKit v1, firmware ESP-IDF ou FreeRTOS com cliente MQTT integrado. |
@@ -190,7 +193,7 @@ A tabela a seguir apresenta os componentes selecionados para a construção do p
 | Item | Componente / Descrição | Qtd. | Função no Protótipo | Justificativa Técnica |
 | :---: | :--- | :---: | :--- | :--- |
 | 1 | Placa STM32H723VG Dev Board / Nucleo | 1 | Processamento DSP de Áudio | Processador Cortex-M7 com FPU de precisão dupla, periféricos SAI com suporte a áudio 24-bit DMA e ampla memória SRAM rápida. |
-| 2 | Módulo Breakout Codec CS4272 | 1 | Conversão A/D e D/A | Codec profissional Cirrus Logic com faixa dinâmica de 114 dB, suporte nativo a I2S 24-bit/48kHz e excelente relação custo-benefício. |
+| 2 | CI CS4272 + adaptador passivo TSSOP-28 | 1 | Conversão A/D e D/A | Codec profissional Cirrus Logic com faixa dinâmica de 114 dB, suporte nativo a I2S 24-bit/48kHz e excelente relação custo-benefício. |
 | 3 | Módulo ESP32 DevKit v1 | 1 | Conectividade Wi-Fi e MQTT | Solução consolidada para IoT com stack de rede robusto, dois núcleos de processamento e biblioteca MQTT pronta em ambiente open-source. |
 | 4 | Amplificador Operacional TL072 / NE5532 | 1 | Pré-amplificador e Buffer Hi-Z | Amplificador operacional com entradas JFET (TL072), impedância de entrada extremamente elevada ($10^{12}\Omega$), baixo ruído harmônico e baixo custo. |
 | 5 | Chaves tipo Alavanca / Toggle (SPST/SPDT) | 2 | Chaveamento de Bypass | Chaves mecânicas com retenção estática; fornecem estado fixo estável na GPIO sem requerer footswitches industriais caros. |

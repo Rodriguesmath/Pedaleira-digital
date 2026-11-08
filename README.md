@@ -1,5 +1,8 @@
 # Pedaleira Digital
 
+> Revisão elétrica 4.8: o CS4272 disponível é somente o CI TSSOP-28 em adaptador passivo. Os auxiliares são externos; usar a [documentação atual de hardware](docs/hardware/README.md). A passagem de áudio permanece condicionada às correções de firmware e ensaios descritos na auditoria. Orçamentos anteriores não incluem necessariamente a revisão 4.8.
+
+
 ![STM32](https://img.shields.io/badge/MCU-STM32H723VG-03234B?style=flat-square&logo=stmicroelectronics&logoColor=white)
 ![ESP32](https://img.shields.io/badge/Connectivity-ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white)
 ![MQTT](https://img.shields.io/badge/Protocol-MQTT-660066?style=flat-square&logo=mqtt&logoColor=white)
@@ -82,7 +85,7 @@ flowchart LR
 |--------------------------|---------------------|
 | Processamento de áudio   | STM32H723VG (Dev Board) |
 | Comunicação / MQTT       | ESP32 DevKit        |
-| Codec de áudio           | CS4272 (Breakout)   |
+| Codec de áudio           | CS4272 TSSOP-28 em adaptador passivo   |
 | Condicionamento Hi-Z     | TL072 (Amp-op JFET) |
 | Acionamento físico       | Chaves com retenção mecânica (toggle) |
 

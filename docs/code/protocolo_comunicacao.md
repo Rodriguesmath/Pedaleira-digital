@@ -106,10 +106,10 @@ Os comandos que operam sobre efeitos (`CMD_SET_PARAM`, `CMD_STATE_REPORT`) utili
 - `CMD`: `0x01`
 - `LEN`: `0x03` (Module: 1 byte, Param: 1 byte, Value: 1 byte)
 - `PAYLOAD`: `0x01` (Overdrive), `0x01` (Drive), `0x4B` (75 decimal)
-- Cálculo CRC-8 sobre `[0x01, 0x03, 0x01, 0x01, 0x4B]` -> Resultado: `0x7E`
+- Cálculo CRC-8 sobre `[0x01, 0x03, 0x01, 0x01, 0x4B]` -> Resultado: `0xD0`
 - **Quadro Serial Completo**:
   ```
-  [0xAA, 0x55, 0x01, 0x03, 0x01, 0x01, 0x4B, 0x7E]
+  [0xAA, 0x55, 0x01, 0x03, 0x01, 0x01, 0x4B, 0xD0]
   ```
 
 #### Exemplo 2: Notificação de Comutação Física da Chave SW1 (`CMD_SWITCH_EVENT`)
@@ -117,10 +117,10 @@ Os comandos que operam sobre efeitos (`CMD_SET_PARAM`, `CMD_STATE_REPORT`) utili
 - `CMD`: `0x04`
 - `LEN`: `0x02`
 - `PAYLOAD`: `0x01` (Switch ID 1 = Overdrive), `0x01` (Estado = Ativo / Fechado)
-- Cálculo CRC-8 sobre `[0x04, 0x02, 0x01, 0x01]` -> Resultado: `0x89`
+- Cálculo CRC-8 sobre `[0x04, 0x02, 0x01, 0x01]` -> Resultado: `0x9C`
 - **Quadro Serial Completo**:
   ```
-  [0xAA, 0x55, 0x04, 0x02, 0x01, 0x01, 0x89]
+  [0xAA, 0x55, 0x04, 0x02, 0x01, 0x01, 0x9C]
   ```
 
 ---
@@ -451,3 +451,27 @@ sequenceDiagram
 1. **Baixa Sobrecarga**: O uso de pacotes UART binários com CRC-8 garante tempo de parsing inferior a $15\mu\text{s}$ no STM32, mantendo todo o poder de processamento do Cortex-M7 focado nos algoritmos de áudio.
 2. **Determinismo**: Chaves mecânicas operam como *hardware master*, eliminando divergências mecânicas e protegendo a usabilidade de palco.
 3. **Resiliência a Quedas de Rede**: Se a conexão Wi-Fi ou o Broker MQTT cair, o processamento de áudio do STM32 continua operando perfeitamente de forma independente. Ao restabelecer a rede, o ESP32 ressincroniza o estado automaticamente sem interrupção de áudio.
+
+## Correção auditada da implementação UART (2026-11-07)
+
+A recepção STM32 usa interrupção USART3 (prioridade NVIC 5) e ring SPSC de
+512 eventos com publicação atômica. TX e I²C bloqueantes não suspendem RX.
+ORE/FE/NE geram um marcador ordenado de descontinuidade; bytes com FE/NE
+são descartados. O parser reinicia nessa fronteira, evitando juntar um
+quadro antes da perda com bytes posteriores. O overflow de bytes e os erros
+físicos têm contadores em `Bsp::Usart3RxDroppedBytes()` e
+`Bsp::Usart3RxHardwareErrors()`; overflow da fila de pacotes tem contador em
+`InterMcuUart::GetPacketDrops()`.
+
+A fila de oito pacotes preserva a ordem; o processamento de bytes pausa
+quando ela fica cheia. Quadros parciais expiram após 20 ms sem serviço.
+Não há controle de fluxo RTS/CTS nem garantia de recepção sob tráfego
+ilimitado: 512 bytes representam cerca de 44,4 ms a 115200 8N1. O ESP deve
+aguardar a resposta antes de enviar o próximo comando; confirmar latência,
+contadores e recuperação em bancada sob Wi-Fi ativo. Os testes host usam o
+parser C++ real, sem simular o periférico UART ou sua latência de interrupção.
+
+O mute remoto é persistente e combinado por OR com SW4 e com a indisponibilidade
+do transporte. O gate SAI continua bloqueado; esta correção não implementa áudio.
+As diferenças históricas de payload STATE_REPORT e ACK/NACK ainda exigem
+alinhamento do contrato antes da implementação ESP32.
