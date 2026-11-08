@@ -1,0 +1,1679 @@
+{
+  "revision": "4.8",
+  "author": "Rodrigues M. Lima",
+  "components": [
+    {
+      "ref": "J1",
+      "value": "DC 9 V regulados",
+      "kind": "J",
+      "pins": {
+        "1": "9V_IN",
+        "2": "GND"
+      },
+      "sheet": 1,
+      "function": "Fonte externa 9 V, centro positivo",
+      "status": "existente",
+      "package": "Conector THT",
+      "note": "8,8 a 9,2 V; não usar fonte não regulada.",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "D1",
+      "value": "1N4007",
+      "kind": "D",
+      "pins": {
+        "1": "9V_IN",
+        "2": "+RAW"
+      },
+      "sheet": 1,
+      "function": "Proteção de polaridade",
+      "status": "existente",
+      "package": "DO-41",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {}
+    },
+    {
+      "ref": "C33",
+      "value": "100 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "+RAW",
+        "2": "GND"
+      },
+      "sheet": 1,
+      "function": "Reserva da entrada 9 V (antes C_IN)",
+      "status": "existente (renomeado C_IN)",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "U4",
+      "value": "TC1044SCPA",
+      "kind": "PUMP",
+      "pins": {
+        "1": "+RAW",
+        "2": "PUMP_P",
+        "3": "GND",
+        "4": "PUMP_N",
+        "5": "-PUMP",
+        "6": null,
+        "7": null,
+        "8": "+RAW"
+      },
+      "sheet": 1,
+      "function": "Inversor para alimentar os dois TL072",
+      "status": "novo",
+      "package": "PDIP-8",
+      "note": "BOOST em V+; LV e OSC sem conexão; não substituir por 7660 sem conferir limites.",
+      "basis": "Microchip DS20001348B, fig.2-3 e sec.2.6",
+      "nc": [
+        "6",
+        "7"
+      ],
+      "names": {
+        "1": "BOOST",
+        "2": "CAP+",
+        "3": "GND",
+        "4": "CAP-",
+        "5": "VOUT",
+        "6": "LV",
+        "7": "OSC",
+        "8": "V+"
+      },
+      "types": {
+        "5": "power_out"
+      }
+    },
+    {
+      "ref": "C7",
+      "value": "10 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "PUMP_P",
+        "2": "PUMP_N"
+      },
+      "sheet": 1,
+      "function": "Capacitor volante da bomba",
+      "status": "novo",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "",
+      "basis": "TC1044S fig.2-3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C8",
+      "value": "10 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "GND",
+        "2": "-PUMP"
+      },
+      "sheet": 1,
+      "function": "Reserva da saída negativa: positivo no GND",
+      "status": "novo",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "",
+      "basis": "TC1044S fig.2-3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R9",
+      "value": "22 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "-PUMP",
+        "2": "-VA_OP"
+      },
+      "sheet": 1,
+      "function": "Filtro da alimentação negativa",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "Projeto: queda <0,22 V a 10 mA",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C3",
+      "value": "47 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "GND",
+        "2": "-VA_OP"
+      },
+      "sheet": 1,
+      "function": "Reutilizado: filtro da alimentação negativa",
+      "status": "existente",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "Positivo no GND; negativo em -VA_OP.",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C9",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+RAW",
+        "2": "GND"
+      },
+      "sheet": 1,
+      "function": "Desacoplamento local de U4",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "",
+      "basis": "Prática de distribuição; cerâmico X7R",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "J2",
+      "value": "IN P10 mono",
+      "kind": "J",
+      "pins": {
+        "1": "JACK_IN",
+        "2": "GND"
+      },
+      "sheet": 1,
+      "function": "Tip = sinal; sleeve = GND",
+      "status": "existente",
+      "package": "Conector THT",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C1",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "JACK_IN",
+        "2": "HI_Z"
+      },
+      "sheet": 1,
+      "function": "Acoplamento da guitarra",
+      "status": "existente",
+      "package": "Radial, filme/C0G, >=25 V",
+      "note": "Preferir filme; mantém Zin de aproximadamente 1 Mohm.",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R3",
+      "value": "1 Mohm",
+      "kind": "R",
+      "pins": {
+        "1": "HI_Z",
+        "2": "GND"
+      },
+      "sheet": 1,
+      "function": "Retorno DC da entrada, agora em GND",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "U1",
+      "value": "TL072",
+      "kind": "OP",
+      "pins": {
+        "1": "IN_BUF",
+        "2": "IN_BUF",
+        "3": "HI_Z",
+        "4": "-VA_OP",
+        "5": "DAC_P",
+        "6": "DAC_N",
+        "7": "DAC_BUF",
+        "8": "+RAW"
+      },
+      "sheet": 1,
+      "function": "U1A buffer de entrada; U1B receptor diferencial",
+      "status": "existente",
+      "package": "DIP-8",
+      "note": "Pino 4 mudou de GND para -VA_OP. U1B detalhado na folha 2. Conferir fabricante/sufixo real antes de aplicar limites TI.",
+      "basis": "TI SLOS080W, pinagem DIP-8 e sec.5.3/5.8",
+      "nc": [],
+      "names": {
+        "1": "OUT A",
+        "2": "IN- A",
+        "3": "IN+ A",
+        "4": "V-",
+        "5": "IN+ B",
+        "6": "IN- B",
+        "7": "OUT B",
+        "8": "V+"
+      },
+      "types": {}
+    },
+    {
+      "ref": "C10",
+      "value": "10 uF bipolar",
+      "kind": "CB",
+      "pins": {
+        "1": "AOUTA_P",
+        "2": "DAC_AC_P"
+      },
+      "sheet": 2,
+      "function": "Remove DC do ramo positivo do DAC",
+      "status": "novo",
+      "package": "Radial bipolar, >=25 V",
+      "note": "",
+      "basis": "Projeto: fc=1/(2pi*200k*10u)=0,080 Hz",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C11",
+      "value": "10 uF bipolar",
+      "kind": "CB",
+      "pins": {
+        "1": "AOUTA_N",
+        "2": "DAC_AC_N"
+      },
+      "sheet": 2,
+      "function": "Remove DC do ramo negativo do DAC",
+      "status": "novo",
+      "package": "Radial bipolar, >=25 V",
+      "note": "",
+      "basis": "Projeto: fc=1/(2pi*100k*10u)=0,159 Hz",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R1",
+      "value": "100 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "DAC_AC_P",
+        "2": "DAC_P"
+      },
+      "sheet": 2,
+      "function": "Reutilizado: entrada não inversora",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "Casar R1/R2/R7/R8 a 0,1% para rejeição de modo comum; 1% aceitável no protótipo.",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R2",
+      "value": "100 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "DAC_P",
+        "2": "GND"
+      },
+      "sheet": 2,
+      "function": "Reutilizado: referência do receptor",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R7",
+      "value": "100 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "DAC_AC_N",
+        "2": "DAC_N"
+      },
+      "sheet": 2,
+      "function": "Entrada inversora do receptor",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R8",
+      "value": "100 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "DAC_N",
+        "2": "DAC_BUF"
+      },
+      "sheet": 2,
+      "function": "Realimentação U1B; ganho diferencial 1",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R4",
+      "value": "1 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "DAC_BUF",
+        "2": "LP1"
+      },
+      "sheet": 2,
+      "function": "Primeira seção do filtro RC",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C4",
+      "value": "4.7 nF",
+      "kind": "C",
+      "pins": {
+        "1": "LP1",
+        "2": "GND"
+      },
+      "sheet": 2,
+      "function": "Primeiro polo do filtro, C0G/filme",
+      "status": "existente",
+      "package": "Radial, filme/C0G, >=25 V",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R5",
+      "value": "1 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "LP1",
+        "2": "LP2"
+      },
+      "sheet": 2,
+      "function": "Segunda seção do filtro RC",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C6",
+      "value": "1.5 nF",
+      "kind": "C",
+      "pins": {
+        "1": "LP2",
+        "2": "GND"
+      },
+      "sheet": 2,
+      "function": "Segundo polo do filtro, C0G/filme",
+      "status": "existente",
+      "package": "Radial, filme/C0G, >=25 V",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C5",
+      "value": "10 uF bipolar",
+      "kind": "CB",
+      "pins": {
+        "1": "LP2",
+        "2": "JACK_OUT"
+      },
+      "sheet": 2,
+      "function": "Acoplamento de saída sem polarização DC",
+      "status": "substituído (tipo)",
+      "package": "Radial bipolar, >=25 V",
+      "note": "Trocar eletrolítico polarizado por bipolar de 10 uF; capacitância preservada.",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R6",
+      "value": "100 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "JACK_OUT",
+        "2": "GND"
+      },
+      "sheet": 2,
+      "function": "Retorno DC da saída",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "J3",
+      "value": "OUT P10 mono",
+      "kind": "J",
+      "pins": {
+        "1": "JACK_OUT",
+        "2": "GND"
+      },
+      "sheet": 2,
+      "function": "Tip = sinal; sleeve = GND",
+      "status": "existente",
+      "package": "Conector THT",
+      "note": "Carga externa >=100 kohm preferida; >=10 kohm com perda especificada.",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "U2",
+      "value": "CS4272",
+      "kind": "CODEC",
+      "pins": {
+        "1": null,
+        "2": "GND",
+        "3": "MCLK",
+        "4": "LRCK",
+        "5": "BCLK",
+        "6": "ADC_DATA",
+        "7": "DAC_DATA",
+        "8": "GND",
+        "9": "+3V3",
+        "10": "+3V3",
+        "11": "I2C_SCL",
+        "12": "I2C_SDA",
+        "13": "GND",
+        "14": "CODEC_RST",
+        "15": "VCOM",
+        "16": "AINA_N",
+        "17": "AINA_P",
+        "18": "AINB_CM",
+        "19": "AINB_CM",
+        "20": "+5VA",
+        "21": "GND",
+        "22": "FILT",
+        "23": null,
+        "24": "AOUTA_N",
+        "25": "AOUTA_P",
+        "26": null,
+        "27": null,
+        "28": null
+      },
+      "sheet": 3,
+      "function": "Codec físico em adaptador passivo TSSOP-28",
+      "status": "existente (renomeado H_CODEC)",
+      "package": "TSSOP-28, adaptador 0,65 mm já existente",
+      "note": "Nenhum circuito auxiliar existe no adaptador. Canal A = mono; saídas B e MUTEC em NC. Conferir sufixo/grade do CI real; não presumir CZZ.",
+      "basis": "Cirrus DS593F2, pp.5-6",
+      "nc": [
+        "1",
+        "23",
+        "26",
+        "27",
+        "28"
+      ],
+      "names": {
+        "1": "XTO",
+        "2": "XTI",
+        "3": "MCLK",
+        "4": "LRCK",
+        "5": "SCLK",
+        "6": "SDOUT",
+        "7": "SDIN",
+        "8": "DGND",
+        "9": "VD",
+        "10": "VL",
+        "11": "SCL/CCLK",
+        "12": "SDA/CDIN",
+        "13": "AD0/CS",
+        "14": "/RST",
+        "15": "VCOM",
+        "16": "AINA-",
+        "17": "AINA+",
+        "18": "AINB+",
+        "19": "AINB-",
+        "20": "VA",
+        "21": "AGND",
+        "22": "FILT+",
+        "23": "AMUTEC",
+        "24": "AOUTA-",
+        "25": "AOUTA+",
+        "26": "AOUTB+",
+        "27": "AOUTB-",
+        "28": "BMUTEC"
+      },
+      "types": {
+        "1": "output",
+        "2": "input",
+        "3": "input",
+        "4": "input",
+        "5": "input",
+        "6": "output",
+        "7": "input",
+        "8": "power_in",
+        "9": "power_in",
+        "10": "power_in",
+        "11": "input",
+        "12": "bidirectional",
+        "13": "input",
+        "14": "input",
+        "15": "output",
+        "16": "input",
+        "17": "input",
+        "18": "input",
+        "19": "input",
+        "20": "power_in",
+        "21": "power_in",
+        "22": "output",
+        "23": "output",
+        "24": "output",
+        "25": "output",
+        "26": "output",
+        "27": "output",
+        "28": "output"
+      }
+    },
+    {
+      "ref": "C12",
+      "value": "47 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "FILT",
+        "2": "GND"
+      },
+      "sheet": 3,
+      "function": "Reserva de FILT+; positivo no pino 22",
+      "status": "novo",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "",
+      "basis": "DS593F2 fig.8",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C13",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "FILT",
+        "2": "GND"
+      },
+      "sheet": 3,
+      "function": "Desacoplamento de FILT+ junto ao pino 22",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "",
+      "basis": "DS593F2 fig.8",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C14",
+      "value": "1 uF",
+      "kind": "C",
+      "pins": {
+        "1": "VCOM",
+        "2": "GND"
+      },
+      "sheet": 3,
+      "function": "Filtro de VCOM; não exceder 1 uF nominal",
+      "status": "novo",
+      "package": "Radial, filme/C0G, >=25 V",
+      "note": "Usar filme 1 uF, tolerância negativa/selecionado <=1 uF; C15 é o cerâmico adicional da figura.",
+      "basis": "DS593F2 fig.8",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C15",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "VCOM",
+        "2": "GND"
+      },
+      "sheet": 3,
+      "function": "Filtro local de VCOM junto ao pino 15",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "",
+      "basis": "DS593F2 fig.8",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R10",
+      "value": "10 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "VCOM",
+        "2": "AINB_CM"
+      },
+      "sheet": 3,
+      "function": "Polariza ambas as entradas B sem sinal",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "AINB+ e AINB- unidos neste nó; ADC B será mutado.",
+      "basis": "Projeto: R*Ibias; verificar DC no canal B",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "H_STM32",
+      "value": "WeAct STM32H723 V1.2",
+      "kind": "BOARD",
+      "pins": {
+        "P1.4": "MCLK",
+        "P2.5": "LRCK",
+        "P2.6": "BCLK",
+        "P2.7": "DAC_DATA",
+        "P2.17": "ADC_DATA",
+        "P1.6": "I2C_SCL",
+        "P1.5": "I2C_SDA",
+        "P1.38": "CODEC_RST",
+        "P1.40": "UART_TX",
+        "P1.39": "UART_RX",
+        "P2.11": "SW_OD",
+        "P2.12": "SW_EQ",
+        "P2.13": "SW_DLY",
+        "P2.14": "SW_MUTE",
+        "P2.30": "LED_OD",
+        "P2.31": "LED_EQ",
+        "P2.32": "LED_DLY",
+        "P2.38": "LED_STAT",
+        "P1.2": "+5V_USB",
+        "P2.2": "+3V3",
+        "P1.1": "GND"
+      },
+      "sheet": 4,
+      "function": "Placa de processamento existente",
+      "status": "existente",
+      "package": "WeAct V1.2, P1/P2 2x22",
+      "note": "AF8 em PE4/PE5/PE6; AF10 apenas PE0/PA0. Não habilitar câmera, SD ou pinos conflitantes.",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "P1.4": "PE0 / 97 / AF10",
+        "P2.5": "PE4 / 3 / AF8",
+        "P2.6": "PE5 / 4 / AF8",
+        "P2.7": "PE6 / 5 / AF8",
+        "P2.17": "PA0 / 22 / AF10",
+        "P1.6": "PB8 / 95 / AF4",
+        "P1.5": "PB9 / 96 / AF4",
+        "P1.38": "PD10 / 57 / GPIO",
+        "P1.40": "PD8 / 55 / AF7",
+        "P1.39": "PD9 / 56 / AF7",
+        "P2.11": "PC0 / 15",
+        "P2.12": "PC1 / 16",
+        "P2.13": "PC2_C / 17",
+        "P2.14": "PC3_C / 18",
+        "P2.30": "PE7 / 37",
+        "P2.31": "PE8 / 38",
+        "P2.32": "PE9 / 39",
+        "P2.38": "PE15 / 45",
+        "P1.2": "5V entrada",
+        "P2.2": "3V3 saída",
+        "P1.1": "GND"
+      },
+      "types": {
+        "P1.4": "output",
+        "P2.5": "output",
+        "P2.6": "output",
+        "P2.7": "output",
+        "P2.17": "input",
+        "P1.6": "open_collector",
+        "P1.5": "bidirectional",
+        "P1.38": "output",
+        "P1.40": "output",
+        "P1.39": "input",
+        "P2.11": "input",
+        "P2.12": "input",
+        "P2.13": "input",
+        "P2.14": "input",
+        "P2.30": "output",
+        "P2.31": "output",
+        "P2.32": "output",
+        "P2.38": "output",
+        "P1.2": "power_in",
+        "P2.2": "power_out",
+        "P1.1": "power_in"
+      }
+    },
+    {
+      "ref": "H_ESP32",
+      "value": "ESP32 DevKit V1",
+      "kind": "BOARD",
+      "pins": {
+        "RX2": "UART_TX",
+        "TX2": "UART_RX",
+        "VIN": "+5V_USB",
+        "GND": "GND"
+      },
+      "sheet": 4,
+      "function": "UART de 3,3 V entre as placas",
+      "status": "existente",
+      "package": "DevKit ESP32-WROOM (não WROVER)",
+      "note": "Confirmar modelo de DevKit; GPIO16/17 podem estar ocupados em WROVER.",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "RX2": "GPIO16 RX2",
+        "TX2": "GPIO17 TX2",
+        "VIN": "VIN / 5V",
+        "GND": "GND"
+      },
+      "types": {
+        "RX2": "input",
+        "TX2": "output",
+        "VIN": "power_in",
+        "GND": "power_in"
+      }
+    },
+    {
+      "ref": "J4",
+      "value": "Entrada 5 V (USB)",
+      "kind": "J",
+      "pins": {
+        "1": "+5V_USB",
+        "2": "GND"
+      },
+      "sheet": 4,
+      "function": "Fonte única de 5 V, >=1 A",
+      "status": "novo",
+      "package": "Borne THT 2 vias 5,08 mm; cabo USB de alimentação",
+      "note": "Distribuir em estrela para VIN das duas placas; não alimentar pelos pinos 3V3 nem unir USBs. J4 é borne 2 vias: 1=VBUS, 2=GND; não é a numeração do conector USB-A (1=VBUS,4=GND).",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R11",
+      "value": "4.7 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "+3V3",
+        "2": "I2C_SCL"
+      },
+      "sheet": 4,
+      "function": "Pull-up externo SCL",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "I2C: tr=0,8473*R*Cb; 100 kHz, Cb<=200 pF",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R12",
+      "value": "4.7 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "+3V3",
+        "2": "I2C_SDA"
+      },
+      "sheet": 4,
+      "function": "Pull-up externo SDA",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "WeAct V1.2 não contém pull-ups nestes pinos",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R13",
+      "value": "10 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "CODEC_RST",
+        "2": "GND"
+      },
+      "sheet": 4,
+      "function": "Mantém codec em reset durante boot",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R14",
+      "value": "47 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "ADC_DATA",
+        "2": "GND"
+      },
+      "sheet": 4,
+      "function": "Define slave no intervalo stand-alone",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "DS593F2 fig.8 e sec.5.1.2",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "SW1",
+      "value": "MTS-102",
+      "kind": "SW",
+      "pins": {
+        "C": "SW_OD",
+        "1": "GND",
+        "2": null
+      },
+      "sheet": 5,
+      "function": "Overdrive",
+      "status": "existente",
+      "package": "MTS-102 SPDT THT",
+      "note": "Identificar COM com multímetro; posição física dos terminais varia.",
+      "basis": "",
+      "nc": [
+        "2"
+      ],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R_D2",
+      "value": "330 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "LED_OD",
+        "2": "D2_A"
+      },
+      "sheet": 5,
+      "function": "Limitador de corrente do LED Overdrive",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "D2",
+      "value": "LED Overdrive",
+      "kind": "LED",
+      "pins": {
+        "1": "D2_A",
+        "2": "GND"
+      },
+      "sheet": 5,
+      "function": "Overdrive",
+      "status": "existente",
+      "package": "LED THT 3/5 mm",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {}
+    },
+    {
+      "ref": "SW2",
+      "value": "MTS-102",
+      "kind": "SW",
+      "pins": {
+        "C": "SW_EQ",
+        "1": "GND",
+        "2": null
+      },
+      "sheet": 5,
+      "function": "Equalizador",
+      "status": "existente",
+      "package": "MTS-102 SPDT THT",
+      "note": "Identificar COM com multímetro; posição física dos terminais varia.",
+      "basis": "",
+      "nc": [
+        "2"
+      ],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R_D3",
+      "value": "330 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "LED_EQ",
+        "2": "D3_A"
+      },
+      "sheet": 5,
+      "function": "Limitador de corrente do LED Equalizador",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "D3",
+      "value": "LED Equalizador",
+      "kind": "LED",
+      "pins": {
+        "1": "D3_A",
+        "2": "GND"
+      },
+      "sheet": 5,
+      "function": "Equalizador",
+      "status": "existente",
+      "package": "LED THT 3/5 mm",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {}
+    },
+    {
+      "ref": "SW3",
+      "value": "MTS-102",
+      "kind": "SW",
+      "pins": {
+        "C": "SW_DLY",
+        "1": "GND",
+        "2": null
+      },
+      "sheet": 5,
+      "function": "Delay",
+      "status": "existente",
+      "package": "MTS-102 SPDT THT",
+      "note": "Identificar COM com multímetro; posição física dos terminais varia.",
+      "basis": "",
+      "nc": [
+        "2"
+      ],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R_D4",
+      "value": "330 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "LED_DLY",
+        "2": "D4_A"
+      },
+      "sheet": 5,
+      "function": "Limitador de corrente do LED Delay",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "D4",
+      "value": "LED Delay",
+      "kind": "LED",
+      "pins": {
+        "1": "D4_A",
+        "2": "GND"
+      },
+      "sheet": 5,
+      "function": "Delay",
+      "status": "existente",
+      "package": "LED THT 3/5 mm",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {}
+    },
+    {
+      "ref": "SW4",
+      "value": "MTS-102",
+      "kind": "SW",
+      "pins": {
+        "C": "SW_MUTE",
+        "1": "GND",
+        "2": null
+      },
+      "sheet": 5,
+      "function": "Mute / status",
+      "status": "existente",
+      "package": "MTS-102 SPDT THT",
+      "note": "Identificar COM com multímetro; posição física dos terminais varia.",
+      "basis": "",
+      "nc": [
+        "2"
+      ],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R_D5",
+      "value": "330 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "LED_STAT",
+        "2": "D5_A"
+      },
+      "sheet": 5,
+      "function": "Limitador de corrente do LED Mute / status",
+      "status": "existente",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "D5",
+      "value": "LED Mute / status",
+      "kind": "LED",
+      "pins": {
+        "1": "D5_A",
+        "2": "GND"
+      },
+      "sheet": 5,
+      "function": "Mute / status",
+      "status": "existente",
+      "package": "LED THT 3/5 mm",
+      "note": "",
+      "basis": "",
+      "nc": [],
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {}
+    },
+    {
+      "ref": "C2",
+      "value": "10 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "ADC_P_IN",
+        "2": "IN_BUF"
+      },
+      "sheet": 6,
+      "function": "Acoplamento para o modo comum do codec",
+      "status": "existente",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "Positivo em ADC_P_IN (~2,4 V); negativo no buffer (~0 V).",
+      "basis": "",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C16",
+      "value": "10 uF",
+      "kind": "CP",
+      "pins": {
+        "1": "ADC_N_IN",
+        "2": "GND"
+      },
+      "sheet": 6,
+      "function": "Entrada negativa com sinal AC nulo",
+      "status": "novo",
+      "package": "Radial eletrolítico, >=25 V",
+      "note": "Positivo em ADC_N_IN; negativo em GND.",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R15",
+      "value": "10 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "ADC_P_IN",
+        "2": "VCOM"
+      },
+      "sheet": 6,
+      "function": "Bias da entrada positiva do driver",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R16",
+      "value": "10 kohm",
+      "kind": "R",
+      "pins": {
+        "1": "ADC_N_IN",
+        "2": "VCOM"
+      },
+      "sheet": 6,
+      "function": "Bias da entrada negativa do driver",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C17",
+      "value": "10 nF",
+      "kind": "C",
+      "pins": {
+        "1": "VCOM",
+        "2": "GND"
+      },
+      "sheet": 6,
+      "function": "Bypass da rede de bias do driver",
+      "status": "novo",
+      "package": "Radial, filme/C0G, >=25 V",
+      "note": "",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "U3",
+      "value": "TL072CP",
+      "kind": "OP",
+      "pins": {
+        "1": "DRV_P",
+        "2": "FB_P",
+        "3": "ADC_P_IN",
+        "4": "-VA_OP",
+        "5": "ADC_N_IN",
+        "6": "FB_N",
+        "7": "DRV_N",
+        "8": "+RAW"
+      },
+      "sheet": 6,
+      "function": "Segundo TL072: dois drivers ADC",
+      "status": "novo",
+      "package": "DIP-8",
+      "note": "U3A/U3B seguidores; entrada mono assimétrica, sem ganho diferencial adicional.",
+      "basis": "DS593F2 fig.12, amplificadores externos; TI SLOS080W",
+      "nc": [],
+      "names": {
+        "1": "OUT A",
+        "2": "IN- A",
+        "3": "IN+ A",
+        "4": "V-",
+        "5": "IN+ B",
+        "6": "IN- B",
+        "7": "OUT B",
+        "8": "V+"
+      },
+      "types": {}
+    },
+    {
+      "ref": "R17",
+      "value": "634 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "FB_P",
+        "2": "AINA_P"
+      },
+      "sheet": 6,
+      "function": "Feedback após resistor de isolamento",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "E96 1%; não trocar por 630 sem recalcular.",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C18",
+      "value": "4.7 nF",
+      "kind": "C",
+      "pins": {
+        "1": "FB_P",
+        "2": "DRV_P"
+      },
+      "sheet": 6,
+      "function": "Compensação rápida do driver positivo",
+      "status": "novo",
+      "package": "Radial cerâmico C0G/NP0, >=25 V",
+      "note": "C0G/NP0; valor calculado/ajustado por simulação linear. Validar estabilidade em bancada.",
+      "basis": "Projeto: DS593F2 fig.12, compensação ampliada de 470 pF para TL072 3MHz; simulação AC ngspice",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R18",
+      "value": "91 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "DRV_P",
+        "2": "AINA_P"
+      },
+      "sheet": 6,
+      "function": "Isola entrada comutada do ADC",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R19",
+      "value": "634 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "FB_N",
+        "2": "AINA_N"
+      },
+      "sheet": 6,
+      "function": "Feedback após resistor de isolamento",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C19",
+      "value": "4.7 nF",
+      "kind": "C",
+      "pins": {
+        "1": "FB_N",
+        "2": "DRV_N"
+      },
+      "sheet": 6,
+      "function": "Compensação rápida do driver negativo",
+      "status": "novo",
+      "package": "Radial cerâmico C0G/NP0, >=25 V",
+      "note": "C0G/NP0; valor calculado/ajustado por simulação linear. Validar estabilidade em bancada.",
+      "basis": "Projeto: DS593F2 fig.12, compensação ampliada de 470 pF para TL072 3MHz; simulação AC ngspice",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R20",
+      "value": "91 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "DRV_N",
+        "2": "AINA_N"
+      },
+      "sheet": 6,
+      "function": "Isola entrada comutada do ADC",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": "",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C20",
+      "value": "2.7 nF",
+      "kind": "C",
+      "pins": {
+        "1": "AINA_P",
+        "2": "AINA_N"
+      },
+      "sheet": 6,
+      "function": "Filtro diferencial nos pinos 17/16",
+      "status": "novo",
+      "package": "Radial cerâmico C0G/NP0, >=25 V",
+      "note": "C0G/NP0; junto ao CI.",
+      "basis": "DS593F2 fig.12",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "U5",
+      "value": "L7805CV",
+      "kind": "REG",
+      "pins": {
+        "1": "+RAW",
+        "2": "GND",
+        "3": "+5VA"
+      },
+      "sheet": 7,
+      "function": "Regulador analógico dedicado ao codec",
+      "status": "novo",
+      "package": "TO-220, ST L7805CV",
+      "note": "Não conectar +5VA a +5V_USB. Dissipação <0,35 W na carga prevista; medir temperatura.",
+      "basis": "ST L78, circuito de aplicação",
+      "nc": [],
+      "names": {
+        "1": "IN",
+        "2": "GND / TAB",
+        "3": "OUT"
+      },
+      "types": {
+        "1": "power_in",
+        "2": "power_in",
+        "3": "power_out"
+      }
+    },
+    {
+      "ref": "C21",
+      "value": "330 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+RAW",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "Bypass de entrada de U5",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "",
+      "basis": "ST L78, aplicação típica",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C22",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+5VA",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "Bypass de saída de U5",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "",
+      "basis": "ST L78, aplicação típica",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C23",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+5VA",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "VA pino 20: cerâmico local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C24",
+      "value": "1 uF",
+      "kind": "C",
+      "pins": {
+        "1": "+5VA",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "VA pino 20: reserva local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C25",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "VD pino 9: cerâmico local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C26",
+      "value": "1 uF",
+      "kind": "C",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "VD pino 9: reserva local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C27",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "VL pino 10: cerâmico local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C28",
+      "value": "1 uF",
+      "kind": "C",
+      "pins": {
+        "1": "+3V3",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "VL pino 10: reserva local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C29",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+RAW",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "U1 pino 8: bypass local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C30",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "-VA_OP",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "U1 pino 4: bypass local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C31",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "+RAW",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "U3 pino 8: bypass local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C32",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "-VA_OP",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "U3 pino 4: bypass local",
+      "status": "novo",
+      "package": "Radial cerâmico X7R, >=25 V",
+      "note": "Cerâmicos de alimentação: X7R; junto ao pino correspondente.",
+      "basis": "DS593F2 fig.8 / TI sec.8.3",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "C34",
+      "value": "100 nF",
+      "kind": "C",
+      "pins": {
+        "1": "AINB_CM",
+        "2": "GND"
+      },
+      "sheet": 3,
+      "function": "Bypass do par ADC B não utilizado",
+      "status": "novo",
+      "package": "Radial cerâmico X7R >=25 V",
+      "note": "Sem sinal; manter entradas B no mesmo modo comum.",
+      "basis": "Projeto: nó comum sem sinal, fc com R10 =159 Hz",
+      "nc": [],
+      "names": {},
+      "types": {}
+    },
+    {
+      "ref": "R21",
+      "value": "910 ohm",
+      "kind": "R",
+      "pins": {
+        "1": "+5VA",
+        "2": "GND"
+      },
+      "sheet": 7,
+      "function": "Carga mínima de U5 durante reset",
+      "status": "novo",
+      "package": "Axial DIN0207, 1/4 W, 1%",
+      "note": ">=5,2 mA a 4,8 V; dissipação máxima ~30 mW.",
+      "basis": "ST L78, tabela L7805C: condições de carga; R<=4,8V/5mA=960ohm, escolha E24 910ohm",
+      "nc": [],
+      "names": {},
+      "types": {}
+    }
+  ]
+}

@@ -585,16 +585,77 @@ def build_pedaleira_schematic():
     b = EasyEDABuilder(width=1650, height=1100)
 
     # =========================================================================
-    # Moldura e Carimbo Técnico (Title Block)
+    # Moldura e Carimbo Técnico (Title Block) - Norma ANSI/IEEE Y32 / ISO 7200
     # =========================================================================
     b.add_rect(20, 20, 1610, 1060, stroke="#94A3B8", stroke_w=1, fill="none")
-    # Title block no canto inferior direito
-    b.add_rect(1160, 960, 470, 120, stroke="#0F172A", stroke_w=1.5, fill="#F8FAFC")
-    b.add_text(1180, 985, "IFPB - PROTOTIPAGEM DE SISTEMAS", size="11pt", weight="bold", color="#1E3A8A")
-    b.add_text(1180, 1005, "PROJETO: PEDALEIRA DIGITAL DE EFEITOS", size="10pt", weight="bold", color="#0F172A")
-    b.add_text(1180, 1025, "MCU: STM32H723VGT6 (WeAct)  |  CODEC: CS4272", size="8pt", color="#475569")
-    b.add_text(1180, 1045, "REV: 2.0 (Enxuta)  |  DATA: 2026-10-22  |  FOLHA: 1/1", size="8pt", color="#475569")
-    b.add_text(1180, 1065, "AUTOR: Rodriguesmath  |  PLATAFORMA: EasyEDA Std", size="8pt", color="#64748B")
+
+    # --- Title Block profissional no canto inferior direito (470x140) ---
+    tb_x, tb_y, tb_w, tb_h = 1160, 940, 470, 140
+    b.add_rect(tb_x, tb_y, tb_w, tb_h, stroke="#0F172A", stroke_w=1.5, fill="#F8FAFC")
+
+    # Linha divisória horizontal: título do projeto (topo) vs metadados
+    b.add_rect(tb_x, tb_y + 50, tb_w, 0, stroke="#0F172A", stroke_w=1, fill="none")
+    # Divisor vertical: coluna esquerda (org/projeto) vs direita (metadados)
+    b.add_rect(tb_x + 240, tb_y, 0, tb_h, stroke="#0F172A", stroke_w=1, fill="none")
+    # Divisor horizontal nos metadados: linha 1 (doc no / rev) vs linha 2 (data / folha)
+    b.add_rect(tb_x + 240, tb_y + 50, tb_w - 240, 0, stroke="#0F172A", stroke_w=1, fill="none")
+    # Divisor horizontal linha 2: data vs folha
+    b.add_rect(tb_x + 240, tb_y + 95, tb_w - 240, 0, stroke="#0F172A", stroke_w=1, fill="none")
+    # Divisor vertical linha inferior: autor vs plataforma
+    b.add_rect(tb_x + 120, tb_y + 95, 0, tb_h - 95, stroke="#0F172A", stroke_w=1, fill="none")
+
+    # Labels dos campos (cinza pequeno, acima do valor)
+    b.add_text(tb_x + 10, tb_y + 8, "ORGANIZACAO", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 10, tb_y + 18, "IFPB - Campus Joao Pessoa", size="9pt", weight="bold", color="#1E3A8A")
+    b.add_text(tb_x + 10, tb_y + 34, "PROJETO", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 10, tb_y + 42, "PEDALEIRA DIGITAL DE EFEITOS", size="8pt", weight="bold", color="#0F172A")
+
+    # Coluna direita - metadados
+    b.add_text(tb_x + 250, tb_y + 8, "DOC No.", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 250, tb_y + 18, "PD-EA-001", size="9pt", weight="bold", color="#0F172A")
+    b.add_text(tb_x + 370, tb_y + 8, "REV", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 370, tb_y + 18, "2.0", size="9pt", weight="bold", color="#0F172A")
+
+    b.add_text(tb_x + 250, tb_y + 58, "DATA", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 250, tb_y + 68, "2026-10-22", size="8pt", color="#0F172A")
+    b.add_text(tb_x + 370, tb_y + 58, "FOLHA", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 370, tb_y + 68, "1 / 1", size="8pt", color="#0F172A")
+
+    b.add_text(tb_x + 250, tb_y + 103, "ESCALA", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 250, tb_y + 113, "N/A (Digital)", size="8pt", color="#0F172A")
+    b.add_text(tb_x + 370, tb_y + 103, "TAMANHO", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 370, tb_y + 113, "A3 landscape", size="8pt", color="#0F172A")
+
+    b.add_text(tb_x + 10, tb_y + 103, "AUTOR", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 10, tb_y + 113, "Rodriguesmath", size="8pt", color="#0F172A")
+    b.add_text(tb_x + 130, tb_y + 103, "PLATAFORMA", size="6pt", color="#94A3B8", weight="bold")
+    b.add_text(tb_x + 130, tb_y + 113, "EasyEDA Std", size="8pt", color="#0F172A")
+
+    # --- Tabela de Histórico de Revisões (canto inferior esquerdo) ---
+    rev_x, rev_y, rev_w, rev_h = 20, 940, 400, 140
+    b.add_rect(rev_x, rev_y, rev_w, rev_h, stroke="#0F172A", stroke_w=1.5, fill="#F8FAFC")
+    b.add_text(rev_x + 10, rev_y + 8, "HISTORICO DE REVISOES", size="8pt", weight="bold", color="#1E3A8A")
+    # Cabeçalho da tabela
+    b.add_rect(rev_x, rev_y + 24, rev_w, 0, stroke="#94A3B8", stroke_w=0.5, fill="none")
+    b.add_text(rev_x + 10, rev_y + 28, "REV", size="6pt", weight="bold", color="#64748B")
+    b.add_text(rev_x + 60, rev_y + 28, "DATA", size="6pt", weight="bold", color="#64748B")
+    b.add_text(rev_x + 140, rev_y + 28, "DESCRICAO", size="6pt", weight="bold", color="#64748B")
+    b.add_text(rev_x + 320, rev_y + 28, "AUTOR", size="6pt", weight="bold", color="#64748B")
+    b.add_rect(rev_x, rev_y + 40, rev_w, 0, stroke="#94A3B8", stroke_w=0.5, fill="none")
+    # Linhas de revisão
+    revs = [
+        ("1.0", "2026-09-15", "Versao inicial - prototipo completo", "Rodriguesmath"),
+        ("1.5", "2026-10-01", "Revisao pinout UART/I2C, added ERC", "Rodriguesmath"),
+        ("2.0", "2026-10-22", "Arquitetura enxuta: USB 5V/3.3V, 9V p/ TL072", "Rodriguesmath"),
+    ]
+    for i, (rv, dt, desc, au) in enumerate(revs):
+        ry = rev_y + 48 + i * 28
+        b.add_text(rev_x + 10, ry, rv, size="7pt", color="#0F172A", weight="bold")
+        b.add_text(rev_x + 60, ry, dt, size="7pt", color="#475569")
+        b.add_text(rev_x + 140, ry, desc, size="7pt", color="#475569")
+        b.add_text(rev_x + 320, ry, au, size="7pt", color="#475569")
+        if i < len(revs) - 1:
+            b.add_rect(rev_x, ry + 18, rev_w, 0, stroke="#E2E8F0", stroke_w=0.3, fill="none")
 
     # =========================================================================
     # 1. ALIMENTAÇÃO ANALÓGICA (+9V DC) E GERADOR VREF (+4.5V)
@@ -946,19 +1007,66 @@ def build_pedaleira_schematic():
         b.add_netflag_gnd(led_k[0], led_k[1])
 
     # =========================================================================
+    # DIAGRAMA DE BLOCOS DE ARQUITETURA (alto nível, canto inferior esquerdo)
+    # =========================================================================
+    bd_x, bd_y = 40, 780
+    b.add_rect(bd_x, bd_y, 580, 140, stroke="#2563EB", stroke_w=1, fill="#F0F7FF")
+    b.add_text(bd_x + 12, bd_y + 10, "DIAGRAMA DE BLOCOS - ARQUITETURA DO SISTEMA", size="8pt", weight="bold", color="#1E3A8A")
+
+    # Blocos do diagrama com setas
+    blocks_bd = [
+        (bd_x + 15, bd_y + 30, 90, 35, "IN P10", "#DBEAFE"),
+        (bd_x + 125, bd_y + 30, 100, 35, "Buffer Hi-Z", "#D1FAE5"),
+        (bd_x + 245, bd_y + 30, 90, 35, "CS4272", "#FEF3C7"),
+        (bd_x + 355, bd_y + 30, 100, 35, "STM32H723", "#FEE2E2"),
+        (bd_x + 475, bd_y + 30, 90, 35, "Filtro Out", "#D1FAE5"),
+    ]
+    for bx, by, bw, bh, label, color in blocks_bd:
+        b.add_rect(bx, by, bw, bh, stroke="#0F172A", stroke_w=1, fill=color)
+        b.add_text(bx + bw/2 - len(label)*2.5, by + 10, label, size="7pt", weight="bold", color="#0F172A")
+
+    # Setas entre blocos
+    for i in range(len(blocks_bd) - 1):
+        x1 = blocks_bd[i][0] + blocks_bd[i][2]
+        x2 = blocks_bd[i+1][0]
+        y_mid = bd_y + 47
+        b.add_wire(x1, y_mid, x2, y_mid, color="#475569", width=1)
+        # Ponta de seta
+        b.add_text(x2 - 8, y_mid - 8, ">", size="8pt", color="#475569", weight="bold")
+
+    # Segunda linha: ESP32 e UI
+    b.add_rect(bd_x + 355, bd_y + 85, 100, 30, stroke="#0F172A", stroke_w=1, fill="#EDE9FE")
+    b.add_text(bd_x + 380, bd_y + 94, "ESP32 WiFi", size="7pt", weight="bold", color="#0F172A")
+    b.add_rect(bd_x + 125, bd_y + 85, 200, 30, stroke="#0F172A", stroke_w=1, fill="#F1F5F9")
+    b.add_text(bd_x + 150, bd_y + 94, "4 Chaves + 4 LEDs (GPIO)", size="7pt", weight="bold", color="#0F172A")
+    # Linha vertical STM32 -> ESP32
+    b.add_wire(bd_x + 405, bd_y + 65, bd_x + 405, bd_y + 85, color="#475569", width=1)
+    # Linha vertical STM32 -> UI
+    b.add_wire(bd_x + 225, bd_y + 65, bd_x + 225, bd_y + 85, color="#475569", width=1)
+
+    # =========================================================================
     # Resumo de Ligações / Notas de Montagem
     # =========================================================================
-    b.add_rect(660, 760, 500, 200, stroke="#CBD5E1", stroke_w=1, fill="#F8FAFC")
-    b.add_text(675, 780, "NOTAS DE MONTAGEM EM PLACA PERFURADA (IFPB):", size="9pt", weight="bold", color="#0F172A")
+    b.add_rect(660, 760, 470, 160, stroke="#CBD5E1", stroke_w=1, fill="#F8FAFC")
+    b.add_text(675, 778, "NOTAS DE MONTAGEM EM PLACA PERFURADA (IFPB):", size="9pt", weight="bold", color="#0F172A")
     notes = [
-        "1. ALIMENTACAO: Os 5V e 3.3V vem da porta USB das dev boards; Jack 9V alimenta apenas o TL072.",
-        "2. PULL-UPS I2C: PB8 e PB9 ja possuem resistores de 4.7k soldados na propria placa WeAct.",
-        "3. CHAVES: Conectadas diretamente entre o pino GPIO da STM32 e o GND (usar GPIO_PULLUP no CubeMX).",
-        "4. TERRA COMUM: Unir os pinos GND analogico (TL072, Jacks P10) e digital (STM32, ESP32, Codec).",
-        "5. CABOS DE AUDIO: Manter as trilhas e fios do TL072 e Codec curtos para evitar captacao de ruido."
+        "1. ALIMENTACAO: 5V/3.3V via USB das dev boards; Jack 9V alimenta exclusivamente o TL072.",
+        "2. PULL-UPS I2C: PB8/PB9 possuem resistores 4.7k soldados na propria placa WeAct.",
+        "3. CHAVES: Direto entre GPIO da STM32 e GND (configurar GPIO_PULLUP no CubeMX).",
+        "4. TERRA COMUM: Unir GND analogico (TL072, Jacks P10) e digital (STM32, ESP32, Codec).",
+        "5. CABOS: Manter trilhas do TL072 e Codec curtas para evitar captacao de ruido."
     ]
     for idx, note in enumerate(notes):
-        b.add_text(675, 805 + idx * 24, note, size="7.5pt", color="#334155")
+        b.add_text(675, 800 + idx * 22, note, size="7pt", color="#334155")
+
+    # =========================================================================
+    # Legenda de Cores / Convenções
+    # =========================================================================
+    leg_x, leg_y = 40, 720
+    b.add_text(leg_x, leg_y, "LEGENDA:", size="7pt", weight="bold", color="#64748B")
+    b.add_text(leg_x + 55, leg_y, "Fio verde = conexao eletrica", size="7pt", color="#008800")
+    b.add_text(leg_x + 230, leg_y, "Label vermelho = netlabel global", size="7pt", color="#B91C1C")
+    b.add_text(leg_x + 420, leg_y, "Ponto verde = junction", size="7pt", color="#008800")
 
     return b
 
@@ -1167,6 +1275,100 @@ def run_erc_validation(builder):
     return True
 
 
+def generate_bom(builder, out_csv="/home/rodrigues/Pedaleira-digital/docs/hardware/bom_auto.csv",
+                 out_md="/home/rodrigues/Pedaleira-digital/docs/hardware/bom_auto.md"):
+    """
+    Extrai a Bill of Materials (BOM) automaticamente do esquemático,
+    agrupando componentes por valor + LCSC Part Number.
+    Gera CSV (para importação em planilhas/ERP) e Markdown (para docs).
+    """
+    import csv
+    from collections import defaultdict
+
+    components = defaultdict(lambda: {"refs": [], "lcsc": "", "package": "", "value": ""})
+
+    for shape in builder.shapes:
+        if not shape.startswith("LIB~"):
+            continue
+        # Extrair c_para do LIB
+        parts = shape.split("~")
+        c_para = ""
+        for i, p in enumerate(parts):
+            if p == "package`AXIAL-0.3`" or "package`" in p:
+                # Reconstruir c_para até encontrar o próximo campo
+                c_para = parts[i]
+                j = i + 1
+                while j < len(parts) and "`" in parts[j] and not parts[j].startswith(("0", "1", "gge")):
+                    c_para += "~" + parts[j]
+                    j += 1
+                break
+
+        # Parse c_para: package`XXX`name`YYY`pre`Z?`BOM_Supplier`LCSC`BOM_Supplier Part`NNN`...
+        pkg = ""
+        val = ""
+        pre = ""
+        lcsc = ""
+        tokens = c_para.split("`")
+        for i, t in enumerate(tokens):
+            if t == "package" and i + 1 < len(tokens):
+                pkg = tokens[i + 1]
+            elif t == "name" and i + 1 < len(tokens):
+                val = tokens[i + 1]
+            elif t == "pre" and i + 1 < len(tokens):
+                pre = tokens[i + 1]
+            elif t == "BOM_Supplier Part" and i + 1 < len(tokens):
+                lcsc = tokens[i + 1]
+
+        # Extrair ref do texto T~P~
+        ref = ""
+        for sub in shape.split("#@$"):
+            if sub.startswith("T~P~"):
+                ref_tokens = sub.split("~")
+                if len(ref_tokens) > 12:
+                    ref = ref_tokens[12]
+                break
+
+        if ref and val:
+            key = f"{val}|{lcsc}|{pkg}"
+            components[key]["refs"].append(ref)
+            components[key]["lcsc"] = lcsc
+            components[key]["package"] = pkg
+            components[key]["value"] = val
+            components[key]["prefix"] = pre.rstrip("?")
+
+    # Ordenar por prefixo + valor
+    def sort_key(item):
+        k, v = item
+        return (v.get("prefix", "Z"), v["value"])
+
+    sorted_items = sorted(components.items(), key=sort_key)
+
+    # Gerar CSV
+    with open(out_csv, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Item", "Referencias", "Qtd", "Valor", "Package", "LCSC Part #", "Prefixo"])
+        for idx, (key, comp) in enumerate(sorted_items, 1):
+            refs = ", ".join(sorted(comp["refs"]))
+            writer.writerow([idx, refs, len(comp["refs"]), comp["value"], comp["package"], comp["lcsc"], comp.get("prefix", "")])
+
+    # Gerar Markdown
+    with open(out_md, "w", encoding="utf-8") as f:
+        f.write("# BOM Automatica - Pedaleira Digital (gerada do esquematico EasyEDA)\n\n")
+        f.write("> Gerada automaticamente a partir de `pedaleira_digital_easyeda.json` via `gen_schematic.py`.\n\n")
+        f.write("| Item | Referencias | Qtd | Valor | Package | LCSC Part # |\n")
+        f.write("| :---: | :--- | :---: | :--- | :--- | :--- |\n")
+        for idx, (key, comp) in enumerate(sorted_items, 1):
+            refs = ", ".join(sorted(comp["refs"]))
+            f.write(f"| {idx} | {refs} | {len(comp['refs'])} | {comp['value']} | {comp['package']} | `{comp['lcsc']}` |\n")
+        f.write(f"\n**Total de itens unicos:** {len(sorted_items)}  \n")
+        total_refs = sum(len(c["refs"]) for _, c in sorted_items)
+        f.write(f"**Total de componentes (refs):** {total_refs}\n")
+
+    print(f"BOM CSV gerada: {out_csv}")
+    print(f"BOM Markdown gerada: {out_md} ({len(sorted_items)} itens unicos, {total_refs} refs)")
+    return sorted_items
+
+
 if __name__ == "__main__":
     builder = build_pedaleira_schematic()
     doc = builder.build_json()
@@ -1176,6 +1378,9 @@ if __name__ == "__main__":
         json.dump(doc, f, indent=2)
 
     print(f"Arquivo JSON gerado: {out_json} ({os.path.getsize(out_json)} bytes, {len(doc['shape'])} formas)")
+
+    # Gerar BOM automática
+    generate_bom(builder)
 
     # Renderizar preview PNG
     render_preview(builder, "/tmp/schematic_preview.png")

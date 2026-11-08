@@ -1,3 +1,5 @@
+> **LEGADO rev.4.7: não usar para montar o hardware atual.** A premissa de breakout completo e os pull-ups onboard eram incorretos. O CI é TSSOP-28 em adaptador passivo. A fonte elétrica vigente está em [rev.4.8](../../output/rev4_8/AUDITORIA_ELETRICA.md), com projeto KiCad e BOM próprios. Este guia é preservado somente para rastrear a revisão anterior.
+
 # Guia Prático para Criação do Esquemático no EasyEDA Web
 
 ![EasyEDA](https://img.shields.io/badge/EDA-EasyEDA%20Web-blue?style=flat-square&logo=easyeda)
@@ -5,6 +7,9 @@
 ![Status](https://img.shields.io/badge/Status-Guia%20Completo-brightgreen?style=flat-square)
 
 Este guia orienta passo a passo a montagem do esquemático elétrico do protótipo da **Pedaleira Digital** no [EasyEDA Web](https://easyeda.com/editor), utilizando componentes com encapsulamento **Through-Hole (DIP/THT)** ideais para montagem em protoboard e placa perfurada/ilhada, com seus respectivos códigos oficiais de catálogo **LCSC**.
+
+> [!TIP]
+> O esquemático já está pronto e versionado. Basta importar o JSON (seção abaixo) e ele abre com **title block profissional**, **tabela de revisões**, **diagrama de blocos** e **BOM automática** já incluídos.
 
 ---
 
@@ -18,7 +23,18 @@ Para abrir o esquemático pronto com 1 clique:
 2. No menu superior, clique em: **`File` $\to$ `Open` $\to$ `EasyEDA Source...`**
 3. Clique em **`Load File`** e selecione o arquivo `pedaleira_digital_easyeda.json` (ou abra o arquivo de texto, copie todo o seu conteúdo JSON e cole na janela).
 4. Clique no botão **`Apply`**.
-5. O esquemático completo será aberto imediatamente, perfeitamente renderizado, com moldura técnica do IFPB, componentes Through-Hole, conexões elétricas, atributos LCSC para BOM e barramentos alinhados!
+5. O esquemático completo será aberto imediatamente, perfeitamente renderizado, com moldura técnica normatizada (ANSI/IEEE Y32), componentes Through-Hole, conexões elétricas, atributos LCSC para BOM e barramentos alinhados!
+
+### Elementos Profissionais Incluídos no Esquemático
+
+| Elemento | Descrição | Norma de referência |
+| :--- | :--- | :--- |
+| **Title Block** | Moldura com células: Doc No. `PD-EA-001`, Rev, Data, Folha, Escala, Tamanho (A3), Autor, Plataforma, Organização, Projeto | ANSI/IEEE Y32 / ISO 7200 |
+| **Tabela de Revisões** | Histórico com REV, Data, Descrição e Autor (3 revisões registradas) | ISO 7200 |
+| **Diagrama de Blocos** | Visão de alto nível da arquitetura: IN → Buffer → CS4272 → STM32 → Filtro Out, com ESP32 e UI | — |
+| **Legenda** | Convenções de cores: fio verde, netlabel vermelho, junction verde | — |
+| **Notas de Montagem** | 5 regras práticas para montagem em placa perfurada | — |
+| **BOM Automática** | Extraída do esquemático em CSV e Markdown (26 itens únicos, 34 referências) | — |
 
 ---
 
@@ -142,3 +158,25 @@ Na simulação, você verá:
 - A senoide limpa simulando o captador de guitarra na entrada ($300\text{ mV}_{\text{peak}}$ a $1\text{ kHz}$).
 - A polarização estável de $V_{ref} = +4.5\text{V}$ com o divisor de $100\text{ k}\Omega$ e capacitor de desacoplamento.
 - A saída isolada do buffer com nível estável pronto para o ADC do CS4272.
+
+---
+
+## 6. Regeneração Automática do Esquemático e BOM
+
+Todo o esquemático é gerado de forma **determinística** por um script Python, garantindo reprodutibilidade e versionamento profissional:
+
+```bash
+# Regenerar JSON do EasyEDA + preview PNG + BOM automática + validação ERC
+python3 docs/hardware/tools/gen_schematic.py
+```
+
+O script produz automaticamente:
+
+| Arquivo | Descrição |
+| :--- | :--- |
+| `pedaleira_digital_easyeda.json` | Esquemático nativo EasyEDA Standard (importável no editor web) |
+| `schematic_preview.png` | Imagem de preview em alta resolução para documentação |
+| `bom_auto.csv` | BOM em CSV (importável em Excel/LibreOffice/ERP) |
+| `bom_auto.md` | BOM em Markdown (para documentação no repositório) |
+
+Além disso, o script executa uma **validação ERC (Electrical Rule Check)** baseada em grafo de conectividade, garantindo que nenhum pino fique flutuante antes de você montar o circuito.
