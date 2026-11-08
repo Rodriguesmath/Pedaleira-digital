@@ -284,6 +284,11 @@ class TestStm32CppDspQualityGate(unittest.TestCase):
             "-Ifirmware/stm32/Drivers/CMSIS/Device/ST/STM32H7xx/Include",
             "-Ifirmware/stm32/Drivers/CMSIS/Include"
         ]
+        compiler_target = subprocess.run(
+            [cmd[0], "-dumpmachine"], check=True, capture_output=True, text=True
+        ).stdout.strip()
+        if compiler_target.startswith("arm"):
+            cmd[1:1] = ["-mcpu=cortex-m7", "-mthumb", "-mfpu=fpv5-d16", "-mfloat-abi=hard"]
         cpp_files = [
             os.path.join(WORKSPACE_ROOT, f)
             for f in TARGET_CPP_FILES
@@ -303,12 +308,14 @@ class TestStm32CppDspQualityGate(unittest.TestCase):
         # Vector 1: CMD_HEARTBEAT (0x07), length 0 -> [0x07, 0x00]
         data1 = bytes([0x07, 0x00])
         crc1 = calculate_crc8_ccitt(data1)
-        self.assertIsInstance(crc1, int)
+        self.assertEqual(crc1, 0x6B)
 
         # Vector 2: CMD_SET_PARAM (0x01), length 3, payload [0x00, 0x01, 0x50] (volume 80%)
         data2 = bytes([0x01, 0x03, 0x00, 0x01, 0x50])
         crc2 = calculate_crc8_ccitt(data2)
-        self.assertIsInstance(crc2, int)
+        self.assertEqual(crc2, 0xFA)
+        self.assertEqual(calculate_crc8_ccitt(bytes([1, 3, 1, 1, 0x4B])), 0xD0)
+        self.assertEqual(calculate_crc8_ccitt(bytes([4, 2, 1, 1])), 0x9C)
 
         # Verify polynomial properties: empty is 0
         self.assertEqual(calculate_crc8_ccitt(b""), 0x00)
