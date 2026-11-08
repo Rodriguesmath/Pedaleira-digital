@@ -29,6 +29,8 @@
  * INCLUDES
  ******************************************************************************/
 #include "Bsp.hpp"
+#include "UartRxRing.hpp"
+#include "Cs4272I2cTiming.hpp"
 
 /*******************************************************************************
  * DEFINES LOCAIS
@@ -41,11 +43,13 @@
 #error "Configuracao incorreta: o cristal HSE da placa WeAct e de 25 MHz"
 #endif
 
+// Clock: HSE/5 * 110 = 550 MHz VCO (PLL1 limit: 836 MHz).
+// P=1 preserves 550 MHz CPU without the former out-of-range 1.1 GHz VCO.
 // Constantes de clock e temporizacao
 #define dPLL_M_VALUE                        5U
-#define dPLL_N_VALUE                        220U
-#define dPLL_P_VALUE                        2U
-#define dPLL_Q_VALUE                        4U
+#define dPLL_N_VALUE                        110U
+#define dPLL_P_VALUE                        1U
+#define dPLL_Q_VALUE                        2U
 #define dPLL_R_VALUE                        2U
 
 #define dDWT_LAR_UNLOCK_KEY                 0xC5ACCE55UL
@@ -98,8 +102,8 @@
 #define dPORT_USART3_RX                     GPIOD
 #define dINTER_MCU_UART_BAUDRATE            115200UL
 
-// Registrador de temporizacao I2C1 (Modo padrao 100 kHz)
-#define dI2C1_TIMING_VALUE                  0x10909CECUL
+// CS4272 is Standard-mode only: <=100 kHz, derived for explicit HSI64.
+#define dI2C1_TIMING_VALUE                  Cs4272I2cTiming::Register
 
 /*******************************************************************************
  * CONSTANTES
@@ -110,6 +114,7 @@
  ******************************************************************************/
 /// Instancia do manipulador I2C1 do barramento de controle do codec
 I2C_HandleTypeDef hi2c1;
+static UartRxRing usart3RxRing;
 
 bool Bsp::isInitialized_ = false;
 bool Bsp::ledOnboardState_ = false;
@@ -255,20 +260,19 @@ void Bsp::Usart3WriteByte(u8 data)
  * @param pData: Ponteiro para armazenar o byte lido.
  * @retval bool: true se havia byte disponivel, false se fila vazia.
  ******************************************************************************/
-bool Bsp::Usart3ReadByte(u8 *pData)
+bool Bsp::Usart3ReadEvent(u16 *pEvent)
 {
-    bool byteAvailable = false;
+    return (pEvent != nullptr) && usart3RxRing.Pop(*pEvent);
+}
 
-    if(pData != nullptr)
-    {
-        if((USART3->ISR & (u32)USART_ISR_RXNE_RXFNE) != 0U)
-        {
-            *pData = (u8)(USART3->RDR & 0xFFU);
-            byteAvailable = true;
-        }
-    }
+u32 Bsp::Usart3RxDroppedBytes(void)
+{
+    return usart3RxRing.DroppedBytes();
+}
 
-    return byteAvailable;
+u32 Bsp::Usart3RxHardwareErrors(void)
+{
+    return usart3RxRing.HardwareErrors();
 }
 
 /******************************************************************************/
@@ -278,6 +282,8 @@ bool Bsp::Usart3ReadByte(u8 *pData)
  ******************************************************************************/
 void Bsp::ErrorHandler(void)
 {
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    HAL_GPIO_WritePin(dPORT_CS4272_RST, dPIN_CS4272_RST, GPIO_PIN_RESET);
     __disable_irq();
 
     while(1)
@@ -319,8 +325,24 @@ __attribute__((weak)) void SysTick_Handler(void)
     HAL_IncTick();
 }
 
-__attribute__((weak)) void USART3_IRQHandler(void)
+void USART3_IRQHandler(void)
 {
+    const u32 status = USART3->ISR;
+    const u32 errors = status & (USART_ISR_ORE | USART_ISR_FE | USART_ISR_NE);
+    if(errors != 0U)
+    {
+        USART3->ICR = USART_ICR_ORECF | USART_ICR_FECF | USART_ICR_NECF;
+        usart3RxRing.MarkHardwareError();
+    }
+    if((status & USART_ISR_RXNE_RXFNE) != 0U)
+    {
+        const u8 received = (u8)USART3->RDR;
+        // Discard a byte whose framing/noise status is unreliable.
+        if((errors & (USART_ISR_FE | USART_ISR_NE)) == 0U)
+        {
+            usart3RxRing.PushByte(received);
+        }
+    }
 }
 }
 
@@ -490,7 +512,7 @@ void Bsp::GpioConfig(void)
     gpioInitStruct.Pull = GPIO_NOPULL;
     gpioInitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOD, &gpioInitStruct);
-    HAL_GPIO_WritePin(GPIOD, dPIN_CS4272_RST, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOD, dPIN_CS4272_RST, GPIO_PIN_RESET);
 
     // 4. I2C1 (PB8 SCL, PB9 SDA) com Open-Drain
     gpioInitStruct.Pin = (dPIN_I2C1_SCL | dPIN_I2C1_SDA);
@@ -501,11 +523,16 @@ void Bsp::GpioConfig(void)
     HAL_GPIO_Init(GPIOB, &gpioInitStruct);
 
     // 5. SAI4 Audio: PE0 (MCLK), PE4 (FS), PE5 (SCK), PE6 (SD_A)
-    gpioInitStruct.Pin = (dPIN_SAI4_MCLK | dPIN_SAI4_FS | dPIN_SAI4_SCK | dPIN_SAI4_SDA);
+    gpioInitStruct.Pin = dPIN_SAI4_MCLK;
     gpioInitStruct.Mode = GPIO_MODE_AF_PP;
     gpioInitStruct.Pull = GPIO_NOPULL;
     gpioInitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     gpioInitStruct.Alternate = GPIO_AF10_SAI4;
+    HAL_GPIO_Init(GPIOE, &gpioInitStruct);
+
+    // PE4/PE5/PE6 expose SAI4 on AF8, unlike PE0 on AF10.
+    gpioInitStruct.Pin = (dPIN_SAI4_FS | dPIN_SAI4_SCK | dPIN_SAI4_SDA);
+    gpioInitStruct.Alternate = GPIO_AF8_SAI4;
     HAL_GPIO_Init(GPIOE, &gpioInitStruct);
 
     // 6. SAI4 Audio: PA0 (SD_B)
@@ -532,6 +559,22 @@ void Bsp::GpioConfig(void)
  ******************************************************************************/
 void Bsp::I2c1Config(void)
 {
+    RCC_OscInitTypeDef hsiConfig = {};
+    hsiConfig.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+    hsiConfig.HSIState = RCC_HSI_DIV1;
+    hsiConfig.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+    if(HAL_RCC_OscConfig(&hsiConfig) != HAL_OK)
+    {
+        ErrorHandler();
+    }
+    DelayUs(10U); // HSI stabilization before the first control transaction.
+    RCC_PeriphCLKInitTypeDef clockConfig = {};
+    clockConfig.PeriphClockSelection = RCC_PERIPHCLK_I2C1;
+    clockConfig.I2c123ClockSelection = RCC_I2C123CLKSOURCE_HSI;
+    if(HAL_RCCEx_PeriphCLKConfig(&clockConfig) != HAL_OK)
+    {
+        ErrorHandler();
+    }
     __HAL_RCC_I2C1_CLK_ENABLE();
 
     hi2c1.Instance = I2C1;
@@ -550,6 +593,11 @@ void Bsp::I2c1Config(void)
     }
 
     if(HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+    {
+        ErrorHandler();
+    }
+
+    if(HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0U) != HAL_OK)
     {
         ErrorHandler();
     }
@@ -575,8 +623,13 @@ void Bsp::Usart3Config(void)
     brrValue = (u32)(dBSP_APB1_FREQ_HZ / dINTER_MCU_UART_BAUDRATE);
     USART3->BRR = brrValue;
 
-    // Habilita transmissor, receptor e modulo USART
-    USART3->CR1 = ((u32)USART_CR1_TE | (u32)USART_CR1_RE | (u32)USART_CR1_UE);
+    // RX remains interrupt-driven during blocking TX and I2C transactions.
+    USART3->ICR = USART_ICR_ORECF | USART_ICR_FECF | USART_ICR_NECF;
+    USART3->CR3 = USART_CR3_EIE;
+    HAL_NVIC_SetPriority(USART3_IRQn, 5U, 0U);
+    HAL_NVIC_EnableIRQ(USART3_IRQn);
+    USART3->CR1 = ((u32)USART_CR1_TE | (u32)USART_CR1_RE | (u32)USART_CR1_UE |
+                   (u32)USART_CR1_RXNEIE_RXFNEIE);
 }
 
 /** @} DOXYGEN GROUP TAG END OF FILE */

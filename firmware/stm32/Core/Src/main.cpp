@@ -39,10 +39,15 @@
 #include "PedalLeds.hpp"
 #include "PedalSwitches.hpp"
 #include "main.h"
+#include "MasterMuteGate.hpp"
 
 /*******************************************************************************
  * DEFINES LOCAIS
  ******************************************************************************/
+// Safety gate: this repository does not implement SAI/DMA transport yet.
+// Keep zero until clocks, DMA buffers and error recovery are implemented/tested.
+#define dMAIN_AUDIO_TRANSPORT_READY          0U
+
 #define dMAIN_DISPATCH_PERIOD_MS            10U
 #define dMAIN_HEARTBEAT_PERIOD_MS           1000U
 
@@ -82,6 +87,7 @@
  ******************************************************************************/
 /// Instancias estaticas das classes principais do sistema
 static DspEngine dspEngine;
+static MasterMuteGate masterMuteGate;
 static PedalLeds& pedalLeds = PedalLeds::GetInstance();
 static PedalSwitches& pedalSwitches = PedalSwitches::GetInstance();
 static Cs4272& codecCs4272 = Cs4272::GetInstance();
@@ -101,6 +107,7 @@ static struct
 static void Main_DispatchSwitches(void);
 static void Main_DispatchUart(void);
 static void Main_DispatchHeartbeat(void);
+static bool Main_ApplyMute(void);
 
 /*******************************************************************************
  * FUNCOES PUBLICAS
@@ -123,9 +130,15 @@ int main(void)
     // 2. Inicializacao das classes de componentes perifericos e DSP
     pedalLeds.Init();
     pedalSwitches.Init();
-    codecCs4272.Init();
+#if (dMAIN_AUDIO_TRANSPORT_READY != 0U)
+    if(codecCs4272.Init() != eCS4272_STATUS_OK)
+    {
+        Bsp::ErrorHandler();
+    }
+#endif
     interMcuUart.Init();
     dspEngine.Init(dDSP_ENGINE_DEFAULT_SAMPLE_RATE);
+    dspEngine.SetMasterMute(true);
 
     mainState.isRunning = true;
     mainState.lastDispatchTick = Bsp::GetTick();
@@ -147,9 +160,11 @@ int main(void)
             pedalSwitches.Process();
             Main_DispatchSwitches();
 
-            interMcuUart.ProcessRx();
-            Main_DispatchUart();
         }
+
+        // ISR buffers RX during TX/I2C; drain and dispatch without a 10 ms gate.
+        interMcuUart.ProcessRx();
+        Main_DispatchUart();
 
         // Tarefa lenta (1000 ms): Heartbeat de conectividade e sinalizacao
         if((currentTick - mainState.lastHeartbeatTick) >= dMAIN_HEARTBEAT_PERIOD_MS)
@@ -196,6 +211,27 @@ extern "C" void assert_failed(uint8_t *file, uint32_t line)
  * @param Nenhum.
  * @retval Nenhum.
  ******************************************************************************/
+static bool Main_ApplyMute(void)
+{
+    static bool codecMuteKnown = false;
+    static bool codecMute = true;
+    const bool mute = masterMuteGate.Effective(
+        pedalSwitches.IsActive(ePEDAL_SWITCHES_SW4), dMAIN_AUDIO_TRANSPORT_READY != 0U);
+    dspEngine.SetMasterMute(mute);
+    if(codecCs4272.IsInitialized() && (!codecMuteKnown || (codecMute != mute)))
+    {
+        if(codecCs4272.SetMute(mute) != eCS4272_STATUS_OK)
+        {
+            dspEngine.SetMasterMute(true);
+            Bsp::ErrorHandler(); // Error handler asserts codec reset LOW.
+            return false;
+        }
+        codecMute = mute;
+        codecMuteKnown = true;
+    }
+    return true;
+}
+
 static void Main_DispatchSwitches(void)
 {
     // SW1: Overdrive
@@ -213,10 +249,10 @@ static void Main_DispatchSwitches(void)
     pedalLeds.Set(ePEDAL_LEDS_DELAY, sw3Active);
     dspEngine.SetDelayEnable(sw3Active);
 
-    // SW4: Master Bypass / Mute
+    // SW4: Master Mute; no audio is released before transport exists.
     bool sw4Active = pedalSwitches.IsActive(ePEDAL_SWITCHES_SW4);
     pedalLeds.Set(ePEDAL_LEDS_STATUS, sw4Active);
-    dspEngine.SetMasterBypass(sw4Active);
+    Main_ApplyMute();
 
     // Notificacao de eventos caso alguma chave tenha comutado
     u8 indexSwitch;
@@ -276,7 +312,10 @@ static void Main_DispatchUart(void)
                             {
                                 float volNorm = (float)paramVal * 0.01f;
                                 dspEngine.SetMasterVolume(volNorm);
-                                codecCs4272.SetMasterVolume(paramVal);
+                                if(codecCs4272.IsInitialized() == true)
+                                {
+                                    codecCs4272.SetMasterVolume(paramVal);
+                                }
                             }
                             else if(paramId == dPARAM_GLOBAL_MASTER_BYPASS)
                             {
@@ -285,9 +324,8 @@ static void Main_DispatchUart(void)
                             }
                             else if(paramId == dPARAM_GLOBAL_MASTER_MUTE)
                             {
-                                bool isMute = (paramVal != 0U);
-                                dspEngine.SetMasterMute(isMute);
-                                codecCs4272.SetMute(isMute);
+                                masterMuteGate.SetRemote(paramVal != 0U);
+                                Main_ApplyMute();
                             }
                         }
                         else if(module == dMODULE_OVERDRIVE)
@@ -413,7 +451,7 @@ static void Main_DispatchUart(void)
  ******************************************************************************/
 static void Main_DispatchHeartbeat(void)
 {
-    pedalLeds.Toggle(ePEDAL_LEDS_STATUS);
+    // PE15 belongs to master mute; heartbeat only uses the onboard LED.
     Bsp::LedOnboardToggle();
 
     interMcuUart.SendPacket((u8)eINTER_MCU_UART_CMD_HEARTBEAT, nullptr, 0U);

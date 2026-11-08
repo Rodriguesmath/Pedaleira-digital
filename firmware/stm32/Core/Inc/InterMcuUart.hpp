@@ -36,6 +36,8 @@
 
 /// Polinomio padrao do CRC-8 CCITT (x^8 + x^2 + x + 1)
 #define dINTER_MCU_UART_CRC_POLY            0x07U
+#define dINTER_MCU_UART_PACKET_QUEUE_SIZE   8U
+#define dINTER_MCU_UART_RX_TIMEOUT_MS       20U
 
 /*******************************************************************************
  * TIPOS DE DADOS PUBLICOS
@@ -101,6 +103,7 @@ public:
     u32 GetPacketsReceived(void) const;
     u32 GetPacketsTransmitted(void) const;
     u32 GetCrcErrors(void) const;
+    u32 GetPacketDrops(void) const;
 
 private:
     interMcuUartRxState_t rxState_;
@@ -108,8 +111,12 @@ private:
     u8 currentLen_;
     u8 payloadIndex_;
     u8 payloadBuffer_[dINTER_MCU_UART_MAX_PAYLOAD];
-    interMcuUartPacket_t lastPacket_;
-    bool hasNewPacket_;
+    interMcuUartPacket_t packets_[dINTER_MCU_UART_PACKET_QUEUE_SIZE];
+    u8 packetHead_;
+    u8 packetTail_;
+    u8 packetCount_;
+    u32 packetDrops_;
+    u32 lastByteTick_;
     u32 packetsReceived_;
     u32 packetsTransmitted_;
     u32 crcErrors_;

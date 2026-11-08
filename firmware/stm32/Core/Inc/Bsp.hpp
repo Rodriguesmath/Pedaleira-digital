@@ -95,7 +95,9 @@ public:
     static void LedOnboardToggle(void);
 
     static void Usart3WriteByte(u8 data);
-    static bool Usart3ReadByte(u8 *pData);
+    static bool Usart3ReadEvent(u16 *pEvent);
+    static u32 Usart3RxDroppedBytes(void);
+    static u32 Usart3RxHardwareErrors(void);
 
     static void ErrorHandler(void);
 

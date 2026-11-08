@@ -23,7 +23,7 @@
 #define dCS4272_DEFAULT_VOLUME_PERCENT      80U
 
 /// Tempo maximo de espera em milissegundos para transacoes no barramento I2C
-#define dCS4272_I2C_TIMEOUT_MS              100U
+#define dCS4272_I2C_TIMEOUT_MS              3U
 
 /*******************************************************************************
  * DEFINES PUBLICOS

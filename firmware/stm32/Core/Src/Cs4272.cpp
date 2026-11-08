@@ -39,12 +39,12 @@
 #define dPORT_CODEC_RESET                   GPIOD
 
 #define dRESET_PULSE_LOW_MS                 5U
-#define dRESET_POST_DELAY_MS                10U
+#define dRESET_POST_DELAY_MS                1U
 
 #define dREG_MODE_CTRL_1_SLAVE_I2S          0x01U
 #define dREG_DAC_CTRL_DEFAULT               0x00U
-#define dREG_DAC_VOL_CTRL_DEFAULT           0x30U
-#define dREG_ADC_CTRL_DEFAULT               0x00U
+#define dREG_DAC_VOL_CTRL_DEFAULT           0x39U
+#define dREG_ADC_CTRL_DEFAULT               0x14U
 #define dREG_MODE_CTRL_2_CPEN_PDN           0x03U
 #define dREG_MODE_CTRL_2_CPEN_ACTIVE        0x02U
 
@@ -83,7 +83,7 @@ Cs4272& Cs4272::GetInstance(void)
  ******************************************************************************/
 Cs4272::Cs4272()
     : masterVolume_(dCS4272_DEFAULT_VOLUME_PERCENT)
-    , isMuted_(false)
+    , isMuted_(true)
     , isInitialized_(false)
 {
 }
@@ -98,8 +98,12 @@ cs4272Status_t Cs4272::Init(void)
     cs4272Status_t status = eCS4272_STATUS_OK;
 
     masterVolume_ = dCS4272_DEFAULT_VOLUME_PERCENT;
-    isMuted_ = false;
+    isMuted_ = true;
     isInitialized_ = false;
+
+    // Caller must have stable SAI clocks and rails before invoking Init.
+    HAL_GPIO_WritePin(dPORT_CODEC_RESET, dPIN_CODEC_RESET, GPIO_PIN_RESET);
+    Bsp::DelayMs(5000U); // Passive VREF_OP settling; codec still held in reset.
 
     // 1. Pulso fisico de reset por hardware
     HardwareReset();
@@ -139,7 +143,7 @@ cs4272Status_t Cs4272::Init(void)
         return status;
     }
 
-    // 7. Registrador ADC Control: Dither habilitado e filtro passa-altas ativo
+    // 7. I2S 24-bit, ADC channel B muted, HPF enabled, 16-bit dither disabled
     status = WriteRegister(dCS4272_REG_ADC_CTRL, dREG_ADC_CTRL_DEFAULT);
     if(status != eCS4272_STATUS_OK)
     {
@@ -202,6 +206,12 @@ cs4272Status_t Cs4272::WriteRegister(u8 regAddr, u8 regVal)
         retStatus = eCS4272_STATUS_ERROR;
     }
 
+    if(retStatus != eCS4272_STATUS_OK)
+    {
+        HAL_GPIO_WritePin(dPORT_CODEC_RESET, dPIN_CODEC_RESET, GPIO_PIN_RESET);
+        isInitialized_ = false;
+        isMuted_ = true;
+    }
     return retStatus;
 }
 

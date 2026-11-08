@@ -75,8 +75,12 @@ InterMcuUart::InterMcuUart()
     , currentLen_(0U)
     , payloadIndex_(0U)
     , payloadBuffer_{0U}
-    , lastPacket_{0U, 0U, {0U}, false}
-    , hasNewPacket_(false)
+    , packets_{}
+    , packetHead_(0U)
+    , packetTail_(0U)
+    , packetCount_(0U)
+    , packetDrops_(0U)
+    , lastByteTick_(0U)
     , packetsReceived_(0U)
     , packetsTransmitted_(0U)
     , crcErrors_(0U)
@@ -95,20 +99,18 @@ void InterMcuUart::Init(void)
     currentCmd_ = 0U;
     currentLen_ = 0U;
     payloadIndex_ = 0U;
-    hasNewPacket_ = false;
+    packetHead_ = 0U;
+    packetTail_ = 0U;
+    packetCount_ = 0U;
+    packetDrops_ = 0U;
+    lastByteTick_ = Bsp::GetTick();
     packetsReceived_ = 0U;
     packetsTransmitted_ = 0U;
     crcErrors_ = 0U;
 
-    lastPacket_.cmd = 0U;
-    lastPacket_.length = 0U;
-    lastPacket_.isValid = false;
-
-    u8 i;
-    for(i = 0U; i < (u8)dINTER_MCU_UART_MAX_PAYLOAD; i++)
+    for(u8 i = 0U; i < (u8)dINTER_MCU_UART_MAX_PAYLOAD; i++)
     {
         payloadBuffer_[i] = 0U;
-        lastPacket_.payload[i] = 0U;
     }
 
     isInitialized_ = true;
@@ -170,11 +172,27 @@ bool InterMcuUart::SendPacket(u8 cmd, const u8 *pPayload, u8 payloadLen)
  ******************************************************************************/
 void InterMcuUart::ProcessRx(void)
 {
-    u8 byteReceived;
-
-    while(Bsp::Usart3ReadByte(&byteReceived) == true)
+    const u32 now = Bsp::GetTick();
+    if((rxState_ != eINTER_MCU_UART_RX_STATE_SYNC1) &&
+       ((now - lastByteTick_) >= dINTER_MCU_UART_RX_TIMEOUT_MS))
     {
-        RxByteCallback(byteReceived);
+        rxState_ = eINTER_MCU_UART_RX_STATE_SYNC1;
+    }
+    u16 event;
+    // Leave bytes queued while decoded-packet storage is full.
+    while((packetCount_ < dINTER_MCU_UART_PACKET_QUEUE_SIZE) &&
+          Bsp::Usart3ReadEvent(&event))
+    {
+        lastByteTick_ = now;
+        if(event > 0xFFU)
+        {
+            rxState_ = eINTER_MCU_UART_RX_STATE_SYNC1;
+            payloadIndex_ = 0U;
+        }
+        else
+        {
+            RxByteCallback((u8)event);
+        }
     }
 }
 
@@ -184,7 +202,7 @@ void InterMcuUart::ProcessRx(void)
  ******************************************************************************/
 bool InterMcuUart::HasNewPacket(void) const
 {
-    return hasNewPacket_;
+    return packetCount_ != 0U;
 }
 
 /******************************************************************************/
@@ -196,21 +214,22 @@ bool InterMcuUart::HasNewPacket(void) const
  ******************************************************************************/
 bool InterMcuUart::GetPacket(u8 *pCmd, u8 *pPayload, u8 *pPayloadLen)
 {
-    if((hasNewPacket_ == false) || (pCmd == nullptr) || (pPayload == nullptr) || (pPayloadLen == nullptr))
+    if((packetCount_ == 0U) || (pCmd == nullptr) || (pPayload == nullptr) || (pPayloadLen == nullptr))
     {
         return false;
     }
 
-    *pCmd = lastPacket_.cmd;
-    *pPayloadLen = lastPacket_.length;
+    *pCmd = packets_[packetTail_].cmd;
+    *pPayloadLen = packets_[packetTail_].length;
 
     u8 i;
-    for(i = 0U; i < lastPacket_.length; i++)
+    for(i = 0U; i < packets_[packetTail_].length; i++)
     {
-        pPayload[i] = lastPacket_.payload[i];
+        pPayload[i] = packets_[packetTail_].payload[i];
     }
 
-    hasNewPacket_ = false;
+    packetTail_ = (u8)((packetTail_ + 1U) % dINTER_MCU_UART_PACKET_QUEUE_SIZE);
+    packetCount_--;
 
     return true;
 }
@@ -296,16 +315,23 @@ void InterMcuUart::RxByteCallback(u8 byteRx)
 
             if(calculatedCrc == byteRx)
             {
-                lastPacket_.cmd = currentCmd_;
-                lastPacket_.length = currentLen_;
-
-                for(i = 0U; i < currentLen_; i++)
+                if(packetCount_ < dINTER_MCU_UART_PACKET_QUEUE_SIZE)
                 {
-                    lastPacket_.payload[i] = payloadBuffer_[i];
+                    interMcuUartPacket_t& packet = packets_[packetHead_];
+                    packet.cmd = currentCmd_;
+                    packet.length = currentLen_;
+                    for(i = 0U; i < currentLen_; i++)
+                    {
+                        packet.payload[i] = payloadBuffer_[i];
+                    }
+                    packet.isValid = true;
+                    packetHead_ = (u8)((packetHead_ + 1U) % dINTER_MCU_UART_PACKET_QUEUE_SIZE);
+                    packetCount_++;
                 }
-
-                lastPacket_.isValid = true;
-                hasNewPacket_ = true;
+                else
+                {
+                    packetDrops_++;
+                }
                 packetsReceived_++;
             }
             else
@@ -389,3 +415,8 @@ u32 InterMcuUart::GetCrcErrors(void) const
  ******************************************************************************/
 
 /** @} DOXYGEN GROUP TAG END OF FILE */
+
+u32 InterMcuUart::GetPacketDrops(void) const
+{
+    return packetDrops_;
+}
