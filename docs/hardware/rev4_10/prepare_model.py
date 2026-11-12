@@ -11,7 +11,7 @@ import json
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = ROOT / 'output/auditoria_rev49/VALIDACAO/circuito_rev49_errata_documental.json'
 model = copy.deepcopy(json.loads(SOURCE.read_text()))
-model.update(revision='4.10A-candidate', release_status='BLOCKED - alimentação em revisão')
+model.update(revision='4.10B-candidate', release_status='4.10B-candidate: Blocker 3 (active clamp) e Blocker 4 (mute relay) implementados')
 parts = {a['ref']: a for a in model['components']}
 for a in parts.values():
     for p, n in a['pins'].items():
@@ -84,8 +84,18 @@ parts['U6']['note'] += ' Orçamento 4 mA por domínio; saída RX com carga de pr
 # 4.10A safety closure: +5VA window supervisor, CODEC_RST interlock, and off-state AIN shunts
 parts['H_STM32']['pins']['P1.38'] = 'CODEC_RST_CMD'
 parts['R13']['note'] = 'Pull-down passivo em CODEC_RST; mantido junto ao intertravamento ativo Q1/R39.'
+
+# 4.10B Blocker 3: Delete BAT85 clamps D9..D12
 for _dr in ('D9', 'D10', 'D11', 'D12'):
-    parts[_dr]['note'] += ' Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.'
+    model['components'].remove(parts[_dr])
+    del parts[_dr]
+
+# 4.10B Blocker 4: C5 acopla em OUT_PRE, R6 47k para descarga, J3 no relé
+parts['C5']['pins']['2'] = 'OUT_PRE'
+parts['R6']['value'] = '47 kohm'
+parts['R6']['pins'] = {'1': 'OUT_PRE', '2': 'GND'}
+parts['R6']['note'] = '47 kohm OUT_PRE/GND; tau=0.47s com C5 (10 uF), fc=0.50 Hz (<0.08 dB vs 1M a 20 Hz); referência estável para descarregar C5'
+parts['J3']['pins']['1'] = 'JACK_OUT'
 
 # Supervisor +5VA (bloco 9A)
 add('U7', 'VREF', 'TL431ACZ', {'1': 'VA_REF', '2': 'GND', '3': 'VA_K'}, 9,
@@ -143,10 +153,118 @@ add('Q8', 'Q', '2N7000', {'1': 'GND', '2': 'SHUNT_EN', '3': 'AINB_CM'}, 9,
     'Shunt OFF-state AINB_CM (C34)->GND na ausência/subtensão de +5VA', 'TO-92-3 inline', '2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)',
     names={'1': 'S', '2': 'G', '3': 'D'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
 
-for _to92 in ('U7', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8'):
+# 4.10B Sheet 2 Active Clamps (Blocker 3: Vbe-compensated window clamp Q11..Q14)
+add('Q11', 'Q', '2N3906', {'1': 'AINA_P', '2': 'V_BIAS_HI', '3': 'GND'}, 2,
+    'Clamp ativo superior AINA_P com compensação Vbe', 'TO-92-3 inline', '2N3906 PNP (>=40 V, hFE>=100)',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'},
+    note='Conduz quando AINA_P > V_BIAS_HI + 0.6V (~4.7V); sem distorção até 0.5Vpk')
+add('Q12', 'Q', '2N3904', {'1': 'AINA_P', '2': 'V_BIAS_LO', '3': '+5VA'}, 2,
+    'Clamp ativo inferior AINA_P com compensação Vbe', 'TO-92-3 inline', '2N3904 NPN (>=40 V, hFE>=100)',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'},
+    note='Conduz quando AINA_P < V_BIAS_LO - 0.6V (~0.3V); sem distorção até 0.5Vpk')
+add('Q13', 'Q', '2N3906', {'1': 'AINA_N', '2': 'V_BIAS_HI', '3': 'GND'}, 2,
+    'Clamp ativo superior AINA_N com compensação Vbe', 'TO-92-3 inline', '2N3906 PNP (>=40 V, hFE>=100)',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'},
+    note='Conduz quando AINA_N > V_BIAS_HI + 0.6V (~4.7V); sem distorção até 0.5Vpk')
+add('Q14', 'Q', '2N3904', {'1': 'AINA_N', '2': 'V_BIAS_LO', '3': '+5VA'}, 2,
+    'Clamp ativo inferior AINA_N com compensação Vbe', 'TO-92-3 inline', '2N3904 NPN (>=40 V, hFE>=100)',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'},
+    note='Conduz quando AINA_N < V_BIAS_LO - 0.6V (~0.3V); sem distorção até 0.5Vpk')
+
+# 4.10B Sheet 4 Output Mute Relay (Blocker 4: fail-safe relay K1 + flyback D16)
+add('K1', 'RELAY', 'G5V-1-DC12',
+    {'1': 'GND', '2': 'K1_COILP', '5': 'JACK_OUT', '6': 'JACK_OUT', '9': 'GND', '10': 'OUT_PRE'}, 4,
+    'Relé de mute anti-pop fail-safe na saída de áudio', 'Omron G5V-1 DIP-6',
+    'Omron G5V-1-DC12 (12 V DC, bobina 960 ohm, SPDT forma C)',
+    names={'1': 'NC', '2': 'COIL+', '5': 'COM', '6': 'COM_B', '9': 'COIL-', '10': 'NO'},
+    types={'1': 'passive', '2': 'passive', '5': 'passive', '6': 'passive', '9': 'passive', '10': 'passive'},
+    note='Desenergizado: JACK_OUT aterrado (NC); energizado: conecta a OUT_PRE (NO); suprime estalos de transiente')
+add('D16', 'D', '1N4148', {'1': 'GND', '2': 'K1_COILP'}, 4,
+    'Diodo flyback supressor de surto na bobina do relé K1', 'DO-35', '1N4148 >=75 V',
+    names={'1': 'A', '2': 'K'}, note='Protege driver PNP Q21 contra pico indutivo na desenergização da bobina')
+
+# 4.10B Sheet 10 Block 10A: Clamp Bias Gen
+add('R48', 'R', '12 kohm', {'1': '+5VA', '2': 'V_REF_HI'}, 10, 'Divisor superior polarização clamp alto', 'Axial DIN0207 1/4 W 1%', '12 kohm 1%, 0,25 W')
+add('R49', 'R', '150 kohm', {'1': 'V_REF_HI', '2': 'GND'}, 10, 'Divisor inferior polarização clamp alto', 'Axial DIN0207 1/4 W 1%', '150 kohm 1%, 0,25 W')
+add('C45', 'C', '100 nF', {'1': '+5VA', '2': 'V_REF_HI'}, 10, 'Filtro de ruído em V_REF_HI', 'Cerâmico THT', '100 nF X7R >=16 V')
+add('Q9', 'Q', '2N3904', {'1': 'V_BIAS_HI', '2': 'V_REF_HI', '3': '+5VA'}, 10,
+    'Seguidor NPN de compensação Vbe para V_BIAS_HI', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'},
+    note='V_BIAS_HI = V_REF_HI - Vbe ~ 4.63V - 0.60V = 4.03V')
+add('R50', 'R', '6.8 kohm', {'1': 'V_BIAS_HI', '2': 'GND'}, 10, 'Carga de emissor Q9 para V_BIAS_HI', 'Axial DIN0207 1/4 W 1%', '6.8 kohm 1%, 0,25 W')
+add('C46', 'C', '100 nF', {'1': 'V_BIAS_HI', '2': 'GND'}, 10, 'Bypass local de V_BIAS_HI', 'Cerâmico THT', '100 nF X7R >=16 V')
+add('R51', 'R', '150 kohm', {'1': '+5VA', '2': 'V_REF_LO'}, 10, 'Divisor superior polarização clamp baixo', 'Axial DIN0207 1/4 W 1%', '150 kohm 1%, 0,25 W')
+add('R52', 'R', '10 kohm', {'1': 'V_REF_LO', '2': 'GND'}, 10, 'Divisor inferior polarização clamp baixo', 'Axial DIN0207 1/4 W 1%', '10 kohm 1%, 0,25 W')
+add('C47', 'C', '100 nF', {'1': 'V_REF_LO', '2': 'GND'}, 10, 'Filtro de ruído em V_REF_LO', 'Cerâmico THT', '100 nF X7R >=16 V')
+add('Q10', 'Q', '2N3906', {'1': 'V_BIAS_LO', '2': 'V_REF_LO', '3': 'GND'}, 10,
+    'Seguidor PNP de compensação Vbe para V_BIAS_LO', 'TO-92-3 inline', '2N3906 PNP',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'},
+    note='V_BIAS_LO = V_REF_LO + Vbe ~ 0.31V + 0.60V = 0.91V')
+add('R53', 'R', '6.8 kohm', {'1': '+5VA', '2': 'V_BIAS_LO'}, 10, 'Pull-up de emissor Q10 para V_BIAS_LO', 'Axial DIN0207 1/4 W 1%', '6.8 kohm 1%, 0,25 W')
+add('C48', 'C', '100 nF', {'1': 'V_BIAS_LO', '2': 'GND'}, 10, 'Bypass local de V_BIAS_LO', 'Cerâmico THT', '100 nF X7R >=16 V')
+
+# 4.10B Sheet 10 Block 10B: +RAW UVLO
+add('R54', 'R', '27 kohm', {'1': '+RAW', '2': 'RAW_REF'}, 10, 'Divisor superior UVLO +RAW', 'Axial DIN0207 1/4 W 1%', '27 kohm 1%, 0,25 W')
+add('R55', 'R', '10 kohm', {'1': 'RAW_REF', '2': 'GND'}, 10, 'Divisor inferior UVLO +RAW', 'Axial DIN0207 1/4 W 1%', '10 kohm 1%, 0,25 W')
+add('U8', 'VREF', 'TL431ACZ', {'1': 'RAW_REF', '2': 'GND', '3': 'RAW_K'}, 10,
+    'Comparador shunt 2,495 V para UVLO +RAW', 'TO-92-3 inline', 'TL431A/B (±1% ou melhor, TO-92, Ik_min<=1 mA)',
+    names={'1': 'REF', '2': 'A', '3': 'K'}, types={'1': 'input', '2': 'power_in', '3': 'passive'},
+    note='Dispara em +RAW ~9,25 V com histerese R59 (~200 mV)')
+add('R56', 'R', '1.0 kohm', {'1': '+RAW', '2': 'Q15_B'}, 10, 'Pull-up B-E anti-fuga de Q15', 'Axial DIN0207 1/4 W 1%', '1.0 kohm 1%, 0,25 W')
+add('R57', 'R', '2.7 kohm', {'1': 'Q15_B', '2': 'RAW_K'}, 10, 'Limitador de base Q15 e Ik em U8', 'Axial DIN0207 1/4 W 1%', '2.7 kohm 1%, 0,25 W')
+add('Q15', 'Q', '2N3906', {'1': '+RAW', '2': 'Q15_B', '3': 'RAW_OK'}, 10,
+    'Chave PNP de sinalização RAW_OK', 'TO-92-3 inline', '2N3906 PNP',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R58', 'R', '2.2 kohm', {'1': 'RAW_OK', '2': 'GND'}, 10, 'Pull-down de carga em RAW_OK', 'Axial DIN0207 1/4 W 1%', '2.2 kohm 1%, 0,25 W')
+add('R59', 'R', '1.0 Mohm', {'1': 'RAW_OK', '2': 'RAW_REF'}, 10, 'Histerese UVLO de +RAW (~200 mV)', 'Axial DIN0207 1/4 W 1%', '1.0 Mohm 1%, 0,25 W')
+
+# 4.10B Sheet 10 Block 10C: 3-Input AND, Timer C49 & Schmitt K1 Driver
+add('R65', 'R', '47 kohm', {'1': 'VA_OK', '2': 'Q17_B'}, 10, 'Limitador de base Q17 a partir de VA_OK', 'Axial DIN0207 1/4 W 1%', '47 kohm 1%, 0,25 W')
+add('Q17', 'Q', '2N3904', {'1': 'GND', '2': 'Q17_B', '3': 'Q18_E'}, 10,
+    'Chave NPN inferior da porta AND de intertravamento', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R66', 'R', '100 kohm', {'1': 'CODEC_RST', '2': 'Q18_B'}, 10, 'Limitador de base Q18 a partir de CODEC_RST', 'Axial DIN0207 1/4 W 1%', '100 kohm 1%, 0,25 W')
+add('Q18', 'Q', '2N3904', {'1': 'Q18_E', '2': 'Q18_B', '3': 'Q19_E'}, 10,
+    'Chave NPN intermediária da porta AND', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R67', 'R', '22 kohm', {'1': 'RAW_OK', '2': 'Q19_B'}, 10, 'Divisor superior de base Q19', 'Axial DIN0207 1/4 W 1%', '22 kohm 1%, 0,25 W')
+add('R75', 'R', '2.2 kohm', {'1': 'Q19_B', '2': 'GND'}, 10, 'Divisor inferior de base Q19', 'Axial DIN0207 1/4 W 1%', '2.2 kohm 1%, 0,25 W')
+add('Q19', 'Q', '2N3904', {'1': 'Q19_E', '2': 'Q19_B', '3': 'FAULT_GATE'}, 10,
+    'Chave NPN superior da porta AND que ancora FAULT_GATE a GND', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R62', 'R', '47 kohm', {'1': '+RAW', '2': 'FAULT_GATE'}, 10, 'Pull-up de FAULT_GATE para +RAW', 'Axial DIN0207 1/4 W 1%', '47 kohm 1%, 0,25 W')
+add('R73', 'R', '47 ohm', {'1': 'MUTE_ARM', '2': 'MUTE_CL'}, 10, 'Limitador de corrente de descarga rápida de C49', 'Axial DIN0207 1/4 W 1%', '47 ohm 1%, 0,25 W')
+add('Q16', 'Q', '2N3904', {'1': 'GND', '2': 'FAULT_GATE', '3': 'MUTE_CL'}, 10,
+    'Chave NPN de descarga rápida de C49 sob falha', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R74', 'R', '10 kohm', {'1': 'FAULT_GATE', '2': 'Q22_B'}, 10, 'Limitador de base Q22', 'Axial DIN0207 1/4 W 1%', '10 kohm 1%, 0,25 W')
+add('Q22', 'Q', '2N3904', {'1': 'GND', '2': 'Q22_B', '3': 'Q20_B'}, 10,
+    'Chave NPN de inibição do Schmitt trigger sob falha', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R60', 'R', '33 kohm', {'1': 'RAW_OK', '2': 'MUTE_ARM'}, 10, 'Resistor de carga do temporizador anti-pop (tau ~1,5 s)', 'Axial DIN0207 1/4 W 1%', '33 kohm 1%, 0,25 W')
+add('C49', 'CP', '47 uF', {'1': 'MUTE_ARM', '2': 'GND'}, 10, 'Capacitor de temporização anti-pop na energização', 'Eletrolítico radial >=25 V', '47 uF >=25 V',
+    note='Carrega até ~5,4 V antes de disparar zener D17')
+add('D17', 'D', 'BZX55C4V7', {'1': 'Q20_Z', '2': 'MUTE_ARM'}, 10, 'Diodo zener 4,7 V de deslocamento de limiar do temporizador', 'DO-35', 'BZX55C4V7 zener 4,7 V 0,5 W',
+    names={'1': 'A', '2': 'K'})
+add('R68', 'R', '10 kohm', {'1': 'Q20_Z', '2': 'Q20_B'}, 10, 'Limitador de base do Schmitt trigger Q20', 'Axial DIN0207 1/4 W 1%', '10 kohm 1%, 0,25 W')
+add('R69', 'R', '33 kohm', {'1': 'Q20_B', '2': 'GND'}, 10, 'Pull-down de base Q20', 'Axial DIN0207 1/4 W 1%', '33 kohm 1%, 0,25 W')
+add('Q20', 'Q', '2N3904', {'1': 'GND', '2': 'Q20_B', '3': 'Q20_C'}, 10,
+    'Primeiro estágio NPN do Schmitt trigger de acionamento do relé', 'TO-92-3 inline', '2N3904 NPN',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R70', 'R', '10 kohm', {'1': '+RAW', '2': 'Q20_C'}, 10, 'Carga de coletor Q20', 'Axial DIN0207 1/4 W 1%', '10 kohm 1%, 0,25 W')
+add('R72', 'R', '4.7 kohm', {'1': 'Q20_C', '2': 'Q21_B'}, 10, 'Limitador de base do driver de bobina Q21', 'Axial DIN0207 1/4 W 1%', '4.7 kohm 1%, 0,25 W')
+add('Q21', 'Q', '2N3906', {'1': '+RAW', '2': 'Q21_B', '3': 'K1_COILP'}, 10,
+    'Driver PNP de alta corrente para bobina do relé K1', 'TO-92-3 inline', '2N3906 PNP (>=40 V, Ic>=200 mA)',
+    names={'1': 'E', '2': 'B', '3': 'C'}, types={'1': 'passive', '2': 'input', '3': 'passive'})
+add('R71', 'R', '1.5 Mohm', {'1': 'K1_COILP', '2': 'Q20_B'}, 10, 'Histerese positiva do Schmitt trigger do relé', 'Axial DIN0207 1/4 W 1%', '1.5 Mohm 1%, 0,25 W')
+
+for _to92 in ('U7', 'U8', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8',
+              'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q14', 'Q15', 'Q16', 'Q17', 'Q18', 'Q19', 'Q20', 'Q21', 'Q22'):
     parts[_to92]['footprint'] = 'Package_TO_SOT_THT:TO-92_Inline'
 
-model['status'] = '4.10A — Segurança de projeto (alimentação/UART/reset/AIN sem VA) corrigida em CAD+SPICE; pendências físicas externas/bancada explícitas (CW, WeAct, ESP32); fase B pendente'
-model['architecture'] = 'STM USB própria; ESP USB própria; CW somente VA através de J5 aberto por padrão; VD/VL 3V3_STM; UART U6 dual-supply; supervisor VA_OK com intertravamento /RST e contenção OFF-state de AIN; GND comum'
+parts['K1']['footprint'] = 'Relay_THT:Relay_SPDT_Omron_G5V-1'
+
+model['status'] = '4.10B-candidate — Blocker 3 (active clamp Q9..Q14) e Blocker 4 (mute relay K1 + Sheet 10) resolvidos em CAD+SPICE'
+model['architecture'] = 'STM USB própria; ESP USB própria; CW somente VA através de J5 aberto por padrão; VD/VL 3V3_STM; UART U6 dual-supply; supervisor VA_OK com intertravamento /RST; contenção AIN; clamp ativo Vbe-tracking; relé de mute fail-safe com UVLO +RAW e temporizador anti-pop; GND comum'
 Path(__file__).with_name('circuito_rev4_10.json').write_text(json.dumps(model, ensure_ascii=False, indent=2)+'\n')
-print(f'4.10A candidate: {len(parts)} components; design A fixes applied, bench/phase B pending')
+print(f'4.10B candidate: {len(parts)} components; design B fixes applied')

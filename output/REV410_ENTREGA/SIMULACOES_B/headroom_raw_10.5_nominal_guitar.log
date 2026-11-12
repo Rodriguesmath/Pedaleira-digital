@@ -1,0 +1,51 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * headroom test: raw=10.5v, guitarra nominal 0.50 vp
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+raw                                       10.5
+vref                                      5.25
+in                                        5.25
+xu1a.11                               0.345441
+xu1a.12                               0.345453
+xu1a.6                            -2.23962e-06
+xu1a.7                                 5.25789
+out_u1a                                5.25001
+xu1a.53                                    8.3
+xu1a.54                                    2.2
+xu1a.90                              0.0525001
+xu1a.91                                     25
+xu1a.92                                    -25
+xu1a.99                                   5.25
+xu1a.10                                4.85142
+xu1a.9                                       0
+xu1a.8                                 5.25789
+v.xu1a.vb#branch                  -2.23962e-11
+v.xu1a.vc#branch                   3.05079e-12
+v.xu1a.ve#branch                   3.05081e-12
+v.xu1a.vlp#branch                 -2.49483e-11
+v.xu1a.vln#branch                 -2.50533e-11
+b.xu1a.bgnd#branch                -5.28886e-05
+h.xu1a.hlim#branch                   -1.05e-13
+v.xu1a.vlim#branch                 5.25001e-05
+vin#branch                        -3.52976e-11
+vref#branch                                  0
+vraw#branch                        -0.00509467
+
+
+No. of Data Rows : 509
+vmax                =  5.74994e+00 at=  4.24760e-03
+vmin                =  4.75009e+00 at=  2.74760e-03
+ngspice-47 done
+
+Warning: can't find the initialization file spinit.

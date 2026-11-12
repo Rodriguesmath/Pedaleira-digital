@@ -1,0 +1,20 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * blocker 4: fail-safe relay mute (full transient 0..7.0s)
+
+Option cshunt: 57 capacitors added with 1e-12 F each
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Operating point simulation skipped by 'uic',
+  now using transient initial conditions.
+ Reference value :  1.59738e+00
+ Reference value :  3.31958e+00
+ Reference value :  5.02004e+00
+ Reference value :  6.64521e+00
+No. of Data Rows : 35373
+ngspice-47 done
+
+Warning: can't find the initialization file spinit.

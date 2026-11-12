@@ -1,0 +1,47 @@
+* Mute AC Frequency Response and Isolation Test
+* Modelos Padronizados e Conexões Globais
+.include /home/rodrigues/Pedaleira-digital/output/auditoria_rev49/SIMULACOES/TL072_TI.301
+.model 2N3904 NPN (Is=14.34f Bf=255.9 Vaf=74.03 Ikf=.2847 Xtb=1.5 Br=6.092 Cjc=7.306p Cje=22.01p Rb=10 Rc=1)
+.model 2N3906 PNP (Is=1.41f Bf=180.7 Vaf=18.7 Ikf=80m Xtb=1.5 Br=4.977 Cjc=9.728p Cje=10.68p Rb=20 Rc=2.4)
+.model D4148 D (Is=2.5n N=1.75 Rs=.6 Cjo=4p Tt=4n)
+.model D1N5822 D (Is=50u N=1.05 Rs=0.05 Cjo=200p)
+.model DZ4V7 D (Is=1u N=1.5 Rs=10 Bv=4.7 Ibv=1m)
+.model M2N7000 NMOS (Level=3 Vto=3.0 Kp=0.14 Rs=1.2 Rd=1.2 Cgso=60p Cgdo=10p Cbd=40p)
+.model SW_NO SW (Ron=0.05 Roff=100G Vt=0.55 Vh=0.02)
+.model SW_NC SW (Ron=100G Roff=0.05 Vt=0.45 Vh=0.02)
+
+* Subcircuito TL431 Bounded Fisicamente Estável (Ref=1, Anode=2, Cathode=3)
+.subckt TL431 ref a k
+Gka k a VALUE='(V(k,a) > 0 ? 1 : 0) * ((V(k,a) * 0.1u) + max(0, V(k,a)-2.0) * (0.2u + 50m * 0.5 * (1 + tanh((V(ref,a)-2.495)/0.005))))'
+Rka k a 10Meg
+Rra ref a 10Meg
+Cka k a 10p
+.ends
+
+
+Vin in 0 DC 2.5 AC 1.0
+
+* Canal A: R6=47k em paralelo com carga 100k (Revisão 4.10B)
+C5_a in out_a 10u
+R6_a out_a 0 47k
+Rload_a out_a 0 100k
+
+* Canal B: R6=1M em paralelo com carga 100k (Baseline 4.9)
+C5_b in out_b 10u
+R6_b out_b 0 1Meg
+Rload_b out_b 0 100k
+
+* Canal OFF: Atenuação em Mute (relé K1 em NC para terra, acoplamento aberto)
+C5_off in no_contact 10u
+R6_off no_contact 0 47k
+C_contact no_contact jack_off 0.5p
+R_contact no_contact jack_off 100Meg
+R_nc jack_off 0 0.05
+Rload_off jack_off 0 100k
+
+.control
+ac dec 10 10 100k
+wrdata /home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/SIMULACOES_B/mute_audio_ac.txt v(out_a) v(out_b) v(jack_off)
+quit
+.endc
+.end

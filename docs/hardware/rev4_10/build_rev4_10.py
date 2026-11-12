@@ -15,7 +15,7 @@ OUT=Path(os.environ.get('PEDALEIRA_REV410_OUT',str(ROOT/'output/REV410_ENTREGA')
 MODEL=Path(__file__).with_name('circuito_rev4_10.json')
 # Sheet order follows the audio path; supporting power stays on sheet 7.
 OLD_TO_NEW={i:i for i in range(1,8)}
-PAGES={1:'Fonte analógica e referências',2:'Guitarra e condicionamento ADC completo',3:'Codec CS4272 e referências analógicas',4:'Receptor DAC e saída de linha',5:'STM32, ESP32 e distribuição digital',6:'Chaves e indicadores',7:'Desacoplamento e alimentação dos TL072',8:'UART entre alimentações independentes',9:'Supervisão +5VA, intertravamento /RST e contenção sem VA'}
+PAGES={1:'Fonte analógica e referências',2:'Guitarra e condicionamento ADC completo',3:'Codec CS4272 e referências analógicas',4:'Receptor DAC e saída de linha',5:'STM32, ESP32 e distribuição digital',6:'Chaves e indicadores',7:'Desacoplamento e alimentação dos TL072',8:'UART entre alimentações independentes',9:'Supervisão +5VA, intertravamento /RST e contenção sem VA',10:'Bias de clamp ativo, UVLO +RAW e temporizador do relé de mute'}
 model=json.loads(MODEL.read_text());components=model['components'];byref={c['ref']:c for c in components}
 assert len(byref)==len(components)
 with (OUT/'BOM_rev4_10.csv').open('w',newline='',encoding='utf-8-sig') as f:
@@ -49,13 +49,13 @@ def wrap(s,width,size=6.5):
 
 notes={
 1:['12 V DC regulados (11,4..12,6 V). A opção 9 V não foi aprovada. VREF_OP não é GND nem VCOM.',
-   'CW7805: identidade/pinagem pendentes. Apenas VA; orçamento de carga <65 mA (incl. supervisor F9). Validar primeiro sem codec.'],
+   'CW7805: identidade/pinagem pendentes. Apenas VA; orçamento de carga <65 mA (incl. supervisor F9 e bias F10). Validar primeiro sem codec.'],
 2:['Entrada nominal ≤0,5 V de pico. U3A: +1; U3B: -1. C2/C16 isolam VREF_OP (~5,65 V) de ADC_BIAS (~2,4 V).',
-   'ADC: 1,5 kΩ por perna, 680 pF diferencial e 100 pF para GND. Clamps BAT85; verificar transientes em bancada.'],
+   'Clamps ativos compensados Q11..Q14 (Vbe tracking de V_BIAS_HI/LO); D9..D12 BAT85 eliminados; distorção zero no sinal linear.'],
 3:['MCLK externo: XTI em GND, XTO em NC. AD0=GND: endereço I2C 0x10 (7 bits).',
    'VCOM sem carga externa; ADC_BIAS independente em 0,48 × +5VA. Validar diferença para VCOM ≤50 mV.'],
 4:['Ganho diferencial nominal 0,499. R1/R2/R7/R8: razões casadas 0,1%. + de C5 para LP2.',
-   'Carga externa ≥100 kΩ. Manter amplificador externo em mute durante a partida e o desligamento.'],
+   'C5 acopla em OUT_PRE; R6 (47 kΩ) descarrega C5 (tau=0,47 s, fc=0,50 Hz); relé K1 (Omron G5V-1-DC12) e D16 conectam JACK_OUT a GND no mute e a OUT_PRE em regime.'],
 5:['STM32 e ESP32: cada placa recebe 5 V pela própria USB. Headers 5V/VIN sem conexão externa.',
    'VD/VL: +3V3_STM. J4: saída de teste +5VA do CW. Não unir +5VA às USB; GND comum.'],
 6:['C=contato comum; 1=usado; 2=NC. GPIO pull-up; fechado=LOW. SW4 deve comandar mute, não bypass.',
@@ -65,7 +65,9 @@ notes={
 7:['Os dois TL072 usam pino 8 em +RAW e pino 4 em GND real. Não existe alimentação negativa.',
    '100 nF a poucos milímetros de cada CI. Referência OP filtrada na F1. Projeto ainda não aprovado para áudio.'],
 9:['Supervisor U7/Q3: VA_OK sobe ~4,61 V e cai ~4,48 V; Q1/Q2 mantêm CODEC_RST <=0,1 V sem +5VA independente de PD10.',
-   'D15/R43/C44 retêm SHUNT_EN p/ Q5..Q8 (2N7000) conter AINP/AINM/ADC_BIAS na queda; R47 (47 Ω) limita descarga de C40.']}
+   'D15/R43/C44 retêm SHUNT_EN p/ Q5..Q8 (2N7000) conter AINP/AINM/ADC_BIAS na queda; R47 (47 Ω) limita descarga de C40.'],
+10:['10A: divisor R48/R49 (V_REF_HI ~4,63 V) e seguidor Q9 geram V_BIAS_HI ~4,03 V; R51/R52 (V_REF_LO ~0,31 V) e Q10 geram V_BIAS_LO ~0,91 V.',
+    '10B: UVLO +RAW via U8 (TL431, Vth ~9,25 V) e chave Q15 (RAW_OK). 10C: porta AND (Q17/Q18/Q19) condiciona carga de C49 (tau ~1,5 s); Schmitt Q20/Q21 aciona bobina de K1.']}
 exec(compile(Path(__file__).with_name('layout_connected.py').read_text(),'layout_connected.py','exec'))
 def approved_frame_and_legend(sheet,title):
  # Exact virtual-sheet geometry of the approved revision before conditioning.
@@ -93,7 +95,7 @@ def approved_frame_and_legend(sheet,title):
  for x,caption,value in [(233,'NÚMERO DO DOCUMENTO','PD-EA-001'),(303,'REVISÃO','4.10'),(322,'DATA','2026-11-12'),(355,'FOLHA',f'{sheet} / {len(PAGES)}'),(377,'FORMATO','A4 / 297 × 210')]:
   text(x,262.3,caption,2.5,'#404040');text(x,266.8,value,2.8,font='TB')
  text(233,271.8,'AUTORIA / PROJETO',2.5,'#404040');text(233,276.2,'Rodrigues M. Lima')
- text(313,271.8,'STATUS DO DOCUMENTO',2.5,'#404040');text(313,276.2,'Em revisão - fase A')
+ text(313,271.8,'STATUS DO DOCUMENTO',2.5,'#404040');text(313,276.2,'Em revisão - fase B')
  text(368,271.8,'ESCALA',2.5,'#404040');text(368,276.2,'Sem escala')
 
 for sheet,title in PAGES.items():

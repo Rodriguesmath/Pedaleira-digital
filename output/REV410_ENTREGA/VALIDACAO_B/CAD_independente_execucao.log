@@ -1,0 +1,18 @@
+test_all_component_references_and_bom_values (__main__.AuditCAD_B.test_all_component_references_and_bom_values) ... ok
+test_all_sheets_every_model_terminal_rendered (__main__.AuditCAD_B.test_all_sheets_every_model_terminal_rendered) ... ok
+test_codec_all_supply_pins_and_local_digital_pullups (__main__.AuditCAD_B.test_codec_all_supply_pins_and_local_digital_pullups) ... ok
+test_cw_analog_split_and_test_connector (__main__.AuditCAD_B.test_cw_analog_split_and_test_connector) ... ok
+test_cw_is_hypothesis_not_identified_regulator (__main__.AuditCAD_B.test_cw_is_hypothesis_not_identified_regulator) ... ok
+test_exact_net_partitions_not_just_labels (__main__.AuditCAD_B.test_exact_net_partitions_not_just_labels) ... ok
+test_iso_bypass_bleeders_and_idle_pullups (__main__.AuditCAD_B.test_iso_bypass_bleeders_and_idle_pullups) ... ok
+test_iso_exact_d8_pin_mapping_and_no_parallel_uart (__main__.AuditCAD_B.test_iso_exact_d8_pin_mapping_and_no_parallel_uart) ... ok
+test_no_external_connection_to_usb_5v_headers (__main__.AuditCAD_B.test_no_external_connection_to_usb_5v_headers) ... ok
+test_official_footprints_and_zero_erc_violations (__main__.AuditCAD_B.test_official_footprints_and_zero_erc_violations) ... ok
+test_phase_a_reset_interlock_and_offstate_containment (__main__.AuditCAD_B.test_phase_a_reset_interlock_and_offstate_containment) ... ok
+test_phase_b_active_adc_clamp_blocker3 (__main__.AuditCAD_B.test_phase_b_active_adc_clamp_blocker3) ... ok
+test_phase_b_fail_safe_mute_relay_blocker4 (__main__.AuditCAD_B.test_phase_b_fail_safe_mute_relay_blocker4) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.018s
+
+OK

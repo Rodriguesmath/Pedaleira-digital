@@ -77,7 +77,7 @@ v_sense_d9#branch                  1.64663e-27
 v.xu7.v_lim#branch                -2.50479e-09
 v.xu7.vref#branch                            0
 
- Reference value :  4.93136e-02
+ Reference value :  4.92714e-02
 No. of Data Rows : 7170
 ngspice-47 done
 

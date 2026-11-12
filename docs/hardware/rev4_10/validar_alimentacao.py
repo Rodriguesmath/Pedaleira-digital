@@ -25,7 +25,9 @@ def cw_budget(v5, rbleed, rtop, rbottom, r34_min=11000*0.99, r36_min=1800*0.99, 
     # Soma supervisor F9 (U7 TL431 + Q3 + R33..R38): divisor R34<=2.52V/R34 + R36=(v5-0.5-1.5)/R36 + Q3 load.
     i_div = 2.52 / r34_min + 2.52 / r38_min
     i_tl_q3 = max(0.0, (v5 - 2.0) / r36_min) + v5 / r37_min
-    return .053 + v5 / rbleed + v5 / (rtop + rbottom) + i_div + i_tl_q3
+    # Phase 4.10B Blocker 3: clamp bias active windows ~1.40 mA on +5VA (R48..R53 + Q9/Q10)
+    i_clamp_bias = 0.00140
+    return .053 + v5 / rbleed + v5 / (rtop + rbottom) + i_div + i_tl_q3 + i_clamp_bias
 
 
 def stm32_3v3_budget():
@@ -67,6 +69,28 @@ AIN_OFFSTATE_SHUNT_OK = (
     and parts.get('Q6', {}).get('pins') == {'1': 'GND', '2': 'SHUNT_EN', '3': 'AINA_N'}
     and parts.get('Q7', {}).get('pins') == {'1': 'GND', '2': 'SHUNT_EN', '3': 'ADC_B_SW'}
     and parts.get('Q8', {}).get('pins') == {'1': 'GND', '2': 'SHUNT_EN', '3': 'AINB_CM'}
+)
+
+CLAMP_ACTIVE_OK = (
+    'D9' not in parts and 'D10' not in parts and 'D11' not in parts and 'D12' not in parts
+    and parts.get('Q11', {}).get('pins') == {'1': 'AINA_P', '2': 'V_BIAS_HI', '3': 'GND'}
+    and parts.get('Q12', {}).get('pins') == {'1': 'AINA_P', '2': 'V_BIAS_LO', '3': '+5VA'}
+    and parts.get('Q13', {}).get('pins') == {'1': 'AINA_N', '2': 'V_BIAS_HI', '3': 'GND'}
+    and parts.get('Q14', {}).get('pins') == {'1': 'AINA_N', '2': 'V_BIAS_LO', '3': '+5VA'}
+    and parts.get('Q9', {}).get('pins') == {'1': 'V_BIAS_HI', '2': 'V_REF_HI', '3': '+5VA'}
+    and parts.get('Q10', {}).get('pins') == {'1': 'V_BIAS_LO', '2': 'V_REF_LO', '3': 'GND'}
+)
+
+MUTE_RELAY_OK = (
+    parts.get('C5', {}).get('pins', {}).get('2') == 'OUT_PRE'
+    and parts.get('R6', {}).get('value') == '47 kohm'
+    and parts.get('R6', {}).get('pins') == {'1': 'OUT_PRE', '2': 'GND'}
+    and parts.get('K1', {}).get('value') == 'G5V-1-DC12'
+    and parts.get('K1', {}).get('pins') == {'1': 'GND', '2': 'K1_COILP', '5': 'JACK_OUT', '6': 'JACK_OUT', '9': 'GND', '10': 'OUT_PRE'}
+    and parts.get('D16', {}).get('pins') == {'1': 'GND', '2': 'K1_COILP'}
+    and parts.get('U8', {}).get('value') == 'TL431ACZ'
+    and parts.get('Q15', {}).get('pins') == {'1': '+RAW', '2': 'Q15_B', '3': 'RAW_OK'}
+    and parts.get('Q21', {}).get('pins') == {'1': '+RAW', '2': 'Q21_B', '3': 'K1_COILP'}
 )
 
 
@@ -121,11 +145,14 @@ pmax=max(c['power_proxy_W'] for c in corners)
 conservative=(12.6-4.75)*imax+12.6*.008
 b3v3=stm32_3v3_budget()
 results={
- 'scope':'Phase 4.10A design checks (UART + Reset Interlock F9 + Off-state AIN F9 + 3V3 arithmetic budget); bench physical prerequisites & Phases B/C remain explicit',
- 'architecture':'USB STM and USB ESP independent; CW supplies codec VA only; common GND; F9 supervisor U7/Q1..Q8 enforces CODEC_RST<=0.1V & SHUNT_EN off-state AIN containment',
+ 'scope':'Phase 4.10B design checks (UART + Reset Interlock + Off-state AIN + Active Clamp Blocker 3 + Mute Relay Blocker 4); bench physical prerequisites explicit',
+ 'architecture':'USB STM and USB ESP independent; CW supplies codec VA only; common GND; F9 supervisor + RST interlock + AIN shunts; F10 clamp bias + RAW UVLO + mute timer',
  'VD_VL_implemented':'STM WeAct3V3; arithmetic budget PASS against 1A SY8088 worst-case buck; physical sample buck/ESP marking inspection required before energization',
- 'CW_current_typical_with_typical_IA_A':.045+5/910+5/25000+2.5/20100+(5.0-2.5)/1800+5.0/22000,
+ 'CW_current_typical_with_typical_IA_A':.045+5/910+5/25000+2.5/20100+(5.0-2.5)/1800+5.0/22000+.00140,
  'CW_current_max_budget_A':imax,'CW_Iq_proxy_A':.008,
+ 'CW_clamp_bias_added_A':.00140,
+ 'RAW_mute_and_sheet10_budget_A':.0176,
+ 'RAW_mute_and_sheet10_headroom_A':1.500-.0176,
  'CW_power_corner_proxy_max_W':pmax,'CW_power_conservative_proxy_W':conservative,
  'CW_Tj_proxy_thetaJA50_ambient40_C':40+conservative*50,
  'CW_Tj_proxy_thetaJA50_ambient60_C':60+conservative*50,
@@ -135,6 +162,8 @@ results={
  'UART_implemented_ISO7721DR':UART_ISOLATED,
  'RESET_interlock_implemented':RESET_INTERLOCK_OK,
  'AIN_offstate_containment_implemented':AIN_OFFSTATE_SHUNT_OK,
+ 'active_clamp_implemented':CLAMP_ACTIVE_OK,
+ 'mute_relay_implemented':MUTE_RELAY_OK,
  'STM32_3V3_budget':b3v3,
  'UART_added_budget_per_3V3_A':.004,
  'UART_RX_load_design_pF':15,
@@ -151,13 +180,14 @@ results={
                       *([] if RESET_INTERLOCK_OK else ['Reset interlock F9 missing or invalid']),
                       *([] if AIN_OFFSTATE_SHUNT_OK else ['Off-state AIN shunt F9 missing or invalid']),
                       *([] if b3v3['arithmetic_budget_pass'] else ['3V3 arithmetic budget exceeds 1A'])],
+ 'design_blockers_B':[*([] if CLAMP_ACTIVE_OK else ['Active clamp Blocker 3 missing or invalid']),
+                      *([] if MUTE_RELAY_OK else ['Mute relay Blocker 4 missing or invalid'])],
  'bench_prerequisites_A':['A410-01: generic CW7805 physical sample pinout/stability qualification on bench (J5 open, codec absent)',
                           'A410-05_hw: physical inspection of WeAct V1.2 U2 buck IC (SY8088/XT3410/TLV62569) and 3V3 droop test under load',
                           'A410-07_hw: physical inspection of ESP32 module (WROOM vs WROVER) confirming GPIO16/17 free'],
- 'phase_BC_pending_blockers':['A410-04 (Phase B): BAT85 replacement with non-distorting active ADC clamp within [GND-0.3, VA+0.3]',
-                              'A410-06 (Phase B): fail-safe physical mute at DAC/line output stage',
-                              'A410-08 (Phase C): complete footprint validation across all BOM components'],
+ 'phase_BC_pending_blockers':['A410-08 (Phase C): complete footprint validation across all BOM components'],
  'gate_A_design':'PASS',
+ 'gate_B_design':'PASS',
  'assumptions':{'RAW_min10_5V':'12V-5% minus assumed 0.9V D1, not guaranteed all-temperature specification',
   'RAW_max12_6V':'12V+5%, no guaranteed diode minimum drop',
   'CW_V5_4_75_5_25':'family comparator envelope, not identified CW specification',
@@ -165,7 +195,9 @@ results={
   'codec_IA53mA':'datasheet current at stated clock/temperature conditions; not inrush bound'}}
 
 results['gate_A_design']='BLOCKED' if results['design_blockers_A'] else 'PASS'
+results['gate_B_design']='BLOCKED' if (results['design_blockers_A'] or results['design_blockers_B']) else 'PASS'
 results['gate_A_bench']='CONDITIONED_ON_PHYSICAL_SAMPLE'
+results['gate_B_bench']='CONDITIONED_ON_PHYSICAL_SAMPLE'
 
 class Checks(unittest.TestCase):
     def test_current_reduction(self):self.assertLess(imax,.065)
@@ -182,6 +214,11 @@ class Checks(unittest.TestCase):
     def test_phase_a_reset_and_ain_shunt_design(self):
         self.assertTrue(RESET_INTERLOCK_OK)
         self.assertTrue(AIN_OFFSTATE_SHUNT_OK)
+    def test_phase_b_clamp_and_mute_relay_design(self):
+        self.assertTrue(CLAMP_ACTIVE_OK)
+        self.assertTrue(MUTE_RELAY_OK)
+        self.assertEqual(results['design_blockers_B'], [])
+        self.assertEqual(results['gate_B_design'], 'PASS')
     def test_usb_headers_not_cw(self):
         self.assertIsNone(parts['H_STM32']['pins']['P1.2'])
         self.assertIsNone(parts['H_ESP32']['pins']['VIN'])
@@ -195,6 +232,8 @@ class Checks(unittest.TestCase):
         self.assertEqual(results['design_blockers_A'], [])
         self.assertEqual(results['gate_A_design'], 'PASS')
         self.assertEqual(results['gate_A_bench'], 'CONDITIONED_ON_PHYSICAL_SAMPLE')
+        self.assertEqual(results['gate_B_design'], 'PASS')
+        self.assertEqual(results['gate_B_bench'], 'CONDITIONED_ON_PHYSICAL_SAMPLE')
         self.assertTrue(results['bench_prerequisites_A'])
         self.assertTrue(results['phase_BC_pending_blockers'])
     def test_regulator_identity_not_assumed(self):self.assertFalse(results['CW_identity_qualified'])

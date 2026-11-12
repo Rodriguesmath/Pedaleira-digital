@@ -1,0 +1,17 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * bat85 failure baseline comparison
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+v(ain_bat) = 5.250465e+00
+i(vsense) = -9.83152e-03
+v(ain_act) = 4.741577e+00
+ngspice-47 done
+
+Warning: can't find the initialization file spinit.

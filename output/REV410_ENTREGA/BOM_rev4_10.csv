@@ -17,7 +17,7 @@ C4,C,2.2 nF,1,"Radial, filme/C0G, >=25 V","Primeiro polo do filtro, C0G/filme",n
 R5,R,220 ohm,1,"Axial DIN0207, 1/4 W, 1%",Segunda seção do filtro RC,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
 C6,C,2.2 nF,1,"Radial, filme/C0G, >=25 V","Segundo polo do filtro, C0G/filme",necessário adquirir / conferir estoque,C0G ou filme ≥25 V,,Projeto rev4.9; ver AUDITORIA_REV49.md
 C5,CP,10 uF,1,Radial eletrolítico ≥25 V,Acoplamento de saída; positivo em LP2,necessário adquirir / conferir estoque,"10 µF, ≥25 V; + no lado FILT2",,Projeto rev4.9; ver AUDITORIA_REV49.md
-R6,R,1 Mohm,1,"Axial DIN0207, 1/4 W, 1%",Descarga do conector de saída,necessário adquirir / conferir estoque,"1 MΩ, 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R6,R,47 kohm,1,"Axial DIN0207, 1/4 W, 1%",Descarga do conector de saída,necessário adquirir / conferir estoque,"1 MΩ, 1%, 0,25 W","47 kohm OUT_PRE/GND; tau=0.47s com C5 (10 uF), fc=0.50 Hz (<0.08 dB vs 1M a 20 Hz); referência estável para descarregar C5",Projeto rev4.9; ver AUDITORIA_REV49.md
 J3,J,OUT P10 mono,1,Conector THT,Tip = sinal; sleeve = GND,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
 U2,CODEC,CS4272,1,"TSSOP-28, adaptador 0,65 mm já existente",Codec físico em adaptador passivo TSSOP-28,já disponível,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
 C12,CP,47 uF,1,"Radial eletrolítico, >=25 V",Reserva de FILT+; positivo no pino 22,necessário adquirir / conferir estoque,"Eletrolítico ≥25 V, 105 °C",,Projeto rev4.9; ver AUDITORIA_REV49.md
@@ -90,10 +90,6 @@ R27,R,13 kohm,1,THT,"Divisor ADC, ramo superior",necessário adquirir / conferir
 R28,R,12 kohm,1,THT,"Divisor ADC, ramo inferior",necessário adquirir / conferir estoque,"12 kΩ 0,1%, par com R27",,Projeto rev4.9
 C40,CP,100 uF,1,Radial,Filtro do bias ADC,necessário adquirir / conferir estoque,100 µF ≥10 V; esperar 5 s,,Projeto rev4.9
 C41,C,100 nF,1,THT,Bypass HF do bias ADC,necessário adquirir / conferir estoque,100 nF ≥25 V,,Projeto rev4.9
-D9,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
-D10,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
-D11,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
-D12,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
 TP1,TP,+RAW,1,Pino THT isolado,Ponto de teste +RAW,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
 TP2,TP,+5V,1,Pino THT isolado,Ponto de teste +5V,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
 TP3,TP,+3V3,1,Pino THT isolado,Ponto de teste +3V3,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
@@ -138,3 +134,51 @@ Q6,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state AINA_N->GND na ausência/subtensão
 R47,R,47 ohm,1,Axial DIN0207 1/4 W 1%,Limitador de corrente de descarga de C40 (Ipk <= 54 mA),necessário adquirir / conferir estoque,"47 ohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
 Q7,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state ADC_BIAS->GND via R47,necessário adquirir / conferir estoque,"2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
 Q8,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state AINB_CM (C34)->GND na ausência/subtensão de +5VA,necessário adquirir / conferir estoque,"2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q11,Q,2N3906,1,TO-92-3 inline,Clamp ativo superior AINA_P com compensação Vbe,necessário adquirir / conferir estoque,"2N3906 PNP (>=40 V, hFE>=100)",Conduz quando AINA_P > V_BIAS_HI + 0.6V (~4.7V); sem distorção até 0.5Vpk,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q12,Q,2N3904,1,TO-92-3 inline,Clamp ativo inferior AINA_P com compensação Vbe,necessário adquirir / conferir estoque,"2N3904 NPN (>=40 V, hFE>=100)",Conduz quando AINA_P < V_BIAS_LO - 0.6V (~0.3V); sem distorção até 0.5Vpk,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q13,Q,2N3906,1,TO-92-3 inline,Clamp ativo superior AINA_N com compensação Vbe,necessário adquirir / conferir estoque,"2N3906 PNP (>=40 V, hFE>=100)",Conduz quando AINA_N > V_BIAS_HI + 0.6V (~4.7V); sem distorção até 0.5Vpk,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q14,Q,2N3904,1,TO-92-3 inline,Clamp ativo inferior AINA_N com compensação Vbe,necessário adquirir / conferir estoque,"2N3904 NPN (>=40 V, hFE>=100)",Conduz quando AINA_N < V_BIAS_LO - 0.6V (~0.3V); sem distorção até 0.5Vpk,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+K1,RELAY,G5V-1-DC12,1,Omron G5V-1 DIP-6,Relé de mute anti-pop fail-safe na saída de áudio,necessário adquirir / conferir estoque,"Omron G5V-1-DC12 (12 V DC, bobina 960 ohm, SPDT forma C)",Desenergizado: JACK_OUT aterrado (NC); energizado: conecta a OUT_PRE (NO); suprime estalos de transiente,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+D16,D,1N4148,1,DO-35,Diodo flyback supressor de surto na bobina do relé K1,necessário adquirir / conferir estoque,1N4148 >=75 V,Protege driver PNP Q21 contra pico indutivo na desenergização da bobina,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R48,R,12 kohm,1,Axial DIN0207 1/4 W 1%,Divisor superior polarização clamp alto,necessário adquirir / conferir estoque,"12 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R49,R,150 kohm,1,Axial DIN0207 1/4 W 1%,Divisor inferior polarização clamp alto,necessário adquirir / conferir estoque,"150 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C45,C,100 nF,1,Cerâmico THT,Filtro de ruído em V_REF_HI,necessário adquirir / conferir estoque,100 nF X7R >=16 V,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q9,Q,2N3904,1,TO-92-3 inline,Seguidor NPN de compensação Vbe para V_BIAS_HI,necessário adquirir / conferir estoque,2N3904 NPN,V_BIAS_HI = V_REF_HI - Vbe ~ 4.63V - 0.60V = 4.03V,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R50,R,6.8 kohm,1,Axial DIN0207 1/4 W 1%,Carga de emissor Q9 para V_BIAS_HI,necessário adquirir / conferir estoque,"6.8 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C46,C,100 nF,1,Cerâmico THT,Bypass local de V_BIAS_HI,necessário adquirir / conferir estoque,100 nF X7R >=16 V,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R51,R,150 kohm,1,Axial DIN0207 1/4 W 1%,Divisor superior polarização clamp baixo,necessário adquirir / conferir estoque,"150 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R52,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Divisor inferior polarização clamp baixo,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C47,C,100 nF,1,Cerâmico THT,Filtro de ruído em V_REF_LO,necessário adquirir / conferir estoque,100 nF X7R >=16 V,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q10,Q,2N3906,1,TO-92-3 inline,Seguidor PNP de compensação Vbe para V_BIAS_LO,necessário adquirir / conferir estoque,2N3906 PNP,V_BIAS_LO = V_REF_LO + Vbe ~ 0.31V + 0.60V = 0.91V,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R53,R,6.8 kohm,1,Axial DIN0207 1/4 W 1%,Pull-up de emissor Q10 para V_BIAS_LO,necessário adquirir / conferir estoque,"6.8 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C48,C,100 nF,1,Cerâmico THT,Bypass local de V_BIAS_LO,necessário adquirir / conferir estoque,100 nF X7R >=16 V,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R54,R,27 kohm,1,Axial DIN0207 1/4 W 1%,Divisor superior UVLO +RAW,necessário adquirir / conferir estoque,"27 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R55,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Divisor inferior UVLO +RAW,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+U8,VREF,TL431ACZ,1,TO-92-3 inline,"Comparador shunt 2,495 V para UVLO +RAW",necessário adquirir / conferir estoque,"TL431A/B (±1% ou melhor, TO-92, Ik_min<=1 mA)","Dispara em +RAW ~9,25 V com histerese R59 (~200 mV)",Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R56,R,1.0 kohm,1,Axial DIN0207 1/4 W 1%,Pull-up B-E anti-fuga de Q15,necessário adquirir / conferir estoque,"1.0 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R57,R,2.7 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q15 e Ik em U8,necessário adquirir / conferir estoque,"2.7 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q15,Q,2N3906,1,TO-92-3 inline,Chave PNP de sinalização RAW_OK,necessário adquirir / conferir estoque,2N3906 PNP,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R58,R,2.2 kohm,1,Axial DIN0207 1/4 W 1%,Pull-down de carga em RAW_OK,necessário adquirir / conferir estoque,"2.2 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R59,R,1.0 Mohm,1,Axial DIN0207 1/4 W 1%,Histerese UVLO de +RAW (~200 mV),necessário adquirir / conferir estoque,"1.0 Mohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R65,R,47 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q17 a partir de VA_OK,necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q17,Q,2N3904,1,TO-92-3 inline,Chave NPN inferior da porta AND de intertravamento,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R66,R,100 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q18 a partir de CODEC_RST,necessário adquirir / conferir estoque,"100 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q18,Q,2N3904,1,TO-92-3 inline,Chave NPN intermediária da porta AND,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R67,R,22 kohm,1,Axial DIN0207 1/4 W 1%,Divisor superior de base Q19,necessário adquirir / conferir estoque,"22 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R75,R,2.2 kohm,1,Axial DIN0207 1/4 W 1%,Divisor inferior de base Q19,necessário adquirir / conferir estoque,"2.2 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q19,Q,2N3904,1,TO-92-3 inline,Chave NPN superior da porta AND que ancora FAULT_GATE a GND,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R62,R,47 kohm,1,Axial DIN0207 1/4 W 1%,Pull-up de FAULT_GATE para +RAW,necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R73,R,47 ohm,1,Axial DIN0207 1/4 W 1%,Limitador de corrente de descarga rápida de C49,necessário adquirir / conferir estoque,"47 ohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q16,Q,2N3904,1,TO-92-3 inline,Chave NPN de descarga rápida de C49 sob falha,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R74,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q22,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q22,Q,2N3904,1,TO-92-3 inline,Chave NPN de inibição do Schmitt trigger sob falha,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R60,R,33 kohm,1,Axial DIN0207 1/4 W 1%,"Resistor de carga do temporizador anti-pop (tau ~1,5 s)",necessário adquirir / conferir estoque,"33 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C49,CP,47 uF,1,Eletrolítico radial >=25 V,Capacitor de temporização anti-pop na energização,necessário adquirir / conferir estoque,47 uF >=25 V,"Carrega até ~5,4 V antes de disparar zener D17",Revisão 4.10A; ver REVISOES/ e fontes oficiais
+D17,D,BZX55C4V7,1,DO-35,"Diodo zener 4,7 V de deslocamento de limiar do temporizador",necessário adquirir / conferir estoque,"BZX55C4V7 zener 4,7 V 0,5 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R68,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base do Schmitt trigger Q20,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R69,R,33 kohm,1,Axial DIN0207 1/4 W 1%,Pull-down de base Q20,necessário adquirir / conferir estoque,"33 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q20,Q,2N3904,1,TO-92-3 inline,Primeiro estágio NPN do Schmitt trigger de acionamento do relé,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R70,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Carga de coletor Q20,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R72,R,4.7 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base do driver de bobina Q21,necessário adquirir / conferir estoque,"4.7 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q21,Q,2N3906,1,TO-92-3 inline,Driver PNP de alta corrente para bobina do relé K1,necessário adquirir / conferir estoque,"2N3906 PNP (>=40 V, Ic>=200 mA)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R71,R,1.5 Mohm,1,Axial DIN0207 1/4 W 1%,Histerese positiva do Schmitt trigger do relé,necessário adquirir / conferir estoque,"1.5 Mohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais

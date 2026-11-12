@@ -1,5 +1,5 @@
 {
-  "revision": "4.10A-candidate",
+  "revision": "4.10B-candidate",
   "author": "Rodrigues M. Lima",
   "components": [
     {
@@ -349,7 +349,7 @@
       "kind": "CP",
       "pins": {
         "1": "LP2",
-        "2": "JACK_OUT"
+        "2": "OUT_PRE"
       },
       "sheet": 4,
       "function": "Acoplamento de saída; positivo em LP2",
@@ -364,17 +364,17 @@
     },
     {
       "ref": "R6",
-      "value": "1 Mohm",
+      "value": "47 kohm",
       "kind": "R",
       "pins": {
-        "1": "JACK_OUT",
+        "1": "OUT_PRE",
         "2": "GND"
       },
       "sheet": 4,
       "function": "Descarga do conector de saída",
       "status": "necessário adquirir / conferir estoque",
       "package": "Axial DIN0207, 1/4 W, 1%",
-      "note": "",
+      "note": "47 kohm OUT_PRE/GND; tau=0.47s com C5 (10 uF), fc=0.50 Hz (<0.08 dB vs 1M a 20 Hz); referência estável para descarregar C5",
       "basis": "Projeto rev4.9; ver AUDITORIA_REV49.md",
       "nc": [],
       "names": {},
@@ -1985,94 +1985,6 @@
       "nc": []
     },
     {
-      "ref": "D9",
-      "kind": "D",
-      "value": "BAT85",
-      "pins": {
-        "1": "AINA_P",
-        "2": "+5VA"
-      },
-      "sheet": 2,
-      "function": "Clamp externo do ADC",
-      "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
-      "status": "necessário adquirir / conferir estoque",
-      "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
-      "basis": "Projeto rev4.9",
-      "names": {
-        "1": "A",
-        "2": "K"
-      },
-      "types": {},
-      "nc": []
-    },
-    {
-      "ref": "D10",
-      "kind": "D",
-      "value": "BAT85",
-      "pins": {
-        "1": "GND",
-        "2": "AINA_P"
-      },
-      "sheet": 2,
-      "function": "Clamp externo do ADC",
-      "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
-      "status": "necessário adquirir / conferir estoque",
-      "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
-      "basis": "Projeto rev4.9",
-      "names": {
-        "1": "A",
-        "2": "K"
-      },
-      "types": {},
-      "nc": []
-    },
-    {
-      "ref": "D11",
-      "kind": "D",
-      "value": "BAT85",
-      "pins": {
-        "1": "AINA_N",
-        "2": "+5VA"
-      },
-      "sheet": 2,
-      "function": "Clamp externo do ADC",
-      "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
-      "status": "necessário adquirir / conferir estoque",
-      "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
-      "basis": "Projeto rev4.9",
-      "names": {
-        "1": "A",
-        "2": "K"
-      },
-      "types": {},
-      "nc": []
-    },
-    {
-      "ref": "D12",
-      "kind": "D",
-      "value": "BAT85",
-      "pins": {
-        "1": "GND",
-        "2": "AINA_N"
-      },
-      "sheet": 2,
-      "function": "Clamp externo do ADC",
-      "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
-      "status": "necessário adquirir / conferir estoque",
-      "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
-      "basis": "Projeto rev4.9",
-      "names": {
-        "1": "A",
-        "2": "K"
-      },
-      "types": {},
-      "nc": []
-    },
-    {
       "ref": "TP1",
       "kind": "TP",
       "value": "+RAW",
@@ -3014,9 +2926,1096 @@
       "note": "",
       "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
       "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "Q11",
+      "kind": "Q",
+      "value": "2N3906",
+      "pins": {
+        "1": "AINA_P",
+        "2": "V_BIAS_HI",
+        "3": "GND"
+      },
+      "sheet": 2,
+      "function": "Clamp ativo superior AINA_P com compensação Vbe",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3906 PNP (>=40 V, hFE>=100)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "Conduz quando AINA_P > V_BIAS_HI + 0.6V (~4.7V); sem distorção até 0.5Vpk",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "Q12",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "AINA_P",
+        "2": "V_BIAS_LO",
+        "3": "+5VA"
+      },
+      "sheet": 2,
+      "function": "Clamp ativo inferior AINA_P com compensação Vbe",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN (>=40 V, hFE>=100)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "Conduz quando AINA_P < V_BIAS_LO - 0.6V (~0.3V); sem distorção até 0.5Vpk",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "Q13",
+      "kind": "Q",
+      "value": "2N3906",
+      "pins": {
+        "1": "AINA_N",
+        "2": "V_BIAS_HI",
+        "3": "GND"
+      },
+      "sheet": 2,
+      "function": "Clamp ativo superior AINA_N com compensação Vbe",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3906 PNP (>=40 V, hFE>=100)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "Conduz quando AINA_N > V_BIAS_HI + 0.6V (~4.7V); sem distorção até 0.5Vpk",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "Q14",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "AINA_N",
+        "2": "V_BIAS_LO",
+        "3": "+5VA"
+      },
+      "sheet": 2,
+      "function": "Clamp ativo inferior AINA_N com compensação Vbe",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN (>=40 V, hFE>=100)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "Conduz quando AINA_N < V_BIAS_LO - 0.6V (~0.3V); sem distorção até 0.5Vpk",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "K1",
+      "kind": "RELAY",
+      "value": "G5V-1-DC12",
+      "pins": {
+        "1": "GND",
+        "2": "K1_COILP",
+        "5": "JACK_OUT",
+        "6": "JACK_OUT",
+        "9": "GND",
+        "10": "OUT_PRE"
+      },
+      "sheet": 4,
+      "function": "Relé de mute anti-pop fail-safe na saída de áudio",
+      "package": "Omron G5V-1 DIP-6",
+      "min_spec": "Omron G5V-1-DC12 (12 V DC, bobina 960 ohm, SPDT forma C)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "NC",
+        "2": "COIL+",
+        "5": "COM",
+        "6": "COM_B",
+        "9": "COIL-",
+        "10": "NO"
+      },
+      "types": {
+        "1": "passive",
+        "2": "passive",
+        "5": "passive",
+        "6": "passive",
+        "9": "passive",
+        "10": "passive"
+      },
+      "nc": [],
+      "note": "Desenergizado: JACK_OUT aterrado (NC); energizado: conecta a OUT_PRE (NO); suprime estalos de transiente",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Relay_THT:Relay_SPDT_Omron_G5V-1"
+    },
+    {
+      "ref": "D16",
+      "kind": "D",
+      "value": "1N4148",
+      "pins": {
+        "1": "GND",
+        "2": "K1_COILP"
+      },
+      "sheet": 4,
+      "function": "Diodo flyback supressor de surto na bobina do relé K1",
+      "package": "DO-35",
+      "min_spec": "1N4148 >=75 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {},
+      "nc": [],
+      "note": "Protege driver PNP Q21 contra pico indutivo na desenergização da bobina",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R48",
+      "kind": "R",
+      "value": "12 kohm",
+      "pins": {
+        "1": "+5VA",
+        "2": "V_REF_HI"
+      },
+      "sheet": 10,
+      "function": "Divisor superior polarização clamp alto",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "12 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R49",
+      "kind": "R",
+      "value": "150 kohm",
+      "pins": {
+        "1": "V_REF_HI",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Divisor inferior polarização clamp alto",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "150 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "C45",
+      "kind": "C",
+      "value": "100 nF",
+      "pins": {
+        "1": "+5VA",
+        "2": "V_REF_HI"
+      },
+      "sheet": 10,
+      "function": "Filtro de ruído em V_REF_HI",
+      "package": "Cerâmico THT",
+      "min_spec": "100 nF X7R >=16 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q9",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "V_BIAS_HI",
+        "2": "V_REF_HI",
+        "3": "+5VA"
+      },
+      "sheet": 10,
+      "function": "Seguidor NPN de compensação Vbe para V_BIAS_HI",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "V_BIAS_HI = V_REF_HI - Vbe ~ 4.63V - 0.60V = 4.03V",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R50",
+      "kind": "R",
+      "value": "6.8 kohm",
+      "pins": {
+        "1": "V_BIAS_HI",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Carga de emissor Q9 para V_BIAS_HI",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "6.8 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "C46",
+      "kind": "C",
+      "value": "100 nF",
+      "pins": {
+        "1": "V_BIAS_HI",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Bypass local de V_BIAS_HI",
+      "package": "Cerâmico THT",
+      "min_spec": "100 nF X7R >=16 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R51",
+      "kind": "R",
+      "value": "150 kohm",
+      "pins": {
+        "1": "+5VA",
+        "2": "V_REF_LO"
+      },
+      "sheet": 10,
+      "function": "Divisor superior polarização clamp baixo",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "150 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R52",
+      "kind": "R",
+      "value": "10 kohm",
+      "pins": {
+        "1": "V_REF_LO",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Divisor inferior polarização clamp baixo",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "10 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "C47",
+      "kind": "C",
+      "value": "100 nF",
+      "pins": {
+        "1": "V_REF_LO",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Filtro de ruído em V_REF_LO",
+      "package": "Cerâmico THT",
+      "min_spec": "100 nF X7R >=16 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q10",
+      "kind": "Q",
+      "value": "2N3906",
+      "pins": {
+        "1": "V_BIAS_LO",
+        "2": "V_REF_LO",
+        "3": "GND"
+      },
+      "sheet": 10,
+      "function": "Seguidor PNP de compensação Vbe para V_BIAS_LO",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3906 PNP",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "V_BIAS_LO = V_REF_LO + Vbe ~ 0.31V + 0.60V = 0.91V",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R53",
+      "kind": "R",
+      "value": "6.8 kohm",
+      "pins": {
+        "1": "+5VA",
+        "2": "V_BIAS_LO"
+      },
+      "sheet": 10,
+      "function": "Pull-up de emissor Q10 para V_BIAS_LO",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "6.8 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "C48",
+      "kind": "C",
+      "value": "100 nF",
+      "pins": {
+        "1": "V_BIAS_LO",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Bypass local de V_BIAS_LO",
+      "package": "Cerâmico THT",
+      "min_spec": "100 nF X7R >=16 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R54",
+      "kind": "R",
+      "value": "27 kohm",
+      "pins": {
+        "1": "+RAW",
+        "2": "RAW_REF"
+      },
+      "sheet": 10,
+      "function": "Divisor superior UVLO +RAW",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "27 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R55",
+      "kind": "R",
+      "value": "10 kohm",
+      "pins": {
+        "1": "RAW_REF",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Divisor inferior UVLO +RAW",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "10 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "U8",
+      "kind": "VREF",
+      "value": "TL431ACZ",
+      "pins": {
+        "1": "RAW_REF",
+        "2": "GND",
+        "3": "RAW_K"
+      },
+      "sheet": 10,
+      "function": "Comparador shunt 2,495 V para UVLO +RAW",
+      "package": "TO-92-3 inline",
+      "min_spec": "TL431A/B (±1% ou melhor, TO-92, Ik_min<=1 mA)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "REF",
+        "2": "A",
+        "3": "K"
+      },
+      "types": {
+        "1": "input",
+        "2": "power_in",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "Dispara em +RAW ~9,25 V com histerese R59 (~200 mV)",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R56",
+      "kind": "R",
+      "value": "1.0 kohm",
+      "pins": {
+        "1": "+RAW",
+        "2": "Q15_B"
+      },
+      "sheet": 10,
+      "function": "Pull-up B-E anti-fuga de Q15",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "1.0 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R57",
+      "kind": "R",
+      "value": "2.7 kohm",
+      "pins": {
+        "1": "Q15_B",
+        "2": "RAW_K"
+      },
+      "sheet": 10,
+      "function": "Limitador de base Q15 e Ik em U8",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "2.7 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q15",
+      "kind": "Q",
+      "value": "2N3906",
+      "pins": {
+        "1": "+RAW",
+        "2": "Q15_B",
+        "3": "RAW_OK"
+      },
+      "sheet": 10,
+      "function": "Chave PNP de sinalização RAW_OK",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3906 PNP",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R58",
+      "kind": "R",
+      "value": "2.2 kohm",
+      "pins": {
+        "1": "RAW_OK",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Pull-down de carga em RAW_OK",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "2.2 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R59",
+      "kind": "R",
+      "value": "1.0 Mohm",
+      "pins": {
+        "1": "RAW_OK",
+        "2": "RAW_REF"
+      },
+      "sheet": 10,
+      "function": "Histerese UVLO de +RAW (~200 mV)",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "1.0 Mohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R65",
+      "kind": "R",
+      "value": "47 kohm",
+      "pins": {
+        "1": "VA_OK",
+        "2": "Q17_B"
+      },
+      "sheet": 10,
+      "function": "Limitador de base Q17 a partir de VA_OK",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "47 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q17",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "Q17_B",
+        "3": "Q18_E"
+      },
+      "sheet": 10,
+      "function": "Chave NPN inferior da porta AND de intertravamento",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R66",
+      "kind": "R",
+      "value": "100 kohm",
+      "pins": {
+        "1": "CODEC_RST",
+        "2": "Q18_B"
+      },
+      "sheet": 10,
+      "function": "Limitador de base Q18 a partir de CODEC_RST",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "100 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q18",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "Q18_E",
+        "2": "Q18_B",
+        "3": "Q19_E"
+      },
+      "sheet": 10,
+      "function": "Chave NPN intermediária da porta AND",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R67",
+      "kind": "R",
+      "value": "22 kohm",
+      "pins": {
+        "1": "RAW_OK",
+        "2": "Q19_B"
+      },
+      "sheet": 10,
+      "function": "Divisor superior de base Q19",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "22 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R75",
+      "kind": "R",
+      "value": "2.2 kohm",
+      "pins": {
+        "1": "Q19_B",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Divisor inferior de base Q19",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "2.2 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q19",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "Q19_E",
+        "2": "Q19_B",
+        "3": "FAULT_GATE"
+      },
+      "sheet": 10,
+      "function": "Chave NPN superior da porta AND que ancora FAULT_GATE a GND",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R62",
+      "kind": "R",
+      "value": "47 kohm",
+      "pins": {
+        "1": "+RAW",
+        "2": "FAULT_GATE"
+      },
+      "sheet": 10,
+      "function": "Pull-up de FAULT_GATE para +RAW",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "47 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R73",
+      "kind": "R",
+      "value": "47 ohm",
+      "pins": {
+        "1": "MUTE_ARM",
+        "2": "MUTE_CL"
+      },
+      "sheet": 10,
+      "function": "Limitador de corrente de descarga rápida de C49",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "47 ohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q16",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "FAULT_GATE",
+        "3": "MUTE_CL"
+      },
+      "sheet": 10,
+      "function": "Chave NPN de descarga rápida de C49 sob falha",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R74",
+      "kind": "R",
+      "value": "10 kohm",
+      "pins": {
+        "1": "FAULT_GATE",
+        "2": "Q22_B"
+      },
+      "sheet": 10,
+      "function": "Limitador de base Q22",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "10 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q22",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "Q22_B",
+        "3": "Q20_B"
+      },
+      "sheet": 10,
+      "function": "Chave NPN de inibição do Schmitt trigger sob falha",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R60",
+      "kind": "R",
+      "value": "33 kohm",
+      "pins": {
+        "1": "RAW_OK",
+        "2": "MUTE_ARM"
+      },
+      "sheet": 10,
+      "function": "Resistor de carga do temporizador anti-pop (tau ~1,5 s)",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "33 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "C49",
+      "kind": "CP",
+      "value": "47 uF",
+      "pins": {
+        "1": "MUTE_ARM",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Capacitor de temporização anti-pop na energização",
+      "package": "Eletrolítico radial >=25 V",
+      "min_spec": "47 uF >=25 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "Carrega até ~5,4 V antes de disparar zener D17",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "D17",
+      "kind": "D",
+      "value": "BZX55C4V7",
+      "pins": {
+        "1": "Q20_Z",
+        "2": "MUTE_ARM"
+      },
+      "sheet": 10,
+      "function": "Diodo zener 4,7 V de deslocamento de limiar do temporizador",
+      "package": "DO-35",
+      "min_spec": "BZX55C4V7 zener 4,7 V 0,5 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R68",
+      "kind": "R",
+      "value": "10 kohm",
+      "pins": {
+        "1": "Q20_Z",
+        "2": "Q20_B"
+      },
+      "sheet": 10,
+      "function": "Limitador de base do Schmitt trigger Q20",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "10 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R69",
+      "kind": "R",
+      "value": "33 kohm",
+      "pins": {
+        "1": "Q20_B",
+        "2": "GND"
+      },
+      "sheet": 10,
+      "function": "Pull-down de base Q20",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "33 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q20",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "Q20_B",
+        "3": "Q20_C"
+      },
+      "sheet": 10,
+      "function": "Primeiro estágio NPN do Schmitt trigger de acionamento do relé",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R70",
+      "kind": "R",
+      "value": "10 kohm",
+      "pins": {
+        "1": "+RAW",
+        "2": "Q20_C"
+      },
+      "sheet": 10,
+      "function": "Carga de coletor Q20",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "10 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R72",
+      "kind": "R",
+      "value": "4.7 kohm",
+      "pins": {
+        "1": "Q20_C",
+        "2": "Q21_B"
+      },
+      "sheet": 10,
+      "function": "Limitador de base do driver de bobina Q21",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "4.7 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q21",
+      "kind": "Q",
+      "value": "2N3906",
+      "pins": {
+        "1": "+RAW",
+        "2": "Q21_B",
+        "3": "K1_COILP"
+      },
+      "sheet": 10,
+      "function": "Driver PNP de alta corrente para bobina do relé K1",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3906 PNP (>=40 V, Ic>=200 mA)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R71",
+      "kind": "R",
+      "value": "1.5 Mohm",
+      "pins": {
+        "1": "K1_COILP",
+        "2": "Q20_B"
+      },
+      "sheet": 10,
+      "function": "Histerese positiva do Schmitt trigger do relé",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "1.5 Mohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
     }
   ],
-  "architecture": "STM USB própria; ESP USB própria; CW somente VA através de J5 aberto por padrão; VD/VL 3V3_STM; UART U6 dual-supply; supervisor VA_OK com intertravamento /RST e contenção OFF-state de AIN; GND comum",
-  "release_status": "BLOCKED - alimentação em revisão",
-  "status": "4.10A — Segurança de projeto (alimentação/UART/reset/AIN sem VA) corrigida em CAD+SPICE; pendências físicas externas/bancada explícitas (CW, WeAct, ESP32); fase B pendente"
+  "architecture": "STM USB própria; ESP USB própria; CW somente VA através de J5 aberto por padrão; VD/VL 3V3_STM; UART U6 dual-supply; supervisor VA_OK com intertravamento /RST; contenção AIN; clamp ativo Vbe-tracking; relé de mute fail-safe com UVLO +RAW e temporizador anti-pop; GND comum",
+  "release_status": "4.10B-candidate: Blocker 3 (active clamp) e Blocker 4 (mute relay) implementados",
+  "status": "4.10B-candidate — Blocker 3 (active clamp Q9..Q14) e Blocker 4 (mute relay K1 + Sheet 10) resolvidos em CAD+SPICE"
 }

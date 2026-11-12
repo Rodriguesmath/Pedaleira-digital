@@ -1,0 +1,70 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-12T20:29:44",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa",
+            "violations": []
+        },
+        {
+            "path": "/Fonte analógica e referências/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/baeec649-a809-560c-982b-51ae6bb20cca",
+            "violations": []
+        },
+        {
+            "path": "/Guitarra e condicionamento ADC completo/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/e0d5d977-d92f-58ae-a8c4-cb772e273cea",
+            "violations": []
+        },
+        {
+            "path": "/Codec CS4272 e referências analógicas/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/0a1aa5b9-a71a-50c7-a5e1-586367e88c50",
+            "violations": []
+        },
+        {
+            "path": "/Receptor DAC e saída de linha/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/150163e1-c2c6-5f23-9d92-2ed2d450123d",
+            "violations": []
+        },
+        {
+            "path": "/STM32, ESP32 e distribuição digital/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/46c94431-9911-52de-ab11-fa0bec76bf84",
+            "violations": []
+        },
+        {
+            "path": "/Chaves e indicadores/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e",
+            "violations": []
+        },
+        {
+            "path": "/Desacoplamento e alimentação dos TL072/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5",
+            "violations": []
+        },
+        {
+            "path": "/UART entre alimentações independentes/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/eb755fb3-2f78-56e3-ab32-227c8abe41ec",
+            "violations": []
+        },
+        {
+            "path": "/Supervisão +5VA, intertravamento /RST e contenção sem VA/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/e99290b3-4340-5439-92ce-0401b125c18e",
+            "violations": []
+        },
+        {
+            "path": "/Bias de clamp ativo, UVLO +RAW e temporizador do relé de mute/",
+            "uuid_path": "/c29a893a-a3da-561b-9199-dd85c7aa29fa/d7913c76-77e7-5bf4-b0dc-646f6aba416c",
+            "violations": []
+        }
+    ],
+    "source": "pedaleira_digital_rev4_10.kicad_sch"
+}

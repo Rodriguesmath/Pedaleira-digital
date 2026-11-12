@@ -1,19 +1,16 @@
-# Revisão 4.10 - Checkpoint Gate A (Projeto Elétrico PASS / Bancada Condicionada)
+# Revisão 4.10 - Checkpoint Gate B (Em Revisão - Gate B; Bancada e Fase C Pendentes)
 
-2026-11-12. **Status do Gate A:**
-- **Projeto elétrico & simulação SPICE Fase A:** **PASS** (`16/16` cenários `simular_A.py` PASS; `13/13` testes analíticos `validar_alimentacao.py` PASS; `12/12` testes UART `test_interfaces_indep.py` PASS; `11/11` testes independentes `auditar_cad_A.py` PASS; **0 violações ERC** no KiCad 10).
-- **Pré-requisitos físicos de amostra em bancada (`A410-01` CW7805, `A410-05_hw` WeAct U2, `A410-07_hw` ESP32):** **CONDICIONADOS** a inspeção e qualificação presencial antes da energização física (decisão documentada sem fabricar dados de hardware não testado).
-- **Liberação para Fase B:** **AUTORIZADA**. (Nenhuma aprovação B/C ou funcionamento completo em bancada reivindicada neste checkpoint.)
+2026-11-12. **Status do Gate B:**
+- **Projeto elétrico, CAD & simulação SPICE Fases A + B:** **PASS** (`14/14` testes analíticos `validar_alimentacao.py`; `12/12` testes UART `test_interfaces_indep.py`; `16/16` cenários SPICE A `simular_A.py`; `17/17` cenários SPICE B `simular_B.py`; `13/13` testes independentes `auditar_cad_B.py`; **0 violações ERC** no KiCad 10).
+- **Veredito atual do pacote (`EM REVISÃO - GATE B`):** A documentação, o esquemático (`10` folhas), o netlist e as simulações fecham tecnicamente os Blockers 1..4 no plano de projeto. O teto máximo após a Fase C — antes da validação física da placa montada — mantém-se `APROVADO DOCUMENTALMENTE PARA ENSAIOS CONTROLADOS`.
+- **Pendências explícitas antes de fabricação / energização:**
+  1. **Pré-requisitos físicos de bancada:** `A410-01` (pinagem e estabilidade do exemplar físico `CW7805` com `J5` aberto e codec ausente), `A410-05_hw` (identificação do IC buck `U2` da WeAct V1.2 e droop sob carga), `A410-07_hw` (confirmação visual/continuidade de GPIO16/17 livres no ESP32) e verificação experimental do relé `G5V-1-DC12` (`operate/release/bounce`) e casamento térmico dos pares do clamp ativo.
+  2. **Fase 4.10C (pendente até autorização):** `A410-08` (footprints oficiais KiCad para todos os componentes restantes da BOM) e geração de `MANIFESTO_SHA256.txt`.
 
-## Evidências de Projeto Fechadas na Fase A
+## Evidências de Projeto Fechadas até o Gate B
 
-- **Modelo físico e CAD (Folhas 1 a 9)**: **139 componentes**, **347 terminais conectados**, **73 redes**, **0 cruzamentos ilegais**, footprints oficiais locais para `U6` (`Package_SO:SOIC-8_3.9x4.9mm_P1.27mm`) e `U7, Q1..Q8` (`Package_TO_SOT_THT:TO-92_Inline`), `ERC_rev4_10.json` e `ERC_fresh.json` com **0 violações** (`ignored_checks = []`).
-- **Supervisor `+5VA` (`U7 TL431ACZ + Q3 2N3906`)**: subida em `4.602 V`, queda em `4.516 V` (histerese `85.3 mV`), `I_K = 1.34 mA >= 1,0 mA`, carga adicional em `+5VA` = `1.82 mA`.
-- **Intertravamento `/RST` (`Q1/Q2 + R39..R41`)**: `CODEC_RST = 0.0240 V` com `VA < 4,48 V` e `PD10 = 3,3 V`; subida para `3.000 V` já em `200 ns` após fim do pulso (`>> 1 ms` do firmware); backpower com `3V3 = 0 V` = `0.000000 V`.
-- **Contenção off-state AIN (`D15/R43/C44/Q4..Q8/R47`)**: `|AINA_P|, |AINA_N|, |ADC_BIAS|, |AINB_CM| <= 1,1 mV` nos estados sem `+5VA` (incluindo colapso rápido de `+RAW` e step `10 us`); pico de inrush em `D15/R43/C44` = `250.51 mA`; impacto em THD diferencial (`0,5 Vp @ 1 kHz`) = `0.000514%` (< 0,02%).
-- **Orçamentos**: `+5VA` máx `61.34 mA` (< 65 mA), proxy CW `0.5823 W`; `+3V3_STM` pior caso aritmético `329.4 mA` (< 1000 mA `SY8088`).
-
-## Escopo Aberto para Fase B e Fase C
-
-- **Fase B**: substituição ativa dos clamps `BAT85` (`A410-04` -> `ANALISE_ADC.md`) e projeto fail-safe de mute físico de saída (`A410-06` -> `PROJETO_MUTE_FISICO.md`), mais validação de desempenho/headroom TL072 B3/B4.
-- **Fase C**: footprints oficiais para toda a BOM, suíte ngspice integral, auditoria adversarial independente e fechamento `REV410_ENTREGA`.
+- **Modelo físico e CAD (Folhas 1 a 10)**: **183 componentes**, **454 terminais conectados**, **96 redes**, **0 cruzamentos ilegais** (`VALIDACAO_LAYOUT.json`), `ERC_rev4_10.json` e `CAD_B_TEMP/ERC_fresh.json` com **0 violações** (`ignored_checks = []`). Footprints oficiais configurados para `U6` (`SOIC-8`), `K1` (`Relay_THT:Relay_SPDT_Omron_G5V-1`) e `U7, U8, Q1..Q22` (`Package_TO_SOT_THT:TO-92_Inline`).
+- **Fase A preservada (Folhas 8 e 9)**: isolamento UART `U6 ISO7721DR` (`12/12 PASS`), supervisor `+5VA` (`4.602 V` / `4.516 V`), intertravamento `/RST` (`CODEC_RST <= 0.024 V` sem VA, subida `< 1 us` dentro da janela `1 ms` de `Cs4272.cpp`) e contenção off-state `AIN` (`<= 1.1 mV`).
+- **Blocker 3 — Clamp Ativo Compensado por Vbe ([ANALISE_ADC.md](file:///home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/ANALISE_ADC.md))**: `D9..D12` (`BAT85`) removidos integralmente; `Q9..Q14`, `R48..R53`, `C45..C48` limitam `AINA_P/N` em `[+0.2979 V, +4.9910 V]` nos 4 cantos (`0..70 C`, `4.75..5.25 V`), injeção reversa em `+5VA = 0.0000 mA`, THD `0.000878%` (`0 dBFS`) e `0.000096%` (`0.50 Vp`), resíduo off-state `+30.15 / -30.08 mV`. `+5VA` máx atualizado para `62.74 mA` (`< 65 mA`).
+- **Blocker 4 — Mute Físico Fail-Safe ([PROJETO_MUTE_FISICO.md](file:///home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/PROJETO_MUTE_FISICO.md))**: `C5` acoplado em `OUT_PRE`, `R6 = 47 kohm`, relé `K1 Omron G5V-1-DC12` (`NC -> GND`), flyback `D16`, UVLO `+RAW` (`U8 + Q15`), AND 3 entradas + descarga rápida (`Q16..Q19, Q22`), temporizador (`C49 = 47 uF`, `D17 = BZX55C4V7`) e Schmitt trigger (`Q20, Q21`). SPICE `17/17 PASS`: unmute `5.899 s` (`pop 1.2321 mV < 5 mV`), `0.0000 mV` mutado, plug-pull corta bobina em `RAW = 9.00 V` (`VA = 5.00 V` estável), NC em `8.26 ms`, flyback `12.30 V`, bobina `10.64 mA @ 10.5 V`, brownout `8.2 V` (`C49 = 4.0 mV`, re-espera `1.152 s`), quedas `CODEC_RST` (`2.49 ms`) e `VA_OK` (`2.20 ms`), ganho `20 Hz = -0.0027 dB`, isolação `-185.61 dB`, THD ON `0.000066%`, ganhos `U1A/U3A/U3B/U1B` com erro `<= 0.006%` e headroom `>= 3.85 V`.
+- **Auditoria Adversarial & Integridade Base**: [ADVERSARIAL_GATE_B.md](file:///home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/REVISOES/ADVERSARIAL_GATE_B.md) aprovado sem ressalvas (`34a3c76a`); `BASE_REV49_SHA256.txt` (`97/97 OK`) e `firmware/` / `rev4_9/` preservados sem alterações contra `1c73c02`.

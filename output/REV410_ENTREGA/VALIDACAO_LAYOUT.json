@@ -1,6 +1,6 @@
 {
-  "all_physical_pins": 347,
-  "visible_connected_nets": 73,
+  "all_physical_pins": 454,
+  "visible_connected_nets": 96,
   "cross_net_intersections": 0,
   "visible_routes_and_ports_equal_model": true
 }

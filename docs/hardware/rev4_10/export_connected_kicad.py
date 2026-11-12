@@ -151,5 +151,6 @@ for sh in sorted(sheetids):
 (D/'sym-lib-table').write_text('(sym_lib_table (lib (name "rev410") (type "KiCad") (uri "${KIPRJMOD}/rev410.kicad_sym") (options "") (descr "Rev4.10 - connected functional schematic")))')
 shutil.copytree(Path(__file__).with_name('Package_SO.pretty'),D/'Package_SO.pretty',dirs_exist_ok=True)
 shutil.copytree(Path(__file__).with_name('Package_TO_SOT_THT.pretty'),D/'Package_TO_SOT_THT.pretty',dirs_exist_ok=True)
-(D/'fp-lib-table').write_text('(fp_lib_table (version 7) (lib (name "Package_SO") (type "KiCad") (uri "${KIPRJMOD}/Package_SO.pretty") (options "") (descr "U6 footprint from official KiCad library")) (lib (name "Package_TO_SOT_THT") (type "KiCad") (uri "${KIPRJMOD}/Package_TO_SOT_THT.pretty") (options "") (descr "Phase 4.10A TO-92 footprints from official KiCad library")))')
+shutil.copytree(Path(__file__).with_name('Relay_THT.pretty'),D/'Relay_THT.pretty',dirs_exist_ok=True)
+(D/'fp-lib-table').write_text('(fp_lib_table (version 7) (lib (name "Package_SO") (type "KiCad") (uri "${KIPRJMOD}/Package_SO.pretty") (options "") (descr "U6 footprint from official KiCad library")) (lib (name "Package_TO_SOT_THT") (type "KiCad") (uri "${KIPRJMOD}/Package_TO_SOT_THT.pretty") (options "") (descr "Phase 4.10A/B TO-92 footprints from official KiCad library")) (lib (name "Relay_THT") (type "KiCad") (uri "${KIPRJMOD}/Relay_THT.pretty") (options "") (descr "Phase 4.10B Omron G5V-1 relay footprint from official KiCad library")))')
 print('KiCad: functional blocks and connected circuits exported.')

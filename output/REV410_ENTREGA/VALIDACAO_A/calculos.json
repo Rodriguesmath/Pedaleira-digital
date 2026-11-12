@@ -1,20 +1,25 @@
 {
-  "scope": "Phase 4.10A design checks (UART + Reset Interlock F9 + Off-state AIN F9 + 3V3 arithmetic budget); bench physical prerequisites & Phases B/C remain explicit",
-  "architecture": "USB STM and USB ESP independent; CW supplies codec VA only; common GND; F9 supervisor U7/Q1..Q8 enforces CODEC_RST<=0.1V & SHUNT_EN off-state AIN containment",
+  "scope": "Phase 4.10B design checks (UART + Reset Interlock + Off-state AIN + Active Clamp Blocker 3 + Mute Relay Blocker 4); bench physical prerequisites explicit",
+  "architecture": "USB STM and USB ESP independent; CW supplies codec VA only; common GND; F9 supervisor + RST interlock + AIN shunts; F10 clamp bias + RAW UVLO + mute timer",
   "VD_VL_implemented": "STM WeAct3V3; arithmetic budget PASS against 1A SY8088 worst-case buck; physical sample buck/ESP marking inspection required before energization",
-  "CW_current_typical_with_typical_IA_A": 0.052435045220119846,
-  "CW_current_max_budget_A": 0.06133937717954482,
+  "CW_current_typical_with_typical_IA_A": 0.053835045220119844,
+  "CW_current_max_budget_A": 0.06273937717954482,
   "CW_Iq_proxy_A": 0.008,
-  "CW_power_corner_proxy_max_W": 0.5754174067733288,
-  "CW_power_conservative_proxy_W": 0.5823141108594267,
-  "CW_Tj_proxy_thetaJA50_ambient40_C": 69.11570554297134,
-  "CW_Tj_proxy_thetaJA50_ambient60_C": 89.11570554297134,
-  "CW_max_thetaJA_for100C_at60C_proxy_C_W": 68.69144891743174,
+  "CW_clamp_bias_added_A": 0.0014,
+  "RAW_mute_and_sheet10_budget_A": 0.0176,
+  "RAW_mute_and_sheet10_headroom_A": 1.4824,
+  "CW_power_corner_proxy_max_W": 0.5864074067733287,
+  "CW_power_conservative_proxy_W": 0.5933041108594268,
+  "CW_Tj_proxy_thetaJA50_ambient40_C": 69.66520554297134,
+  "CW_Tj_proxy_thetaJA50_ambient60_C": 89.66520554297134,
+  "CW_max_thetaJA_for100C_at60C_proxy_C_W": 67.41905081705613,
   "CW_identity_qualified": false,
   "CW_user_decision": "Keep generic CW; qualification remains pending (2026-11-12)",
   "UART_implemented_ISO7721DR": true,
   "RESET_interlock_implemented": true,
   "AIN_offstate_containment_implemented": true,
+  "active_clamp_implemented": true,
+  "mute_relay_implemented": true,
   "STM32_3V3_budget": {
     "weact_buck_variants_A": {
       "SY8088AAC_default": 1.0,
@@ -37,7 +42,7 @@
   },
   "UART_added_budget_per_3V3_A": 0.004,
   "UART_RX_load_design_pF": 15,
-  "model_sha256": "2d0587e97374b0b2358abc2a932328b99e9fa1c530340afd0864a81c53707031",
+  "model_sha256": "93e4621ae05580c028a537f17699997aa785bb2ad903c4584c18740a94e930bc",
   "WeAct_total_max_claim_A": 1.0,
   "WeAct_free_current_proven_A": 0.6706316355039759,
   "codec_digital_current_max_3V3_A": 0.028,
@@ -87,17 +92,17 @@
     ]
   ],
   "design_blockers_A": [],
+  "design_blockers_B": [],
   "bench_prerequisites_A": [
     "A410-01: generic CW7805 physical sample pinout/stability qualification on bench (J5 open, codec absent)",
     "A410-05_hw: physical inspection of WeAct V1.2 U2 buck IC (SY8088/XT3410/TLV62569) and 3V3 droop test under load",
     "A410-07_hw: physical inspection of ESP32 module (WROOM vs WROVER) confirming GPIO16/17 free"
   ],
   "phase_BC_pending_blockers": [
-    "A410-04 (Phase B): BAT85 replacement with non-distorting active ADC clamp within [GND-0.3, VA+0.3]",
-    "A410-06 (Phase B): fail-safe physical mute at DAC/line output stage",
     "A410-08 (Phase C): complete footprint validation across all BOM components"
   ],
   "gate_A_design": "PASS",
+  "gate_B_design": "PASS",
   "assumptions": {
     "RAW_min10_5V": "12V-5% minus assumed 0.9V D1, not guaranteed all-temperature specification",
     "RAW_max12_6V": "12V+5%, no guaranteed diode minimum drop",
@@ -106,6 +111,7 @@
     "codec_IA53mA": "datasheet current at stated clock/temperature conditions; not inrush bound"
   },
   "gate_A_bench": "CONDITIONED_ON_PHYSICAL_SAMPLE",
-  "test_count": 13,
+  "gate_B_bench": "CONDITIONED_ON_PHYSICAL_SAMPLE",
+  "test_count": 14,
   "tests_successful": true
 }
