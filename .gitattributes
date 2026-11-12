@@ -1,0 +1,4 @@
+
+# Preserve audit CSV bytes so committed files match the SHA256 manifest.
+output/REV410_ENTREGA/*.csv -text
+output/REV410_ENTREGA/**/*.csv -text
