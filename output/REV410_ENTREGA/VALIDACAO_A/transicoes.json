@@ -1,0 +1,438 @@
+[
+  {
+    "from": "000",
+    "to": "001",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "000",
+    "to": "010",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "000",
+    "to": "100",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "001",
+    "to": "000",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "001",
+    "to": "011",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "001",
+    "to": "101",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "010",
+    "to": "000",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "010",
+    "to": "011",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "010",
+    "to": "110",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "011",
+    "to": "001",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "011",
+    "to": "010",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "011",
+    "to": "111",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "100",
+    "to": "000",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "risks_after": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "100",
+    "to": "101",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "100",
+    "to": "110",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "risks_after": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "101",
+    "to": "001",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "101",
+    "to": "100",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "101",
+    "to": "111",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "110",
+    "to": "010",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "risks_after": [
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "110",
+    "to": "100",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "risks_after": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "110",
+    "to": "111",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "111",
+    "to": "011",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
+      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "111",
+    "to": "101",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "111",
+    "to": "110",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
+      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  }
+]

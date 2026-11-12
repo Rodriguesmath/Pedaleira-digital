@@ -1,0 +1,87 @@
+{
+  "scope": "A only; calculations/state analysis, not SPICE/hardware/CAD approval",
+  "architecture": "USB STM and USB ESP independent; CW supplies codec VA only; common GND",
+  "VD_VL_implemented": "STM WeAct3V3; free current/partial-power behavior remains pending",
+  "CW_current_typical_with_typical_IA_A": 0.05069450549450549,
+  "CW_current_max_budget_A": 0.05903771603771604,
+  "CW_Iq_proxy_A": 0.008,
+  "CW_power_corner_proxy_max_W": 0.5597321593821594,
+  "CW_power_conservative_proxy_W": 0.5642460708960709,
+  "CW_Tj_proxy_thetaJA50_ambient40_C": 68.21230354480355,
+  "CW_Tj_proxy_thetaJA50_ambient60_C": 88.21230354480355,
+  "CW_max_thetaJA_for100C_at60C_proxy_C_W": 70.89105633731145,
+  "CW_identity_qualified": false,
+  "CW_user_decision": "Keep generic CW; qualification remains pending (2026-11-12)",
+  "UART_implemented_ISO7721DR": true,
+  "UART_added_budget_per_3V3_A": 0.004,
+  "UART_RX_load_design_pF": 15,
+  "model_sha256": "b33ea545268fc685fe607954e9f7e4736437645617f4ef292166cbb067e81456",
+  "WeAct_total_max_claim_A": 1.0,
+  "WeAct_free_current_proven_A": null,
+  "codec_digital_current_max_3V3_A": 0.028,
+  "codec_digital_current_max_5V_A": 0.049,
+  "VD_limits_V": [
+    3.1,
+    5.25
+  ],
+  "VL_limits_V": [
+    2.37,
+    5.25
+  ],
+  "GPIO_injection_numeric_bound_A": null,
+  "GPIO_reason_no_numeric_bound": "UART uses structural capacitive barrier and local-domain IO; no universal MCU clamp current invented. Codec analog/reset partial-power remain unqualified",
+  "source_states": 8,
+  "single_source_directed_transitions": 24,
+  "multi_source_orders_to_all_on": [
+    [
+      "USB_STM",
+      "USB_ESP",
+      "12V"
+    ],
+    [
+      "USB_STM",
+      "12V",
+      "USB_ESP"
+    ],
+    [
+      "USB_ESP",
+      "USB_STM",
+      "12V"
+    ],
+    [
+      "USB_ESP",
+      "12V",
+      "USB_STM"
+    ],
+    [
+      "12V",
+      "USB_STM",
+      "USB_ESP"
+    ],
+    [
+      "12V",
+      "USB_ESP",
+      "USB_STM"
+    ]
+  ],
+  "gate_A": "BLOCKED",
+  "blockers": [
+    "CW7805 manufacturer/pinout/stability not identified",
+    "WeAct3V3 free current not demonstrated",
+    "Automatic codec reset on VA loss and analog input protection during rail decay not demonstrated"
+  ],
+  "forbidden_progress": [
+    "B ADC redesign",
+    "B physical mute redesign",
+    "C final approval"
+  ],
+  "assumptions": {
+    "RAW_min10_5V": "12V−5% minus assumed0.9V D1, not guaranteed all-temperature specification",
+    "RAW_max12_6V": "12V+5%, no guaranteed diode minimum drop",
+    "CW_V5_4_75_5_25": "family comparator envelope, not identified CW specification",
+    "CW_Iq8mA_thetaJA50": "family comparator only; no actual CW qualification",
+    "codec_IA53mA": "datasheet current at stated clock/temperature conditions; not inrush bound"
+  },
+  "test_count": 11,
+  "tests_successful": true
+}

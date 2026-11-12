@@ -1,0 +1,9 @@
+﻿ID,Severidade,Evidência/impacto,Estado,Correção/contenção
+A410-01,ALTO,CW7805 genérico sem identidade/pinagem qualificada,Aberto por decisão do usuário,J5 aberto e codec removido nos ensaios iniciais; confirmar terminais antes de energizar
+A410-02,ALTO,UART direta entre USBs independentes,CORRIGIDO DOCUMENTALMENTE,"U6 ISO7721DR, IO de cada lado no próprio domínio; aquisição/ensaio pendentes"
+A410-03,ALTO,Perda VA com PD10 HIGH não força reset físico,ABERTO,Codec removido; intertravamento automático não implementado
+A410-04,ALTO,"AIN pode exceder VA durante partida/queda; BAT85 sem prova de limite0,3V",ABERTO / fase B não iniciada,Codec removido; preservar achadoA02 sem fingir correção
+A410-05,MEDIO,Capacidade livre do3V3 WeAct não garantida pela indicação1 A total,ABERTO,Reservar28mA codec+4mA UART; orçamento completo e ensaio posteriores
+A410-06,ALTO,Saída sem mute físico durante partida/queda,ABERTO / fase B não iniciada,Jack externo desconectado; achadoA03 preservado
+A410-07,MEDIO,Variante ESP e GPIO16/17 não confirmados,ABERTO,Conferir móduloWROOM/headers e ausênciaPSRAM nessespinos
+A410-08,MEDIO,Footprints herdados ainda não verificados para todos os componentes,ABERTO / fase C não iniciada,Somente U6 foi associado a footprint oficial; não liberar PCB/montagem integral

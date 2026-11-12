@@ -1,0 +1,122 @@
+Updating and loading repositories:
+ Fedora 44 - x86_64 - Updates           100% |   6.3 KiB/s |  36.2 KiB |  00m06s
+ RPM Fusion for Fedora 44 - Nonfree - U 100% |   2.3 KiB/s |  13.3 KiB |  00m06s
+ RPM Fusion for Fedora 44 - Free - Upda 100% |   1.9 KiB/s |  11.1 KiB |  00m06s
+ ChatGPT                                100% | 889.0   B/s |   3.8 KiB |  00m04s
+ Fedora 44 - x86_64                     100% |   8.0 KiB/s |  46.3 KiB |  00m06s
+ Copr copr.fedorainfracloud.org/tofik/n 100% | 355.0   B/s |   1.5 KiB |  00m04s
+ Copr copr.fedorainfracloud.org/tofik/n 100% | 352.0   B/s |   1.5 KiB |  00m04s
+ Copr copr.fedorainfracloud.org/tofik/n 100% | 355.0   B/s |   1.5 KiB |  00m04s
+ Copr repo for stylua owned by yorickpe 100% | 352.0   B/s |   1.5 KiB |  00m04s
+ Copr repo for wezterm-nightly owned by 100% | 369.0   B/s |   1.5 KiB |  00m04s
+ Copr repo for nwg-shell owned by tofik 100% | 391.0   B/s |   1.5 KiB |  00m04s
+ Copr repo for hyprland owned by sdegle 100% | 404.0   B/s |   1.5 KiB |  00m04s
+ Copr repo for ghostty owned by scottam 100% | 551.0   B/s |   1.5 KiB |  00m03s
+ Copr repo for awww owned by scottames  100% | 551.0   B/s |   1.5 KiB |  00m03s
+ Copr repo for bottom owned by opuk     100% | 550.0   B/s |   1.5 KiB |  00m03s
+ Copr repo for asus-linux owned by luke 100% | 574.0   B/s |   1.5 KiB |  00m03s
+ Copr repo for yazi owned by lihaohong  100% | 575.0   B/s |   1.5 KiB |  00m03s
+ Copr repo for quickshell owned by erro 100% | 723.0   B/s |   1.5 KiB |  00m02s
+ Copr repo for packages owned by errorn 100% | 787.0   B/s |   1.5 KiB |  00m02s
+ Copr repo for SwayNotificationCenter o 100% | 846.0   B/s |   1.5 KiB |  00m02s
+ Copr repo for starship owned by atim   100% | 912.0   B/s |   1.5 KiB |  00m02s
+ Copr repo for lazygit owned by atim    100% | 913.0   B/s |   1.5 KiB |  00m02s
+ Copr repo for lazydocker owned by atim 100% |   1.2 KiB/s |   1.5 KiB |  00m01s
+ Copr repo for eza owned by alternateve 100% |   1.4 KiB/s |   1.5 KiB |  00m01s
+ Visual Studio Code                     100% |   1.7 KiB/s |   1.5 KiB |  00m01s
+Repositories loaded.
+Downloading Packages:
+ armadillo-0:12.8.1-9.fc44.x86_64       100% | 113.0 KiB/s |  30.6 KiB |  00m00s
+ arpack-0:3.9.1-9.fc44.x86_64           100% | 464.4 KiB/s | 207.6 KiB |  00m00s
+ alembic-libs-0:1.8.12-1.fc44.x86_64    100% |   1.1 MiB/s | 592.2 KiB |  00m01s
+ electronics-menu-0:1.0-38.fc44.noarch  100% | 610.8 KiB/s |  66.0 KiB |  00m00s
+ flexiblas-openblas-openmp64-0:3.5.0-2. 100% | 178.2 KiB/s |  17.1 KiB |  00m00s
+ cgnslib-libs-0:4.5.1-3.fc44.x86_64     100% | 764.4 KiB/s | 337.9 KiB |  00m00s
+ freexl-0:2.0.0-20.fc44.x86_64          100% | 636.9 KiB/s |  47.1 KiB |  00m00s
+ PDAL-libs-0:2.9.3-3.fc44.x86_64        100% |   2.9 MiB/s |   2.3 MiB |  00m01s
+ hdf-libs-0:4.3.0-5.fc44.x86_64         100% |   1.7 MiB/s | 306.7 KiB |  00m00s
+ geos-0:3.14.1-2.fc44.x86_64            100% |   4.6 MiB/s |   1.3 MiB |  00m00s
+ blosc-0:1.21.6-10.fc44.x86_64          100% |  57.7 KiB/s |  59.0 KiB |  00m01s
+ hdf5-0:1.14.6-7.fc44.x86_64            100% |   3.0 MiB/s |   2.1 MiB |  00m01s
+ libaec-0:1.1.5-1.fc44.x86_64           100% | 272.4 KiB/s |  38.1 KiB |  00m00s
+ laszip-0:3.5.0-3.fc44.x86_64           100% | 285.2 KiB/s | 255.6 KiB |  00m01s
+ libarrow-0:23.0.1-1.fc44.x86_64        100% |   2.6 MiB/s |   3.7 MiB |  00m01s
+ libarrow-acero-libs-0:23.0.1-1.fc44.x8 100% | 326.2 KiB/s | 537.0 KiB |  00m02s
+ libarrow-compute-libs-0:23.0.1-1.fc44. 100% |   2.4 MiB/s |   3.0 MiB |  00m01s
+ libarrow-doc-0:23.0.1-1.fc44.noarch    100% | 227.0 KiB/s |  29.5 KiB |  00m00s
+ libdicom-0:1.2.0-3.fc44.x86_64         100% | 822.8 KiB/s | 116.0 KiB |  00m00s
+ libarrow-dataset-libs-0:23.0.1-1.fc44. 100% | 446.0 KiB/s | 539.2 KiB |  00m01s
+ libgeotiff-0:1.7.4-5.fc44.x86_64       100% | 747.9 KiB/s |  98.0 KiB |  00m00s
+ libgta-0:1.2.1-17.fc44.x86_64          100% | 280.4 KiB/s |  36.7 KiB |  00m00s
+ gdal-libs-0:3.12.4-2.fc44.x86_64       100% |   2.7 MiB/s |  11.4 MiB |  00m04s
+ libharu-0:2.4.5-2.fc44.x86_64          100% |   2.4 MiB/s | 583.7 KiB |  00m00s
+ liblas-0:1.8.2-0.30.git0756b73.fc44.x8 100% |   2.1 MiB/s | 332.1 KiB |  00m00s
+ liborc2-0:2.2.2-2.fc44.x86_64          100% |   1.7 MiB/s | 590.3 KiB |  00m00s
+ libpq-0:18.0-4.fc44.x86_64             100% |   1.4 MiB/s | 276.8 KiB |  00m00s
+ libkml-0:1.3.0-58.fc44.x86_64          100% | 462.5 KiB/s | 386.7 KiB |  00m01s
+ libqhull_r-1:8.0.2-8.fc44.x86_64       100% |   1.2 MiB/s | 206.7 KiB |  00m00s
+ libngspice-0:47-1.fc44.x86_64          100% |   2.9 MiB/s |   2.5 MiB |  00m01s
+ libspnav-0:1.2-3.fc44.x86_64           100% | 182.2 KiB/s |  25.0 KiB |  00m00s
+ muParser-0:2.3.5-5.fc44.x86_64         100% |   1.2 MiB/s | 181.6 KiB |  00m00s
+ librttopo-0:1.1.0-19.fc44.x86_64       100% | 375.0 KiB/s | 215.3 KiB |  00m01s
+ netcdf-0:4.9.3-2.fc44.x86_64           100% |   2.3 MiB/s | 870.2 KiB |  00m00s
+ ngspice-codemodel-0:47-1.fc44.x86_64   100% |   1.3 MiB/s | 220.8 KiB |  00m00s
+ nng-0:1.12.3-1.fc44.x86_64             100% |   1.2 MiB/s | 214.0 KiB |  00m00s
+ libspatialite-0:5.1.0-12.fc44.x86_64   100% |   2.6 MiB/s |   3.0 MiB |  00m01s
+ opencascade-draw-0:7.9.3-4.fc44.1.x86_ 100% |   2.1 MiB/s |   2.5 MiB |  00m01s
+ openblas-openmp64-0:0.3.29-2.fc43.x86_ 100% |   2.6 MiB/s |   5.2 MiB |  00m02s
+ flexiblas-netlib64-0:3.5.0-2.fc44.x86_ 100% | 337.7 KiB/s |   4.3 MiB |  00m13s
+ opencascade-foundation-0:7.9.3-4.fc44. 100% |   2.2 MiB/s |  12.5 MiB |  00m06s
+ opencascade-modeling-0:7.9.3-4.fc44.1. 100% |   3.0 MiB/s |  14.5 MiB |  00m05s
+ openslide-0:4.0.0-14.fc44.x86_64       100% |   1.1 MiB/s | 138.1 KiB |  00m00s
+ opencascade-visualization-0:7.9.3-4.fc 100% |   2.6 MiB/s |   2.1 MiB |  00m01s
+ parquet-libs-0:23.0.1-1.fc44.x86_64    100% |   1.1 MiB/s |   1.2 MiB |  00m01s
+ proj-0:9.8.1-1.fc44.x86_64             100% |   2.2 MiB/s |   1.7 MiB |  00m01s
+ proj-data-0:9.8.1-1.fc44.noarch        100% |   2.0 MiB/s |   1.4 MiB |  00m01s
+ opencascade-ocaf-0:7.9.3-4.fc44.1.x86_ 100% | 547.0 KiB/s |   1.2 MiB |  00m02s
+ proj-data-ar-0:9.8.1-1.fc44.noarch     100% |   2.5 MiB/s |   6.1 MiB |  00m02s
+ proj-data-be-0:9.8.1-1.fc44.noarch     100% |   2.0 MiB/s | 921.3 KiB |  00m00s
+ proj-data-br-0:9.8.1-1.fc44.noarch     100% |   2.0 MiB/s |   1.0 MiB |  00m01s
+ ngspice-0:47-1.fc44.x86_64             100% | 688.3 KiB/s |   8.4 MiB |  00m13s
+ proj-data-ch-0:9.8.1-1.fc44.noarch     100% | 956.7 KiB/s |   2.1 MiB |  00m02s
+ proj-data-cz-0:9.8.1-1.fc44.noarch     100% | 808.3 KiB/s | 295.0 KiB |  00m00s
+ proj-data-at-0:9.8.1-1.fc44.noarch     100% |   2.5 MiB/s |  15.1 MiB |  00m06s
+ kicad-1:10.0.8-1.fc44.x86_64           100% |   4.8 MiB/s | 135.7 MiB |  00m28s
+ proj-data-es-0:9.8.1-1.fc44.noarch     100% |   2.1 MiB/s |   1.0 MiB |  00m00s
+ proj-data-eur-0:9.8.1-1.fc44.noarch    100% |   2.8 MiB/s |   1.0 MiB |  00m00s
+ proj-data-fi-0:9.8.1-1.fc44.noarch     100% |   3.4 MiB/s |   1.9 MiB |  00m01s
+ proj-data-fo-0:9.8.1-1.fc44.noarch     100% |  66.1 KiB/s |   9.0 KiB |  00m00s
+ proj-data-fr-0:9.8.1-1.fc44.noarch     100% |   3.4 MiB/s |   1.9 MiB |  00m01s
+ proj-data-hu-0:9.8.1-1.fc44.noarch     100% | 866.9 KiB/s | 133.5 KiB |  00m00s
+ proj-data-is-0:9.8.1-1.fc44.noarch     100% |   3.8 MiB/s |   5.3 MiB |  00m01s
+ proj-data-jp-0:9.8.1-1.fc44.noarch     100% |   3.6 MiB/s |   7.4 MiB |  00m02s
+ proj-data-lv-0:9.8.1-1.fc44.noarch     100% | 424.0 KiB/s |  63.2 KiB |  00m00s
+ proj-data-mx-0:9.8.1-1.fc44.noarch     100% |   2.8 MiB/s | 559.9 KiB |  00m00s
+ proj-data-nc-0:9.8.1-1.fc44.noarch     100% |   2.8 MiB/s |   1.5 MiB |  00m01s
+ proj-data-nl-0:9.8.1-1.fc44.noarch     100% |   2.9 MiB/s |   1.1 MiB |  00m00s
+ proj-data-no-0:9.8.1-1.fc44.noarch     100% |   3.5 MiB/s |   7.3 MiB |  00m02s
+ proj-data-nz-0:9.8.1-1.fc44.noarch     100% |   4.1 MiB/s |  13.2 MiB |  00m03s
+ proj-data-pl-0:9.8.1-1.fc44.noarch     100% |   3.6 MiB/s |   2.3 MiB |  00m01s
+ proj-data-pt-0:9.8.1-1.fc44.noarch     100% |   2.9 MiB/s | 512.1 KiB |  00m00s
+ proj-data-se-0:9.8.1-1.fc44.noarch     100% |   4.3 MiB/s |   2.2 MiB |  00m01s
+ proj-data-si-0:9.8.1-1.fc44.noarch     100% |   1.9 MiB/s | 271.6 KiB |  00m00s
+ proj-data-sk-0:9.8.1-1.fc44.noarch     100% |   3.5 MiB/s |   1.2 MiB |  00m00s
+ proj-data-uk-0:9.8.1-1.fc44.noarch     100% |   4.1 MiB/s |   4.7 MiB |  00m01s
+ proj-data-de-0:9.8.1-1.fc44.noarch     100% |   2.2 MiB/s |  74.7 MiB |  00m33s
+ proj-data-za-0:9.8.1-1.fc44.noarch     100% | 793.3 KiB/s | 303.1 KiB |  00m00s
+ proj-data-dk-0:9.8.1-1.fc44.noarch     100% |   1.8 MiB/s |  61.1 MiB |  00m34s
+ python3-vtk-0:9.5.2-12.fc44.x86_64     100% |   2.2 MiB/s |  11.9 MiB |  00m05s
+ thrift-0:0.20.0-9.fc44.x86_64          100% |   1.9 MiB/s |   1.9 MiB |  00m01s
+ unixODBC-0:2.3.14-3.fc44.x86_64        100% |   1.5 MiB/s | 417.9 KiB |  00m00s
+ python3-wxpython4-0:4.2.4-3.fc44.x86_6 100% | 933.6 KiB/s |  10.0 MiB |  00m11s
+ vtk-qt-0:9.5.2-12.fc44.x86_64          100% | 186.3 KiB/s | 332.3 KiB |  00m02s
+ wxBase-0:3.2.9-2.fc44.x86_64           100% | 714.0 KiB/s |   1.0 MiB |  00m01s
+ proj-data-ca-0:9.8.1-1.fc44.noarch     100% |   2.0 MiB/s | 104.3 MiB |  00m53s
+ wxGTK-gl-0:3.2.9-2.fc44.x86_64         100% | 255.4 KiB/s |  39.8 KiB |  00m00s
+ wxGTK-i18n-0:3.2.9-2.fc44.noarch       100% |   1.7 MiB/s | 987.3 KiB |  00m01s
+ wxGTK-webview-0:3.2.9-2.fc44.x86_64    100% | 411.8 KiB/s |  75.8 KiB |  00m00s
+ wxGTK-0:3.2.9-2.fc44.x86_64            100% |   2.3 MiB/s |   5.0 MiB |  00m02s
+ xerces-c-0:3.3.0-9.fc44.x86_64         100% |   1.9 MiB/s |   1.1 MiB |  00m01s
+ vtk-0:9.5.2-12.fc44.x86_64             100% |   2.3 MiB/s |  46.9 MiB |  00m21s
+ proj-data-au-0:9.8.1-1.fc44.noarch     100% |   1.7 MiB/s | 116.9 MiB |  01m10s
+ proj-data-us-0:9.8.1-1.fc44.noarch     100% |   6.0 MiB/s | 318.2 MiB |  00m53s

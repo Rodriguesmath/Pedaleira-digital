@@ -1,0 +1,115 @@
+﻿Referência,Componente,Valor,Quantidade,Encapsulamento,Função,Situação,Especificações mínimas,Observações,Fundamentação
+J1,J,12 V DC,1,Conector THT,"Fonte externa 12 V regulados, 1,5 A; centro positivo",necessário adquirir / conferir estoque,"11,4..12,6 V; fonte isolada; NÃO usar 9 V nesta revisão",,Projeto rev4.9; ver AUDITORIA_REV49.md
+D1,D,1N5822,1,DO-201AD,Proteção de polaridade,necessário adquirir / conferir estoque,"Schottky 3 A, 40 V; conferir fabricante",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C33,CP,220 uF,1,"Radial eletrolítico, >=25 V",Reserva após proteção de polaridade,necessário adquirir / conferir estoque,"Eletrolítico ≥25 V, 105 °C",,Projeto rev4.9; ver AUDITORIA_REV49.md
+J2,J,IN P10 mono,1,Conector THT,Tip = sinal; sleeve = GND,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+C1,C,100 nF,1,"Radial, filme/C0G, >=25 V",Acoplamento da guitarra,necessário adquirir / conferir estoque,"100 nF filme, ≥50 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R3,R,1 Mohm,1,"Axial DIN0207, 1/4 W, 1%",Bias de alta impedância do buffer da guitarra,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+U1,OP,TL072,1,DIP-8,U1A buffer de entrada; U1B receptor diferencial,já disponível,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+C10,CB,10 uF bipolar,1,"Radial bipolar, >=25 V",Remove DC do ramo positivo do DAC,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C11,CB,10 uF bipolar,1,"Radial bipolar, >=25 V",Remove DC do ramo negativo do DAC,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R1,R,100 kohm,1,"Axial DIN0207, 1/4 W, 0,1%",Reutilizado: entrada não inversora,necessário adquirir / conferir estoque,"0,1%, mesmo lote/conjunto com R2/R7/R8",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R2,R,49.9 kohm,1,"Axial DIN0207, 1/4 W, 0,1%",Reutilizado: referência do receptor,necessário adquirir / conferir estoque,"0,1%, casar razões R2/R1 e R8/R7",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R7,R,100 kohm,1,"Axial DIN0207, 1/4 W, 0,1%",Entrada inversora do receptor,necessário adquirir / conferir estoque,"100 kΩ, 0,1%",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R8,R,49.9 kohm,1,"Axial DIN0207, 1/4 W, 0,1%","Realimentação U1B; ganho diferencial 0,499",necessário adquirir / conferir estoque,"0,1%, casar razões R8/R7 e R2/R1",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R4,R,220 ohm,1,"Axial DIN0207, 1/4 W, 1%",Primeira seção do filtro RC,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C4,C,2.2 nF,1,"Radial, filme/C0G, >=25 V","Primeiro polo do filtro, C0G/filme",necessário adquirir / conferir estoque,C0G ou filme ≥25 V,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R5,R,220 ohm,1,"Axial DIN0207, 1/4 W, 1%",Segunda seção do filtro RC,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C6,C,2.2 nF,1,"Radial, filme/C0G, >=25 V","Segundo polo do filtro, C0G/filme",necessário adquirir / conferir estoque,C0G ou filme ≥25 V,,Projeto rev4.9; ver AUDITORIA_REV49.md
+C5,CP,10 uF,1,Radial eletrolítico ≥25 V,Acoplamento de saída; positivo em LP2,necessário adquirir / conferir estoque,"10 µF, ≥25 V; + no lado FILT2",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R6,R,1 Mohm,1,"Axial DIN0207, 1/4 W, 1%",Descarga do conector de saída,necessário adquirir / conferir estoque,"1 MΩ, 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+J3,J,OUT P10 mono,1,Conector THT,Tip = sinal; sleeve = GND,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+U2,CODEC,CS4272,1,"TSSOP-28, adaptador 0,65 mm já existente",Codec físico em adaptador passivo TSSOP-28,já disponível,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+C12,CP,47 uF,1,"Radial eletrolítico, >=25 V",Reserva de FILT+; positivo no pino 22,necessário adquirir / conferir estoque,"Eletrolítico ≥25 V, 105 °C",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C13,C,100 nF,1,"Radial cerâmico X7R, >=25 V",Desacoplamento de FILT+ junto ao pino 22,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C14,C,1 uF,1,"Radial, filme/C0G, >=25 V",Filtro de VCOM; não exceder 1 uF nominal,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C15,C,100 nF,1,"Radial cerâmico X7R, >=25 V",Filtro local de VCOM junto ao pino 15,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R10,R,100 kohm,1,"Axial DIN0207, 1/4 W, 1%",Bias do canal B sem uso em ADC_BIAS,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+H_STM32,BOARD,WeAct STM32H723 V1.2,1,"WeAct V1.2, P1/P2 2x22",Placa de processamento existente,já disponível,Conferir identificação e encapsulamento físico,Alimentação exclusiva pela USB própria; não alimentar header 5V pelo CW. VD/VL saem de P2.2; orçamento da placa ainda condicionado.,Projeto rev4.9; ver AUDITORIA_REV49.md
+H_ESP32,BOARD,ESP32 DevKit V1,1,DevKit ESP32-WROOM (não WROVER),"UART de 3,3 V entre as placas",já disponível,Conferir identificação e encapsulamento físico,Alimentação exclusiva pela USB própria. VIN sem conexão externa. Confirmar variante WROOM e identificação do header 3V3; sem pressupor estoque de outro modelo.,Projeto rev4.9; ver AUDITORIA_REV49.md
+J4,J,Teste CW 5 V,1,"Borne THT 2 vias 5,08 mm","Conector de carga artificial no lado CW, antes de J5; nunca USB",necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,Somente saída para carga de teste. Não ligar a STM/ESP/USB.,Projeto rev4.9; ver AUDITORIA_REV49.md
+R11,R,4.7 kohm,1,"Axial DIN0207, 1/4 W, 1%",Pull-up externo SCL,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R12,R,4.7 kohm,1,"Axial DIN0207, 1/4 W, 1%",Pull-up externo SDA,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R13,R,10 kohm,1,"Axial DIN0207, 1/4 W, 1%",Mantém codec em reset durante boot,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R14,R,47 kohm,1,"Axial DIN0207, 1/4 W, 1%",Define slave no intervalo stand-alone,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+SW1,SW,MTS-102,1,MTS-102 SPDT THT,Overdrive,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R_D2,R,330 ohm,1,"Axial DIN0207, 1/4 W, 1%",Limitador de corrente do LED Overdrive,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+D2,LED,LED Overdrive,1,LED THT 3/5 mm,Overdrive,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+SW2,SW,MTS-102,1,MTS-102 SPDT THT,Equalizador,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R_D3,R,330 ohm,1,"Axial DIN0207, 1/4 W, 1%",Limitador de corrente do LED Equalizador,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+D3,LED,LED Equalizador,1,LED THT 3/5 mm,Equalizador,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+SW3,SW,MTS-102,1,MTS-102 SPDT THT,Delay,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R_D4,R,330 ohm,1,"Axial DIN0207, 1/4 W, 1%",Limitador de corrente do LED Delay,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+D4,LED,LED Delay,1,LED THT 3/5 mm,Delay,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+SW4,SW,MTS-102,1,MTS-102 SPDT THT,Master mute,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R_D5,R,330 ohm,1,"Axial DIN0207, 1/4 W, 1%",Limitador de corrente do LED Mute / status,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+D5,LED,LED Mute / status,1,LED THT 3/5 mm,Master mute,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
+C2,CB,10 uF,1,Bipolar radial / filme,Isolação DC entre driver e ADC,necessário adquirir / conferir estoque,"10 µF bipolar ≥25 V; diferença DC ~3,25 V nominal",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C16,CB,10 uF,1,Bipolar radial / filme,Isolação DC entre driver e ADC,necessário adquirir / conferir estoque,"10 µF bipolar ≥25 V; diferença DC ~3,25 V nominal",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R15,R,100 kohm,1,"Axial DIN0207, 1/4 W, 0,1%",Polarização da entrada ADC em ADC_BIAS independente de VCOM,necessário adquirir / conferir estoque,"100 kΩ 0,1%, par com R16",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R16,R,100 kohm,1,"Axial DIN0207, 1/4 W, 0,1%",Polarização da entrada ADC em ADC_BIAS independente de VCOM,necessário adquirir / conferir estoque,"100 kΩ 0,1%, par com R15",,Projeto rev4.9; ver AUDITORIA_REV49.md
+U3,OP,TL072,1,DIP-8,Segundo TL072: dois drivers ADC,já disponível,Conferir identificação e encapsulamento físico, Sufixo/fabricante do exemplar a confirmar; sem equivalência automática ao TI CP.,Projeto rev4.9; ver AUDITORIA_REV49.md
+R17,R,10 kohm,1,"Axial DIN0207, 1/4 W, 1%",Realimentação DC do seguidor U3A,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C18,C,22 pF,1,"Radial cerâmico C0G/NP0, >=25 V",Realimentação HF de U3A; não é capacitor anti-alias isolado,necessário adquirir / conferir estoque,C0G ≥25 V; ensaio de estabilidade obrigatório,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R18,R,1.5 kohm,1,"Axial DIN0207, 1/4 W, 1%",Isolação capacitiva de saída U3A,necessário adquirir / conferir estoque,"1,5 kΩ, 1%, 0,25 W; limita transientes a <9 mA no envelope de 12 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R19,R,10 kohm,1,"Axial DIN0207, 1/4 W, 0,1%",Realimentação do inversor U3B,necessário adquirir / conferir estoque,"10 kΩ 0,1%, razão com R24",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C19,C,22 pF,1,"Radial cerâmico C0G/NP0, >=25 V",Compensação HF do inversor,necessário adquirir / conferir estoque,C0G ≥25 V; pólo ideal com 10 kΩ ~723 kHz,,Projeto rev4.9; ver AUDITORIA_REV49.md
+R20,R,1.5 kohm,1,"Axial DIN0207, 1/4 W, 1%",Isolação capacitiva de saída U3B,necessário adquirir / conferir estoque,"1,5 kΩ, 1%, 0,25 W; limita transientes a <9 mA no envelope de 12 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C20,C,680 pF,1,"Radial cerâmico C0G/NP0, >=25 V",Filtro diferencial nos pinos 17/16,necessário adquirir / conferir estoque,"680 pF C0G, 2%, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+U5,REG,CW7805,1,TO-220; fabricante e pinagem CW7805 a confirmar,Saída nominal 5 V apenas para VA; USBs independentes,já disponível,"Identificar IN/GND/OUT e fabricante antes de montar; saída de projeto 4,75..5,25 V a >=60 mA; não são limites comprovados do CW",Mantido por decisão do usuário. Pinagem 1/2/3 herdada é hipótese NÃO QUALIFICADA. Nenhum parâmetro térmico/ST atribuído ao exemplar. J5 aberto por padrão; não instalar codec antes de qualificar fonte.,Projeto rev4.9; ver AUDITORIA_REV49.md
+C21,C,330 nF,1,"Radial cerâmico X7R, >=25 V",Bypass de entrada de U5,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C22,C,100 nF,1,"Radial cerâmico X7R, >=25 V",Bypass de saída de U5,necessário adquirir / conferir estoque,Cerâmico local ≥25 V,,Projeto rev4.9; ver AUDITORIA_REV49.md
+C23,C,100 nF,1,"Radial cerâmico X7R, >=25 V",VA pino 20: cerâmico local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C24,C,1 uF,1,"Radial cerâmico X7R, >=25 V",VA pino 20: reserva local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C25,C,100 nF,1,"Radial cerâmico X7R, >=25 V",VD pino 9: cerâmico local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C26,C,1 uF,1,"Radial cerâmico X7R, >=25 V",VD pino 9: reserva local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C27,C,100 nF,1,"Radial cerâmico X7R, >=25 V",VL pino 10: cerâmico local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C28,C,1 uF,1,"Radial cerâmico X7R, >=25 V",VL pino 10: reserva local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C29,C,100 nF,1,"Radial cerâmico X7R, >=25 V",U1 pino 8: bypass local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C30,CP,10 uF,1,Radial eletrolítico ≥25 V,Reserva local entre RAW e GND nos pinos 8/4 do TL072,necessário adquirir / conferir estoque,"10 µF ≥25 V, 105 °C",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C31,C,100 nF,1,"Radial cerâmico X7R, >=25 V",U3 pino 8: bypass local,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C32,CP,10 uF,1,Radial eletrolítico ≥25 V,Reserva local entre RAW e GND nos pinos 8/4 do TL072,necessário adquirir / conferir estoque,"10 µF ≥25 V, 105 °C",,Projeto rev4.9; ver AUDITORIA_REV49.md
+C34,C,100 nF,1,Radial cerâmico X7R >=25 V,Bypass do par ADC B não utilizado,necessário adquirir / conferir estoque,"Capacitor não polarizado, ≥25 V",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R21,R,910 ohm,1,"Axial DIN0207, 1/4 W, 1%","Carga mínima de 5,5 mA para ensaio isolado do regulador",necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+F1,F,T1.25 A,1,THT,Fusível de entrada,necessário adquirir / conferir estoque,"Retardado 1,25 A, ≥32 V e porta-fusível",,Projeto rev4.9
+D8,D,1N4007,1,DO-41,Descarga reversa do regulador,necessário adquirir / conferir estoque,"1 A, ≥50 V; ânodo na saída de 5 V",,Projeto rev4.9
+R22,R,2.2 kohm,1,THT,Divisor de referência OP,necessário adquirir / conferir estoque,"2,2 kΩ, 1%, 0,25 W",,Projeto rev4.9
+R23,R,2.2 kohm,1,THT,Divisor de referência OP,necessário adquirir / conferir estoque,"2,2 kΩ, 1%, 0,25 W",,Projeto rev4.9
+C38,CP,470 uF,1,Radial,Filtragem da referência OP,necessário adquirir / conferir estoque,"470 µF ≥16 V, tolerância ±20%; aguardar 5 s",,Projeto rev4.9
+C39,C,100 nF,1,THT,Desacoplamento HF da referência,necessário adquirir / conferir estoque,100 nF ≥25 V,,Projeto rev4.9
+C37,CP,1000 uF,1,Radial,Reserva da saída CW antes do seccionamento J5,necessário adquirir / conferir estoque,"1000 µF ≥10 V, 105 °C; verificar inrush e CW",,Projeto rev4.9
+R24,R,10 kohm,1,THT,Entrada do inversor U3B,necessário adquirir / conferir estoque,"10 kΩ 0,1%, par com R19",,Projeto rev4.9
+R26,R,1 kohm,1,THT,Limitação de corrente na entrada,necessário adquirir / conferir estoque,"1 kΩ 1%, 0,25 W",,Projeto rev4.9
+D6,D,1N4148,1,DO-35,Clamp positivo da guitarra,necessário adquirir / conferir estoque,Diodo pequeno sinal; capacitância e fuga baixas,,Projeto rev4.9
+D7,D,1N4148,1,DO-35,Clamp negativo da guitarra,necessário adquirir / conferir estoque,Diodo pequeno sinal; não protege surtos de rede,,Projeto rev4.9
+D13,D,1N4148,1,DO-35,Segundo diodo de clamp positivo,necessário adquirir / conferir estoque,Diodo pequeno sinal; em série com D6,,Projeto rev4.9
+D14,D,1N4148,1,DO-35,Segundo diodo de clamp negativo,necessário adquirir / conferir estoque,Diodo pequeno sinal; em série com D7,,Projeto rev4.9
+C35,C,100 pF,1,THT,Filtro RF de modo comum do ADC,necessário adquirir / conferir estoque,"100 pF C0G, par 2%, ≥25 V",,Projeto rev4.9
+C36,C,100 pF,1,THT,Filtro RF de modo comum do ADC,necessário adquirir / conferir estoque,"100 pF C0G, par 2%, ≥25 V",,Projeto rev4.9
+R27,R,13 kohm,1,THT,"Divisor ADC, ramo superior",necessário adquirir / conferir estoque,"13 kΩ 0,1%, par com R28",,Projeto rev4.9
+R28,R,12 kohm,1,THT,"Divisor ADC, ramo inferior",necessário adquirir / conferir estoque,"12 kΩ 0,1%, par com R27",,Projeto rev4.9
+C40,CP,100 uF,1,Radial,Filtro do bias ADC,necessário adquirir / conferir estoque,100 µF ≥10 V; esperar 5 s,,Projeto rev4.9
+C41,C,100 nF,1,THT,Bypass HF do bias ADC,necessário adquirir / conferir estoque,100 nF ≥25 V,,Projeto rev4.9
+D9,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
+D10,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
+D11,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
+D12,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
+TP1,TP,+RAW,1,Pino THT isolado,Ponto de teste +RAW,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP2,TP,+5V,1,Pino THT isolado,Ponto de teste +5V,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP3,TP,+3V3,1,Pino THT isolado,Ponto de teste +3V3,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP4,TP,VREF_OP,1,Pino THT isolado,Ponto de teste VREF_OP,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP5,TP,VCOM,1,Pino THT isolado,Ponto de teste VCOM,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP6,TP,IN_BUF,1,Pino THT isolado,Ponto de teste IN_BUF,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP7,TP,AINA_P,1,Pino THT isolado,Ponto de teste AINA_P,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP8,TP,AINA_N,1,Pino THT isolado,Ponto de teste AINA_N,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP9,TP,DAC_BUF,1,Pino THT isolado,Ponto de teste DAC_BUF,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP10,TP,GND,1,Pino THT isolado,Ponto de teste GND,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+TP11,TP,ADC_BIAS,1,Pino THT isolado,Ponto de teste ADC_BIAS,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
+J5,LINK,VA / aberto,1,"Header 1x02 2,54 mm + shunt removível",Seccionamento físico CW -> VA; aberto por padrão,necessário adquirir / conferir estoque,Manter SEM shunt até qualificação da fonte; codec removido nos ensaios iniciais,Não há continuidade interna com shunt removido. Não é fusível nem proteção automática contra falha do CW.,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+U6,ISOLATOR,ISO7721DR,1,"SOIC-8 D, 3,9x4,9 mm, pitch 1,27 mm; adaptador SOIC8-DIP8 para perfboard",UART bidirecional entre alimentações independentes; cada I/O pertence ao seu domínio,necessário adquirir / conferir estoque,"Texas Instruments ISO7721DR, default HIGH; NÃO ISO7721F nem DW16","Aquisição necessária, estoque não confirmado. GND1/GND2 unidos ao GND do sistema: não há alegação de isolamento galvânico entre placas. Orçamento 4 mA por domínio; saída RX com carga de projeto <=15 pF. Estado lógico durante brownout indeterminado.",Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C42,C,100 nF,1,Cerâmico THT,Bypass local de U6,necessário adquirir / conferir estoque,"100 nF X7R >=16 V, próximo dos pinos VCC/GND",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C43,C,100 nF,1,Cerâmico THT,Bypass local de U6,necessário adquirir / conferir estoque,"100 nF X7R >=16 V, próximo dos pinos VCC/GND",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R29,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Descarga local e estado sem alimentação,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R30,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Descarga local e estado sem alimentação,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R31,R,47 kohm,1,Axial DIN0207 1/4 W 1%,UART idle HIGH quando TX está em alta impedância,necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R32,R,47 kohm,1,Axial DIN0207 1/4 W 1%,UART idle HIGH quando TX está em alta impedância,necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais

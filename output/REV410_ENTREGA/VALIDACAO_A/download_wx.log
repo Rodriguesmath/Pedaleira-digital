@@ -1,0 +1,9 @@
+Updating and loading repositories:
+Repositories loaded.
+Downloading Packages:
+ wxBase-0:3.2.9-2.fc44.x86_64           100% |   0.0   B/s |   0.0   B |  00m00s
+>>> Already downloaded
+ wxGTK-0:3.2.9-2.fc44.x86_64            100% |   0.0   B/s |   0.0   B |  00m00s
+>>> Already downloaded
+ wxBase-0:3.2.9-2.fc44.i686             100% | 377.5 KiB/s |   1.1 MiB |  00m03s
+ wxGTK-0:3.2.9-2.fc44.i686              100% | 487.4 KiB/s |   5.3 MiB |  00m11s

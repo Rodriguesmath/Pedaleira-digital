@@ -1,0 +1,318 @@
+{
+  "classification": "CALCULADO, proxies CW nao validam componente",
+  "input_model_sha256": "4a23e85948f94041f3873703294a33407326956c04c5b3e0f2540ec96be9d657",
+  "inventory_count": 75,
+  "VA_domain_max_budget_A": 0.05903771603771604,
+  "VA_domain_typ_budget_A": 0.05069450549450549,
+  "CW_power_worst_proxy_W": 0.5642460708960709,
+  "CW_Tj_proxy_no_sink_at40_C": 68.21230354480355,
+  "CW_Tj_proxy_old_sink_at40_C": 44.51396856716857,
+  "theta_JA_total_for_Tj100_at40_K_W": 106.3365845059672,
+  "bleeder_max_power_W": 0.030594405594405596,
+  "new_digital_load_on_CW_A": 0,
+  "UART_safe_Ioff_proven": false,
+  "CW_A04_resolved": false,
+  "gate_A": "BLOCKED",
+  "B_started": false,
+  "state_count": 8,
+  "directed_single_source_transitions": 24,
+  "states": [
+    {
+      "S": 0,
+      "E": 0,
+      "A": 0,
+      "D5_STM": false,
+      "D5_ESP": false,
+      "RAW": false,
+      "VA": false,
+      "VDVL": false,
+      "UART_link_safe_proven": true,
+      "harness_approved": false,
+      "risks": [
+        "Energia residual externa/capacitores: aguardar descarga e excluir audio externo"
+      ]
+    },
+    {
+      "S": 0,
+      "E": 0,
+      "A": 1,
+      "D5_STM": false,
+      "D5_ESP": false,
+      "RAW": true,
+      "VA": true,
+      "VDVL": false,
+      "UART_link_safe_proven": true,
+      "harness_approved": false,
+      "risks": [
+        "Codec: VA e VD/VL separados; ordem de trilhos nao qualificada",
+        "Codec SDOUT/rails analogicos e STM desligado: estado de saida nao garantido",
+        "CW sem identidade; VA nao qualificada"
+      ]
+    },
+    {
+      "S": 0,
+      "E": 1,
+      "A": 0,
+      "D5_STM": false,
+      "D5_ESP": true,
+      "RAW": false,
+      "VA": false,
+      "VDVL": false,
+      "UART_link_safe_proven": false,
+      "harness_approved": false,
+      "risks": [
+        "UART: transmissor vivo pode atingir receptor desligado; Ioff nao demonstrado"
+      ]
+    },
+    {
+      "S": 0,
+      "E": 1,
+      "A": 1,
+      "D5_STM": false,
+      "D5_ESP": true,
+      "RAW": true,
+      "VA": true,
+      "VDVL": false,
+      "UART_link_safe_proven": false,
+      "harness_approved": false,
+      "risks": [
+        "UART: transmissor vivo pode atingir receptor desligado; Ioff nao demonstrado",
+        "Codec: VA e VD/VL separados; ordem de trilhos nao qualificada",
+        "Codec SDOUT/rails analogicos e STM desligado: estado de saida nao garantido",
+        "CW sem identidade; VA nao qualificada"
+      ]
+    },
+    {
+      "S": 1,
+      "E": 0,
+      "A": 0,
+      "D5_STM": true,
+      "D5_ESP": false,
+      "RAW": false,
+      "VA": false,
+      "VDVL": true,
+      "UART_link_safe_proven": false,
+      "harness_approved": false,
+      "risks": [
+        "UART: transmissor vivo pode atingir receptor desligado; Ioff nao demonstrado",
+        "Codec: VA e VD/VL separados; ordem de trilhos nao qualificada",
+        "STM SAI/I2C/RST vivos com VA ausente; RST nao isola"
+      ]
+    },
+    {
+      "S": 1,
+      "E": 0,
+      "A": 1,
+      "D5_STM": true,
+      "D5_ESP": false,
+      "RAW": true,
+      "VA": true,
+      "VDVL": true,
+      "UART_link_safe_proven": false,
+      "harness_approved": false,
+      "risks": [
+        "UART: transmissor vivo pode atingir receptor desligado; Ioff nao demonstrado",
+        "CW sem identidade; VA nao qualificada"
+      ]
+    },
+    {
+      "S": 1,
+      "E": 1,
+      "A": 0,
+      "D5_STM": true,
+      "D5_ESP": true,
+      "RAW": false,
+      "VA": false,
+      "VDVL": true,
+      "UART_link_safe_proven": true,
+      "harness_approved": false,
+      "risks": [
+        "Codec: VA e VD/VL separados; ordem de trilhos nao qualificada",
+        "STM SAI/I2C/RST vivos com VA ausente; RST nao isola"
+      ]
+    },
+    {
+      "S": 1,
+      "E": 1,
+      "A": 1,
+      "D5_STM": true,
+      "D5_ESP": true,
+      "RAW": true,
+      "VA": true,
+      "VDVL": true,
+      "UART_link_safe_proven": true,
+      "harness_approved": false,
+      "risks": [
+        "CW sem identidade; VA nao qualificada",
+        "Partida/corte/clamps/mute e retorno USB permanecem nao qualificados"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "000",
+      "to": "100",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "000",
+      "to": "010",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "000",
+      "to": "001",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "001",
+      "to": "101",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "001",
+      "to": "011",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "001",
+      "to": "000",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "010",
+      "to": "110",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "010",
+      "to": "000",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "010",
+      "to": "011",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "011",
+      "to": "111",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "011",
+      "to": "001",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "011",
+      "to": "010",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "100",
+      "to": "000",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "100",
+      "to": "110",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "100",
+      "to": "101",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "101",
+      "to": "001",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "101",
+      "to": "111",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "101",
+      "to": "100",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "110",
+      "to": "010",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "110",
+      "to": "100",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "110",
+      "to": "111",
+      "changed": "12V",
+      "approved_harness": false
+    },
+    {
+      "from": "111",
+      "to": "011",
+      "changed": "USB_STM",
+      "approved_harness": false
+    },
+    {
+      "from": "111",
+      "to": "101",
+      "changed": "USB_ESP",
+      "approved_harness": false
+    },
+    {
+      "from": "111",
+      "to": "110",
+      "changed": "12V",
+      "approved_harness": false
+    }
+  ],
+  "params": {
+    "CW_identity_known": false,
+    "VA_max_A_datasheet": 0.053,
+    "VA_typ_A_datasheet": 0.045,
+    "bleeder_ohm": 910,
+    "bleeder_tolerance": 0.01,
+    "ADC_divider_total_ohm": 25000,
+    "ADC_res_tolerance": 0.001,
+    "CW_Iq_proxy_A": 0.008,
+    "RAW_min_assumed_V": 10.5,
+    "RAW_nom_assumed_V": 11.3,
+    "RAW_max_conservative_V": 12.6,
+    "theta_JA_proxy_K_W": 50,
+    "theta_JC_proxy_K_W": 5,
+    "theta_CS_assumed_K_W": 1,
+    "theta_SA_old_K_W": 2,
+    "WeAct_max_total_3V3_A_vendor": 1,
+    "codec_VDVL_max_A_datasheet": 0.028,
+    "V5_min_assumed_V": 4.75,
+    "V5_max_assumed_V": 5.25
+  }
+}
