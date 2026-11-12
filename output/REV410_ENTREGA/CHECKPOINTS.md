@@ -39,3 +39,17 @@ Data: 2026-11-12. **Decisão: BLOCKED para o conjunto.** Etapa encerrada para tr
 - Commit correspondente: localizar a mensagem `chore(hardware): salva checkpoint 4.10A e handoff Gemini` em git log da branch codex/rev410-auditoria.
 
 Última consulta de cota: 16% restante na janela de5h; 87% semanal. Limiar pedido:10%. Trabalho salvo no encerramento solicitado pelo usuário, sem acionar reset de cota.
+
+## CHECKPOINT GATE A - Projeto Elétrico & SPICE APROVADOS / Bancada Condicionada
+
+Data: 2026-11-12. **Decisão:**
+- **Projeto elétrico & SPICE Fase 4.10A:** **PASS** (autoriza execução da Fase 4.10B).
+- **Pré-requisitos físicos de amostra em bancada:** **CONDICIONADOS** (`A410-01` pinagem/estabilidade do exemplar `CW7805` com `J5` aberto e codec ausente; `A410-05_hw` inspeção física do buck `U2` da WeAct V1.2 e droop térmico; `A410-07_hw` inspeção ESP32 GPIO16/17 livres).
+- **Escopo implementado na Fase A (Folha 9, 25 componentes adicionados -> total 139 componentes, 347 terminais, 73 redes, 9 folhas)**:
+  - Supervisor `+5VA` (`U7 TL431ACZ` + `Q3 2N3906`, `R33..R38`): histerese `4,602 V` subida / `4,516 V` queda, `I_K = 1,34 mA >= 1,0 mA`, carga nominal `+5VA` = `1,82 mA` (`+5VA` máx total `61,34 mA < 65 mA`).
+  - Intertravamento `/RST` (`Q1/Q2 2N3904`, `R39..R41`): força `CODEC_RST <= 0,03 V` sempre que `+5VA < 4,52 V`, backpower com `+3V3_STM = 0 V` de `0,000000 V`, subida rápida dentro da janela `1 ms` do firmware `Cs4272.cpp`.
+  - Contenção off-state / sem VA (`D15 1N4148`, `R43 47 ohm`, `C44 10 uF`, `R44..R47`, `Q4 2N3904`, `Q5..Q8 2N7000`): contém `AINA_P`, `AINA_N`, `ADC_BIAS` (via `R47 = 47 ohm`) e `AINB_CM` em `<= 1,1 mV` sem VA; pico inrush `250,51 mA`; THD diferencial impacto `0,000514%`; sem carga adicional em `VCOM`.
+  - Footprints oficiais KiCad locais em `docs/hardware/rev4_10/Package_TO_SOT_THT.pretty/TO-92_Inline.kicad_mod` (`U7, Q1..Q8`) além de `Package_SO` (`U6`).
+- **Verificações executadas (`sh docs/hardware/rev4_10/run_A.sh`)**: `13/13` testes `validar_alimentacao.py`, `12/12` testes `test_interfaces_indep.py`, `16/16` cenários ngspice `simular_A.py`, `11/11` testes independentes `auditar_cad_A.py --export`, **0 violações ERC** no KiCad 10 (`ignored_checks = []`), `validate_layout.py` 100% consistente.
+- **Preservação**: `docs/hardware/rev4_9/`, `output/rev4_9/` e `firmware/` intactos.
+- **Próxima etapa**: Fase 4.10B (`ANALISE_ADC.md` Blocker 3 + `PROJETO_MUTE_FISICO.md` Blocker 4 + validação B3/B4).

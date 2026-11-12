@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/kicad/pedaleira_digital_rev4_10.kicad_sch</source>
-    <date>2026-11-12T18:16:02</date>
+    <date>2026-11-12T19:01:54</date>
     <tool>Eeschema 10.0.8-1.fc44</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -166,6 +166,24 @@
         <comment number="9" value=""/>
       </title_block>
     </sheet>
+    <sheet number="10" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/">
+      <title_block>
+        <title>Supervisão +5VA, intertravamento /RST e contenção sem VA</title>
+        <company>Rodrigues M. Lima</company>
+        <rev>4.10</rev>
+        <date/>
+        <source>folha_9.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
   </design>
   <components>
     <comp ref="C21">
@@ -181,7 +199,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>a9e73dbe-55b5-51f8-ba2a-08dfab921b76</tstamps>
+      <tstamps>d10d6ae8-9d77-5f0d-adcc-bbc74d638f29</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -204,7 +222,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>9cbd184d-fed0-5a9c-bd52-74ae6e01e874</tstamps>
+      <tstamps>7a78b1c3-137f-5b27-a079-3ed6efd0d945</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -227,7 +245,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>311f674e-5340-512d-9bd4-870cfbd6d079</tstamps>
+      <tstamps>99b9e31b-835b-552a-a261-a892a96ca2ff</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -250,7 +268,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>b2e10d58-2bce-5e31-9a59-9483e7fcb34b</tstamps>
+      <tstamps>90b599d8-7654-574b-914f-652fd2cf369b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -273,7 +291,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>b33460a8-e9ef-50b2-9adb-abba035eea8e</tstamps>
+      <tstamps>51db5fd8-1316-5426-9c00-2ed575ec9fe7</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -296,7 +314,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>150e09c3-444a-5a28-8d4d-b491cff65f0a</tstamps>
+      <tstamps>c410fc4f-f134-5287-8276-7f4c9515195b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -319,7 +337,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>56ff1d26-fa8b-56c9-b050-228adfa5199b</tstamps>
+      <tstamps>b7b3b661-ac69-540f-9dfb-c399cba19de3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -342,7 +360,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>ca9ace89-ed76-5f34-a716-aae587f5ccfc</tstamps>
+      <tstamps>e6fd3f21-0165-5062-9bd3-13fd41282413</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -365,7 +383,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>a42d220a-cbb1-50c6-9107-ce41beec19c1</tstamps>
+      <tstamps>5da1439d-a0b9-50d2-8105-a19ff9eedda4</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -388,7 +406,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>1e459620-a939-5f91-9a80-505064f91ab6</tstamps>
+      <tstamps>dff290f1-4f9e-55c9-aed1-e68a731ce8af</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -411,7 +429,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>207dce7e-794f-59a7-abfe-068af3abe986</tstamps>
+      <tstamps>4796643c-c821-50c8-8cbe-3bb4dfb7ffb1</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -434,7 +452,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>bc6cc90a-a939-5329-a6b8-0194fca806a8</tstamps>
+      <tstamps>4c41e436-40e4-578c-a005-b03599d1d8f9</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -457,7 +475,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>d8060c80-5617-5307-b7e3-d162a656445e</tstamps>
+      <tstamps>f633248c-a1e1-5f5c-8d3e-f44b045ba420</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -480,7 +498,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>5e07c48f-e59a-5de6-9f93-ff2acefb50aa</tstamps>
+      <tstamps>e2fe8b3e-872b-5cad-a545-d47ffc0f193e</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -503,7 +521,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>7e7a2128-90cd-5e48-b085-5ad0bd984ef9</tstamps>
+      <tstamps>d0224e18-f2ac-5727-a0f5-0c42b8c3866d</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -526,7 +544,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>ae69fe91-e7ec-5842-af78-f2eea6e66369</tstamps>
+      <tstamps>2ddaf077-2c57-5c23-b6b3-b0793a3b43cf</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -549,7 +567,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>3c05a082-bf19-5db3-be5e-c12472b969f4</tstamps>
+      <tstamps>8989dbd6-d26b-572a-8484-04cbcdcd48d8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -572,7 +590,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>fb87bbf6-264d-541b-af52-95e683cc8138</tstamps>
+      <tstamps>e667af89-07d6-54f5-908d-c40781f3a343</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -595,7 +613,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>7a649b03-6577-5775-afbb-05c8ec6e3707</tstamps>
+      <tstamps>8ed23b76-2527-554d-a2f4-d6efcdb26048</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -617,7 +635,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>4a7ff5b6-8c0f-57e1-bdac-0ffd53204f32</tstamps>
+      <tstamps>6155a1b3-f61f-5bcb-ae9d-2bb4ea572e2d</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -639,7 +657,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>639df386-6977-5358-b33d-403e46ce585e</tstamps>
+      <tstamps>7541cba4-6b0e-594e-bcea-59d23b9e61b1</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -661,7 +679,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>9820b6a2-83f5-5862-88a1-960fb586fe90</tstamps>
+      <tstamps>b37358a8-9f9e-57f3-985d-491ec1dcb688</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -683,7 +701,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>3b8dacfe-0310-5cb2-8467-ec1c15200182</tstamps>
+      <tstamps>f13668fb-f420-50a2-b17c-ca5779f77fad</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -705,7 +723,7 @@
       <property name="Sheetname" value="Fonte analógica e referências"/>
       <property name="Sheetfile" value="folha_1.kicad_sch"/>
       <sheetpath names="/Fonte analógica e referências/" tstamps="/baeec649-a809-560c-982b-51ae6bb20cca/"/>
-      <tstamps>b6dd186c-a974-5b94-b988-33e7cd47b72a</tstamps>
+      <tstamps>80ec018e-025a-5642-9490-9bf6b826c2f3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -729,7 +747,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>8834f97a-0345-5e05-892a-44ab483212a5</tstamps>
+      <tstamps>10a9d24d-d8bd-5a74-a3db-a25251b9dd6a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -752,7 +770,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>11dbf5fe-14cc-5fd6-a9f2-2d84d39311b1</tstamps>
+      <tstamps>7c8ab943-ee1b-5b64-b574-cc18b92e1d48</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -775,7 +793,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>11858e4a-a379-5acd-b475-9ee0fe7af015</tstamps>
+      <tstamps>39384f8d-45b9-5403-aba7-baef99b8235a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -798,7 +816,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>502c378d-aba6-5e46-8f92-692f6942dd08</tstamps>
+      <tstamps>48aeabf1-a0e4-585e-ad11-34b9c51d7229</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -821,7 +839,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>628623c1-aee7-5cdf-a758-dfebb0f144c8</tstamps>
+      <tstamps>6bffb02b-b173-5d69-b669-5c7fad60af69</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -844,7 +862,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>28643378-8df1-5d56-9283-9f101252d7bd</tstamps>
+      <tstamps>43e44ee5-b547-5d5d-bf0e-b09151b1d5e0</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -867,7 +885,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>0c9bcc87-d33e-57ad-a70f-08325e9696ec</tstamps>
+      <tstamps>04dbdae0-2755-551b-8c12-dc4e0c4040f6</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -890,7 +908,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>63fcf8ba-45b0-52b6-bc4a-d720e4b40d17</tstamps>
+      <tstamps>7cca5ea7-5b2e-5cc1-ac63-aa91087b42d2</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -913,7 +931,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>71938e34-c267-5b6e-89b3-a53fe52a5d3d</tstamps>
+      <tstamps>7ac22fa4-01a1-54e7-9344-145af972b3b4</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -936,7 +954,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>9f7de277-9691-5531-97a4-6da127a3a637</tstamps>
+      <tstamps>1118079a-541c-56e7-9108-7b4c6de4075d</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -959,7 +977,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>f2cd543c-e8a1-5c49-8fbd-a0ef622f0de5</tstamps>
+      <tstamps>9ef2fa63-dbd1-5702-b26a-355a7d24e4e8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -982,7 +1000,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>34b30abf-8579-5aca-a5a0-9fad2a5f0bd4</tstamps>
+      <tstamps>a58f8dc2-1705-5ee9-b869-68e532b6de4b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1005,7 +1023,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>eb234600-9f03-59b1-8878-60b6bdd4108c</tstamps>
+      <tstamps>fbd250b0-0258-51b8-9c77-4545f59f5f56</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1028,7 +1046,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>1396b4ff-ee6e-5929-be86-923c4556d445</tstamps>
+      <tstamps>1a684009-c5e0-5a0e-b844-870f6a08f3a8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1051,7 +1069,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>7e5fe610-6194-53c4-afaf-7b09f623be43</tstamps>
+      <tstamps>609e290f-f5fc-5ae6-b347-43c0b7184d5b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1074,7 +1092,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>eaff61e7-961e-5414-aa55-9cac7631c80c</tstamps>
+      <tstamps>d1454e9c-3836-565d-be09-41d17391b425</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1097,7 +1115,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>6143ef88-483a-57cd-a2bc-685426bda8f3</tstamps>
+      <tstamps>635db745-c790-52c4-b1f9-e1d76e4e097b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1120,7 +1138,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>127a4ff4-2e60-5dbd-84c5-bb33a5012b4a</tstamps>
+      <tstamps>605f9580-9f47-5a00-bb00-d0078747d3bd</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1143,7 +1161,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>62e842a5-59be-59aa-a4d6-b25e3ad0713e</tstamps>
+      <tstamps>e509392e-0e31-55db-a437-336c61fba3a3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1166,7 +1184,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>e932b158-eea6-5f35-8437-8bb7a35d1a09</tstamps>
+      <tstamps>7c34f271-60f5-5217-80dc-e309a886ee25</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1189,7 +1207,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>d9d45a9b-ffef-5cd8-af50-0ed680619883</tstamps>
+      <tstamps>a8077942-7042-5c3b-b24b-a85e8484e992</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1212,7 +1230,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>9fee4a36-26de-50ea-85ce-e38e5e12ed62</tstamps>
+      <tstamps>3d5048be-86b8-506e-b3b9-0b3a985a5caf</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1235,7 +1253,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>9d48e08d-b205-5415-8d3a-ad32105b1772</tstamps>
+      <tstamps>b822208d-cc55-5291-8606-dce051980346</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1258,7 +1276,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>6ec343a5-56d3-5312-81f5-943cf9d7a3ff</tstamps>
+      <tstamps>e3ec93ba-930c-50ae-8dfb-a7783290aa6a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1281,7 +1299,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>eca591ae-b435-5570-9a2a-4f1e822202ff</tstamps>
+      <tstamps>40ef00b3-0f33-5e5e-982a-b3aae93616be</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1304,7 +1322,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>a3640ff5-9456-51d4-b70a-0bbac3fc7deb</tstamps>
+      <tstamps>25c1ff89-818a-5fe4-a09f-b0c1d4eb2cfd</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1327,7 +1345,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>0afca131-ba72-59f6-a432-edfeadc59c40</tstamps>
+      <tstamps>62c98fbe-61f3-56d5-85e1-852051b3106e</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1349,7 +1367,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>6d51015b-82ab-5d22-a9c2-1068d364a3e9</tstamps>
+      <tstamps>ca1940cf-f0af-528d-a631-ea9bbf598c76</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1371,7 +1389,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>e347e55c-da32-5e9b-8e05-d0e8717f436c</tstamps>
+      <tstamps>80479603-f426-5aa4-9865-f8b26230a9c3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1393,7 +1411,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>6f5fd83a-b81d-5d81-98dd-8e74f02e4142</tstamps>
+      <tstamps>3fa2666d-f468-57e2-a214-e71c6c9730ae</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1430,7 +1448,7 @@
       <property name="Sheetname" value="Guitarra e condicionamento ADC completo"/>
       <property name="Sheetfile" value="folha_2.kicad_sch"/>
       <sheetpath names="/Guitarra e condicionamento ADC completo/" tstamps="/e0d5d977-d92f-58ae-a8c4-cb772e273cea/"/>
-      <tstamps>2eed605f-4c4c-5b33-b064-ecdffaa27776 18ebefa8-3ba4-591d-aa65-c77b47642fcb</tstamps>
+      <tstamps>f4f7a60f-13c0-56f6-84c7-d0f9df6449e3 1a9284e7-50c3-50c3-b0e4-a42d39de5174</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1467,7 +1485,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>220133e8-72ff-54b0-a6ae-5eb304aef207</tstamps>
+      <tstamps>cdf9997a-c2f2-5acf-a62c-88242a5e2011</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1490,7 +1508,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>06c441db-700f-51be-b18d-794dbf50e077</tstamps>
+      <tstamps>189b68cb-ea7e-5db9-833b-7964ab5b8953</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1513,7 +1531,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>d27e3b79-f48a-5050-b4f9-578d97861c1b</tstamps>
+      <tstamps>3a17b2e6-a4e8-52c4-839b-8065b548a72c</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1536,7 +1554,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>fddd7c41-7efa-5f1f-9924-49dc1f1694cb</tstamps>
+      <tstamps>0a205e84-6153-5215-b685-80e044d120ec</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1559,7 +1577,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>6cd863e1-9102-564d-9d21-2e838f78dc9b</tstamps>
+      <tstamps>2f84fd54-3dcb-5bd8-a6d3-391d3fa76f39</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1582,7 +1600,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>365977d2-7ed6-5139-806a-10aa65e96307</tstamps>
+      <tstamps>b2eb56fa-0183-565d-84d3-b929466fdb72</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1605,7 +1623,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>0870bcf8-cbed-5343-8c76-7cedbbb52de7</tstamps>
+      <tstamps>365977d2-7ed6-5139-806a-10aa65e96307</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1627,7 +1645,7 @@
       <property name="Sheetname" value="Codec CS4272 e referências analógicas"/>
       <property name="Sheetfile" value="folha_3.kicad_sch"/>
       <sheetpath names="/Codec CS4272 e referências analógicas/" tstamps="/0a1aa5b9-a71a-50c7-a5e1-586367e88c50/"/>
-      <tstamps>e0b3c59c-d820-5a60-a577-c2cc35a46a35</tstamps>
+      <tstamps>a1287097-3405-58b1-b551-05f1b8c06208</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1676,7 +1694,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>0d6736bb-7660-5888-bc8d-2974032cfa24</tstamps>
+      <tstamps>1fcbb7e7-dd12-5492-bcb3-ebe7fb85b3b4</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1699,7 +1717,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>5fe1bd46-b676-5987-a4dc-d7d0097d4f0c</tstamps>
+      <tstamps>1048bb7f-6601-5920-a8e2-92462309701c</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1722,7 +1740,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>bb25e4df-98c5-5d2d-bcbf-e80d2413b37d</tstamps>
+      <tstamps>5fe1bd46-b676-5987-a4dc-d7d0097d4f0c</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1745,7 +1763,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>5c20097a-2d22-5fcb-963f-73cddf7912c5</tstamps>
+      <tstamps>27a6a901-6042-5b1f-863f-116461afb438</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1768,7 +1786,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>28c61c4a-c5c9-5d87-b4eb-6b0b4f49c938</tstamps>
+      <tstamps>075c192b-7ee4-5686-9595-d62ffad15946</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1791,7 +1809,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>619109df-fe14-5f2c-a55e-c53b2e3dabe8</tstamps>
+      <tstamps>c9cb7611-68b9-5729-bfa4-5d9b934dc703</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1814,7 +1832,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>27a6a901-6042-5b1f-863f-116461afb438</tstamps>
+      <tstamps>492e27cb-b31d-5df1-aa73-156cd6fee8f8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1837,7 +1855,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>110cef6e-8949-5aa7-b737-20493c0fde4c</tstamps>
+      <tstamps>edcca7c7-cfa1-55f0-82b6-8c4005d53176</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1860,7 +1878,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>127c9b37-c11c-5d43-8489-8f1fdc17945f</tstamps>
+      <tstamps>0d6736bb-7660-5888-bc8d-2974032cfa24</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1883,7 +1901,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>1fcbb7e7-dd12-5492-bcb3-ebe7fb85b3b4</tstamps>
+      <tstamps>bb25e4df-98c5-5d2d-bcbf-e80d2413b37d</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1906,7 +1924,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>1048bb7f-6601-5920-a8e2-92462309701c</tstamps>
+      <tstamps>619109df-fe14-5f2c-a55e-c53b2e3dabe8</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1929,7 +1947,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>075c192b-7ee4-5686-9595-d62ffad15946</tstamps>
+      <tstamps>5c20097a-2d22-5fcb-963f-73cddf7912c5</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1952,7 +1970,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>edcca7c7-cfa1-55f0-82b6-8c4005d53176</tstamps>
+      <tstamps>ef4312d1-07ad-5dae-b639-1c9707614a9a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1975,7 +1993,7 @@
       <property name="Sheetname" value="Receptor DAC e saída de linha"/>
       <property name="Sheetfile" value="folha_4.kicad_sch"/>
       <sheetpath names="/Receptor DAC e saída de linha/" tstamps="/150163e1-c2c6-5f23-9d92-2ed2d450123d/"/>
-      <tstamps>ef4312d1-07ad-5dae-b639-1c9707614a9a</tstamps>
+      <tstamps>fe080341-5cf5-5dfe-8bc6-6fdc5e0a41c1</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -1997,7 +2015,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>c1668150-5845-5929-84f5-b6b0be0b4165</tstamps>
+      <tstamps>a11e71ea-0b3d-5fec-8273-fb7591b5964e</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2023,7 +2041,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>05aeab82-6f32-54cc-a84f-401705e3616a</tstamps>
+      <tstamps>678ecf6d-1646-5010-aae1-4061d85a4304</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2065,7 +2083,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>4f293579-c7d9-56d8-85a0-1eaf50a7d41a</tstamps>
+      <tstamps>d3533976-eb8e-55c1-be06-25c58fd89e76</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2088,7 +2106,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>e029a619-6adf-5f99-8497-5c8288e91c44</tstamps>
+      <tstamps>ea2083e8-dd19-5178-8a8e-1522fada0dfd</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2111,7 +2129,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>ea2083e8-dd19-5178-8a8e-1522fada0dfd</tstamps>
+      <tstamps>7c17af8f-cdb9-557f-b437-0544a87c4849</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2134,7 +2152,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>7c17af8f-cdb9-557f-b437-0544a87c4849</tstamps>
+      <tstamps>40d74f66-9b88-5bcb-af86-a00ca1112870</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2157,7 +2175,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>40d74f66-9b88-5bcb-af86-a00ca1112870</tstamps>
+      <tstamps>3bf8d184-4415-5e3c-aa01-94e2295f1fbf</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2180,7 +2198,7 @@
       <property name="Sheetname" value="STM32, ESP32 e distribuição digital"/>
       <property name="Sheetfile" value="folha_5.kicad_sch"/>
       <sheetpath names="/STM32, ESP32 e distribuição digital/" tstamps="/46c94431-9911-52de-ab11-fa0bec76bf84/"/>
-      <tstamps>d3533976-eb8e-55c1-be06-25c58fd89e76</tstamps>
+      <tstamps>543325a3-5822-5e20-a722-af2dafd115c3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2202,7 +2220,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>b2981bca-bb69-551a-955f-88054dd2935f</tstamps>
+      <tstamps>f159c35f-679c-5cc1-b24f-afc3defc9e84</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2225,7 +2243,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>8f394317-6d83-5110-b7a8-936a64f683c7</tstamps>
+      <tstamps>42c06be0-cd11-5355-848e-0813af82effe</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2248,7 +2266,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>aac69ec8-3bf7-5797-b507-d0b86bbdeda1</tstamps>
+      <tstamps>5b8b1c22-9df7-5d87-bf0d-4c641de2c352</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2271,7 +2289,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>ec892a72-bfed-5ee0-891b-f89cfe26c541</tstamps>
+      <tstamps>da863929-d21a-5b5e-af24-60483c576b20</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2294,7 +2312,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>f9bc8e95-d7bb-53ea-a5ad-ea5368db18aa</tstamps>
+      <tstamps>b2981bca-bb69-551a-955f-88054dd2935f</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2317,7 +2335,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>5821bc4b-1c66-577e-95b8-8c42ae6f7c5c</tstamps>
+      <tstamps>8f394317-6d83-5110-b7a8-936a64f683c7</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2340,7 +2358,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>bc5d37de-1a7e-59b5-93be-14c217e0bd0e</tstamps>
+      <tstamps>aac69ec8-3bf7-5797-b507-d0b86bbdeda1</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2363,7 +2381,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>57ff39c0-708e-5701-a038-5d1ec609382a</tstamps>
+      <tstamps>ec892a72-bfed-5ee0-891b-f89cfe26c541</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2386,7 +2404,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>91f38262-f165-5a23-9faa-6d05c9ab519f</tstamps>
+      <tstamps>a6abb723-199a-541d-92fe-214ee48f4e80</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2410,7 +2428,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>f159c35f-679c-5cc1-b24f-afc3defc9e84</tstamps>
+      <tstamps>a161f54d-9003-52cc-8d16-d0f4a1b20ba0</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2434,7 +2452,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>42c06be0-cd11-5355-848e-0813af82effe</tstamps>
+      <tstamps>c25389d8-1c10-508c-a3f6-5fe6e8a5e969</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2458,7 +2476,7 @@
       <property name="Sheetname" value="Chaves e indicadores"/>
       <property name="Sheetfile" value="folha_6.kicad_sch"/>
       <sheetpath names="/Chaves e indicadores/" tstamps="/f557b1bf-560f-5f1a-a638-4d4b70b7ac6e/"/>
-      <tstamps>5b8b1c22-9df7-5d87-bf0d-4c641de2c352</tstamps>
+      <tstamps>ce61f650-3a4e-5b28-9789-6c70cf8d3f02</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2482,7 +2500,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>7dae953f-f03d-5867-a75b-128a1581fb71</tstamps>
+      <tstamps>36c6ba22-8ef1-5fc3-9fc4-c3d069711502</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2505,7 +2523,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>36c6ba22-8ef1-5fc3-9fc4-c3d069711502</tstamps>
+      <tstamps>d505a281-bc36-5d23-b68c-44bd66e3432a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2528,7 +2546,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>d505a281-bc36-5d23-b68c-44bd66e3432a</tstamps>
+      <tstamps>95080426-d249-5463-88d9-38914d9124c5</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2551,7 +2569,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>95080426-d249-5463-88d9-38914d9124c5</tstamps>
+      <tstamps>5284589b-575f-58aa-b989-40fc93bfe9e9</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2574,7 +2592,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>5284589b-575f-58aa-b989-40fc93bfe9e9</tstamps>
+      <tstamps>1abd89b1-6546-59f4-8120-0413758029f0</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2597,7 +2615,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>1abd89b1-6546-59f4-8120-0413758029f0</tstamps>
+      <tstamps>ef4609e3-5619-5032-8776-cf3868f5a9a3</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2620,7 +2638,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>ef4609e3-5619-5032-8776-cf3868f5a9a3</tstamps>
+      <tstamps>f83c507e-a3d8-5023-9603-1a24b61bde40</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2643,7 +2661,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>f83c507e-a3d8-5023-9603-1a24b61bde40</tstamps>
+      <tstamps>70b03519-5225-59dd-bf90-e559aad5b132</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2666,7 +2684,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>70b03519-5225-59dd-bf90-e559aad5b132</tstamps>
+      <tstamps>ed299450-20c5-5b44-8783-82cdaa0b10b2</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2689,7 +2707,7 @@
       <property name="Sheetname" value="Desacoplamento e alimentação dos TL072"/>
       <property name="Sheetfile" value="folha_7.kicad_sch"/>
       <sheetpath names="/Desacoplamento e alimentação dos TL072/" tstamps="/adabef33-8fef-5cfa-b6d7-9a26b2c68aa5/"/>
-      <tstamps>ed299450-20c5-5b44-8783-82cdaa0b10b2</tstamps>
+      <tstamps>370bf4f8-74a5-537d-8632-f302e0d27f74</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2712,7 +2730,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>8c1b4f1b-e19f-5da0-aa80-10c9948a90b0</tstamps>
+      <tstamps>400e7769-254b-5cb8-8789-2248335afaf4</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2735,7 +2753,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>f6e0313b-7b90-59a3-b454-74b03c517e24</tstamps>
+      <tstamps>99e6ff01-4d28-5549-9354-f312e2c7372a</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2758,7 +2776,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>400e7769-254b-5cb8-8789-2248335afaf4</tstamps>
+      <tstamps>f6e0313b-7b90-59a3-b454-74b03c517e24</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2781,7 +2799,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>99e6ff01-4d28-5549-9354-f312e2c7372a</tstamps>
+      <tstamps>0719a6b6-6503-593e-857f-170d8c02c96b</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2804,7 +2822,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>60f03b82-4b9a-585c-93e3-c3e7b1124f73</tstamps>
+      <tstamps>81fad744-cfe8-5594-8939-ab672f55c1c2</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2827,7 +2845,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>81fad744-cfe8-5594-8939-ab672f55c1c2</tstamps>
+      <tstamps>8c1b4f1b-e19f-5da0-aa80-10c9948a90b0</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2851,7 +2869,7 @@
       <property name="Sheetname" value="UART entre alimentações independentes"/>
       <property name="Sheetfile" value="folha_8.kicad_sch"/>
       <sheetpath names="/UART entre alimentações independentes/" tstamps="/eb755fb3-2f78-56e3-ab32-227c8abe41ec/"/>
-      <tstamps>6c3e125e-9772-5d58-a7f1-1c9cfcfa6812</tstamps>
+      <tstamps>fe7e6255-5dbc-55ed-ac43-611a8ac023fa</tstamps>
       <units>
         <unit name="A">
           <pins>
@@ -2863,6 +2881,599 @@
             <pin num="7"/>
             <pin num="6"/>
             <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C44">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Eletrolítico radial &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="C44" description=""/>
+      <property name="Package_note" value="Eletrolítico radial &gt;=25 V"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>47ee6aff-6bcd-54ef-950d-142efac9adca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D15">
+      <value>1N4148</value>
+      <fields>
+        <field name="Package_note">DO-35</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="D15" description=""/>
+      <property name="Package_note" value="DO-35"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>bb6ee068-a4d1-56e1-af0a-c6eef86e7e5a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q1">
+      <value>2N3904</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q1" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>7f023bff-2714-58ea-963e-c6c71fdf80c7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>2N3904</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q2" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>b9da9000-a594-5289-87cb-ffc9460fcd4c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q3">
+      <value>2N3906</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q3" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>36cbc1ce-85c1-55bb-b5a0-33c475df1750</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q4">
+      <value>2N3904</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q4" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>105b60ac-1a35-5756-9be5-22fece209fb8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q5">
+      <value>2N7000</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q5" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>8fe2d76b-71af-5a75-b851-57483683ed55</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q6">
+      <value>2N7000</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q6" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>97617125-2192-53f2-a8c5-171b207add91</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q7">
+      <value>2N7000</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q7" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>e623718c-cdad-5692-8e09-8f7cd6b58971</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q8">
+      <value>2N7000</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="Q8" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>fccefeff-e36a-5111-a419-d32eb237bff4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R33">
+      <value>9.1 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R33" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>f2e20808-483a-52e3-a981-352338dc3434</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R34">
+      <value>11 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R34" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>07f42682-72ee-5106-95ab-f21add9f3d90</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R35">
+      <value>2.2 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R35" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>35394189-0cb6-5105-9a73-c9ada0fd1c13</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R36">
+      <value>1.8 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R36" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>1b4cfd97-450e-58c6-b558-5e60efcf4e7b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R37">
+      <value>22 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R37" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>1063827b-80fd-5e0f-a794-344ef56d4586</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R38">
+      <value>470 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R38" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>cfad8aae-68ea-52fb-b053-bafc707ada4b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R39">
+      <value>1.0 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R39" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>e4d65dfd-fec1-57c5-91b8-4d7bc5eac263</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R40">
+      <value>4.7 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R40" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>3c478a45-857c-5379-a882-a227f3777c66</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R41">
+      <value>22 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R41" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>04b063eb-76a5-52b3-82ed-2a5024b3f778</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R43">
+      <value>47 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R43" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>26faab8c-7d3f-5618-92a6-beedf8a56c23</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R44">
+      <value>10 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R44" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>c2f35ba1-4e9d-5967-83e4-aa4b88487fb7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R45">
+      <value>47 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R45" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>6845aef6-9e6e-51e7-94e5-4ebbdf389a48</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R46">
+      <value>100 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R46" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>30314d8b-10dd-567d-9f80-86a14dbaf867</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R47">
+      <value>47 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207 1/4 W 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="R47" description=""/>
+      <property name="Package_note" value="Axial DIN0207 1/4 W 1%"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>ff0d50ce-f1d9-532b-84df-9a8d89fa89f0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U7">
+      <value>TL431ACZ</value>
+      <footprint>Package_TO_SOT_THT:TO-92_Inline</footprint>
+      <fields>
+        <field name="Package_note">TO-92-3 inline</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-92_Inline</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="rev410" part="U7" description=""/>
+      <property name="Package_note" value="TO-92-3 inline"/>
+      <property name="Sheetname" value="Supervisão +5VA, intertravamento /RST e contenção sem VA"/>
+      <property name="Sheetfile" value="folha_9.kicad_sch"/>
+      <sheetpath names="/Supervisão +5VA, intertravamento /RST e contenção sem VA/" tstamps="/e99290b3-4340-5439-92ce-0401b125c18e/"/>
+      <tstamps>736f09b5-23f7-5434-976c-c2d42160ebfa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="3"/>
+            <pin num="2"/>
           </pins>
         </unit>
       </units>
@@ -3337,6 +3948,19 @@
         <pin num="2" name="2" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="rev410" part="C44">
+      <fields>
+        <field name="Reference">C44</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="rev410" part="C5">
       <fields>
         <field name="Reference">C5</field>
@@ -3431,6 +4055,19 @@
     <libpart lib="rev410" part="D14">
       <fields>
         <field name="Reference">D14</field>
+        <field name="Value">1N4148</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="D15">
+      <fields>
+        <field name="Reference">D15</field>
         <field name="Value">1N4148</field>
         <field name="Footprint"/>
         <field name="Datasheet"/>
@@ -3669,6 +4306,118 @@
       <pins>
         <pin num="1" name="1" type="passive"/>
         <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q1">
+      <fields>
+        <field name="Reference">Q1</field>
+        <field name="Value">2N3904</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q2">
+      <fields>
+        <field name="Reference">Q2</field>
+        <field name="Value">2N3904</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q3">
+      <fields>
+        <field name="Reference">Q3</field>
+        <field name="Value">2N3906</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="C" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q4">
+      <fields>
+        <field name="Reference">Q4</field>
+        <field name="Value">2N3904</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="E" type="passive"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q5">
+      <fields>
+        <field name="Reference">Q5</field>
+        <field name="Value">2N7000</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="G" type="input"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q6">
+      <fields>
+        <field name="Reference">Q6</field>
+        <field name="Value">2N7000</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="G" type="input"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q7">
+      <fields>
+        <field name="Reference">Q7</field>
+        <field name="Value">2N7000</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="G" type="input"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="Q8">
+      <fields>
+        <field name="Reference">Q8</field>
+        <field name="Value">2N7000</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="G" type="input"/>
+        <pin num="3" name="D" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="rev410" part="R1">
@@ -3996,10 +4745,192 @@
         <pin num="2" name="2" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="rev410" part="R33">
+      <fields>
+        <field name="Reference">R33</field>
+        <field name="Value">9.1 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R34">
+      <fields>
+        <field name="Reference">R34</field>
+        <field name="Value">11 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R35">
+      <fields>
+        <field name="Reference">R35</field>
+        <field name="Value">2.2 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R36">
+      <fields>
+        <field name="Reference">R36</field>
+        <field name="Value">1.8 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R37">
+      <fields>
+        <field name="Reference">R37</field>
+        <field name="Value">22 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R38">
+      <fields>
+        <field name="Reference">R38</field>
+        <field name="Value">470 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R39">
+      <fields>
+        <field name="Reference">R39</field>
+        <field name="Value">1.0 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="rev410" part="R4">
       <fields>
         <field name="Reference">R4</field>
         <field name="Value">220 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R40">
+      <fields>
+        <field name="Reference">R40</field>
+        <field name="Value">4.7 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R41">
+      <fields>
+        <field name="Reference">R41</field>
+        <field name="Value">22 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R43">
+      <fields>
+        <field name="Reference">R43</field>
+        <field name="Value">47 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R44">
+      <fields>
+        <field name="Reference">R44</field>
+        <field name="Value">10 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R45">
+      <fields>
+        <field name="Reference">R45</field>
+        <field name="Value">47 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R46">
+      <fields>
+        <field name="Reference">R46</field>
+        <field name="Value">100 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rev410" part="R47">
+      <fields>
+        <field name="Reference">R47</field>
+        <field name="Value">47 ohm</field>
         <field name="Footprint"/>
         <field name="Datasheet"/>
         <field name="Description"/>
@@ -4411,6 +5342,20 @@
         <pin num="8" name="VCC2" type="power_in"/>
       </pins>
     </libpart>
+    <libpart lib="rev410" part="U7">
+      <fields>
+        <field name="Reference">U7</field>
+        <field name="Value">TL431ACZ</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="REF" type="input"/>
+        <pin num="2" name="A" type="power_in"/>
+        <pin num="3" name="K" type="passive"/>
+      </pins>
+    </libpart>
   </libparts>
   <libraries>
     <library logical="rev410">
@@ -4436,6 +5381,7 @@
       <node ref="R12" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R29" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R31" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R40" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP3" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="10" pinfunction="VL_10" pintype="power_in"/>
       <node ref="U2" pin="9" pinfunction="VD_9" pintype="power_in"/>
@@ -4447,7 +5393,10 @@
       <node ref="D11" pin="2" pinfunction="K_2" pintype="passive"/>
       <node ref="D9" pin="2" pinfunction="K_2" pintype="passive"/>
       <node ref="J5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="Q3" pin="1" pinfunction="E_1" pintype="passive"/>
       <node ref="R27" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R33" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R35" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="20" pinfunction="VA_20" pintype="power_in"/>
     </net>
     <net code="4" name="+5V_CW" class="Default">
@@ -4468,6 +5417,7 @@
       <node ref="C32" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C33" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="D1" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D15" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="D8" pin="2" pinfunction="K_2" pintype="passive"/>
       <node ref="R22" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP1" pin="1" pinfunction="1_1" pintype="passive"/>
@@ -4491,132 +5441,183 @@
       <node ref="D5" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="R_D5" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="10" name="/Codec CS4272 e referências analógicas/AINB_CM" class="Default">
-      <node ref="C34" pin="1" pinfunction="1_1" pintype="passive"/>
-      <node ref="R10" pin="2" pinfunction="2_2" pintype="passive"/>
-      <node ref="U2" pin="18" pinfunction="AINB+_18" pintype="input"/>
-      <node ref="U2" pin="19" pinfunction="AINB-_19" pintype="input"/>
-    </net>
-    <net code="11" name="/Codec CS4272 e referências analógicas/FILT" class="Default">
+    <net code="10" name="/Codec CS4272 e referências analógicas/FILT" class="Default">
       <node ref="C12" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C13" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="22" pinfunction="FILT+_22" pintype="output"/>
     </net>
-    <net code="12" name="/Codec CS4272 e referências analógicas/VCOM" class="Default">
+    <net code="11" name="/Codec CS4272 e referências analógicas/VCOM" class="Default">
       <node ref="C14" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C15" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP5" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="15" pinfunction="VCOM_15" pintype="output"/>
     </net>
-    <net code="13" name="/Fonte analógica e referências/12V_IN" class="Default">
+    <net code="12" name="/Fonte analógica e referências/12V_IN" class="Default">
       <node ref="F1" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="J1" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="14" name="/Fonte analógica e referências/FUSED_IN" class="Default">
+    <net code="13" name="/Fonte analógica e referências/FUSED_IN" class="Default">
       <node ref="D1" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="F1" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="15" name="/Guitarra e condicionamento ADC completo/ADC_N_AC" class="Default">
+    <net code="14" name="/Guitarra e condicionamento ADC completo/ADC_N_AC" class="Default">
       <node ref="C16" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R20" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="16" name="/Guitarra e condicionamento ADC completo/ADC_P_AC" class="Default">
+    <net code="15" name="/Guitarra e condicionamento ADC completo/ADC_P_AC" class="Default">
       <node ref="C2" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R18" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="17" name="/Guitarra e condicionamento ADC completo/CLAMP_N" class="Default">
+    <net code="16" name="/Guitarra e condicionamento ADC completo/CLAMP_N" class="Default">
       <node ref="D14" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="D7" pin="2" pinfunction="K_2" pintype="passive"/>
     </net>
-    <net code="18" name="/Guitarra e condicionamento ADC completo/CLAMP_P" class="Default">
+    <net code="17" name="/Guitarra e condicionamento ADC completo/CLAMP_P" class="Default">
       <node ref="D13" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="D6" pin="2" pinfunction="K_2" pintype="passive"/>
     </net>
-    <net code="19" name="/Guitarra e condicionamento ADC completo/DRV_N" class="Default">
+    <net code="18" name="/Guitarra e condicionamento ADC completo/DRV_N" class="Default">
       <node ref="C19" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R19" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R20" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U3" pin="7" pinfunction="OUT_B_7" pintype="output"/>
     </net>
-    <net code="20" name="/Guitarra e condicionamento ADC completo/DRV_P" class="Default">
+    <net code="19" name="/Guitarra e condicionamento ADC completo/DRV_P" class="Default">
       <node ref="C18" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R17" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R18" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U3" pin="1" pinfunction="OUT_A_1" pintype="output"/>
     </net>
-    <net code="21" name="/Guitarra e condicionamento ADC completo/FB_N" class="Default">
+    <net code="20" name="/Guitarra e condicionamento ADC completo/FB_N" class="Default">
       <node ref="C19" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R19" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R24" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U3" pin="6" pinfunction="IN-_B_6" pintype="input"/>
     </net>
-    <net code="22" name="/Guitarra e condicionamento ADC completo/FB_P" class="Default">
+    <net code="21" name="/Guitarra e condicionamento ADC completo/FB_P" class="Default">
       <node ref="C18" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R17" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U3" pin="2" pinfunction="IN-_A_2" pintype="input"/>
     </net>
-    <net code="23" name="/Guitarra e condicionamento ADC completo/HI_Z" class="Default">
+    <net code="22" name="/Guitarra e condicionamento ADC completo/HI_Z" class="Default">
       <node ref="D14" pin="2" pinfunction="K_2" pintype="passive"/>
       <node ref="D6" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="R26" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="3" pinfunction="IN+_A_3" pintype="input"/>
     </net>
-    <net code="24" name="/Guitarra e condicionamento ADC completo/INPUT_AC" class="Default">
+    <net code="23" name="/Guitarra e condicionamento ADC completo/INPUT_AC" class="Default">
       <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R26" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="25" name="/Guitarra e condicionamento ADC completo/IN_BUF" class="Default">
+    <net code="24" name="/Guitarra e condicionamento ADC completo/IN_BUF" class="Default">
       <node ref="R24" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP6" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="1" pinfunction="OUT_A_1" pintype="output"/>
       <node ref="U1" pin="2" pinfunction="IN-_A_2" pintype="input"/>
       <node ref="U3" pin="3" pinfunction="IN+_A_3" pintype="input"/>
     </net>
-    <net code="26" name="/Guitarra e condicionamento ADC completo/JACK_IN" class="Default">
+    <net code="25" name="/Guitarra e condicionamento ADC completo/JACK_IN" class="Default">
       <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="J2" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="27" name="/Receptor DAC e saída de linha/DAC_AC_N" class="Default">
+    <net code="26" name="/Receptor DAC e saída de linha/DAC_AC_N" class="Default">
       <node ref="C11" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R7" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="28" name="/Receptor DAC e saída de linha/DAC_AC_P" class="Default">
+    <net code="27" name="/Receptor DAC e saída de linha/DAC_AC_P" class="Default">
       <node ref="C10" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="29" name="/Receptor DAC e saída de linha/DAC_BUF" class="Default">
+    <net code="28" name="/Receptor DAC e saída de linha/DAC_BUF" class="Default">
       <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R8" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="TP9" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="7" pinfunction="OUT_B_7" pintype="output"/>
     </net>
-    <net code="30" name="/Receptor DAC e saída de linha/DAC_N" class="Default">
+    <net code="29" name="/Receptor DAC e saída de linha/DAC_N" class="Default">
       <node ref="R7" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R8" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="6" pinfunction="IN-_B_6" pintype="input"/>
     </net>
-    <net code="31" name="/Receptor DAC e saída de linha/DAC_P" class="Default">
+    <net code="30" name="/Receptor DAC e saída de linha/DAC_P" class="Default">
       <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U1" pin="5" pinfunction="IN+_B_5" pintype="input"/>
     </net>
-    <net code="32" name="/Receptor DAC e saída de linha/JACK_OUT" class="Default">
+    <net code="31" name="/Receptor DAC e saída de linha/JACK_OUT" class="Default">
       <node ref="C5" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="J3" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R6" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="33" name="/Receptor DAC e saída de linha/LP1" class="Default">
+    <net code="32" name="/Receptor DAC e saída de linha/LP1" class="Default">
       <node ref="C4" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="34" name="/Receptor DAC e saída de linha/LP2" class="Default">
+    <net code="33" name="/Receptor DAC e saída de linha/LP2" class="Default">
       <node ref="C5" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C6" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
     </net>
-    <net code="35" name="ADC_BIAS" class="Default">
+    <net code="34" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/ADC_B_SW" class="Default">
+      <node ref="Q7" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R47" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="35" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/Q2_B" class="Default">
+      <node ref="Q2" pin="2" pinfunction="B_2" pintype="input"/>
+      <node ref="R41" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="36" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/Q3_B" class="Default">
+      <node ref="Q3" pin="2" pinfunction="B_2" pintype="input"/>
+      <node ref="R35" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R36" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="37" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/Q4_B" class="Default">
+      <node ref="Q4" pin="2" pinfunction="B_2" pintype="input"/>
+      <node ref="R44" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="38" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/RAW_D" class="Default">
+      <node ref="D15" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="R43" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="39" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/RST_CLAMP_B" class="Default">
+      <node ref="Q1" pin="2" pinfunction="B_2" pintype="input"/>
+      <node ref="Q2" pin="3" pinfunction="C_3" pintype="passive"/>
+      <node ref="R40" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="40" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/SHUNT_EN" class="Default">
+      <node ref="Q4" pin="3" pinfunction="C_3" pintype="passive"/>
+      <node ref="Q5" pin="2" pinfunction="G_2" pintype="input"/>
+      <node ref="Q6" pin="2" pinfunction="G_2" pintype="input"/>
+      <node ref="Q7" pin="2" pinfunction="G_2" pintype="input"/>
+      <node ref="Q8" pin="2" pinfunction="G_2" pintype="input"/>
+      <node ref="R45" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R46" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="41" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/VA_K" class="Default">
+      <node ref="R36" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U7" pin="3" pinfunction="K_3" pintype="passive"/>
+    </net>
+    <net code="42" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/VA_OK" class="Default">
+      <node ref="Q3" pin="3" pinfunction="C_3" pintype="output"/>
+      <node ref="R37" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R38" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R41" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R44" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="43" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/VA_REF" class="Default">
+      <node ref="R33" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R34" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R38" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U7" pin="1" pinfunction="REF_1" pintype="input"/>
+    </net>
+    <net code="44" name="/Supervisão +5VA, intertravamento /RST e contenção sem VA/V_HOLD" class="Default">
+      <node ref="C44" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R43" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R45" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="45" name="ADC_BIAS" class="Default">
       <node ref="C40" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C41" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="R10" pin="1" pinfunction="1_1" pintype="passive"/>
@@ -4624,64 +5625,79 @@
       <node ref="R16" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R27" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R28" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R47" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP11" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="36" name="ADC_DATA" class="Default">
+    <net code="46" name="ADC_DATA" class="Default">
       <node ref="H_STM32" pin="P2.17" pinfunction="PA0_/_22_/_AF10_P2.17" pintype="input"/>
       <node ref="R14" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="6" pinfunction="SDOUT_6" pintype="output"/>
     </net>
-    <net code="37" name="AINA_N" class="Default">
+    <net code="47" name="AINA_N" class="Default">
       <node ref="C16" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C20" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C36" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="D11" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="D12" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="Q6" pin="3" pinfunction="D_3" pintype="passive"/>
       <node ref="R16" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP8" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="16" pinfunction="AINA-_16" pintype="input"/>
     </net>
-    <net code="38" name="AINA_P" class="Default">
+    <net code="48" name="AINA_P" class="Default">
       <node ref="C2" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C20" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C35" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="D10" pin="2" pinfunction="K_2" pintype="passive"/>
       <node ref="D9" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="Q5" pin="3" pinfunction="D_3" pintype="passive"/>
       <node ref="R15" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="TP7" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="17" pinfunction="AINA+_17" pintype="input"/>
     </net>
-    <net code="39" name="AOUTA_N" class="Default">
+    <net code="49" name="AINB_CM" class="Default">
+      <node ref="C34" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="Q8" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U2" pin="18" pinfunction="AINB+_18" pintype="input"/>
+      <node ref="U2" pin="19" pinfunction="AINB-_19" pintype="input"/>
+    </net>
+    <net code="50" name="AOUTA_N" class="Default">
       <node ref="C11" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="24" pinfunction="AOUTA-_24" pintype="output"/>
     </net>
-    <net code="40" name="AOUTA_P" class="Default">
+    <net code="51" name="AOUTA_P" class="Default">
       <node ref="C10" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U2" pin="25" pinfunction="AOUTA+_25" pintype="output"/>
     </net>
-    <net code="41" name="BCLK" class="Default">
+    <net code="52" name="BCLK" class="Default">
       <node ref="H_STM32" pin="P2.6" pinfunction="PE5_/_4_/_AF8_P2.6" pintype="output"/>
       <node ref="U2" pin="5" pinfunction="SCLK_5" pintype="input"/>
     </net>
-    <net code="42" name="CODEC_RST" class="Default">
-      <node ref="H_STM32" pin="P1.38" pinfunction="PD10_/_57_/_GPIO_P1.38" pintype="output"/>
+    <net code="53" name="CODEC_RST" class="Default">
+      <node ref="Q1" pin="3" pinfunction="C_3" pintype="passive"/>
       <node ref="R13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R39" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U2" pin="14" pinfunction="/RST_14" pintype="input"/>
     </net>
-    <net code="43" name="DAC_DATA" class="Default">
+    <net code="54" name="CODEC_RST_CMD" class="Default">
+      <node ref="H_STM32" pin="P1.38" pinfunction="PD10_/_57_/_GPIO_P1.38" pintype="output"/>
+      <node ref="R39" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="55" name="DAC_DATA" class="Default">
       <node ref="H_STM32" pin="P2.7" pinfunction="PE6_/_5_/_AF8_P2.7" pintype="output"/>
       <node ref="U2" pin="7" pinfunction="SDIN_7" pintype="input"/>
     </net>
-    <net code="44" name="ESP_UART_RX" class="Default">
+    <net code="56" name="ESP_UART_RX" class="Default">
       <node ref="H_ESP32" pin="RX2" pinfunction="GPIO16_RX2_RX2" pintype="input"/>
       <node ref="U6" pin="6" pinfunction="OUTB_6" pintype="output"/>
     </net>
-    <net code="45" name="ESP_UART_TX" class="Default">
+    <net code="57" name="ESP_UART_TX" class="Default">
       <node ref="H_ESP32" pin="TX2" pinfunction="GPIO17_TX2_TX2" pintype="output"/>
       <node ref="R32" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U6" pin="7" pinfunction="INA_7" pintype="input"/>
     </net>
-    <net code="46" name="GND" class="Default">
+    <net code="58" name="GND" class="Default">
       <node ref="C12" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C13" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C14" pin="2" pinfunction="2_2" pintype="passive"/>
@@ -4710,6 +5726,7 @@
       <node ref="C41" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C42" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C43" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C44" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="C6" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="D10" pin="1" pinfunction="A_1" pintype="passive"/>
       <node ref="D12" pin="1" pinfunction="A_1" pintype="passive"/>
@@ -4723,6 +5740,13 @@
       <node ref="J2" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="J3" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="J4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="Q1" pin="1" pinfunction="E_1" pintype="passive"/>
+      <node ref="Q2" pin="1" pinfunction="E_1" pintype="passive"/>
+      <node ref="Q4" pin="1" pinfunction="E_1" pintype="passive"/>
+      <node ref="Q5" pin="1" pinfunction="S_1" pintype="passive"/>
+      <node ref="Q6" pin="1" pinfunction="S_1" pintype="passive"/>
+      <node ref="Q7" pin="1" pinfunction="S_1" pintype="passive"/>
+      <node ref="Q8" pin="1" pinfunction="S_1" pintype="passive"/>
       <node ref="R13" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R14" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R21" pin="2" pinfunction="2_2" pintype="passive"/>
@@ -4730,6 +5754,9 @@
       <node ref="R28" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R29" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R30" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R34" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R37" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R46" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="R6" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="SW1" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="SW2" pin="1" pinfunction="1_1" pintype="passive"/>
@@ -4745,67 +5772,68 @@
       <node ref="U5" pin="2" pinfunction="GND_/_TAB_2" pintype="power_in"/>
       <node ref="U6" pin="4" pinfunction="GND1_4" pintype="power_in"/>
       <node ref="U6" pin="5" pinfunction="GND2_5" pintype="power_in"/>
+      <node ref="U7" pin="2" pinfunction="A_2" pintype="power_in"/>
     </net>
-    <net code="47" name="I2C_SCL" class="Default">
+    <net code="59" name="I2C_SCL" class="Default">
       <node ref="H_STM32" pin="P1.6" pinfunction="PB8_/_95_/_AF4_P1.6" pintype="open_collector"/>
       <node ref="R11" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U2" pin="11" pinfunction="SCL/CCLK_11" pintype="input"/>
     </net>
-    <net code="48" name="I2C_SDA" class="Default">
+    <net code="60" name="I2C_SDA" class="Default">
       <node ref="H_STM32" pin="P1.5" pinfunction="PB9_/_96_/_AF4_P1.5" pintype="bidirectional"/>
       <node ref="R12" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U2" pin="12" pinfunction="SDA/CDIN_12" pintype="bidirectional"/>
     </net>
-    <net code="49" name="LED_DLY" class="Default">
+    <net code="61" name="LED_DLY" class="Default">
       <node ref="H_STM32" pin="P2.32" pinfunction="PE9_/_39_P2.32" pintype="output"/>
       <node ref="R_D4" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="50" name="LED_EQ" class="Default">
+    <net code="62" name="LED_EQ" class="Default">
       <node ref="H_STM32" pin="P2.31" pinfunction="PE8_/_38_P2.31" pintype="output"/>
       <node ref="R_D3" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="51" name="LED_OD" class="Default">
+    <net code="63" name="LED_OD" class="Default">
       <node ref="H_STM32" pin="P2.30" pinfunction="PE7_/_37_P2.30" pintype="output"/>
       <node ref="R_D2" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="52" name="LED_STAT" class="Default">
+    <net code="64" name="LED_STAT" class="Default">
       <node ref="H_STM32" pin="P2.38" pinfunction="PE15_/_45_P2.38" pintype="output"/>
       <node ref="R_D5" pin="1" pinfunction="1_1" pintype="passive"/>
     </net>
-    <net code="53" name="LRCK" class="Default">
+    <net code="65" name="LRCK" class="Default">
       <node ref="H_STM32" pin="P2.5" pinfunction="PE4_/_3_/_AF8_P2.5" pintype="output"/>
       <node ref="U2" pin="4" pinfunction="LRCK_4" pintype="input"/>
     </net>
-    <net code="54" name="MCLK" class="Default">
+    <net code="66" name="MCLK" class="Default">
       <node ref="H_STM32" pin="P1.4" pinfunction="PE0_/_97_/_AF10_P1.4" pintype="output"/>
       <node ref="U2" pin="3" pinfunction="MCLK_3" pintype="input"/>
     </net>
-    <net code="55" name="STM_UART_RX" class="Default">
+    <net code="67" name="STM_UART_RX" class="Default">
       <node ref="H_STM32" pin="P1.39" pinfunction="PD9_/_56_/_AF7_P1.39" pintype="input"/>
       <node ref="U6" pin="2" pinfunction="OUTA_2" pintype="output"/>
     </net>
-    <net code="56" name="STM_UART_TX" class="Default">
+    <net code="68" name="STM_UART_TX" class="Default">
       <node ref="H_STM32" pin="P1.40" pinfunction="PD8_/_55_/_AF7_P1.40" pintype="output"/>
       <node ref="R31" pin="2" pinfunction="2_2" pintype="passive"/>
       <node ref="U6" pin="3" pinfunction="INB_3" pintype="input"/>
     </net>
-    <net code="57" name="SW_DLY" class="Default">
+    <net code="69" name="SW_DLY" class="Default">
       <node ref="H_STM32" pin="P2.13" pinfunction="PC2_C_/_17_P2.13" pintype="input"/>
       <node ref="SW3" pin="C" pinfunction="C_C" pintype="passive"/>
     </net>
-    <net code="58" name="SW_EQ" class="Default">
+    <net code="70" name="SW_EQ" class="Default">
       <node ref="H_STM32" pin="P2.12" pinfunction="PC1_/_16_P2.12" pintype="input"/>
       <node ref="SW2" pin="C" pinfunction="C_C" pintype="passive"/>
     </net>
-    <net code="59" name="SW_MUTE" class="Default">
+    <net code="71" name="SW_MUTE" class="Default">
       <node ref="H_STM32" pin="P2.14" pinfunction="PC3_C_/_18_P2.14" pintype="input"/>
       <node ref="SW4" pin="C" pinfunction="C_C" pintype="passive"/>
     </net>
-    <net code="60" name="SW_OD" class="Default">
+    <net code="72" name="SW_OD" class="Default">
       <node ref="H_STM32" pin="P2.11" pinfunction="PC0_/_15_P2.11" pintype="input"/>
       <node ref="SW1" pin="C" pinfunction="C_C" pintype="passive"/>
     </net>
-    <net code="61" name="VREF_OP" class="Default">
+    <net code="73" name="VREF_OP" class="Default">
       <node ref="C38" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="C39" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="D13" pin="2" pinfunction="K_2" pintype="passive"/>
@@ -4817,37 +5845,37 @@
       <node ref="TP4" pin="1" pinfunction="1_1" pintype="passive"/>
       <node ref="U3" pin="5" pinfunction="IN+_B_5" pintype="input"/>
     </net>
-    <net code="62" name="unconnected-(H_ESP32-VIN_{slash}_5V-PadVIN)" class="Default">
+    <net code="74" name="unconnected-(H_ESP32-VIN_{slash}_5V-PadVIN)" class="Default">
       <node ref="H_ESP32" pin="VIN" pinfunction="VIN_/_5V_VIN" pintype="power_in+no_connect"/>
     </net>
-    <net code="63" name="unconnected-(H_STM32-5V_header_{slash}_NC_externo-PadP1.2)" class="Default">
+    <net code="75" name="unconnected-(H_STM32-5V_header_{slash}_NC_externo-PadP1.2)" class="Default">
       <node ref="H_STM32" pin="P1.2" pinfunction="5V_header_/_NC_externo_P1.2" pintype="power_in+no_connect"/>
     </net>
-    <net code="64" name="unconnected-(SW1-Pad2)" class="Default">
+    <net code="76" name="unconnected-(SW1-Pad2)" class="Default">
       <node ref="SW1" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
     </net>
-    <net code="65" name="unconnected-(SW2-Pad2)" class="Default">
+    <net code="77" name="unconnected-(SW2-Pad2)" class="Default">
       <node ref="SW2" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
     </net>
-    <net code="66" name="unconnected-(SW3-Pad2)" class="Default">
+    <net code="78" name="unconnected-(SW3-Pad2)" class="Default">
       <node ref="SW3" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
     </net>
-    <net code="67" name="unconnected-(SW4-Pad2)" class="Default">
+    <net code="79" name="unconnected-(SW4-Pad2)" class="Default">
       <node ref="SW4" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
     </net>
-    <net code="68" name="unconnected-(U2-AMUTEC-Pad23)" class="Default">
+    <net code="80" name="unconnected-(U2-AMUTEC-Pad23)" class="Default">
       <node ref="U2" pin="23" pinfunction="AMUTEC_23" pintype="output+no_connect"/>
     </net>
-    <net code="69" name="unconnected-(U2-AOUTB+-Pad26)" class="Default">
+    <net code="81" name="unconnected-(U2-AOUTB+-Pad26)" class="Default">
       <node ref="U2" pin="26" pinfunction="AOUTB+_26" pintype="output+no_connect"/>
     </net>
-    <net code="70" name="unconnected-(U2-AOUTB--Pad27)" class="Default">
+    <net code="82" name="unconnected-(U2-AOUTB--Pad27)" class="Default">
       <node ref="U2" pin="27" pinfunction="AOUTB-_27" pintype="output+no_connect"/>
     </net>
-    <net code="71" name="unconnected-(U2-BMUTEC-Pad28)" class="Default">
+    <net code="83" name="unconnected-(U2-BMUTEC-Pad28)" class="Default">
       <node ref="U2" pin="28" pinfunction="BMUTEC_28" pintype="output+no_connect"/>
     </net>
-    <net code="72" name="unconnected-(U2-XTO-Pad1)" class="Default">
+    <net code="84" name="unconnected-(U2-XTO-Pad1)" class="Default">
       <node ref="U2" pin="1" pinfunction="XTO_1" pintype="output+no_connect"/>
     </net>
   </nets>

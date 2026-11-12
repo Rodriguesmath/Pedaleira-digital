@@ -1,0 +1,30 @@
+======================================================================
+SUÍTE DE VERIFICAÇÃO NGSPICE - REVISÃO 4.10A (simular_A.py)
+======================================================================
+[1/7] Testando Supervisor +5VA (Histerese, I_K, Carga Adicional)...
+  Supervisor: V_rise=4.602V, V_fall=4.516V, I_K=1.34mA, Carga=1.82mA -> PASS
+[2/7] Testando Intertravamento /RST (Clamping, Liberação, Backpower e Subida)...
+  Reset: Clamped=0.024V, High=3.000V, Rise@200ns=3.000V, BP=0.0000V -> PASS
+[3/7] Testando 8 Combinações Estáticas (RAW on/off, J5 fechada/aberta, USB on/off)...
+  Combo 1 (RAW=OFF, J5=OPEN, USB=OFF): Status=PASS (RST=0.000V, AIN_P=[0.0,0.0]mV, I_bp_diodes=0.0000uA)
+  Combo 2 (RAW=OFF, J5=OPEN, USB=ON): Status=PASS (RST=0.024V, AIN_P=[0.0,0.0]mV, I_bp_diodes=0.0000uA)
+  Combo 3 (RAW=OFF, J5=CLOSED, USB=OFF): Status=PASS (RST=0.000V, AIN_P=[0.0,0.0]mV, I_bp_diodes=0.0000uA)
+  Combo 4 (RAW=OFF, J5=CLOSED, USB=ON): Status=PASS (RST=0.024V, AIN_P=[0.0,0.0]mV, I_bp_diodes=0.0000uA)
+  Combo 5 (RAW=ON, J5=OPEN, USB=OFF (Contenção crítica)): Status=PASS (RST=0.000V, AIN_P=[-1.1,1.0]mV, I_bp_diodes=0.0003uA)
+  Combo 6 (RAW=ON, J5=OPEN, USB=ON (Contenção + Intertravamento)): Status=PASS (RST=0.024V, AIN_P=[-1.1,1.0]mV, I_bp_diodes=0.0003uA)
+  Combo 7 (RAW=ON, J5=CLOSED, USB=OFF (Backpower check)): Status=PASS (RST=0.000V, AIN_P=[1943.4,2854.7]mV, I_bp_diodes=0.0000uA)
+  Combo 8 (RAW=ON, J5=CLOSED, USB=ON (Operação Nominal)): Status=PASS (RST=3.000V, AIN_P=[1943.4,2854.7]mV, I_bp_diodes=0.0000uA)
+[4/7] Testando Transiente Sequencial Completo (USB -> 12V -> J5 atrasada -> PD10 -> Colapso VA -> Colapso RAW)...
+  Transiente Sequencial: Status=PASS (RST_pre=0.024V, RST_lib=3.000V, RST_clamp=0.024V, Shunt=7.36V)
+[5/7] Testando Cantos de Operação (Nominal, Frio/Min, Quente/Max)...
+  Corner nominal: Status=PASS (ON_RST=3.000V, OFF_RST=0.024V, OFF_P=[-1.1,1.0]mV)
+  Corner frio_min: Status=PASS (ON_RST=2.727V, OFF_RST=0.024V, OFF_P=[-1.1,1.0]mV)
+  Corner quente_max: Status=PASS (ON_RST=3.273V, OFF_RST=0.024V, OFF_P=[-1.1,1.0]mV)
+[6/7] Testando Step Rápido +RAW 10us (Inrush em C44 e Shunts)...
+  Step 10us: Status=PASS (Peak Inrush=250.5mA, Shunt=8.20V, RST=0.024V)
+[7/7] Testando THD e Impacto dos Shunts em AINA_P - AINA_N (< 0.02%)...
+  THD: 0.000514% (Limite < 0.02%) -> PASS
+======================================================================
+VERIFICAÇÃO COMPLETA: 16/16 cenários PASSED com sucesso!
+Resumo JSON gerado em: /home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/SIMULACOES_A/resumo_A.json
+======================================================================

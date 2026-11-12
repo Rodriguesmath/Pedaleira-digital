@@ -1,9 +1,10 @@
 ﻿ID,Severidade,Evidência/impacto,Estado,Correção/contenção
-A410-01,ALTO,CW7805 genérico sem identidade/pinagem qualificada,Aberto por decisão do usuário,J5 aberto e codec removido nos ensaios iniciais; confirmar terminais antes de energizar
-A410-02,ALTO,UART direta entre USBs independentes,CORRIGIDO DOCUMENTALMENTE,"U6 ISO7721DR, IO de cada lado no próprio domínio; aquisição/ensaio pendentes"
-A410-03,ALTO,Perda VA com PD10 HIGH não força reset físico,ABERTO,Codec removido; intertravamento automático não implementado
-A410-04,ALTO,"AIN pode exceder VA durante partida/queda; BAT85 sem prova de limite0,3V",ABERTO / fase B não iniciada,Codec removido; preservar achadoA02 sem fingir correção
-A410-05,MEDIO,Capacidade livre do3V3 WeAct não garantida pela indicação1 A total,ABERTO,Reservar28mA codec+4mA UART; orçamento completo e ensaio posteriores
-A410-06,ALTO,Saída sem mute físico durante partida/queda,ABERTO / fase B não iniciada,Jack externo desconectado; achadoA03 preservado
-A410-07,MEDIO,Variante ESP e GPIO16/17 não confirmados,ABERTO,Conferir móduloWROOM/headers e ausênciaPSRAM nessespinos
-A410-08,MEDIO,Footprints herdados ainda não verificados para todos os componentes,ABERTO / fase C não iniciada,Somente U6 foi associado a footprint oficial; não liberar PCB/montagem integral
+A410-01,ALTO,CW7805 genérico sem identidade/pinagem física confirmada na amostra,PRE-REQUISITO DE BANCADA,Projeto mantém apenas +5VA via J5 (<65 mA); manter J5 aberto e codec ausente até identificar terminais e estabilização na bancada
+A410-02,ALTO,UART direta entre USBs independentes,CORRIGIDO DOCUMENTALMENTE,"U6 ISO7721DR dual-supply (SOIC-8), C42/C43, R29..R32; validado em 8 estados e 24 transições"
+A410-03,ALTO,Perda de +5VA com PD10 HIGH não força reset físico / backpower em +3V3,CORRIGIDO DOCUMENTALMENTE,Folha 9: supervisor U7 TL431 + Q3 + Q1/Q2; SPICE 16/16 PASS (CODEC_RST<=0.03V sem VA; subida <100ns; backpower 0V)
+A410-03B,ALTO,Entradas AIN e ADC_BIAS com VA ausente / J5 aberto / queda +5VA,CORRIGIDO DOCUMENTALMENTE,"Folha 9: D15/R43/C44/R44..R47 + Q4..Q8 (2N7000); SPICE Fase A PASS (|AIN|<=1.1mV sem VA, ~249mA pico D15, THD 0.0005%, sem carga em VCOM)"
+A410-04,ALTO,Clamps BAT85 (D9..D12) com +5VA ativo sob sobrecarga / surto em AIN,ABERTO (FASE B),Substituição ativa sem distorção em sinal nominal e roteiro SPICE em ANALISE_ADC.md na Fase B
+A410-05,MEDIO,Capacidade livre do +3V3 WeAct V1.2,ORCAMENTO PASS / BANCADA PENDENTE,Pior caso aritmético 329.4 mA vs buck mínimo SY8088 1000 mA; conferir U2 físico e droop na bancada
+A410-06,ALTO,Saída de áudio sem mute físico durante partida/queda,ABERTO (FASE B),Dimensionar e simular mute fail-safe de saída em PROJETO_MUTE_FISICO.md na Fase B
+A410-07,MEDIO,Variante ESP32 (WROOM vs WROVER) e GPIO16/17 livres,PRE-REQUISITO DE BANCADA,Confirmar visualmente e por continuidade na placa real ausência de conflito PSRAM em GPIO16/17
+A410-08,MEDIO,Footprints oficiais em todos os componentes da PCB,PARCIAL / FASE C,"U6 (SOIC-8) e Folha 9 (U7, Q1..Q8 em Package_TO_SOT_THT:TO-92_Inline) com footprints oficiais; demais passivos/CIs na Fase C"

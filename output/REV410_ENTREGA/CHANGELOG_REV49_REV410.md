@@ -1,13 +1,13 @@
-# Alterações efetivas 4.9 -> candidato 4.10A
+# Alterações efetivas 4.9 -> candidato 4.10 (Fase A fechada no projeto elétrico)
 
-- Originais4.9 preservados; hashes em BASE_REV49_SHA256.txt. Base na errata documental da auditoria.
-- Headers STM5V e ESPVIN agora NC externos; cada placa alimentada pela própria USB.
-- Renomeadas +5V para redes explícitas +5V_CW/+5VA e +3V3 para +3V3_STM; adicionado +3V3_ESP independente.
-- VD/VL exclusivamente3V3_STM. Nenhum regulador extra ou XL6019 adicionado.
-- J4 convertido em acesso de carga artificial CW; não alimenta placas.
-- J5 normalmente aberto entre CW e VA; não protege automaticamente falhas nem entradas analógicas.
-- UART direta substituída por U6 ISO7721DR dual-supply, C42/C43 de100nF, R29/R30 de10k e R31/R32 de47k locais. Oito componentes adicionais incluindo J5; disponibilidade não presumida.
-- Ganhos, filtros e estágios analógicos preservados; nenhum valor original foi alterado. MetadadosR15/R16,C5,C30/C32 corrigidos.
-- Folha8 para UART e bypass, mantendo fontes, cores, moldura e legenda anteriores. AutoriaRodrigues M. Lima, data2026-11-12, statusEm revisão-faseA.
-- Projeto editável e footprint oficialSOIC8 de U6 incluídos, sem exclusões ERC. Não é entrega de PCB completa.
-- Firmware preservado. ProteçãoADC e mute físico aguardam PASS A; nenhuma correção B foi simulada ou declarada pronta.
+- Originais 4.9 e firmware preservados integralmente; hashes base em `BASE_REV49_SHA256.txt`.
+- Headers `STM5V` e `ESPVIN` agora NC externos; USBs independentes; `VD/VL` exclusivamente em `+3V3_STM`.
+- Orçamento `+3V3_STM` calculado em pior caso (329,4 mA vs buck mínimo WeAct `SY8088AAC` 1000 mA); inspeção física do exemplar pendente.
+- `U5 CW7805` isolado para `+5VA` via `J4/J5`, mantendo valores nominais analógicos e restrições explícitas de bancada.
+- UART direta substituída por `U6 ISO7721DR` dual-supply (`SOIC-8`), `C42/C43`, `R29..R32` (Folha 8).
+- Folha 9 adicionada (25 componentes: `U7 TL431ACZ`, `Q1..Q3 2N3904/2N3906`, `Q4 2N3904`, `Q5..Q8 2N7000`, `D15 1N4148`, `C44 10uF`, `R33..R41`, `R43..R47`):
+  - Supervisor `+5VA` com histerese (sobe ~4,60 V, cai ~4,52 V), mantendo `I_K >= 1,0 mA` em `U7`.
+  - Intertravamento `/RST` que força `CODEC_RST <= 0,03 V` sempre que `+5VA < 4,52 V`, com zero backpower para `+3V3_STM` e subida rápida (< 200 ns) na janela `1 ms` do firmware `Cs4272.cpp`.
+  - Contenção off-state `D15/R43/C44/Q4..Q8` para `AINA_P`, `AINA_N`, `ADC_BIAS` (via `R47 = 47 ohm`) e `AINB_CM` sem carregar `VCOM`.
+- Projeto CAD conectado com 139 componentes, 347 terminais, 73 redes, 9 folhas A4 paisagem, autoria `Rodrigues M. Lima`, **0 violações ERC** no KiCad 10.
+- Próxima etapa desbloqueada pelo Gate A do projeto: Fase 4.10B (`ANALISE_ADC.md` e `PROJETO_MUTE_FISICO.md`).

@@ -30,7 +30,7 @@ H_ESP32,BOARD,ESP32 DevKit V1,1,DevKit ESP32-WROOM (não WROVER),"UART de 3,3 V 
 J4,J,Teste CW 5 V,1,"Borne THT 2 vias 5,08 mm","Conector de carga artificial no lado CW, antes de J5; nunca USB",necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,Somente saída para carga de teste. Não ligar a STM/ESP/USB.,Projeto rev4.9; ver AUDITORIA_REV49.md
 R11,R,4.7 kohm,1,"Axial DIN0207, 1/4 W, 1%",Pull-up externo SCL,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
 R12,R,4.7 kohm,1,"Axial DIN0207, 1/4 W, 1%",Pull-up externo SDA,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
-R13,R,10 kohm,1,"Axial DIN0207, 1/4 W, 1%",Mantém codec em reset durante boot,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
+R13,R,10 kohm,1,"Axial DIN0207, 1/4 W, 1%",Mantém codec em reset durante boot,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",Pull-down passivo em CODEC_RST; mantido junto ao intertravamento ativo Q1/R39.,Projeto rev4.9; ver AUDITORIA_REV49.md
 R14,R,47 kohm,1,"Axial DIN0207, 1/4 W, 1%",Define slave no intervalo stand-alone,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
 SW1,SW,MTS-102,1,MTS-102 SPDT THT,Overdrive,necessário adquirir / conferir estoque,Conferir identificação e encapsulamento físico,,Projeto rev4.9; ver AUDITORIA_REV49.md
 R_D2,R,330 ohm,1,"Axial DIN0207, 1/4 W, 1%",Limitador de corrente do LED Overdrive,necessário adquirir / conferir estoque,"Resistor 1%, 0,25 W",,Projeto rev4.9; ver AUDITORIA_REV49.md
@@ -90,10 +90,10 @@ R27,R,13 kohm,1,THT,"Divisor ADC, ramo superior",necessário adquirir / conferir
 R28,R,12 kohm,1,THT,"Divisor ADC, ramo inferior",necessário adquirir / conferir estoque,"12 kΩ 0,1%, par com R27",,Projeto rev4.9
 C40,CP,100 uF,1,Radial,Filtro do bias ADC,necessário adquirir / conferir estoque,100 µF ≥10 V; esperar 5 s,,Projeto rev4.9
 C41,C,100 nF,1,THT,Bypass HF do bias ADC,necessário adquirir / conferir estoque,100 nF ≥25 V,,Projeto rev4.9
-D9,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
-D10,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
-D11,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
-D12,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos,,Projeto rev4.9
+D9,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
+D10,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
+D11,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
+D12,D,BAT85,1,Axial; confirmar fabricante: Nexperia DO-34/SOD68,Clamp externo do ADC,necessário adquirir / conferir estoque,Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos, Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.,Projeto rev4.9
 TP1,TP,+RAW,1,Pino THT isolado,Ponto de teste +RAW,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
 TP2,TP,+5V,1,Pino THT isolado,Ponto de teste +5V,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
 TP3,TP,+3V3,1,Pino THT isolado,Ponto de teste +3V3,necessário adquirir / conferir estoque,Pino de teste identificado; manter afastado de curto acidental,,Projeto rev4.9
@@ -113,3 +113,28 @@ R29,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Descarga local e estado sem alimentação
 R30,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Descarga local e estado sem alimentação,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
 R31,R,47 kohm,1,Axial DIN0207 1/4 W 1%,UART idle HIGH quando TX está em alta impedância,necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
 R32,R,47 kohm,1,Axial DIN0207 1/4 W 1%,UART idle HIGH quando TX está em alta impedância,necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+U7,VREF,TL431ACZ,1,TO-92-3 inline,"Referência/comparador shunt de precisão 2,495 V ±1% para supervisão +5VA",necessário adquirir / conferir estoque,"TL431A/B (±1% ou melhor, TO-92, Ik_min<=1 mA)","Garante janela VA_OK subir ~4,61 V e cair ~4,48 V sem depender de +3V3_STM.",Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R33,R,9.1 kohm,1,Axial DIN0207 1/4 W 1%,Divisor superior senso +5VA,necessário adquirir / conferir estoque,"9.1 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R34,R,11 kohm,1,Axial DIN0207 1/4 W 1%,Divisor inferior senso +5VA,necessário adquirir / conferir estoque,"11 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R35,R,2.2 kohm,1,Axial DIN0207 1/4 W 1%,Pull-up B-E anti-fuga de Q3,necessário adquirir / conferir estoque,"2.2 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R36,R,1.8 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q3 e Ik >= 1 mA em U7,necessário adquirir / conferir estoque,"1.8 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q3,Q,2N3906,1,TO-92-3 inline,Chave PNP de sinalização VA_OK (+5VA válido),necessário adquirir / conferir estoque,"2N3906 PNP (>=40 V, hFE>=100 @ 2 mA)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R37,R,22 kohm,1,Axial DIN0207 1/4 W 1%,Pull-down determinístico de VA_OK,necessário adquirir / conferir estoque,"22 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R38,R,470 kohm,1,Axial DIN0207 1/4 W 1%,Histerese (~120 mV) do supervisor +5VA,necessário adquirir / conferir estoque,"470 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R39,R,1.0 kohm,1,Axial DIN0207 1/4 W 1%,"Limitador de corrente PD10 -> CODEC_RST quando clamp Q1 ativo (<=3,6 mA)",necessário adquirir / conferir estoque,"1.0 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q1,Q,2N3904,1,TO-92-3 inline,Clamp ativo LOW em CODEC_RST se +5VA ausente/subtensão,necessário adquirir / conferir estoque,2N3904 NPN (VCEsat<=0.2 V @ 10 mA),,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R40,R,4.7 kohm,1,Axial DIN0207 1/4 W 1%,Polarização normalmente-ON de Q1 alimentada por +3V3_STM,necessário adquirir / conferir estoque,"4.7 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q2,Q,2N3904,1,TO-92-3 inline,Inibidor de Q1 quando VA_OK HIGH; isola +5VA de +3V3_STM,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R41,R,22 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q2 a partir de VA_OK,necessário adquirir / conferir estoque,"22 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+D15,D,1N4148,1,DO-35,Retificador de retenção para gate SHUNT_EN,necessário adquirir / conferir estoque,1N4148 >=75 V,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R43,R,47 ohm,1,Axial DIN0207 1/4 W 1%,"Limitador de surto na carga de C44 (tau=0,47 ms)",necessário adquirir / conferir estoque,"47 ohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+C44,CP,10 uF,1,Eletrolítico radial >=25 V,Capacitor de retenção de SHUNT_EN durante queda de +RAW,necessário adquirir / conferir estoque,10 uF >=25 V,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R45,R,47 kohm,1,Axial DIN0207 1/4 W 1%,"Divisor superior gate SHUNT_EN (<=8,6 V)",necessário adquirir / conferir estoque,"47 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R46,R,100 kohm,1,Axial DIN0207 1/4 W 1%,Divisor inferior e descarga SHUNT_EN,necessário adquirir / conferir estoque,"100 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q4,Q,2N3904,1,TO-92-3 inline,Desarma SHUNT_EN quando VA_OK HIGH,necessário adquirir / conferir estoque,2N3904 NPN,,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R44,R,10 kohm,1,Axial DIN0207 1/4 W 1%,Limitador de base Q4,necessário adquirir / conferir estoque,"10 kohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q5,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state AINA_P->GND na ausência/subtensão de +5VA,necessário adquirir / conferir estoque,"2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q6,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state AINA_N->GND na ausência/subtensão de +5VA,necessário adquirir / conferir estoque,"2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+R47,R,47 ohm,1,Axial DIN0207 1/4 W 1%,Limitador de corrente de descarga de C40 (Ipk <= 54 mA),necessário adquirir / conferir estoque,"47 ohm 1%, 0,25 W",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q7,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state ADC_BIAS->GND via R47,necessário adquirir / conferir estoque,"2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais
+Q8,Q,2N7000,1,TO-92-3 inline,Shunt OFF-state AINB_CM (C34)->GND na ausência/subtensão de +5VA,necessário adquirir / conferir estoque,"2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",,Revisão 4.10A; ver REVISOES/ e fontes oficiais

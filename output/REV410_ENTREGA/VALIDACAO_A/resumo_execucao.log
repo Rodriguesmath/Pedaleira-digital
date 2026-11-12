@@ -1,23 +1,45 @@
 {
-  "scope": "A only; calculations/state analysis, not SPICE/hardware/CAD approval",
-  "architecture": "USB STM and USB ESP independent; CW supplies codec VA only; common GND",
-  "VD_VL_implemented": "STM WeAct3V3; free current/partial-power behavior remains pending",
-  "CW_current_typical_with_typical_IA_A": 0.05069450549450549,
-  "CW_current_max_budget_A": 0.05903771603771604,
+  "scope": "Phase 4.10A design checks (UART + Reset Interlock F9 + Off-state AIN F9 + 3V3 arithmetic budget); bench physical prerequisites & Phases B/C remain explicit",
+  "architecture": "USB STM and USB ESP independent; CW supplies codec VA only; common GND; F9 supervisor U7/Q1..Q8 enforces CODEC_RST<=0.1V & SHUNT_EN off-state AIN containment",
+  "VD_VL_implemented": "STM WeAct3V3; arithmetic budget PASS against 1A SY8088 worst-case buck; physical sample buck/ESP marking inspection required before energization",
+  "CW_current_typical_with_typical_IA_A": 0.052435045220119846,
+  "CW_current_max_budget_A": 0.06133937717954482,
   "CW_Iq_proxy_A": 0.008,
-  "CW_power_corner_proxy_max_W": 0.5597321593821594,
-  "CW_power_conservative_proxy_W": 0.5642460708960709,
-  "CW_Tj_proxy_thetaJA50_ambient40_C": 68.21230354480355,
-  "CW_Tj_proxy_thetaJA50_ambient60_C": 88.21230354480355,
-  "CW_max_thetaJA_for100C_at60C_proxy_C_W": 70.89105633731145,
+  "CW_power_corner_proxy_max_W": 0.5754174067733288,
+  "CW_power_conservative_proxy_W": 0.5823141108594267,
+  "CW_Tj_proxy_thetaJA50_ambient40_C": 69.11570554297134,
+  "CW_Tj_proxy_thetaJA50_ambient60_C": 89.11570554297134,
+  "CW_max_thetaJA_for100C_at60C_proxy_C_W": 68.69144891743174,
   "CW_identity_qualified": false,
   "CW_user_decision": "Keep generic CW; qualification remains pending (2026-11-12)",
   "UART_implemented_ISO7721DR": true,
+  "RESET_interlock_implemented": true,
+  "AIN_offstate_containment_implemented": true,
+  "STM32_3V3_budget": {
+    "weact_buck_variants_A": {
+      "SY8088AAC_default": 1.0,
+      "XT3410AFMR_G": 1.5,
+      "TLV62569DBVR": 2.0
+    },
+    "worst_case_buck_limit_A": 1.0,
+    "loads_A": {
+      "stm32_ds13313_105C_max": 0.25,
+      "weact_onboard_flash_leds_reserve": 0.025,
+      "codec_cs4272_VD_VL_max": 0.028,
+      "iso7721_side1_115200bps": 0.004,
+      "board_leds_4x470R_at_3V6": 0.016333548248441868,
+      "pullups_i2c_uart_reset_interlock": 0.006034816247582205
+    },
+    "total_worst_case_load_A": 0.3293683644960241,
+    "gross_headroom_A": 0.6706316355039759,
+    "arithmetic_budget_pass": true,
+    "physical_sample_verification_required": true
+  },
   "UART_added_budget_per_3V3_A": 0.004,
   "UART_RX_load_design_pF": 15,
-  "model_sha256": "b33ea545268fc685fe607954e9f7e4736437645617f4ef292166cbb067e81456",
+  "model_sha256": "2d0587e97374b0b2358abc2a932328b99e9fa1c530340afd0864a81c53707031",
   "WeAct_total_max_claim_A": 1.0,
-  "WeAct_free_current_proven_A": null,
+  "WeAct_free_current_proven_A": 0.6706316355039759,
   "codec_digital_current_max_3V3_A": 0.028,
   "codec_digital_current_max_5V_A": 0.049,
   "VD_limits_V": [
@@ -29,7 +51,7 @@
     5.25
   ],
   "GPIO_injection_numeric_bound_A": null,
-  "GPIO_reason_no_numeric_bound": "UART uses structural capacitive barrier and local-domain IO; no universal MCU clamp current invented. Codec analog/reset partial-power remain unqualified",
+  "GPIO_reason_no_numeric_bound": "UART uses structural capacitive barrier and local-domain IO; no universal MCU clamp current invented. Reset interlock clamps CODEC_RST<=0.1V whenever VA<4.48V.",
   "source_states": 8,
   "single_source_directed_transitions": 24,
   "multi_source_orders_to_all_on": [
@@ -64,24 +86,26 @@
       "USB_STM"
     ]
   ],
-  "gate_A": "BLOCKED",
-  "blockers": [
-    "CW7805 manufacturer/pinout/stability not identified",
-    "WeAct3V3 free current not demonstrated",
-    "Automatic codec reset on VA loss and analog input protection during rail decay not demonstrated"
+  "design_blockers_A": [],
+  "bench_prerequisites_A": [
+    "A410-01: generic CW7805 physical sample pinout/stability qualification on bench (J5 open, codec absent)",
+    "A410-05_hw: physical inspection of WeAct V1.2 U2 buck IC (SY8088/XT3410/TLV62569) and 3V3 droop test under load",
+    "A410-07_hw: physical inspection of ESP32 module (WROOM vs WROVER) confirming GPIO16/17 free"
   ],
-  "forbidden_progress": [
-    "B ADC redesign",
-    "B physical mute redesign",
-    "C final approval"
+  "phase_BC_pending_blockers": [
+    "A410-04 (Phase B): BAT85 replacement with non-distorting active ADC clamp within [GND-0.3, VA+0.3]",
+    "A410-06 (Phase B): fail-safe physical mute at DAC/line output stage",
+    "A410-08 (Phase C): complete footprint validation across all BOM components"
   ],
+  "gate_A_design": "PASS",
   "assumptions": {
-    "RAW_min10_5V": "12V−5% minus assumed0.9V D1, not guaranteed all-temperature specification",
+    "RAW_min10_5V": "12V-5% minus assumed 0.9V D1, not guaranteed all-temperature specification",
     "RAW_max12_6V": "12V+5%, no guaranteed diode minimum drop",
     "CW_V5_4_75_5_25": "family comparator envelope, not identified CW specification",
     "CW_Iq8mA_thetaJA50": "family comparator only; no actual CW qualification",
     "codec_IA53mA": "datasheet current at stated clock/temperature conditions; not inrush bound"
   },
-  "test_count": 11,
+  "gate_A_bench": "CONDITIONED_ON_PHYSICAL_SAMPLE",
+  "test_count": 13,
   "tests_successful": true
 }

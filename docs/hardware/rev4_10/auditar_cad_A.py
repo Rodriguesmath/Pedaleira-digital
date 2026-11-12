@@ -58,18 +58,20 @@ def summarize():
     model, parts, xml, expected, actual, endpoint = load()
     erc = json.loads((EVIDENCE / 'ERC_fresh.json').read_text())
     violations = [dict(sheet=s['path'], **v) for s in erc['sheets'] for v in s['violations']]
-    return {'scope': 'CAD consistency only; full gate A BLOCKED',
+    return {'scope': 'CAD consistency only; Phase 4.10A electrical design fixes applied, bench prerequisites & Phases B/C pending',
             'components': len(parts), 'partitions': len(expected),
             'connected_terminals': sum(len(n) for n in expected.values()),
             'sheet_count': len({c['sheet'] for c in parts.values()}),
             'erc_violations': violations, 'erc_ignored_checks': erc['ignored_checks'],
             'empty_footprints': [c.attrib['ref'] for c in xml.findall('components/comp') if not c.findtext('footprint')],
             'cw_qualification': 'PENDING, generic component preserved by user decision',
-            'containment': 'J5 open AND U2 physically absent AND no external input/output/audio connected; no CW qualification implied',
-            'full_gate_A_blockers': ['generic CW pinout/manufacturer qualification pending',
-                                     'no physical reset interlock for analog rail loss',
-                                     'ADC clamps/backpower with VA off unresolved with codec installed',
-                                     '3V3 board reserve and exact ESP variant not qualified'],
+            'containment': 'J5 open AND U2 physically absent until bench prerequisites + Phases B/C complete; no CW qualification implied',
+            'remaining_prerequisites_and_phases': [
+                'A410-01: generic CW7805 physical sample pinout/stability qualification on bench',
+                'A410-05/A410-07: physical inspection of WeAct 3V3 buck IC & ESP32 module (GPIO16/17 free)',
+                'A410-04 (Phase B): BAT85 replacement with non-distorting active ADC clamp within [GND-0.3, VA+0.3]',
+                'A410-06 (Phase B): fail-safe physical mute at DAC/line output stage',
+                'A410-08 (Phase C): complete footprint validation across all BOM items'],
             'sha256': {str(p.relative_to(OUT)): hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in [OUT / 'circuito_rev4_10.json', OUT / 'diagram_layout.json',
                                  OUT / 'BOM_rev4_10.csv', *sorted((OUT / 'kicad').glob('*.kicad_sch'))]}}
@@ -87,8 +89,9 @@ class AuditCAD(unittest.TestCase):
                          {frozenset(v) for v in self.actual.values()})
         self.assertEqual(len(self.expected), len(self.actual))
 
-    def test_all_114_component_references_and_bom_values(self):
+    def test_all_component_references_and_bom_values(self):
         comps = {c.attrib['ref']: c for c in self.xml.findall('components/comp')}
+        self.assertEqual(len(self.parts), 139)
         self.assertEqual(set(comps), set(self.parts))
         with (OUT / 'BOM_rev4_10.csv').open(encoding='utf-8-sig') as f:
             bom = {r['Referência']: r for r in csv.DictReader(f)}
@@ -151,38 +154,47 @@ class AuditCAD(unittest.TestCase):
             self.assertEqual(self.parts[pull]['pins'], {'1': rail, '2': tx})
             self.assertEqual(self.parts[pull]['value'], '47 kohm')
 
-    def test_eight_sheets_every_model_terminal_rendered(self):
+    def test_all_sheets_every_model_terminal_rendered(self):
         d = json.loads((OUT / 'diagram_layout.json').read_text())
-        self.assertEqual({int(s) for s in d['pages']}, set(range(1, 9)))
+        self.assertEqual(len(d['pages']), 9)
+        self.assertEqual({int(s) for s in d['pages']}, set(range(1, len(d['pages']) + 1)))
         seen = {(i['ref'], pin) for i in d['instances'] for pin in i['pins']}
         expected = {(p['ref'], pin) for p in self.parts.values() for pin in p['pins']}
         self.assertEqual(seen, expected)
-        self.assertEqual(len(list((OUT / 'kicad').glob('folha_*.kicad_sch'))), 8)
+        self.assertEqual(len(list((OUT / 'kicad').glob('folha_*.kicad_sch'))), len(d['pages']))
 
-    def test_iso_actual_footprint_not_package_note(self):
-        c = next(c for c in self.xml.findall('components/comp') if c.attrib['ref'] == 'U6')
-        self.assertEqual(c.findtext('footprint'), 'Package_SO:SOIC-8_3.9x4.9mm_P1.27mm')
-
-    def test_erc_fresh_no_hidden_exclusions_no_electrical_errors(self):
+    def test_official_footprints_and_zero_erc_violations(self):
+        comps = {c.attrib['ref']: c for c in self.xml.findall('components/comp')}
+        self.assertEqual(comps['U6'].findtext('footprint'), 'Package_SO:SOIC-8_3.9x4.9mm_P1.27mm')
+        for ref in ('U7', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8'):
+            self.assertEqual(comps[ref].findtext('footprint'), 'Package_TO_SOT_THT:TO-92_Inline', ref)
         j = json.loads((EVIDENCE / 'ERC_fresh.json').read_text())
         self.assertEqual(j['ignored_checks'], [])
-        for s in j['sheets']:
-            for v in s['violations']:
-                self.assertNotEqual(v['severity'], 'error', v)
-                # A missing footprint library is recorded, not suppressed or
-                # transformed into zero violations by this checker.
-                self.assertEqual(v['type'], 'footprint_link_issues', v)
+        violations = [dict(sheet=s['path'], **v) for s in j['sheets'] for v in s['violations']]
+        self.assertEqual(violations, [])
 
-    def test_known_reset_and_analog_off_risks_remain_visible(self):
+    def test_phase_a_reset_interlock_and_offstate_containment(self):
         p = self.parts
-        self.assertEqual(p['H_STM32']['pins']['P1.38'], 'CODEC_RST')
+        self.assertEqual(p['H_STM32']['pins']['P1.38'], 'CODEC_RST_CMD')
+        self.assertEqual(p['R39']['pins'], {'1': 'CODEC_RST_CMD', '2': 'CODEC_RST'})
         self.assertEqual(p['U2']['pins']['14'], 'CODEC_RST')
         self.assertEqual(p['R13']['pins'], {'1': 'CODEC_RST', '2': 'GND'})
-        self.assertEqual(p['D9']['pins'], {'1': 'AINA_P', '2': '+5VA'})
-        self.assertEqual(p['D11']['pins'], {'1': 'AINA_N', '2': '+5VA'})
-        # J5 open does not disconnect U2, its digital supply or analog inputs.
-        self.assertEqual(p['U2']['pins']['17'], 'AINA_P')
-        self.assertEqual(p['U3']['pins']['8'], '+RAW')
+        self.assertEqual(p['U7']['value'], 'TL431ACZ')
+        self.assertEqual(p['U7']['pins'], {'1': 'VA_REF', '2': 'GND', '3': 'VA_K'})
+        self.assertEqual(p['Q1']['pins'], {'1': 'GND', '2': 'RST_CLAMP_B', '3': 'CODEC_RST'})
+        self.assertEqual(p['Q2']['pins'], {'1': 'GND', '2': 'Q2_B', '3': 'RST_CLAMP_B'})
+        self.assertEqual(p['D15']['pins'], {'1': '+RAW', '2': 'RAW_D'})
+        self.assertEqual(p['C44']['pins'], {'1': 'V_HOLD', '2': 'GND'})
+        self.assertEqual(p['Q4']['pins'], {'1': 'GND', '2': 'Q4_B', '3': 'SHUNT_EN'})
+        self.assertEqual(p['Q5']['pins'], {'1': 'GND', '2': 'SHUNT_EN', '3': 'AINA_P'})
+        self.assertEqual(p['Q6']['pins'], {'1': 'GND', '2': 'SHUNT_EN', '3': 'AINA_N'})
+        self.assertEqual(p['Q7']['pins'], {'1': 'GND', '2': 'SHUNT_EN', '3': 'ADC_B_SW'})
+        self.assertEqual(p['Q8']['pins'], {'1': 'GND', '2': 'SHUNT_EN', '3': 'AINB_CM'})
+        self.assertEqual(p['R47']['pins'], {'1': 'ADC_BIAS', '2': 'ADC_B_SW'})
+        # Phase B risks remain honestly open and unmasked in Phase A.
+        self.assertEqual(p['D9']['value'], 'BAT85')
+        self.assertEqual(p['D11']['value'], 'BAT85')
+        self.assertIn('J3', p)
 
 
 if __name__ == '__main__':

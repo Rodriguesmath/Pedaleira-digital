@@ -1,9 +1,11 @@
-test_3v3_capacity_not_invented (__main__.Checks.test_3v3_capacity_not_invented) ... ok
+test_3v3_arithmetic_budget_margin (__main__.Checks.test_3v3_arithmetic_budget_margin) ... ok
+test_3v3_physical_sample_still_required (__main__.Checks.test_3v3_physical_sample_still_required) ... ok
 test_all_states (__main__.Checks.test_all_states) ... ok
 test_codec_digital_domain (__main__.Checks.test_codec_digital_domain) ... ok
 test_current_reduction (__main__.Checks.test_current_reduction) ... ok
 test_cw_disconnect_link (__main__.Checks.test_cw_disconnect_link) ... ok
-test_no_false_gate (__main__.Checks.test_no_false_gate) ... ok
+test_honest_gate_boundaries (__main__.Checks.test_honest_gate_boundaries) ... ok
+test_phase_a_reset_and_ain_shunt_design (__main__.Checks.test_phase_a_reset_and_ain_shunt_design) ... ok
 test_regulator_identity_not_assumed (__main__.Checks.test_regulator_identity_not_assumed) ... ok
 test_thermal_conditional_reduction (__main__.Checks.test_thermal_conditional_reduction) ... ok
 test_transitions (__main__.Checks.test_transitions) ... ok
@@ -11,6 +13,6 @@ test_uart_asymmetric_states (__main__.Checks.test_uart_asymmetric_states) ... ok
 test_usb_headers_not_cw (__main__.Checks.test_usb_headers_not_cw) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.000s
+Ran 13 tests in 0.000s
 
 OK

@@ -7,12 +7,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -27,12 +27,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
@@ -46,12 +46,11 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -66,12 +65,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -86,12 +85,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
@@ -105,8 +104,8 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [],
     "transient_risks": [
@@ -122,12 +121,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
@@ -141,12 +140,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -161,12 +160,11 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -181,12 +179,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
@@ -200,12 +198,12 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -220,8 +218,8 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "risks_after": [],
     "transient_risks": [
@@ -237,12 +235,11 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "risks_after": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -257,8 +254,7 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "risks_after": [],
     "transient_risks": [
@@ -274,12 +270,10 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "risks_after": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "transient_risks": [
       "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
@@ -294,8 +288,8 @@
     "UART_DC_isolation_structural": true,
     "risks_before": [],
     "risks_after": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -311,8 +305,7 @@
     "UART_DC_isolation_structural": true,
     "risks_before": [],
     "risks_after": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -340,12 +333,11 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "risks_after": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -360,12 +352,10 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "risks_after": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "transient_risks": [
       "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
@@ -379,8 +369,7 @@
     "automatic_containment_demonstrated": false,
     "UART_DC_isolation_structural": true,
     "risks_before": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "risks_after": [],
     "transient_risks": [
@@ -397,8 +386,8 @@
     "UART_DC_isolation_structural": true,
     "risks_before": [],
     "risks_after": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
@@ -427,8 +416,7 @@
     "UART_DC_isolation_structural": true,
     "risks_before": [],
     "risks_after": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "transient_risks": [
       "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",

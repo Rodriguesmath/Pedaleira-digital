@@ -15,7 +15,7 @@ OUT=Path(os.environ.get('PEDALEIRA_REV410_OUT',str(ROOT/'output/REV410_ENTREGA')
 MODEL=Path(__file__).with_name('circuito_rev4_10.json')
 # Sheet order follows the audio path; supporting power stays on sheet 7.
 OLD_TO_NEW={i:i for i in range(1,8)}
-PAGES={1:'Fonte analógica e referências',2:'Guitarra e condicionamento ADC completo',3:'Codec CS4272 e referências analógicas',4:'Receptor DAC e saída de linha',5:'STM32, ESP32 e distribuição digital',6:'Chaves e indicadores',7:'Desacoplamento e alimentação dos TL072',8:'UART entre alimentações independentes'}
+PAGES={1:'Fonte analógica e referências',2:'Guitarra e condicionamento ADC completo',3:'Codec CS4272 e referências analógicas',4:'Receptor DAC e saída de linha',5:'STM32, ESP32 e distribuição digital',6:'Chaves e indicadores',7:'Desacoplamento e alimentação dos TL072',8:'UART entre alimentações independentes',9:'Supervisão +5VA, intertravamento /RST e contenção sem VA'}
 model=json.loads(MODEL.read_text());components=model['components'];byref={c['ref']:c for c in components}
 assert len(byref)==len(components)
 with (OUT/'BOM_rev4_10.csv').open('w',newline='',encoding='utf-8-sig') as f:
@@ -49,7 +49,7 @@ def wrap(s,width,size=6.5):
 
 notes={
 1:['12 V DC regulados (11,4..12,6 V). A opção 9 V não foi aprovada. VREF_OP não é GND nem VCOM.',
-   'CW7805: identidade/pinagem pendentes. Apenas VA; orçamento de carga <60 mA. Validar primeiro sem codec.'],
+   'CW7805: identidade/pinagem pendentes. Apenas VA; orçamento de carga <65 mA (incl. supervisor F9). Validar primeiro sem codec.'],
 2:['Entrada nominal ≤0,5 V de pico. U3A: +1; U3B: -1. C2/C16 isolam VREF_OP (~5,65 V) de ADC_BIAS (~2,4 V).',
    'ADC: 1,5 kΩ por perna, 680 pF diferencial e 100 pF para GND. Clamps BAT85; verificar transientes em bancada.'],
 3:['MCLK externo: XTI em GND, XTO em NC. AD0=GND: endereço I2C 0x10 (7 bits).',
@@ -63,7 +63,9 @@ notes={
 8:['U6: cada lado usa o 3V3 da própria placa. USBs independentes; GND comum obrigatório.',
    '115200 bit/s; carga por saída RX ≤15 pF. Sem alimentação remota, saída local default HIGH; durante brownout, lógica indeterminada.'],
 7:['Os dois TL072 usam pino 8 em +RAW e pino 4 em GND real. Não existe alimentação negativa.',
-   '100 nF a poucos milímetros de cada CI. Referência OP filtrada na F1. Projeto ainda não aprovado para áudio.']}
+   '100 nF a poucos milímetros de cada CI. Referência OP filtrada na F1. Projeto ainda não aprovado para áudio.'],
+9:['Supervisor U7/Q3: VA_OK sobe ~4,61 V e cai ~4,48 V; Q1/Q2 mantêm CODEC_RST <=0,1 V sem +5VA independente de PD10.',
+   'D15/R43/C44 retêm SHUNT_EN p/ Q5..Q8 (2N7000) conter AINP/AINM/ADC_BIAS na queda; R47 (47 Ω) limita descarga de C40.']}
 exec(compile(Path(__file__).with_name('layout_connected.py').read_text(),'layout_connected.py','exec'))
 def approved_frame_and_legend(sheet,title):
  # Exact virtual-sheet geometry of the approved revision before conditioning.

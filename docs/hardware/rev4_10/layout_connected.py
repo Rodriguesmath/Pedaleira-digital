@@ -282,7 +282,7 @@ def page3():
  block(375,305,425,170,'3C  Canal ADC B não utilizado','As duas entradas ficam no mesmo bias; saídas DAC B em NC.')
  link(('U2','18'),('U2','19'),(365,320),(365,340));dotat(365,340)
  element('R10',(505,385),(445,385));frompin('U2','19',(365,340),(365,355),(420,355),(420,385),(445,385));netport('R10','1',(545,385),side='right',display='ADC_BIAS')
- element('C34',(650,420),(650,455));frompin('R10','2',(420,385),(420,420),(650,420));ground('C34','2');dotat(420,385)
+ element('C34',(650,420),(650,455));frompin('R10','2',(420,385),(420,420),(650,420));ground('C34','2');dotat(420,385);netport('C34','1',(675,420),side='right')
  txt(425,460,'Canal B mutado na configuração do codec.',7)
 
 
@@ -321,7 +321,7 @@ def page5():
  right=[('P1.40',130),('P1.39',155),('P2.11',205),('P2.12',230),('P2.13',255),('P2.14',280),('P2.30',315),('P2.31',340),('P2.32',365),('P2.38',390)]
  a=byref['H_STM32']
  device('H_STM32',(300,110,155,345),[(p,'L',270,y,a['names'][p]) for p,y in left]+[(p,'R',485,y,a['names'][p]) for p,y in right])
- for p,y in left[:8]:netport('H_STM32',p,(165,y),display=pnet('H_STM32',p)+' (F3)')
+ for p,y in left[:8]:netport('H_STM32',p,(165,y),display=pnet('H_STM32',p)+(' (F9)' if p=='P1.38' else ' (F3)'))
  for p,y in right[2:]:netport('H_STM32',p,side='right')
  device('J4',(70,370,55,65),[('1','R',145,390,'CW TEST'),('2','R',145,420,'GND')]);ground('J4','2',(165,420));netport('J4','1',(190,390),power=True);nc('H_STM32','P1.2')
  txt(97,452,'Só carga artificial',7,BLACK,align='center')
@@ -335,7 +335,7 @@ def page5():
  block(565,305,235,170,'4C  Polarização das interfaces')
  element('R11',(625,345),(625,390));element('R12',(735,345),(735,390));link(('R11','1'),('R12','1'));netport('R11','1',(680,345),power=True)
  netport('R11','2',side='right',display='I2C_SCL');netport('R12','2',side='right',display='I2C_SDA')
- element('R13',(625,415),(625,450));element('R14',(735,415),(735,450));netport('R13','1',display='CODEC_RST');netport('R14','1',display='ADC_DATA');ground('R13','2');ground('R14','2')
+ element('R13',(625,415),(625,450));element('R14',(735,415),(735,450));netport('R13','1',display='CODEC_RST (F9)');netport('R14','1',display='ADC_DATA');ground('R13','2');ground('R14','2')
 
 
 def page6():
@@ -381,6 +381,48 @@ def page8():
   element(cap,(x,415),(x,465));element(res,(x+100,415),(x+100,465))
   link((cap,'1'),(res,'1'));netport(cap,'1',(x+50,415),power=True)
   ground(cap,'2');ground(res,'2')
+
+def page9():
+ # 9A: Supervisor +5VA -> VA_OK
+ block(35,65,260,410,'9A  Supervisor +5VA','U7 TL431 + Q3 · sobe ~4,61 V / cai ~4,48 V')
+ element('R33',(80,135),(80,195));element('R34',(80,260),(80,320));link(('R33','2'),('R34','1'));ground('R34','2',(80,320))
+ device('U7',(115,195,25,60),[('1','L',105,225,'REF'),('3','R',150,210,'K'),('2','R',150,245,'A')])
+ link(('R33','2'),('U7','1'),(80,225));ground('U7','2',(150,270))
+ element('R35',(180,135),(180,185));link(('R33','1'),('R35','1'));netport('R33','1',(135,135),power=True)
+ element('R36',(180,210),(150,210));link(('R35','2'),('R36','1'))
+ device('Q3',(225,155,25,60),[('2','L',215,185,'B'),('1','R',260,165,'E'),('3','R',260,205,'C')])
+ link(('R35','2'),('Q3','2'));link(('R35','1'),('Q3','1'),(260,135))
+ element('R37',(260,315),(260,370));link(('Q3','3'),('R37','1'));ground('R37','2',(260,370))
+ netport('Q3','3',(275,205),side='right')
+ element('R38',(220,315),(150,315));link(('R37','1'),('R38','1'));link(('R38','2'),('U7','1'),(100,315),(100,225))
+ # 9B: Intertravamento /RST
+ block(305,65,235,410,'9B  Intertravamento /RST','CODEC_RST <= 0,3·VL sem +5VA · <100 ns p/ PD10')
+ element('R39',(385,145),(440,145));netport('R39','1',(375,145));netport('R39','2',(500,145),side='right')
+ device('Q1',(445,195,25,55),[('2','L',435,220,'B'),('3','R',480,205,'C'),('1','R',480,240,'E')])
+ link(('R39','2'),('Q1','3'),(480,145));ground('Q1','1',(480,270))
+ element('R40',(375,220),(425,220));netport('R40','1',(355,220),power=True);link(('R40','2'),('Q1','2'))
+ device('Q2',(390,295,25,55),[('2','L',380,320,'B'),('3','R',425,305,'C'),('1','R',425,340,'E')])
+ link(('Q2','3'),('Q1','2'),(425,220));ground('Q2','1',(425,370))
+ element('R41',(350,320),(375,320));netport('R41','1',(340,320));link(('R41','2'),('Q2','2'))
+ # 9C: Contenção OFF-state / VA ausente das entradas ADC e bias
+ block(550,65,275,410,'9C  Contenção AIN sem VA','SHUNT_EN ativo via +RAW/C44 se +5VA < 4,5 V')
+ element('D15',(575,120),(615,120));netport('D15','1',(565,120),power=True)
+ element('R43',(620,120),(665,120));link(('D15','2'),('R43','1'))
+ element('C44',(685,125),(685,160));link(('R43','2'),('C44','1'),(685,120));ground('C44','2',(685,165))
+ element('R45',(700,120),(750,120));link(('R43','2'),('R45','1'))
+ element('R46',(765,125),(765,160));link(('R45','2'),('R46','1'),(765,120));ground('R46','2',(765,165));netport('R45','2',(780,120),side='right')
+ element('R44',(595,215),(630,215));netport('R44','1',(585,215))
+ device('Q4',(650,195,25,45),[('2','L',640,215,'B'),('3','R',685,205,'C'),('1','R',685,230,'E')])
+ link(('R44','2'),('Q4','2'));ground('Q4','1',(685,245));netport('Q4','3',(710,205),side='right')
+ device('Q5',(615,325,25,45),[('3','L',605,335,'D'),('1','L',605,360,'S'),('2','R',650,345,'G')])
+ netport('Q5','3',(600,335));ground('Q5','1',(605,380))
+ device('Q6',(615,415,25,45),[('3','L',605,425,'D'),('1','L',605,450,'S'),('2','R',650,435,'G')])
+ netport('Q6','3',(600,425));ground('Q6','1',(605,465))
+ device('Q7',(715,325,25,45),[('2','L',705,345,'G'),('3','R',750,335,'D'),('1','R',750,360,'S')])
+ ground('Q7','1',(750,380));element('R47',(710,285),(750,285));netport('R47','1',(695,285));link(('R47','2'),('Q7','3'),(750,285))
+ device('Q8',(715,415,25,45),[('2','L',705,435,'G'),('3','R',750,425,'D'),('1','R',750,450,'S')])
+ netport('Q8','3',(765,425),side='right');ground('Q8','1',(750,465))
+ link(('Q5','2'),('Q7','2'));link(('Q6','2'),('Q8','2'));link(('Q5','2'),('Q6','2'),(665,345),(665,435));netport('Q5','2',(665,345),side='right')
 
 def mark_all_junctions():
  # Dots follow actual graph branches, including a component pin on a rail.

@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "script": "docs/hardware/rev4_10/simular_A.py",
+    "revision": "4.10A",
+    "author": "Rodrigues M. Lima",
+    "ngspice_bin": "/home/rodrigues/.cache/pedaleira-tools/root/usr/bin/ngspice",
+    "timestamp_utc": "2026-11-12T21:50:00Z"
+  },
+  "supervisor_va": {
+    "rising_trip_v": 4.6017,
+    "falling_trip_v": 4.5164,
+    "hysteresis_mv": 85.26,
+    "va_ok_active_v": 4.9931,
+    "ik_active_ma": 1.3407,
+    "additional_load_5va_ma": 1.8188,
+    "status": "PASS"
+  },
+  "interlock_rst": {
+    "v_rst_clamped_va_low": 0.024,
+    "v_rst_normal_va_high": 3.0,
+    "v_rst_at_200ns_rise": 3.0,
+    "v_rst_backpower_3v3_off": 0.0,
+    "status": "PASS"
+  },
+  "static_combinations": [
+    {
+      "id": 1,
+      "description": "RAW=OFF, J5=OPEN, USB=OFF",
+      "raw_v": 0.0,
+      "j5_closed": false,
+      "usb_v": 0.0,
+      "aina_p_range": [
+        0.0,
+        0.0
+      ],
+      "aina_n_range": [
+        0.0,
+        0.0
+      ],
+      "adc_bias_range": [
+        0.0,
+        0.0
+      ],
+      "ainb_cm_range": [
+        0.0,
+        0.0
+      ],
+      "codec_rst_max": 0.0,
+      "va_ok_max": -0.0,
+      "shunt_en_max": -0.0,
+      "max_i_diodes_backpower_ua": 0.0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 2,
+      "description": "RAW=OFF, J5=OPEN, USB=ON",
+      "raw_v": 0.0,
+      "j5_closed": false,
+      "usb_v": 3.3,
+      "aina_p_range": [
+        0.0,
+        0.0
+      ],
+      "aina_n_range": [
+        0.0,
+        0.0
+      ],
+      "adc_bias_range": [
+        0.0,
+        0.0
+      ],
+      "ainb_cm_range": [
+        0.0,
+        0.0
+      ],
+      "codec_rst_max": 0.024,
+      "va_ok_max": 0.0,
+      "shunt_en_max": 0.0,
+      "max_i_diodes_backpower_ua": 0.0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 3,
+      "description": "RAW=OFF, J5=CLOSED, USB=OFF",
+      "raw_v": 0.0,
+      "j5_closed": true,
+      "usb_v": 0.0,
+      "aina_p_range": [
+        0.0,
+        0.0
+      ],
+      "aina_n_range": [
+        0.0,
+        0.0
+      ],
+      "adc_bias_range": [
+        0.0,
+        0.0
+      ],
+      "ainb_cm_range": [
+        0.0,
+        0.0
+      ],
+      "codec_rst_max": 0.0,
+      "va_ok_max": -0.0,
+      "shunt_en_max": -0.0,
+      "max_i_diodes_backpower_ua": 0.0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 4,
+      "description": "RAW=OFF, J5=CLOSED, USB=ON",
+      "raw_v": 0.0,
+      "j5_closed": true,
+      "usb_v": 3.3,
+      "aina_p_range": [
+        0.0,
+        0.0
+      ],
+      "aina_n_range": [
+        0.0,
+        0.0
+      ],
+      "adc_bias_range": [
+        0.0,
+        0.0
+      ],
+      "ainb_cm_range": [
+        0.0,
+        0.0
+      ],
+      "codec_rst_max": 0.024,
+      "va_ok_max": 0.0,
+      "shunt_en_max": 0.0,
+      "max_i_diodes_backpower_ua": 0.0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 5,
+      "description": "RAW=ON, J5=OPEN, USB=OFF (Conten\u00e7\u00e3o cr\u00edtica)",
+      "raw_v": 11.3,
+      "j5_closed": false,
+      "usb_v": 0.0,
+      "aina_p_range": [
+        -0.0011,
+        0.001
+      ],
+      "aina_n_range": [
+        -0.001,
+        0.0011
+      ],
+      "adc_bias_range": [
+        -0.0,
+        0.0
+      ],
+      "ainb_cm_range": [
+        -0.0,
+        0.0
+      ],
+      "codec_rst_max": 0.0,
+      "va_ok_max": 0.0,
+      "shunt_en_max": 7.3678,
+      "max_i_diodes_backpower_ua": 0.000303,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 6,
+      "description": "RAW=ON, J5=OPEN, USB=ON (Conten\u00e7\u00e3o + Intertravamento)",
+      "raw_v": 11.3,
+      "j5_closed": false,
+      "usb_v": 3.3,
+      "aina_p_range": [
+        -0.0011,
+        0.001
+      ],
+      "aina_n_range": [
+        -0.001,
+        0.0011
+      ],
+      "adc_bias_range": [
+        -0.0,
+        0.0
+      ],
+      "ainb_cm_range": [
+        -0.0,
+        0.0
+      ],
+      "codec_rst_max": 0.024,
+      "va_ok_max": 0.0,
+      "shunt_en_max": 7.3678,
+      "max_i_diodes_backpower_ua": 0.000303,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 7,
+      "description": "RAW=ON, J5=CLOSED, USB=OFF (Backpower check)",
+      "raw_v": 11.3,
+      "j5_closed": true,
+      "usb_v": 0.0,
+      "aina_p_range": [
+        1.9434,
+        2.8547
+      ],
+      "aina_n_range": [
+        1.9453,
+        2.8566
+      ],
+      "adc_bias_range": [
+        2.4,
+        2.4
+      ],
+      "ainb_cm_range": [
+        2.4,
+        2.4
+      ],
+      "codec_rst_max": 0.0,
+      "va_ok_max": 4.9887,
+      "shunt_en_max": 0.0062,
+      "max_i_diodes_backpower_ua": 0.0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "id": 8,
+      "description": "RAW=ON, J5=CLOSED, USB=ON (Opera\u00e7\u00e3o Nominal)",
+      "raw_v": 11.3,
+      "j5_closed": true,
+      "usb_v": 3.3,
+      "aina_p_range": [
+        1.9434,
+        2.8547
+      ],
+      "aina_n_range": [
+        1.9453,
+        2.8566
+      ],
+      "adc_bias_range": [
+        2.4,
+        2.4
+      ],
+      "ainb_cm_range": [
+        2.4,
+        2.4
+      ],
+      "codec_rst_max": 3.0,
+      "va_ok_max": 4.9887,
+      "shunt_en_max": 0.0062,
+      "max_i_diodes_backpower_ua": 0.0,
+      "status": "PASS",
+      "errors": []
+    }
+  ],
+  "transient_sequence": {
+    "rst_prematuro_14ms_v": 0.024,
+    "rst_liberado_25ms_v": 3.0,
+    "rst_pulso_low_32ms_v": 0.0,
+    "rst_retorno_40ms_v": 3.0,
+    "va_ok_colapso_68ms_v": 0.0,
+    "rst_pos_colapso_68ms_v": 0.024,
+    "shunt_en_pos_colapso_68ms_v": 7.3595,
+    "ain_p_pos_colapso_68ms_v": -0.0001,
+    "max_i_diodes_pos_colapso_ua": 0.011785,
+    "v_hold_85ms_v": 10.754,
+    "shunt_en_85ms_v": 7.3157,
+    "adc_bias_85ms_v": 0.0011,
+    "status": "PASS"
+  },
+  "corners": {
+    "nominal": {
+      "temp_c": 27,
+      "raw_v": 11.3,
+      "va_v": 5.0,
+      "v33_v": 3.3,
+      "on_va_ok_v": 4.9887,
+      "on_codec_rst_v": 3.0,
+      "on_shunt_en_v": 0.0062,
+      "on_load_5va_ma": 2.6448,
+      "off_codec_rst_v": 0.024,
+      "off_shunt_en_v": 7.3678,
+      "off_aina_p_range": [
+        -0.0011,
+        0.001
+      ],
+      "off_backpower_diodes_ua": 0.000303,
+      "status": "PASS"
+    },
+    "frio_min": {
+      "temp_c": 0,
+      "raw_v": 10.5,
+      "va_v": 4.75,
+      "v33_v": 3.0,
+      "on_va_ok_v": 4.7382,
+      "on_codec_rst_v": 2.7273,
+      "on_shunt_en_v": 0.0063,
+      "on_load_5va_ma": 2.4144,
+      "off_codec_rst_v": 0.0243,
+      "off_shunt_en_v": 6.7822,
+      "off_aina_p_range": [
+        -0.0011,
+        0.001
+      ],
+      "off_backpower_diodes_ua": 5e-06,
+      "status": "PASS"
+    },
+    "quente_max": {
+      "temp_c": 70,
+      "raw_v": 12.6,
+      "va_v": 5.25,
+      "v33_v": 3.6,
+      "on_va_ok_v": 5.2391,
+      "on_codec_rst_v": 3.2727,
+      "on_shunt_en_v": 0.006,
+      "on_load_5va_ma": 2.9875,
+      "off_codec_rst_v": 0.0236,
+      "off_shunt_en_v": 8.3184,
+      "off_aina_p_range": [
+        -0.0011,
+        0.001
+      ],
+      "off_backpower_diodes_ua": 0.056016,
+      "status": "PASS"
+    }
+  },
+  "fast_step_10us": {
+    "peak_inrush_c44_ma": 250.51,
+    "v_hold_settled_v": 12.0536,
+    "shunt_en_settled_v": 8.1997,
+    "max_codec_rst_v": 0.024,
+    "max_aina_p_v": 0.0005,
+    "status": "PASS"
+  },
+  "thd_analysis": {
+    "thd_differential_pct": 0.000514,
+    "thd_limit_pct": 0.02,
+    "status": "PASS"
+  },
+  "global_verdict": {
+    "total_scenarios": 16,
+    "scenarios_passed": 16,
+    "scenarios_failed": 0,
+    "verdict": "PASS",
+    "gate_phase": "4.10A"
+  }
+}

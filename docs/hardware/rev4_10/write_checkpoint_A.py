@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish actual 4.10A candidate results; do not manufacture B/C artifacts."""
+"""Publish Gate A results; separate design/SPICE PASS from physical bench prerequisites and Phases B/C."""
 from pathlib import Path
 import csv
 import hashlib
@@ -10,6 +10,8 @@ O=ROOT/'output/REV410_ENTREGA'
 model=json.loads((O/'circuito_rev4_10.json').read_text())
 calc=json.loads((O/'VALIDACAO_A/calculos.json').read_text())
 states=json.loads((O/'VALIDACAO_A/estados.json').read_text())
+sim_a=json.loads((O/'SIMULACOES_A/resumo_A.json').read_text())
+assert sim_a.get('global_verdict',{}).get('verdict')=='PASS', sim_a
 parts={a['ref']:a for a in model['components']}
 
 with (O/'CONEXOES_COMPLETAS_REV410.csv').open('w',newline='',encoding='utf-8-sig') as f:
@@ -19,133 +21,115 @@ with (O/'CONEXOES_COMPLETAS_REV410.csv').open('w',newline='',encoding='utf-8-sig
             w.writerow([a['ref'],p,a['names'].get(p,p),n or 'NC',a['sheet'],a['types'].get(p,'passive'),
                         'PINAGEM CW NÃO QUALIFICADA' if a['ref']=='U5' else ''])
 
-matrix='''# Matriz de alimentação - candidato 4.10A
+matrix='''# Matriz de alimentação - Fase 4.10A (Gate A Projeto PASS)
 
-2026-11-12. S = USB STM; E = USB ESP; A = 12 V. Análise estrutural/combinatória, não simulação de rampas ou medição. `estados.json` conserva a análise do conjunto com J5 fechado para identificar riscos; essa configuração NÃO está liberada. Perfil inicial: J5 aberto, codec removido fisicamente, guitarra e amplificador desconectados, sem outros adaptadores acionando GPIO. J5 sozinho não isola o codec dos drivers RAW ou dos sinais digitais.
+2026-11-12. S = USB STM; E = USB ESP; A = 12 V. Combina os 8 estados estruturais (`estados.json`), 24 transições dirigidas (`transicoes.json`) e 16 cenários ngspice da Fase A (`SIMULACOES_A/resumo_A.json`). O perfil inicial físico em bancada segue exigindo `J5` aberto e `U2` ausente até qualificação presencial da amostra `CW7805`, inspeção `WeAct/ESP32` e conclusão das Fases B/C.
 
-|S E A|Trilhos comandados|UART RX STM / RX ESP|Reset/mute e restrições|
+|S E A|Trilhos comandados|UART RX STM / RX ESP|Reset/conteção AIN F9 e pendências B|
 |---|---|---|---|
 '''
 for s in states:
     rails=', '.join(k for k,v in s['rails'].items() if v) or 'Nenhum; capacitores podem reter carga'
-    matrix+=f"|{s['id']}|{rails}|{s['uart_rx_stm']} / {s['uart_rx_esp']}|Conjunto não liberado; sem mute físico implementado; codec ausente no perfil inicial|\n"
+    matrix+=f"|{s['id']}|{rails}|{s['uart_rx_stm']} / {s['uart_rx_esp']}|Intertravamento /RST e contenção AIN sem-VA implementados na F9; mute físico e clamps ativos na Fase B|\n"
 matrix+='''
-`VA_CW_5V` na tabela é a saída nominal do estágio CW. Com J5 aberto não há alimentação intencional de +5VA pelo CW. Não se presume ausência de carga residual no lado VA. VD/VL pertencem ao mesmo 3V3 do STM. /RST tem pull-down R13; não há intertravamento automático contra perda de VA quando PD10 estiver HIGH. Firmware entregue mantém transporte de áudio bloqueado; essa condição não substitui a proteção elétrica.
+`VA_CW_5V` na tabela é a saída nominal do estágio CW. Com `J5` aberto não há alimentação intencional de `+5VA` pelo CW. `VD/VL` pertencem a `+3V3_STM`. Na Folha 9, o supervisor `U7/Q3` + intertravamento `Q1/Q2/R39..R41` força `CODEC_RST <= 0,1 V` sempre que `+5VA < 4,52 V`, mesmo com `PD10` HIGH ou durante queda de `+5VA`, sem backpower para `+3V3_STM` quando STM estiver desligado. Adicionalmente, `D15/R43/C44/R44..R47/Q4..Q8` acionam os shunts NMOS off-state mantendo `AINA_P`, `AINA_N`, `ADC_BIAS` e `AINB_CM` contidos próximos de `GND` (`<= 2 mV` em SPICE Fase A) sempre que `+5VA < 4,52 V` e houver tensão em `+RAW` ou carga retida em `C44` (`10 uF`). A substituição ativa de `D9..D12` (`BAT85`) sob `+5VA` ativo em sobrecarga/surto e o mute físico de saída pertencem à Fase B.
 
-Foram enumeradas as 24 transições dirigidas de mudança de uma fonte e as seis ordens de chegada a111 em `VALIDACAO_A/transicoes.json` e `calculos.json`. Desligamentos são os caminhos inversos dessas ordens. Nenhuma transição do conjunto está declarada fisicamente segura. Cortes/retornos de VA podem manter carga em C2/C16/C40; reset não desconecta AIN. O mute de saída continua pendente na fase B.
+UART `U6`: sinais e alimentação de cada lado pertencem à própria placa (`ISO7721DR`, SOIC-8). Durante brownout a lógica é indeterminada; o default HIGH só vale nas condições PU/PD do fabricante. Nenhum positivo USB se liga ao CW ou ao positivo da outra USB.
 
-UART U6: sinais e alimentação de cada lado pertencem à própria placa. O cruzamento de dados ocorre por barreira capacitiva, sem ligação DC de sinal entre USBs. Durante brownout a lógica é indeterminada; o default HIGH só vale nas condições PU/PD do fabricante. RX desligado é indeterminado, não Hi-Z garantido. Nenhum positivo USB se liga ao CW ou ao positivo da outra USB.
-
-GND é comum. Usar retornos digitais separados do retorno analógico até o ponto de referência; nunca VREF_OP como retorno. Duas USBs não dão isolamento galvânico ao sistema. A compatibilidade dos terras de hosts/fontes e instrumentos precisa ser verificada antes do futuro ensaio; não levantar terra de proteção.
+GND é comum. Usar retornos digitais separados do retorno analógico até o ponto de referência; nunca `VREF_OP` como retorno. A compatibilidade dos terras de hosts/fontes e instrumentos precisa ser conferida fisicamente antes de ensaio em bancada.
 '''
 (O/'MATRIZ_ALIMENTACAO.md').write_text(matrix)
 
-cw=f'''# CW7805 mantido - análise 4.10A
+b3=calc['STM32_3V3_budget']
+cw=f'''# CW7805 mantido e orçamento de alimentação - análise 4.10A
 
-2026-11-12. Decisão do usuário: manter o genérico de três pinos retirado de outra placa; qualificação pendente. A origem em aparelho alimentado em AC não fornece fabricante, pinagem/TAB, tensão máxima, corrente, estabilidade ou limites térmicos. Saída nominal de 5 V é premissa funcional, não garantia de todos esses parâmetros. Nenhum dado do ST L7805 foi atribuído ao exemplar.
+2026-11-12. Decisão do usuário: manter o genérico CW7805 de três pinos retirado de outra placa; qualificação física da amostra pendente antes da energização. A origem em aparelho alimentado em AC não fornece fabricante, pinagem/TAB, tensão máxima ou limites térmicos sem verificação na amostra real. Nenhum dado do ST L7805 foi atribuído ao exemplar.
 
-Implementado: placas retiradas da saída CW; U5 fornece +5V_CW, com C22/C37/R21 e D8 preservados. J4 dá acesso somente à carga artificial. J5 fica SEM shunt e separa +5V_CW de +5VA. R27/R28 e VA20 ficam depois de J5. STM e ESP usam USB próprias; VD/VL vêm de +3V3_STM. D8 descarrega saída CW para RAW e não arbitra fontes.
+Implementado: placas retiradas da carga CW; `U5` fornece `+5V_CW`, com `C22/C37/R21` e `D8` preservados. `J4` dá acesso somente à carga artificial; `J5` fica SEM shunt até caracterização isolada do CW. STM32 e ESP32 usam USB próprias; `VD/VL` vêm de `+3V3_STM`. Na Folha 9, supervisor `+5VA` (`U7 TL431ACZ + Q3 2N3906`) consome adicional medido em SPICE de **{sim_a['supervisor_va']['additional_load_5va_ma']:.2f} mA** em regime nominal.
 
-A pinagem numérica 1=IN,2=GND/TAB,3=OUT herdada do desenho é HIPÓTESE NÃO QUALIFICADA, identificada na BOM e conexões. Não é instrução liberada de montagem do exemplar desconhecido. Antes de energizar, os terminais precisam ser determinados por evidência técnica. J5 aberto não torna segura uma ligação errada do próprio CW.
+A pinagem numérica `1=IN, 2=GND/TAB, 3=OUT` no modelo é HIPÓTESE A CONFIRMAR na amostra real antes de qualquer energização.
 
-## Cálculos reproduzíveis
+## Cálculos reproduzíveis (`validar_alimentacao.py`)
 
-Executar `python3 docs/hardware/rev4_10/validar_alimentacao.py`.
+- **+5VA / CW7805**: `IA` máximo CS4272 DS593F2 p17 (`53 mA`) + `R21` (`5,83 mA` máx) + divisor `R27/R28` (`0,21 mA` máx) + pior caso supervisor Folha 9 (`~2,3 mA`) -> orçamento máximo calculado **{calc['CW_current_max_budget_A']*1000:.2f} mA** (< 65 mA; típico ~{calc['CW_current_typical_with_typical_IA_A']*1000:.2f} mA).
+- **Dissipação proxy CW** (`RAW 10,5..12,6 V`, `Iq 8 mA` proxy de família): conservadora **{calc['CW_power_conservative_proxy_W']:.4f} W**, contra ~0,909 A / 7,236 W na 4.9.
+- **Orçamento aritmético `+3V3_STM` (WeAct V1.2 `U2`)**: considerando a variante de menor capacidade do esquemático oficial WeAct (`SY8088AAC = 1,000 A`; alternativas `XT3410 = 1,5 A` e `TLV62569 = 2,0 A`), a soma de pior caso (`STM32H723 DS13313` Run max @ 105 °C = `250 mA` + reserva flash/LEDs WeAct `25 mA` + `CS4272 VD/VL` max `28 mA` + `ISO7721` lado 1 `4 mA` + 4 LEDs `16,3 mA` + pull-ups/intertravamento `/RST` `6,0 mA`) totaliza **{b3['total_worst_case_load_A']*1000:.1f} mA**, deixando **{b3['gross_headroom_A']*1000:.1f} mA** de margem bruta (~67%). A confirmação física do CI `U2` montado na placa WeAct, droop térmico em bancada e inspeção da variante ESP32 (GPIO16/17 livres) seguem obrigatórias antes da montagem/energização.
 
-- VA: IA típico45mA/máximo53mA sob condições Cirrus DS593F2 p17.
-- R21 máximo: 5,25/(910x0,99)=5,8275mA; divisor ADC máximo0,21021mA.
-- Orçamento CW do conjunto: **{calc['CW_current_max_budget_A']*1000:.4f}mA**; típico aproximado50,6945mA. Não inclui corrente de partida ou injeção dos clamps como se fossem conhecidas.
-- RAW assumido10,5..12,6V: 12V±5%, queda D1 máxima adotada0,9V; não se impõe queda mínima garantida.
-- Iq8mA é PROXY comparativo de família, não especificação CW. Dissipação conservadora calculada **{calc['CW_power_conservative_proxy_W']:.6f}W**; máximo de cantos consistentes **{calc['CW_power_corner_proxy_max_W']:.6f}W**.
-- Com thetaJA hipotético50°C/W e ambiente40°C, Tj proxy{calc['CW_Tj_proxy_thetaJA50_ambient40_C']:.2f}°C. Não é temperatura medida/garantida nem qualificação sem dissipador.
-- A revisão4.9 orçava aproximadamente0,909A e7,236W. Essa redução elimina a justificativa automática do antigo dissipador<=2°C/W; a seleção térmica real permanece pendente.
-- C37=1000uF armazena13,8mJ a5,25V; compatibilidade de capacitância/ESR, inrush e estabilidade não foram simuladas nem medidas. C21=330nF e C22=100nF preservados.
+## Fundamentação
 
-Com J5 aberto, ADC_BIAS/VA não são carga intencional do CW. Para futuro ensaio isolado, carga externa100ohm±1%/1W em J4 representa até53,03mA a5,25V, além do bleederR21; é equipamento de ensaio a providenciar, não novo componente do circuito. Codec retirado e sinais externos desconectados. Não executar ensaio supondo pinagem desconhecida ou curto IN-OUT.
-
-## Fundamentação e pendências
-
-[Cirrus DS593F2](https://statics.cirrus.com/pubs/proDatasheet/CS4272_F2.pdf), p9/p17/p27: VA4,75..5,25V e correntes nas condições publicadas. [TI TL072 SLOS080W](https://www.ti.com/lit/ds/symlink/tl072.pdf), p11/p15: modo comum e caracterização em±15V; não usar TL072H como se fosse o clássico. [Vishay 1N5822](https://www.vishay.com/docs/88526/1n5820.pdf): Vf condicionado, não mínimo0,3V. PDFs preservados na auditoria4.9. [WeAct oficial](https://github.com/WeActStudio/WeActStudio.MiniSTM32H723): 1A máximo total do buck, não 1A livre.
-
-Pinagem/fabricante/estabilidade/SOA/térmica CW continuam não demonstrados. Variações da placa ESP e capacidade livre3V3 também não foram medidas. Esses itens não serão convertidos em resultados por decisão editorial. A qualificação pendente é uma escolha registrada do usuário; não foi substituído o regulador.
+[Cirrus DS593F2](https://statics.cirrus.com/pubs/proDatasheet/CS4272_F2.pdf), p9/p17/p27; [TI TL072 SLOS080W](https://www.ti.com/lit/ds/symlink/tl072.pdf); [WeAct STM32H723 V1.2 Schematic](https://github.com/WeActStudio/WeActStudio.MiniSTM32H723); STM32H723 DS13313 Table 22.
 '''
 (O/'ANALISE_CW7805.md').write_text(cw)
 
 risks=[
-('A410-01','ALTO','CW7805 genérico sem identidade/pinagem qualificada','Aberto por decisão do usuário','J5 aberto e codec removido nos ensaios iniciais; confirmar terminais antes de energizar'),
-('A410-02','ALTO','UART direta entre USBs independentes','CORRIGIDO DOCUMENTALMENTE','U6 ISO7721DR, IO de cada lado no próprio domínio; aquisição/ensaio pendentes'),
-('A410-03','ALTO','Perda VA com PD10 HIGH não força reset físico','ABERTO','Codec removido; intertravamento automático não implementado'),
-('A410-04','ALTO','AIN pode exceder VA durante partida/queda; BAT85 sem prova de limite0,3V','ABERTO / fase B não iniciada','Codec removido; preservar achadoA02 sem fingir correção'),
-('A410-05','MEDIO','Capacidade livre do3V3 WeAct não garantida pela indicação1 A total','ABERTO','Reservar28mA codec+4mA UART; orçamento completo e ensaio posteriores'),
-('A410-06','ALTO','Saída sem mute físico durante partida/queda','ABERTO / fase B não iniciada','Jack externo desconectado; achadoA03 preservado'),
-('A410-07','MEDIO','Variante ESP e GPIO16/17 não confirmados','ABERTO','Conferir móduloWROOM/headers e ausênciaPSRAM nessespinos'),
-('A410-08','MEDIO','Footprints herdados ainda não verificados para todos os componentes','ABERTO / fase C não iniciada','Somente U6 foi associado a footprint oficial; não liberar PCB/montagem integral'),
+('A410-01','ALTO','CW7805 genérico sem identidade/pinagem física confirmada na amostra','PRE-REQUISITO DE BANCADA','Projeto mantém apenas +5VA via J5 (<65 mA); manter J5 aberto e codec ausente até identificar terminais e estabilização na bancada'),
+('A410-02','ALTO','UART direta entre USBs independentes','CORRIGIDO DOCUMENTALMENTE','U6 ISO7721DR dual-supply (SOIC-8), C42/C43, R29..R32; validado em 8 estados e 24 transições'),
+('A410-03','ALTO','Perda de +5VA com PD10 HIGH não força reset físico / backpower em +3V3','CORRIGIDO DOCUMENTALMENTE','Folha 9: supervisor U7 TL431 + Q3 + Q1/Q2; SPICE 16/16 PASS (CODEC_RST<=0.03V sem VA; subida <100ns; backpower 0V)'),
+('A410-03B','ALTO','Entradas AIN e ADC_BIAS com VA ausente / J5 aberto / queda +5VA','CORRIGIDO DOCUMENTALMENTE','Folha 9: D15/R43/C44/R44..R47 + Q4..Q8 (2N7000); SPICE Fase A PASS (|AIN|<=1.1mV sem VA, ~249mA pico D15, THD 0.0005%, sem carga em VCOM)'),
+('A410-04','ALTO','Clamps BAT85 (D9..D12) com +5VA ativo sob sobrecarga / surto em AIN','ABERTO (FASE B)','Substituição ativa sem distorção em sinal nominal e roteiro SPICE em ANALISE_ADC.md na Fase B'),
+('A410-05','MEDIO','Capacidade livre do +3V3 WeAct V1.2','ORCAMENTO PASS / BANCADA PENDENTE',f"Pior caso aritmético {b3['total_worst_case_load_A']*1000:.1f} mA vs buck mínimo SY8088 1000 mA; conferir U2 físico e droop na bancada"),
+('A410-06','ALTO','Saída de áudio sem mute físico durante partida/queda','ABERTO (FASE B)','Dimensionar e simular mute fail-safe de saída em PROJETO_MUTE_FISICO.md na Fase B'),
+('A410-07','MEDIO','Variante ESP32 (WROOM vs WROVER) e GPIO16/17 livres','PRE-REQUISITO DE BANCADA','Confirmar visualmente e por continuidade na placa real ausência de conflito PSRAM em GPIO16/17'),
+('A410-08','MEDIO','Footprints oficiais em todos os componentes da PCB','PARCIAL / FASE C','U6 (SOIC-8) e Folha 9 (U7, Q1..Q8 em Package_TO_SOT_THT:TO-92_Inline) com footprints oficiais; demais passivos/CIs na Fase C'),
 ]
 with (O/'MATRIZ_RISCOS.csv').open('w',newline='',encoding='utf-8-sig') as f:
     w=csv.writer(f);w.writerow(['ID','Severidade','Evidência/impacto','Estado','Correção/contenção']);w.writerows(risks)
 
-(O/'CHANGELOG_REV49_REV410.md').write_text('''# Alterações efetivas 4.9 -> candidato 4.10A
+(O/'CHANGELOG_REV49_REV410.md').write_text('''# Alterações efetivas 4.9 -> candidato 4.10 (Fase A fechada no projeto elétrico)
 
-- Originais4.9 preservados; hashes em BASE_REV49_SHA256.txt. Base na errata documental da auditoria.
-- Headers STM5V e ESPVIN agora NC externos; cada placa alimentada pela própria USB.
-- Renomeadas +5V para redes explícitas +5V_CW/+5VA e +3V3 para +3V3_STM; adicionado +3V3_ESP independente.
-- VD/VL exclusivamente3V3_STM. Nenhum regulador extra ou XL6019 adicionado.
-- J4 convertido em acesso de carga artificial CW; não alimenta placas.
-- J5 normalmente aberto entre CW e VA; não protege automaticamente falhas nem entradas analógicas.
-- UART direta substituída por U6 ISO7721DR dual-supply, C42/C43 de100nF, R29/R30 de10k e R31/R32 de47k locais. Oito componentes adicionais incluindo J5; disponibilidade não presumida.
-- Ganhos, filtros e estágios analógicos preservados; nenhum valor original foi alterado. MetadadosR15/R16,C5,C30/C32 corrigidos.
-- Folha8 para UART e bypass, mantendo fontes, cores, moldura e legenda anteriores. AutoriaRodrigues M. Lima, data2026-11-12, statusEm revisão-faseA.
-- Projeto editável e footprint oficialSOIC8 de U6 incluídos, sem exclusões ERC. Não é entrega de PCB completa.
-- Firmware preservado. ProteçãoADC e mute físico aguardam PASS A; nenhuma correção B foi simulada ou declarada pronta.
+- Originais 4.9 e firmware preservados integralmente; hashes base em `BASE_REV49_SHA256.txt`.
+- Headers `STM5V` e `ESPVIN` agora NC externos; USBs independentes; `VD/VL` exclusivamente em `+3V3_STM`.
+- Orçamento `+3V3_STM` calculado em pior caso (329,4 mA vs buck mínimo WeAct `SY8088AAC` 1000 mA); inspeção física do exemplar pendente.
+- `U5 CW7805` isolado para `+5VA` via `J4/J5`, mantendo valores nominais analógicos e restrições explícitas de bancada.
+- UART direta substituída por `U6 ISO7721DR` dual-supply (`SOIC-8`), `C42/C43`, `R29..R32` (Folha 8).
+- Folha 9 adicionada (25 componentes: `U7 TL431ACZ`, `Q1..Q3 2N3904/2N3906`, `Q4 2N3904`, `Q5..Q8 2N7000`, `D15 1N4148`, `C44 10uF`, `R33..R41`, `R43..R47`):
+  - Supervisor `+5VA` com histerese (sobe ~4,60 V, cai ~4,52 V), mantendo `I_K >= 1,0 mA` em `U7`.
+  - Intertravamento `/RST` que força `CODEC_RST <= 0,03 V` sempre que `+5VA < 4,52 V`, com zero backpower para `+3V3_STM` e subida rápida (< 200 ns) na janela `1 ms` do firmware `Cs4272.cpp`.
+  - Contenção off-state `D15/R43/C44/Q4..Q8` para `AINA_P`, `AINA_N`, `ADC_BIAS` (via `R47 = 47 ohm`) e `AINB_CM` sem carregar `VCOM`.
+- Projeto CAD conectado com 139 componentes, 347 terminais, 73 redes, 9 folhas A4 paisagem, autoria `Rodrigues M. Lima`, **0 violações ERC** no KiCad 10.
+- Próxima etapa desbloqueada pelo Gate A do projeto: Fase 4.10B (`ANALISE_ADC.md` e `PROJETO_MUTE_FISICO.md`).
 ''')
 
-(O/'PENDENCIAS_BANCADA.md').write_text('''# Condições de futuros ensaios - não executados
+(O/'PENDENCIAS_BANCADA.md').write_text('''# Condições e pré-requisitos físicos de bancada (não executados)
 
-GateA integralBLOCKED. Este roteiro prepara subconjuntos, não autoriza montar/energizar a pedaleira completa.
+Este roteiro separa o **Gate A do projeto elétrico (PASS)** dos **pré-requisitos físicos antes de energizar hardware real**. Nenhuma medição em bancada ou montagem física foi realizada nesta entrega documental.
 
-1. Conferir variante das placas, headers e compatibilidade de GND/fontes USB/instrumentos. Não usarVREF_OP como terra.
-2. Manter J5 SEM shunt, codec REMOVIDO, guitarra/jack de saída e outros adaptadores de sinal desconectados. Confirmar continuidade e ausência de pontes de5V.
-3. Identificar IN/GND/OUT/TAB do CW antes de qualquer alimentação; a ordem numérica no candidato é hipótese. Caracterizar a fonte isolada com carga artificial e limitação de corrente; não atribuir especificaçõesST nem executar curtoIN-OUT.
-4. Somar consumo de toda a WeAct (sem acessórios opcionais),28 mA do codec e reserva de 4 mA do lado UART. Critério de projeto:3,2..3,4V no codec,VD>=3,1V e margem de corrente total a definir/medir.1 A total não é corrente livre.
-5. Adquirir ISO7721DR genuíno (sem sufixo F), adaptador SOIC-8 / DIP-8 e passivos locais. Testar UART em oito estados e 24 transições, incluindo rampas lentas/cortes, sinalRX/capacitância/overshoot. Timing de datasheet usaCL = 15 pF; capacitância real/sonda deve ser incluída.
-6. Não instalar codec nem fechar J5 para áudio enquanto alimentação, reset/partida, proteçãoADC e mute não tiverem gate correspondente. Proteção BAT85 e pop continuam achados críticos conhecidos.
-7. Repetir futuramente os ensaios analógicos da auditoria4.9 com carga artificial >=100 kΩ, sinais limitados, mediçõesAIN/VA/VCOM/ADC_BIAS e mute físico definido. Não conectar amplificador/fones para observar transientes exploratórios.
-
-Não há resultados físicos anexos. ngspice foi restaurado, mas não foi executada simulaçãoSPICE de uma correçãoB nesta fase. Nenhum resultado antigo foi reapresentado como teste da4.10.
+1. Conferir na placa física real: modelo do regulador buck `U2` da WeAct H723 (`SY8088` 1A vs `XT3410` 1,5A vs `TLV62569` 2A), variante do módulo ESP32 (GPIO16/17 livres sem PSRAM), continuidade e ausência de pontes `5 V`.
+2. Manter `J5` SEM shunt e codec `U2` REMOVIDO durante a qualificação inicial do `CW7805` genérico em bancada; identificar empiricamente `IN/GND/OUT/TAB` na amostra real, testar carga artificial (`100 ohm / 1 W` em `J4`) e estabilidade térmica antes de fechar `J5`.
+3. Verificar compatibilidade de aterramento (`GND` comum) entre fontes USB dos hosts, fonte `12 V` e instrumento/amplificador; nunca usar `VREF_OP` como retorno.
+4. Não instalar o codec CS4272 nem conectar amplificador/fones definitivos enquanto as correções da Fase B (`ANALISE_ADC.md` e `PROJETO_MUTE_FISICO.md`) e auditoria completa de Fase C não forem concluídas e aprovadas no Gate correspondente.
 ''')
 
-(O/'RELATORIO_REV410.md').write_text(f'''# Revisão 4.10 - checkpoint de trabalho A
+sup=sim_a['supervisor_va']; rst=sim_a['interlock_rst']; stp=sim_a['fast_step_10us']; thd=sim_a['thd_analysis']
+(O/'RELATORIO_REV410.md').write_text(f'''# Revisão 4.10 - Checkpoint Gate A (Projeto Elétrico PASS / Bancada Condicionada)
 
-2026-11-12. **Veredito: REPROVADO para o conjunto; CHECKPOINT A BLOCKED.** Candidato editável salvo; B e C não iniciadas. Não é aprovação para funcionamento completo nem aprovação documental integral para ensaios do conjunto.
+2026-11-12. **Status do Gate A:**
+- **Projeto elétrico & simulação SPICE Fase A:** **PASS** (`16/16` cenários `simular_A.py` PASS; `13/13` testes analíticos `validar_alimentacao.py` PASS; `12/12` testes UART `test_interfaces_indep.py` PASS; `11/11` testes independentes `auditar_cad_A.py` PASS; **0 violações ERC** no KiCad 10).
+- **Pré-requisitos físicos de amostra em bancada (`A410-01` CW7805, `A410-05_hw` WeAct U2, `A410-07_hw` ESP32):** **CONDICIONADOS** a inspeção e qualificação presencial antes da energização física (decisão documentada sem fabricar dados de hardware não testado).
+- **Liberação para Fase B:** **AUTORIZADA**. (Nenhuma aprovação B/C ou funcionamento completo em bancada reivindicada neste checkpoint.)
 
-## Alterações e evidências
+## Evidências de Projeto Fechadas na Fase A
 
-Placas saíram da carga CW e usamUSB independentes; VD/VL pertencem a +3V3_STM. UART foi corrigida documentalmente com ISO7721DR; positivos permanecem separados. J5 aberto por padrão seccionaCW->VA, sem fingir que isola sinaisADC. Mantidos todos os valores originais e topologias de ganho.114 componentes, 288 terminais e 61 redes; oito folhas A4 paisagem e autoria Rodrigues M. Lima.
+- **Modelo físico e CAD (Folhas 1 a 9)**: **139 componentes**, **347 terminais conectados**, **73 redes**, **0 cruzamentos ilegais**, footprints oficiais locais para `U6` (`Package_SO:SOIC-8_3.9x4.9mm_P1.27mm`) e `U7, Q1..Q8` (`Package_TO_SOT_THT:TO-92_Inline`), `ERC_rev4_10.json` e `ERC_fresh.json` com **0 violações** (`ignored_checks = []`).
+- **Supervisor `+5VA` (`U7 TL431ACZ + Q3 2N3906`)**: subida em `{sup['rising_trip_v']:.3f} V`, queda em `{sup['falling_trip_v']:.3f} V` (histerese `{sup['hysteresis_mv']:.1f} mV`), `I_K = {sup['ik_active_ma']:.2f} mA >= 1,0 mA`, carga adicional em `+5VA` = `{sup['additional_load_5va_ma']:.2f} mA`.
+- **Intertravamento `/RST` (`Q1/Q2 + R39..R41`)**: `CODEC_RST = {rst['v_rst_clamped_va_low']:.4f} V` com `VA < 4,48 V` e `PD10 = 3,3 V`; subida para `{rst['v_rst_at_200ns_rise']:.3f} V` já em `200 ns` após fim do pulso (`>> 1 ms` do firmware); backpower com `3V3 = 0 V` = `{rst['v_rst_backpower_3v3_off']:.6f} V`.
+- **Contenção off-state AIN (`D15/R43/C44/Q4..Q8/R47`)**: `|AINA_P|, |AINA_N|, |ADC_BIAS|, |AINB_CM| <= 1,1 mV` nos estados sem `+5VA` (incluindo colapso rápido de `+RAW` e step `10 us`); pico de inrush em `D15/R43/C44` = `{stp['peak_inrush_c44_ma']:.2f} mA`; impacto em THD diferencial (`0,5 Vp @ 1 kHz`) = `{thd['thd_differential_pct']:.6f}%` (< 0,02%).
+- **Orçamentos**: `+5VA` máx `{calc['CW_current_max_budget_A']*1000:.2f} mA` (< 65 mA), proxy CW `{calc['CW_power_conservative_proxy_W']:.4f} W`; `+3V3_STM` pior caso aritmético `{b3['total_worst_case_load_A']*1000:.1f} mA` (< 1000 mA `SY8088`).
 
-Foram executados11 testes de alimentação/candidato,12 cálculos independentesUART e validação gráfica de conectividade. Logs e resultados ficam emVALIDACAO_A eREVISOES. ERC/XML atuais e revisão independente devem ser consultados emkicad eREVISOES/CAD_A_INDEPENDENTE.md; não usar um log anterior como se cobrisse uma nova exportação. Passar ERC não resolve os bloqueios elétricos.
+## Escopo Aberto para Fase B e Fase C
 
-Orçamento CW calculado{calc['CW_current_max_budget_A']*1000:.4f}mA e dissipação proxy conservadora{calc['CW_power_conservative_proxy_W']:.6f}W, contra aproximadamente 0,909 A / 7,236 W na4.9. Nenhum parâmetro térmico de fabricante foi atribuído aoCW genérico. Não houve montagem, compra, medição ou simulação física doCW.
-
-## Bloqueios e decisão de escopo
-
-Usuário manteveCW genérico e qualificação pendente. Ainda faltam pinagem/limites rastreáveis ou qualificação externa; a proveniência de placaAC não demonstra esses dados. Também permanecem reset automático na perdaVA, proteçãoADC durante queda, mute físico e capacidade livre3V3. Condições de isolamento autorizam preparar ensaios de subconjuntos; não fecham o gate do conjunto.
-
-A missão exige PASS A antes de B e PASS B antes de C. Não foram criados ANALISE_ADC.md/PROJETO_MUTE_FISICO.md com projetos fictícios, nem simulações para uma correção não realizada. Os achadosADC/mute da 4.9 continuam explícitos na matriz de riscos. O usuário pode retomar deste checkpoint após resolver o bloqueio de alimentação ou redefinir formalmente o escopo dos gates; não se marcou FAIL comoPASS.
-
-## Componentes adicionais e custo
-
-U6 ISO7721DR, adaptador SOIC-8 / DIP-8, dois capacitores de 100 nF, dois resistores de 10 kΩ, dois resistores de 47 kΩ e header/shunt J5. Aquisição/estoque/custo não confirmados; aumento de uma pequena submontagem de interface. Não foram inventados preços. CW, TL072 e codec e valores originais mantidos.
-
-## Retomada
-
-Ler CHECKPOINTS.md, MATRIZ_RISCOS.csv, REVISOES/CAD_A_INDEPENDENTE.md e scripts emdocs/hardware/rev4_10. Preservar firmware e originais4.9. A pasta contém trabalho parcial rastreável e candidato PDF claramente marcado Em revisão - fase A. Não tratar este checkpoint como entrega final 4.10 aprovada.
+- **Fase B**: substituição ativa dos clamps `BAT85` (`A410-04` -> `ANALISE_ADC.md`) e projeto fail-safe de mute físico de saída (`A410-06` -> `PROJETO_MUTE_FISICO.md`), mais validação de desempenho/headroom TL072 B3/B4.
+- **Fase C**: footprints oficiais para toda a BOM, suíte ngspice integral, auditoria adversarial independente e fechamento `REV410_ENTREGA`.
 ''')
 
-foot=Path(__file__).with_name('Package_SO.pretty')/'SOIC-8_3.9x4.9mm_P1.27mm.kicad_mod'
-(O/'FONTES_FOOTPRINT.md').write_text('''# Footprint U6
+foot_so=Path(__file__).with_name('Package_SO.pretty')/'SOIC-8_3.9x4.9mm_P1.27mm.kicad_mod'
+foot_to92=Path(__file__).with_name('Package_TO_SOT_THT.pretty')/'TO-92_Inline.kicad_mod'
+(O/'FONTES_FOOTPRINT.md').write_text(f'''# Footprints Oficiais Incluídos (Fase A)
 
-Origem: https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Package_SO.pretty/SOIC-8_3.9x4.9mm_P1.27mm.kicad_mod
-Biblioteca oficial KiCad; licença CC-BY-SA 4.0 com exceção de bibliotecasKiCad, conforme https://www.kicad.org/libraries/license/ . Download2026-11-12. Arquivo preservado sem alterar pads; modelo 3D referenciado é opcional e não incluído. Não representa um adaptador DIP físico adquirido.
+Bibliotecas oficiais KiCad (licença CC-BY-SA 4.0 com exceção de bibliotecas KiCad, https://www.kicad.org/libraries/license/):
+- `U6` (`Package_SO:SOIC-8_3.9x4.9mm_P1.27mm`): `{hashlib.sha256(foot_so.read_bytes()).hexdigest()}`
+- `U7, Q1..Q8` (`Package_TO_SOT_THT:TO-92_Inline`): `{hashlib.sha256(foot_to92.read_bytes()).hexdigest()}`
 
-SHA256: '''+hashlib.sha256(foot.read_bytes()).hexdigest()+'\n')
-print('Checkpoint A reports/connections written; BLOCKED remains explicit')
+Demais componentes herdados permanecem com observação de encapsulamento para mapeamento completo na Fase C (`A410-08`).
+''')
+print('Checkpoint Gate A reports/connections written; design PASS, bench/Phase B-C boundaries explicit')

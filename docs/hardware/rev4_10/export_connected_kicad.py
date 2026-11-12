@@ -94,10 +94,10 @@ for ref,units in refs.items():
 for i in range(1,4):
  ref='#FLG0'+str(i)
  LIBS[ref]=f'(symbol {q("rev410:"+ref)} (pin_names (offset 0) hide) (pin_numbers hide) (in_bom no) (on_board no) '+prop('Reference',ref,0,0)+prop('Value','PWR_FLAG',0,0)+f'(symbol {q(ref+"_1_1")} (pin power_out line (at 0 0 90) (length 0) (name "pwr" {eff(1,True)}) (number "1" {eff(1,True)}))))'
-root=uid();sheetids={i:uid() for i in range(1,9)}
+root=uid();sheetids={int(k):uid() for k in l['pages']}
 def header(title,id):return f'(kicad_sch (version 20250114) (generator "eeschema") (uuid {q(id)}) (paper "A4") (title_block (title {q(title)}) (rev "4.10") (company "Rodrigues M. Lima"))'
 rootdoc=header('Pedaleira Digital - Rev 4.10',root)+'(lib_symbols)(sheet_instances (path "/" (page "0")))'
-for sh in range(1,9):
+for sh in sorted(sheetids):
  su=sheetids[sh];title=l['pages'][str(sh)];sx=30+((sh-1)%3)*80;sy=35+((sh-1)//3)*45
  rootdoc+=f'(sheet (at {sx} {sy}) (size 65 25) (stroke (width 0.1524) (type solid)) (fill (color 0 0 0 0)) (uuid {q(su)}) '+prop('Sheetname',title,sx,sy-2)+prop('Sheetfile',f'folha_{sh}.kicad_sch',sx,sy+28)+f'(instances (project {q(project)} (path {q("/"+root)} (page {q(sh)})))))'
  units=[a for a in instances if a['sheet']==sh];rnames={a['ref'] for a in units}
@@ -150,5 +150,6 @@ for sh in range(1,9):
 (D/'rev410.kicad_sym').write_text('(kicad_symbol_lib (version 20231120) (generator "kicad_symbol_editor")'+''.join(v.replace(q('rev410:'+r),q(r),1) for r,v in LIBS.items())+')')
 (D/'sym-lib-table').write_text('(sym_lib_table (lib (name "rev410") (type "KiCad") (uri "${KIPRJMOD}/rev410.kicad_sym") (options "") (descr "Rev4.10 - connected functional schematic")))')
 shutil.copytree(Path(__file__).with_name('Package_SO.pretty'),D/'Package_SO.pretty',dirs_exist_ok=True)
-(D/'fp-lib-table').write_text('(fp_lib_table (version 7) (lib (name "Package_SO") (type "KiCad") (uri "${KIPRJMOD}/Package_SO.pretty") (options "") (descr "U6 footprint from official KiCad library")))')
+shutil.copytree(Path(__file__).with_name('Package_TO_SOT_THT.pretty'),D/'Package_TO_SOT_THT.pretty',dirs_exist_ok=True)
+(D/'fp-lib-table').write_text('(fp_lib_table (version 7) (lib (name "Package_SO") (type "KiCad") (uri "${KIPRJMOD}/Package_SO.pretty") (options "") (descr "U6 footprint from official KiCad library")) (lib (name "Package_TO_SOT_THT") (type "KiCad") (uri "${KIPRJMOD}/Package_TO_SOT_THT.pretty") (options "") (descr "Phase 4.10A TO-92 footprints from official KiCad library")))')
 print('KiCad: functional blocks and connected circuits exported.')

@@ -14,18 +14,20 @@
       "VD_VL_STM": false
     },
     "risks": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "indeterminado, receptor OFF",
     "uart_rx_esp": "indeterminado, receptor OFF",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": false,
       "complete_system_authorized": false
@@ -46,18 +48,20 @@
       "VD_VL_STM": false
     },
     "risks": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "indeterminado, receptor OFF",
     "uart_rx_esp": "indeterminado, receptor OFF",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": false,
       "complete_system_authorized": false
@@ -78,18 +82,20 @@
       "VD_VL_STM": false
     },
     "risks": [
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "indeterminado, receptor OFF",
     "uart_rx_esp": "HIGH após limiar PD e tDO",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": false,
       "complete_system_authorized": false
@@ -110,18 +116,20 @@
       "VD_VL_STM": false
     },
     "risks": [
-      "VA ativo e VD/VL ausentes: sequenciamento interno não qualificado; reset LOW não constitui isolação",
-      "Codec RST tem pull-down10k no circuito-base; não há liberação por MCU"
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
     ],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "indeterminado, receptor OFF",
     "uart_rx_esp": "HIGH após limiar PD e tDO",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": false,
       "complete_system_authorized": false
@@ -142,18 +150,19 @@
       "VD_VL_STM": true
     },
     "risks": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "HIGH após limiar PD e tDO",
     "uart_rx_esp": "indeterminado, receptor OFF",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": true,
       "complete_system_authorized": false
@@ -175,14 +184,16 @@
     },
     "risks": [],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "HIGH após limiar PD e tDO",
     "uart_rx_esp": "indeterminado, receptor OFF",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": true,
       "complete_system_authorized": false
@@ -203,18 +214,19 @@
       "VD_VL_STM": true
     },
     "risks": [
-      "VD/VL ativos e VA ausente: estado interno codec/SDOUT não qualificado; reset LOW necessário",
-      "Saída analógica sem alimentação; nenhum estado de mute físico demonstrado nesta fase"
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
     ],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "dados",
     "uart_rx_esp": "dados",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": true,
       "complete_system_authorized": false
@@ -236,14 +248,16 @@
     },
     "risks": [],
     "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
     "safe_complete_system": false,
-    "analysis_profile": "conjunto com J5 fechado, NÃO liberado",
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
     "uart_remote_DC_signal_path_isolated": true,
     "uart_rx_stm": "dados",
     "uart_rx_esp": "dados",
     "default_test_profile": {
-      "J5": "ABERTO",
-      "codec": "REMOVIDO",
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
       "VA": false,
       "VD_VL_at_empty_adapter": true,
       "complete_system_authorized": false

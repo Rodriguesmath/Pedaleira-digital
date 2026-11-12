@@ -1,0 +1,86 @@
+--- STDOUT ---
+
+Note: No compatibility mode selected!
+
+
+Circuit: * combinação estática 1: raw=off, j5=open, usb=off
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+v5                                           0
+ref_tl                             -1.3277e-19
+va_ok                             -1.26693e-17
+xu7.vr                                   2.488
+xu7.n_err                            -0.790456
+xu7.v_lim                                    4
+xu7.q_b                              -0.790456
+xu7.k_sat                            -0.260932
+u7_k                              -1.08367e-09
+q3_b                              -5.96021e-10
+pd10                                         0
+codec_rst                         -5.85197e-35
+rst_clamp_b                       -6.44588e-26
+v33                                          0
+q2_b                              -1.26693e-17
+n2                                           0
+d15_k                             -1.37165e-24
+v_hold                            -1.37165e-24
+shunt_en                          -1.37159e-24
+q4_b                              -1.26693e-17
+n9                                 -1.3475e-21
+n8                                 -1.3475e-21
+n4                                -1.49509e-22
+q7_d                              -1.49509e-22
+n10                               -1.49509e-22
+n56                                          0
+xu1a.err                                     0
+n34                                          0
+n38                                          0
+xu1a.dom                                     0
+xu1a.src                                     0
+xu3a.err                                     0
+n30                                          0
+xu3a.dom                                     0
+xu3a.src                                     0
+n28                                          0
+xu3b.err                                     0
+n29                                          0
+xu3b.dom                                     0
+xu3b.src                                     0
+n27                                          0
+n39                                          0
+n37                                          0
+n7                                           0
+n6                                           0
+n9_k                                         0
+n8_k                                         0
+b.xu3b.blim#branch                           0
+b.xu3a.blim#branch                           0
+b.xu1a.blim#branch                           0
+e.xu3b.eerr#branch                           0
+e.xu3a.eerr#branch                           0
+e.xu1a.eerr#branch                           0
+vguitar#branch                               0
+vpd10#branch                      -5.85197e-38
+v33#branch                        -1.37146e-29
+v5#branch                         -2.70919e-13
+vraw#branch                        1.28454e-33
+v_sense_d11#branch                 5.98993e-27
+v_sense_d9#branch                  5.98993e-27
+v.xu7.v_lim#branch                -2.50479e-09
+v.xu7.vref#branch                            0
+
+
+No. of Data Rows : 501
+ngspice-47 done
+
+--- STDERR ---
+Warning: can't find the initialization file spinit.
+

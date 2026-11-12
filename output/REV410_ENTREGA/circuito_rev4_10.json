@@ -616,7 +616,7 @@
         "P2.17": "ADC_DATA",
         "P1.6": "I2C_SCL",
         "P1.5": "I2C_SDA",
-        "P1.38": "CODEC_RST",
+        "P1.38": "CODEC_RST_CMD",
         "P1.40": "STM_UART_TX",
         "P1.39": "STM_UART_RX",
         "P2.11": "SW_OD",
@@ -793,7 +793,7 @@
       "function": "Mantém codec em reset durante boot",
       "status": "necessário adquirir / conferir estoque",
       "package": "Axial DIN0207, 1/4 W, 1%",
-      "note": "",
+      "note": "Pull-down passivo em CODEC_RST; mantido junto ao intertravamento ativo Q1/R39.",
       "basis": "Projeto rev4.9; ver AUDITORIA_REV49.md",
       "nc": [],
       "names": {},
@@ -1997,7 +1997,7 @@
       "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
       "status": "necessário adquirir / conferir estoque",
       "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": "",
+      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
       "basis": "Projeto rev4.9",
       "names": {
         "1": "A",
@@ -2019,7 +2019,7 @@
       "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
       "status": "necessário adquirir / conferir estoque",
       "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": "",
+      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
       "basis": "Projeto rev4.9",
       "names": {
         "1": "A",
@@ -2041,7 +2041,7 @@
       "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
       "status": "necessário adquirir / conferir estoque",
       "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": "",
+      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
       "basis": "Projeto rev4.9",
       "names": {
         "1": "A",
@@ -2063,7 +2063,7 @@
       "package": "Axial; confirmar fabricante: Nexperia DO-34/SOD68",
       "status": "necessário adquirir / conferir estoque",
       "min_spec": "Schottky pequeno sinal ≥30 V; validar Vf e transientes nos pinos",
-      "note": "",
+      "note": " Off-state sem VA coberto por Q5/Q6; qualificação/reprojeto dinâmico normal/sobrecarga pendente na fase 4.10B.",
       "basis": "Projeto rev4.9",
       "names": {
         "1": "A",
@@ -2446,8 +2446,577 @@
       "nc": [],
       "note": "",
       "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "U7",
+      "kind": "VREF",
+      "value": "TL431ACZ",
+      "pins": {
+        "1": "VA_REF",
+        "2": "GND",
+        "3": "VA_K"
+      },
+      "sheet": 9,
+      "function": "Referência/comparador shunt de precisão 2,495 V ±1% para supervisão +5VA",
+      "package": "TO-92-3 inline",
+      "min_spec": "TL431A/B (±1% ou melhor, TO-92, Ik_min<=1 mA)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "REF",
+        "2": "A",
+        "3": "K"
+      },
+      "types": {
+        "1": "input",
+        "2": "power_in",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "Garante janela VA_OK subir ~4,61 V e cair ~4,48 V sem depender de +3V3_STM.",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R33",
+      "kind": "R",
+      "value": "9.1 kohm",
+      "pins": {
+        "1": "+5VA",
+        "2": "VA_REF"
+      },
+      "sheet": 9,
+      "function": "Divisor superior senso +5VA",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "9.1 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R34",
+      "kind": "R",
+      "value": "11 kohm",
+      "pins": {
+        "1": "VA_REF",
+        "2": "GND"
+      },
+      "sheet": 9,
+      "function": "Divisor inferior senso +5VA",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "11 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R35",
+      "kind": "R",
+      "value": "2.2 kohm",
+      "pins": {
+        "1": "+5VA",
+        "2": "Q3_B"
+      },
+      "sheet": 9,
+      "function": "Pull-up B-E anti-fuga de Q3",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "2.2 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R36",
+      "kind": "R",
+      "value": "1.8 kohm",
+      "pins": {
+        "1": "Q3_B",
+        "2": "VA_K"
+      },
+      "sheet": 9,
+      "function": "Limitador de base Q3 e Ik >= 1 mA em U7",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "1.8 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q3",
+      "kind": "Q",
+      "value": "2N3906",
+      "pins": {
+        "1": "+5VA",
+        "2": "Q3_B",
+        "3": "VA_OK"
+      },
+      "sheet": 9,
+      "function": "Chave PNP de sinalização VA_OK (+5VA válido)",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3906 PNP (>=40 V, hFE>=100 @ 2 mA)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "output"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R37",
+      "kind": "R",
+      "value": "22 kohm",
+      "pins": {
+        "1": "VA_OK",
+        "2": "GND"
+      },
+      "sheet": 9,
+      "function": "Pull-down determinístico de VA_OK",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "22 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R38",
+      "kind": "R",
+      "value": "470 kohm",
+      "pins": {
+        "1": "VA_OK",
+        "2": "VA_REF"
+      },
+      "sheet": 9,
+      "function": "Histerese (~120 mV) do supervisor +5VA",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "470 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R39",
+      "kind": "R",
+      "value": "1.0 kohm",
+      "pins": {
+        "1": "CODEC_RST_CMD",
+        "2": "CODEC_RST"
+      },
+      "sheet": 9,
+      "function": "Limitador de corrente PD10 -> CODEC_RST quando clamp Q1 ativo (<=3,6 mA)",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "1.0 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q1",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "RST_CLAMP_B",
+        "3": "CODEC_RST"
+      },
+      "sheet": 9,
+      "function": "Clamp ativo LOW em CODEC_RST se +5VA ausente/subtensão",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN (VCEsat<=0.2 V @ 10 mA)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R40",
+      "kind": "R",
+      "value": "4.7 kohm",
+      "pins": {
+        "1": "+3V3_STM",
+        "2": "RST_CLAMP_B"
+      },
+      "sheet": 9,
+      "function": "Polarização normalmente-ON de Q1 alimentada por +3V3_STM",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "4.7 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q2",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "Q2_B",
+        "3": "RST_CLAMP_B"
+      },
+      "sheet": 9,
+      "function": "Inibidor de Q1 quando VA_OK HIGH; isola +5VA de +3V3_STM",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R41",
+      "kind": "R",
+      "value": "22 kohm",
+      "pins": {
+        "1": "VA_OK",
+        "2": "Q2_B"
+      },
+      "sheet": 9,
+      "function": "Limitador de base Q2 a partir de VA_OK",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "22 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "D15",
+      "kind": "D",
+      "value": "1N4148",
+      "pins": {
+        "1": "+RAW",
+        "2": "RAW_D"
+      },
+      "sheet": 9,
+      "function": "Retificador de retenção para gate SHUNT_EN",
+      "package": "DO-35",
+      "min_spec": "1N4148 >=75 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "A",
+        "2": "K"
+      },
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R43",
+      "kind": "R",
+      "value": "47 ohm",
+      "pins": {
+        "1": "RAW_D",
+        "2": "V_HOLD"
+      },
+      "sheet": 9,
+      "function": "Limitador de surto na carga de C44 (tau=0,47 ms)",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "47 ohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "C44",
+      "kind": "CP",
+      "value": "10 uF",
+      "pins": {
+        "1": "V_HOLD",
+        "2": "GND"
+      },
+      "sheet": 9,
+      "function": "Capacitor de retenção de SHUNT_EN durante queda de +RAW",
+      "package": "Eletrolítico radial >=25 V",
+      "min_spec": "10 uF >=25 V",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R45",
+      "kind": "R",
+      "value": "47 kohm",
+      "pins": {
+        "1": "V_HOLD",
+        "2": "SHUNT_EN"
+      },
+      "sheet": 9,
+      "function": "Divisor superior gate SHUNT_EN (<=8,6 V)",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "47 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "R46",
+      "kind": "R",
+      "value": "100 kohm",
+      "pins": {
+        "1": "SHUNT_EN",
+        "2": "GND"
+      },
+      "sheet": 9,
+      "function": "Divisor inferior e descarga SHUNT_EN",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "100 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q4",
+      "kind": "Q",
+      "value": "2N3904",
+      "pins": {
+        "1": "GND",
+        "2": "Q4_B",
+        "3": "SHUNT_EN"
+      },
+      "sheet": 9,
+      "function": "Desarma SHUNT_EN quando VA_OK HIGH",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N3904 NPN",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "E",
+        "2": "B",
+        "3": "C"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R44",
+      "kind": "R",
+      "value": "10 kohm",
+      "pins": {
+        "1": "VA_OK",
+        "2": "Q4_B"
+      },
+      "sheet": 9,
+      "function": "Limitador de base Q4",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "10 kohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q5",
+      "kind": "Q",
+      "value": "2N7000",
+      "pins": {
+        "1": "GND",
+        "2": "SHUNT_EN",
+        "3": "AINA_P"
+      },
+      "sheet": 9,
+      "function": "Shunt OFF-state AINA_P->GND na ausência/subtensão de +5VA",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "S",
+        "2": "G",
+        "3": "D"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "Q6",
+      "kind": "Q",
+      "value": "2N7000",
+      "pins": {
+        "1": "GND",
+        "2": "SHUNT_EN",
+        "3": "AINA_N"
+      },
+      "sheet": 9,
+      "function": "Shunt OFF-state AINA_N->GND na ausência/subtensão de +5VA",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "S",
+        "2": "G",
+        "3": "D"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "R47",
+      "kind": "R",
+      "value": "47 ohm",
+      "pins": {
+        "1": "ADC_BIAS",
+        "2": "ADC_B_SW"
+      },
+      "sheet": 9,
+      "function": "Limitador de corrente de descarga de C40 (Ipk <= 54 mA)",
+      "package": "Axial DIN0207 1/4 W 1%",
+      "min_spec": "47 ohm 1%, 0,25 W",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {},
+      "types": {},
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais"
+    },
+    {
+      "ref": "Q7",
+      "kind": "Q",
+      "value": "2N7000",
+      "pins": {
+        "1": "GND",
+        "2": "SHUNT_EN",
+        "3": "ADC_B_SW"
+      },
+      "sheet": 9,
+      "function": "Shunt OFF-state ADC_BIAS->GND via R47",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "S",
+        "2": "G",
+        "3": "D"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
+    },
+    {
+      "ref": "Q8",
+      "kind": "Q",
+      "value": "2N7000",
+      "pins": {
+        "1": "GND",
+        "2": "SHUNT_EN",
+        "3": "AINB_CM"
+      },
+      "sheet": 9,
+      "function": "Shunt OFF-state AINB_CM (C34)->GND na ausência/subtensão de +5VA",
+      "package": "TO-92-3 inline",
+      "min_spec": "2N7000 NMOS (Vth 0.8..3.0 V, Rds<=5 ohm)",
+      "status": "necessário adquirir / conferir estoque",
+      "names": {
+        "1": "S",
+        "2": "G",
+        "3": "D"
+      },
+      "types": {
+        "1": "passive",
+        "2": "input",
+        "3": "passive"
+      },
+      "nc": [],
+      "note": "",
+      "basis": "Revisão 4.10A; ver REVISOES/ e fontes oficiais",
+      "footprint": "Package_TO_SOT_THT:TO-92_Inline"
     }
   ],
-  "architecture": "STM USB própria; ESP USB própria; CW somente VA através de J5 aberto por padrão; VD/VL 3V3_STM; UART U6 dual-supply; GND comum",
-  "release_status": "BLOCKED - alimentação em revisão"
+  "architecture": "STM USB própria; ESP USB própria; CW somente VA através de J5 aberto por padrão; VD/VL 3V3_STM; UART U6 dual-supply; supervisor VA_OK com intertravamento /RST e contenção OFF-state de AIN; GND comum",
+  "release_status": "BLOCKED - alimentação em revisão",
+  "status": "4.10A — Segurança de projeto (alimentação/UART/reset/AIN sem VA) corrigida em CAD+SPICE; pendências físicas externas/bancada explícitas (CW, WeAct, ESP32); fase B pendente"
 }
