@@ -1,0 +1,849 @@
+{
+  "kind": "CALCULATED; not SPICE, physical measurement, or global gate approval",
+  "parameters": {
+    "iso": {
+      "manufacturer": "Texas Instruments",
+      "document": "SLLSEP3G",
+      "revision": "G, May 2024",
+      "url": "https://www.ti.com/lit/ds/symlink/iso7721.pdf",
+      "pins_page": 6,
+      "operating_page": 8,
+      "dc_page": 15,
+      "timing_page": 17,
+      "load_page": 22,
+      "functional_modes_page": 25,
+      "decoupling_page": 31,
+      "v_min": 2.25,
+      "v_max": 5.5,
+      "uvlo_pd_max": 1.7,
+      "uvlo_pu_min": 2.25,
+      "voh_drop_max": 0.3,
+      "vol_max": 0.3,
+      "output_test_A": 0.002,
+      "vih_factor": 0.7,
+      "vil_factor": 0.3,
+      "tpd_max_s": 1.85e-08,
+      "pwd_max_s": 5.9e-09,
+      "default_delay_max_s": 3e-07,
+      "cl_test_F": 1.5e-11,
+      "cl_test_tolerance": 0.2,
+      "icc_dc_low_max_A": 0.0034,
+      "icc_dc_high_max_A": 0.0021,
+      "icc_1Mbps_max_A": 0.0028,
+      "input_current_max_A": 1e-05
+    },
+    "stm": {
+      "manufacturer": "STMicroelectronics",
+      "document": "DS13313",
+      "revision": "5, May 2025",
+      "url": "https://www.st.com/resource/en/datasheet/stm32h723vg.pdf",
+      "pin_table_page": 64,
+      "dc_table_51_page": 126,
+      "output_table_52_page": 129,
+      "rx_pin": "PD9 FT_h",
+      "vih_factor": 0.7,
+      "vil_factor": 0.3,
+      "voh_drop_max": 0.4,
+      "vol_max": 0.4,
+      "rx_leak_A": 2.5e-07,
+      "local_pdf_download": "FAILED: st.com and st.com.cn timed out; official PDF verified via web tool"
+    },
+    "esp": {
+      "manufacturer": "Espressif Systems",
+      "document": "ESP32 Series Datasheet",
+      "revision": "5.3",
+      "url": "https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf",
+      "dc_table_5_3_page": 52,
+      "condition": "DC characteristics (3.3 V, 25 C); range extension is design calculation, not full PVT qualification",
+      "vih_factor": 0.75,
+      "vil_factor": 0.25,
+      "voh_factor": 0.8,
+      "vol_factor": 0.1,
+      "rx_leak_A": 5e-08
+    },
+    "lvc": {
+      "manufacturer": "Texas Instruments",
+      "document": "SCES296AG",
+      "revision": "AG, October 2025",
+      "url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g07.pdf",
+      "pins_page": 3,
+      "recommended_page": 5,
+      "electrical_page": 6,
+      "ii_A": 5e-06,
+      "ii_condition": "VI=5.5 V or GND; VCC=0..5.5 V",
+      "ioff_A": 1e-05,
+      "ioff_condition": "VI or VO=5.5 V; VCC=0 V",
+      "powered_high_output_leak_max_A": null,
+      "output_leak_qualification_budget_A": 1e-05,
+      "powered_high_output_leak_note": "10uA qualification budget only; NOT Ioff extrapolated to powered IOZ"
+    }
+  },
+  "baud": 115200,
+  "bit_s": 8.680555555555556e-06,
+  "iso_corners": [
+    {
+      "stm_V": 3.1,
+      "esp_V": 3.1,
+      "stm_tx_to_iso_high_margin_V": 0.5300000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.5299999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3100000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6199999999999999,
+      "iso_to_stm_high_margin_V": 0.6300000000000003,
+      "iso_to_stm_low_margin_V": 0.6299999999999999,
+      "iso_to_esp_high_margin_V": 0.4750000000000001,
+      "iso_to_esp_low_margin_V": 0.47500000000000003
+    },
+    {
+      "stm_V": 3.1,
+      "esp_V": 3.3,
+      "stm_tx_to_iso_high_margin_V": 0.5300000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.5299999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3300000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6599999999999999,
+      "iso_to_stm_high_margin_V": 0.6300000000000003,
+      "iso_to_stm_low_margin_V": 0.6299999999999999,
+      "iso_to_esp_high_margin_V": 0.5250000000000004,
+      "iso_to_esp_low_margin_V": 0.5249999999999999
+    },
+    {
+      "stm_V": 3.1,
+      "esp_V": 3.4,
+      "stm_tx_to_iso_high_margin_V": 0.5300000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.5299999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3400000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.6799999999999999,
+      "iso_to_stm_high_margin_V": 0.6300000000000003,
+      "iso_to_stm_low_margin_V": 0.6299999999999999,
+      "iso_to_esp_high_margin_V": 0.5500000000000003,
+      "iso_to_esp_low_margin_V": 0.55
+    },
+    {
+      "stm_V": 3.1,
+      "esp_V": 3.6,
+      "stm_tx_to_iso_high_margin_V": 0.5300000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.5299999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3600000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.72,
+      "iso_to_stm_high_margin_V": 0.6300000000000003,
+      "iso_to_stm_low_margin_V": 0.6299999999999999,
+      "iso_to_esp_high_margin_V": 0.6000000000000001,
+      "iso_to_esp_low_margin_V": 0.6000000000000001
+    },
+    {
+      "stm_V": 3.3,
+      "esp_V": 3.1,
+      "stm_tx_to_iso_high_margin_V": 0.5900000000000003,
+      "stm_tx_to_iso_low_margin_V": 0.5899999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3100000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6199999999999999,
+      "iso_to_stm_high_margin_V": 0.6900000000000004,
+      "iso_to_stm_low_margin_V": 0.69,
+      "iso_to_esp_high_margin_V": 0.4750000000000001,
+      "iso_to_esp_low_margin_V": 0.47500000000000003
+    },
+    {
+      "stm_V": 3.3,
+      "esp_V": 3.3,
+      "stm_tx_to_iso_high_margin_V": 0.5900000000000003,
+      "stm_tx_to_iso_low_margin_V": 0.5899999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3300000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6599999999999999,
+      "iso_to_stm_high_margin_V": 0.6900000000000004,
+      "iso_to_stm_low_margin_V": 0.69,
+      "iso_to_esp_high_margin_V": 0.5250000000000004,
+      "iso_to_esp_low_margin_V": 0.5249999999999999
+    },
+    {
+      "stm_V": 3.3,
+      "esp_V": 3.4,
+      "stm_tx_to_iso_high_margin_V": 0.5900000000000003,
+      "stm_tx_to_iso_low_margin_V": 0.5899999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3400000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.6799999999999999,
+      "iso_to_stm_high_margin_V": 0.6900000000000004,
+      "iso_to_stm_low_margin_V": 0.69,
+      "iso_to_esp_high_margin_V": 0.5500000000000003,
+      "iso_to_esp_low_margin_V": 0.55
+    },
+    {
+      "stm_V": 3.3,
+      "esp_V": 3.6,
+      "stm_tx_to_iso_high_margin_V": 0.5900000000000003,
+      "stm_tx_to_iso_low_margin_V": 0.5899999999999999,
+      "esp_tx_to_iso_high_margin_V": 0.3600000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.72,
+      "iso_to_stm_high_margin_V": 0.6900000000000004,
+      "iso_to_stm_low_margin_V": 0.69,
+      "iso_to_esp_high_margin_V": 0.6000000000000001,
+      "iso_to_esp_low_margin_V": 0.6000000000000001
+    },
+    {
+      "stm_V": 3.4,
+      "esp_V": 3.1,
+      "stm_tx_to_iso_high_margin_V": 0.6200000000000001,
+      "stm_tx_to_iso_low_margin_V": 0.62,
+      "esp_tx_to_iso_high_margin_V": 0.3100000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6199999999999999,
+      "iso_to_stm_high_margin_V": 0.7200000000000002,
+      "iso_to_stm_low_margin_V": 0.72,
+      "iso_to_esp_high_margin_V": 0.4750000000000001,
+      "iso_to_esp_low_margin_V": 0.47500000000000003
+    },
+    {
+      "stm_V": 3.4,
+      "esp_V": 3.3,
+      "stm_tx_to_iso_high_margin_V": 0.6200000000000001,
+      "stm_tx_to_iso_low_margin_V": 0.62,
+      "esp_tx_to_iso_high_margin_V": 0.3300000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6599999999999999,
+      "iso_to_stm_high_margin_V": 0.7200000000000002,
+      "iso_to_stm_low_margin_V": 0.72,
+      "iso_to_esp_high_margin_V": 0.5250000000000004,
+      "iso_to_esp_low_margin_V": 0.5249999999999999
+    },
+    {
+      "stm_V": 3.4,
+      "esp_V": 3.4,
+      "stm_tx_to_iso_high_margin_V": 0.6200000000000001,
+      "stm_tx_to_iso_low_margin_V": 0.62,
+      "esp_tx_to_iso_high_margin_V": 0.3400000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.6799999999999999,
+      "iso_to_stm_high_margin_V": 0.7200000000000002,
+      "iso_to_stm_low_margin_V": 0.72,
+      "iso_to_esp_high_margin_V": 0.5500000000000003,
+      "iso_to_esp_low_margin_V": 0.55
+    },
+    {
+      "stm_V": 3.4,
+      "esp_V": 3.6,
+      "stm_tx_to_iso_high_margin_V": 0.6200000000000001,
+      "stm_tx_to_iso_low_margin_V": 0.62,
+      "esp_tx_to_iso_high_margin_V": 0.3600000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.72,
+      "iso_to_stm_high_margin_V": 0.7200000000000002,
+      "iso_to_stm_low_margin_V": 0.72,
+      "iso_to_esp_high_margin_V": 0.6000000000000001,
+      "iso_to_esp_low_margin_V": 0.6000000000000001
+    },
+    {
+      "stm_V": 3.6,
+      "esp_V": 3.1,
+      "stm_tx_to_iso_high_margin_V": 0.6800000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.68,
+      "esp_tx_to_iso_high_margin_V": 0.3100000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6199999999999999,
+      "iso_to_stm_high_margin_V": 0.7800000000000002,
+      "iso_to_stm_low_margin_V": 0.78,
+      "iso_to_esp_high_margin_V": 0.4750000000000001,
+      "iso_to_esp_low_margin_V": 0.47500000000000003
+    },
+    {
+      "stm_V": 3.6,
+      "esp_V": 3.3,
+      "stm_tx_to_iso_high_margin_V": 0.6800000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.68,
+      "esp_tx_to_iso_high_margin_V": 0.3300000000000005,
+      "esp_tx_to_iso_low_margin_V": 0.6599999999999999,
+      "iso_to_stm_high_margin_V": 0.7800000000000002,
+      "iso_to_stm_low_margin_V": 0.78,
+      "iso_to_esp_high_margin_V": 0.5250000000000004,
+      "iso_to_esp_low_margin_V": 0.5249999999999999
+    },
+    {
+      "stm_V": 3.6,
+      "esp_V": 3.4,
+      "stm_tx_to_iso_high_margin_V": 0.6800000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.68,
+      "esp_tx_to_iso_high_margin_V": 0.3400000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.6799999999999999,
+      "iso_to_stm_high_margin_V": 0.7800000000000002,
+      "iso_to_stm_low_margin_V": 0.78,
+      "iso_to_esp_high_margin_V": 0.5500000000000003,
+      "iso_to_esp_low_margin_V": 0.55
+    },
+    {
+      "stm_V": 3.6,
+      "esp_V": 3.6,
+      "stm_tx_to_iso_high_margin_V": 0.6800000000000002,
+      "stm_tx_to_iso_low_margin_V": 0.68,
+      "esp_tx_to_iso_high_margin_V": 0.3600000000000003,
+      "esp_tx_to_iso_low_margin_V": 0.72,
+      "iso_to_stm_high_margin_V": 0.7800000000000002,
+      "iso_to_stm_low_margin_V": 0.78,
+      "iso_to_esp_high_margin_V": 0.6000000000000001,
+      "iso_to_esp_low_margin_V": 0.6000000000000001
+    }
+  ],
+  "lvc_conditional_corners": [
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.5157760936329594,
+      "esp_high_margin_V": 0.19077609363295922,
+      "stm_high_margin_V": 0.34577609363295947,
+      "t_esp_threshold_s_CL100pF": 9.8886175760157e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0006662368364496025
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.5150093071161055,
+      "esp_high_margin_V": 0.1900093071161053,
+      "stm_high_margin_V": 0.34500930711610556,
+      "t_esp_threshold_s_CL100pF": 9.902889628753502e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0006662368364496025
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.5245761142038483,
+      "esp_high_margin_V": 0.19957611420384813,
+      "stm_high_margin_V": 0.3545761142038484,
+      "t_esp_threshold_s_CL100pF": 9.763144741529808e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0006662368364496025
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.5238066455178063,
+      "esp_high_margin_V": 0.19880664551780614,
+      "stm_high_margin_V": 0.3538066455178064,
+      "t_esp_threshold_s_CL100pF": 9.77683408529407e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0006662368364496025
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.5060856454555736,
+      "esp_high_margin_V": 0.18108564545557337,
+      "stm_high_margin_V": 0.3360856454555736,
+      "t_esp_threshold_s_CL100pF": 1.0240776466776627e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0006530440278070361
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.5053061403475705,
+      "esp_high_margin_V": 0.1803061403475703,
+      "stm_high_margin_V": 0.33530614034757056,
+      "t_esp_threshold_s_CL100pF": 1.0256377557968046e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0006530440278070361
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.514997689138577,
+      "esp_high_margin_V": 0.18999768913857684,
+      "stm_high_margin_V": 0.3449976891385771,
+      "t_esp_threshold_s_CL100pF": 1.0103169102652293e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0006530440278070361
+    },
+    {
+      "vcc_V": 3.1,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.5142154119850195,
+      "esp_high_margin_V": 0.18921541198501934,
+      "stm_high_margin_V": 0.3442154119850196,
+      "t_esp_threshold_s_CL100pF": 1.0118089883146973e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0006530440278070361
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.6805701011235956,
+      "esp_high_margin_V": 0.20557010112359597,
+      "stm_high_margin_V": 0.370570101123596,
+      "t_esp_threshold_s_CL100pF": 9.84552996146313e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0007092198581560283
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.6798033146067417,
+      "esp_high_margin_V": 0.20480331460674206,
+      "stm_high_margin_V": 0.3698033146067421,
+      "t_esp_threshold_s_CL100pF": 9.858760588207433e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0007092198581560283
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.6899465603765864,
+      "esp_high_margin_V": 0.21494656037658677,
+      "stm_high_margin_V": 0.3799465603765868,
+      "t_esp_threshold_s_CL100pF": 9.721802735154163e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0007092198581560283
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.6891770916905444,
+      "esp_high_margin_V": 0.21417709169054477,
+      "stm_high_margin_V": 0.3791770916905448,
+      "t_esp_threshold_s_CL100pF": 9.734499516070216e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0007092198581560283
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.670295695593169,
+      "esp_high_margin_V": 0.1952956955931695,
+      "stm_high_margin_V": 0.36029569559316954,
+      "t_esp_threshold_s_CL100pF": 1.0193704034414205e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0006951759005687803
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.669516190485166,
+      "esp_high_margin_V": 0.19451619048516644,
+      "stm_high_margin_V": 0.3595161904851665,
+      "t_esp_threshold_s_CL100pF": 1.0208153863786362e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0006951759005687803
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.679791696629214,
+      "esp_high_margin_V": 0.20479169662921448,
+      "stm_high_margin_V": 0.3697916966292145,
+      "t_esp_threshold_s_CL100pF": 1.0058132400761656e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0006951759005687803
+    },
+    {
+      "vcc_V": 3.3,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.6790094194756557,
+      "esp_high_margin_V": 0.2040094194756561,
+      "stm_high_margin_V": 0.36900941947565613,
+      "t_esp_threshold_s_CL100pF": 1.0071960018156153e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0006951759005687803
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.762967104868914,
+      "esp_high_margin_V": 0.21296710486891435,
+      "stm_high_margin_V": 0.3829671048689143,
+      "t_esp_threshold_s_CL100pF": 9.82607286092275e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0007307113690092413
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.7622003183520603,
+      "esp_high_margin_V": 0.21220031835206044,
+      "stm_high_margin_V": 0.38220031835206036,
+      "t_esp_threshold_s_CL100pF": 9.838837666305078e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0007307113690092413
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.7726317834629555,
+      "esp_high_margin_V": 0.22263178346295565,
+      "stm_high_margin_V": 0.3926317834629556,
+      "t_esp_threshold_s_CL100pF": 9.703127243180046e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0007307113690092413
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.771862314776914,
+      "esp_high_margin_V": 0.2218623147769141,
+      "stm_high_margin_V": 0.391862314776914,
+      "t_esp_threshold_s_CL100pF": 9.715379740728495e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0007307113690092413
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.752400720661967,
+      "esp_high_margin_V": 0.20240072066196735,
+      "stm_high_margin_V": 0.3724007206619673,
+      "t_esp_threshold_s_CL100pF": 1.0172460985218336e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0007162418369496524
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.751621215553964,
+      "esp_high_margin_V": 0.20162121555396428,
+      "stm_high_margin_V": 0.3716212155539642,
+      "t_esp_threshold_s_CL100pF": 1.0186396518298183e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0007162418369496524
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.7621887003745322,
+      "esp_high_margin_V": 0.2121887003745324,
+      "stm_high_margin_V": 0.38218870037453234,
+      "t_esp_threshold_s_CL100pF": 1.0037799766469689e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0007162418369496524
+    },
+    {
+      "vcc_V": 3.4,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.7614064232209743,
+      "esp_high_margin_V": 0.21140642322097447,
+      "stm_high_margin_V": 0.3814064232209744,
+      "t_esp_threshold_s_CL100pF": 1.0051138641841113e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0007162418369496524
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.927761112359551,
+      "esp_high_margin_V": 0.22776111235955065,
+      "stm_high_margin_V": 0.4077611123595508,
+      "t_esp_threshold_s_CL100pF": 9.79069814206492e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0007736943907156673
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.926994325842697,
+      "esp_high_margin_V": 0.22699432584269674,
+      "stm_high_margin_V": 0.4069943258426969,
+      "t_esp_threshold_s_CL100pF": 9.802623089715862e-07,
+      "rise_10_90_s_CL100pF": 8.424010902007471e-07,
+      "pullup_short_current_A": 0.0007736943907156673
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.9380022296356936,
+      "esp_high_margin_V": 0.2380022296356934,
+      "stm_high_margin_V": 0.41800222963569356,
+      "t_esp_threshold_s_CL100pF": 9.669163029392063e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0007736943907156673
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4653.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.9372327609496525,
+      "esp_high_margin_V": 0.2372327609496523,
+      "stm_high_margin_V": 0.41723276094965245,
+      "t_esp_threshold_s_CL100pF": 9.680614003239857e-07,
+      "rise_10_90_s_CL100pF": 8.453477542307725e-07,
+      "pullup_short_current_A": 0.0007736943907156673
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.9166107707995623,
+      "esp_high_margin_V": 0.21661077079956215,
+      "stm_high_margin_V": 0.3966107707995623,
+      "t_esp_threshold_s_CL100pF": 1.0133860535439997e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0007583737097113967
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 21780.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.9158312656915597,
+      "esp_high_margin_V": 0.21583126569155953,
+      "stm_high_margin_V": 0.3958312656915597,
+      "t_esp_threshold_s_CL100pF": 1.0146869833473632e-06,
+      "rise_10_90_s_CL100pF": 8.563738907318409e-07,
+      "pullup_short_current_A": 0.0007583737097113967
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.005e-05,
+      "high_V": 2.9269827078651685,
+      "esp_high_margin_V": 0.22698270786516828,
+      "stm_high_margin_V": 0.40698270786516844,
+      "t_esp_threshold_s_CL100pF": 1.0000840550977248e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0007583737097113967
+    },
+    {
+      "vcc_V": 3.6,
+      "ru_Ohm": 4747.0,
+      "rd_Ohm": 22220.0,
+      "sink_assumption_A": 1.025e-05,
+      "high_V": 2.926200430711611,
+      "esp_high_margin_V": 0.22620043071161078,
+      "stm_high_margin_V": 0.40620043071161094,
+      "t_esp_threshold_s_CL100pF": 1.0013298589376165e-06,
+      "rise_10_90_s_CL100pF": 8.594192940431864e-07,
+      "pullup_short_current_A": 0.0007583737097113967
+    }
+  ],
+  "states": [
+    {
+      "stm_usb": false,
+      "esp_usb": false,
+      "analog_12V": false,
+      "rx_stm": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "rx_esp": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": false,
+      "esp_usb": false,
+      "analog_12V": true,
+      "rx_stm": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "rx_esp": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": false,
+      "esp_usb": true,
+      "analog_12V": false,
+      "rx_stm": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "rx_esp": "DEFAULT_HIGH_AFTER_tDO",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": false,
+      "esp_usb": true,
+      "analog_12V": true,
+      "rx_stm": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "rx_esp": "DEFAULT_HIGH_AFTER_tDO",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": true,
+      "esp_usb": false,
+      "analog_12V": false,
+      "rx_stm": "DEFAULT_HIGH_AFTER_tDO",
+      "rx_esp": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": true,
+      "esp_usb": false,
+      "analog_12V": true,
+      "rx_stm": "DEFAULT_HIGH_AFTER_tDO",
+      "rx_esp": "UNDETERMINED_LOCAL_OUTPUT; no remote DC signal path",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": true,
+      "esp_usb": true,
+      "analog_12V": false,
+      "rx_stm": "DATA",
+      "rx_esp": "DATA",
+      "remote_DC_signal_path": false
+    },
+    {
+      "stm_usb": true,
+      "esp_usb": true,
+      "analog_12V": true,
+      "rx_stm": "DATA",
+      "rx_esp": "DATA",
+      "remote_DC_signal_path": false
+    }
+  ],
+  "directed_single_source_transitions": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      7,
+      5
+    ],
+    [
+      7,
+      6
+    ]
+  ],
+  "iso_timing_CL15pF": {
+    "tpd_fraction_bit": 0.0021312,
+    "pwd_fraction_bit": 0.00067968,
+    "default_delay_fraction_bit": 0.03456
+  },
+  "lvc_off_conditional_bounds": {
+    "Y_V_10uA22k_1pct": 0.22220000000000004,
+    "rail_V_10uA10k_1pct": 0.101,
+    "A_V_5uA47k_1pct": 0.23735,
+    "note": "Illustrative bounds at named leakage conditions, not proof at all ramp voltages"
+  },
+  "iso_budget": {
+    "reserve_each_rail_A": 0.004,
+    "dc_low_plus_bleeder_max_A": 0.0037636363636363635,
+    "pullup47k_load_max_A": 8.736943907156673e-05,
+    "rail_total_power_reserve_W": 0.028800000000000003
+  },
+  "source_sha256": {
+    "SN74LVC1G07_TI_SCES296AG.pdf": "0471dcddef6983c851c474963ea86075f98c26a2995b7337218aecfedf1ee9c4",
+    "ESP32_Espressif_v5_3.pdf": "a7917e6b47528c9dcab06837a49d452e582751335797db879f1cf2d17cd29adf",
+    "ISO7721_TI.pdf": "fb039c00ceb601b93618004839b2108d3358777a019f2526bca427b7f6c0649c"
+  }
+}

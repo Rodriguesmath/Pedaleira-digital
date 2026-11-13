@@ -1,0 +1,35 @@
+* Headroom Test: RAW=12.6V, Excursão máxima linear 1.40 Vp (0 dBFS)
+* Modelos Padronizados e Conexões Globais
+.include /home/rodrigues/Pedaleira-digital/output/auditoria_rev49/SIMULACOES/TL072_TI.301
+.model 2N3904 NPN (Is=14.34f Bf=255.9 Vaf=74.03 Ikf=.2847 Xtb=1.5 Br=6.092 Cjc=7.306p Cje=22.01p Rb=10 Rc=1)
+.model 2N3906 PNP (Is=1.41f Bf=180.7 Vaf=18.7 Ikf=80m Xtb=1.5 Br=4.977 Cjc=9.728p Cje=10.68p Rb=20 Rc=2.4)
+.model D4148 D (Is=2.5n N=1.75 Rs=.6 Cjo=4p Tt=4n)
+.model D1N5822 D (Is=50u N=1.05 Rs=0.05 Cjo=200p)
+.model DZ4V7 D (Is=1u N=1.5 Rs=10 Bv=4.7 Ibv=1m)
+.model M2N7000 NMOS (Level=3 Vto=3.0 Kp=0.14 Rs=1.2 Rd=1.2 Cgso=60p Cgdo=10p Cbd=40p)
+.model SW_NO SW (Ron=0.05 Roff=100G Vt=0.55 Vh=0.02)
+.model SW_NC SW (Ron=100G Roff=0.05 Vt=0.45 Vh=0.02)
+
+* Subcircuito TL431 Bounded Fisicamente Estável (Ref=1, Anode=2, Cathode=3)
+.subckt TL431 ref a k
+Gka k a VALUE='(V(k,a) > 0 ? 1 : 0) * ((V(k,a) * 0.1u) + max(0, V(k,a)-2.0) * (0.2u + 50m * 0.5 * (1 + tanh((V(ref,a)-2.495)/0.005))))'
+Rka k a 10Meg
+Rra ref a 10Meg
+Cka k a 10p
+.ends
+
+
+Vraw raw 0 12.6
+Vref vref 0 6.3
+Vin in 0 SIN(6.3 1.4 1000)
+
+XU1A in out_u1a raw 0 out_u1a TL072
+Rload out_u1a 0 100k
+
+.control
+tran 10u 5m
+meas tran vmax MAX v(out_u1a) from=2m to=5m
+meas tran vmin MIN v(out_u1a) from=2m to=5m
+quit
+.endc
+.end

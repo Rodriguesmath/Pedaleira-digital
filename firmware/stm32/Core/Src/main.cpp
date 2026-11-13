@@ -44,9 +44,8 @@
 /*******************************************************************************
  * DEFINES LOCAIS
  ******************************************************************************/
-// Safety gate: this repository does not implement SAI/DMA transport yet.
-// Keep zero until clocks, DMA buffers and error recovery are implemented/tested.
-#define dMAIN_AUDIO_TRANSPORT_READY          0U
+// Safety gate: audio transport ready with SAI4 + BDMA in D3 SRAM4.
+#define dMAIN_AUDIO_TRANSPORT_READY          1U
 
 #define dMAIN_DISPATCH_PERIOD_MS            10U
 #define dMAIN_HEARTBEAT_PERIOD_MS           1000U
@@ -93,6 +92,9 @@ static PedalSwitches& pedalSwitches = PedalSwitches::GetInstance();
 static Cs4272& codecCs4272 = Cs4272::GetInstance();
 static InterMcuUart& interMcuUart = InterMcuUart::GetInstance();
 
+static float s_audioInBlock[dBSP_AUDIO_BLOCK_SAMPLES];
+static float s_audioOutBlock[dBSP_AUDIO_BLOCK_SAMPLES];
+
 /// Estrutura local com estado interno do laco de despacho principal
 static struct
 {
@@ -108,6 +110,9 @@ static void Main_DispatchSwitches(void);
 static void Main_DispatchUart(void);
 static void Main_DispatchHeartbeat(void);
 static bool Main_ApplyMute(void);
+static void Main_AudioBlockCallback(const s32 *pRx, s32 *pTx, u32 frameCount);
+static inline u32 Main_EnterCritical(void);
+static inline void Main_ExitCritical(u32 primask);
 
 /*******************************************************************************
  * FUNCOES PUBLICAS
@@ -127,9 +132,15 @@ int main(void)
         Bsp::ErrorHandler();
     }
 
+    // Aguarda estabilizacao dos clocks SAI4 (MCLK, SCK, FS) em silencio antes do codec
+    Bsp::DelayMs(10U);
+
     // 2. Inicializacao das classes de componentes perifericos e DSP
     pedalLeds.Init();
     pedalSwitches.Init();
+    dspEngine.Init(dDSP_ENGINE_DEFAULT_SAMPLE_RATE);
+    dspEngine.SetMasterMute(true);
+
 #if (dMAIN_AUDIO_TRANSPORT_READY != 0U)
     if(codecCs4272.Init() != eCS4272_STATUS_OK)
     {
@@ -137,14 +148,15 @@ int main(void)
     }
 #endif
     interMcuUart.Init();
-    dspEngine.Init(dDSP_ENGINE_DEFAULT_SAMPLE_RATE);
-    dspEngine.SetMasterMute(true);
 
     mainState.isRunning = true;
     mainState.lastDispatchTick = Bsp::GetTick();
     mainState.lastHeartbeatTick = Bsp::GetTick();
 
-    // 3. Sincronizacao inicial dos efeitos com a posicao fisica das chaves
+    // 3. Registra o callback de audio apenas apos DSP e codec inicializados (zero race)
+    Bsp::SetAudioCallback(Main_AudioBlockCallback);
+
+    // 4. Sincronizacao inicial dos efeitos com a posicao fisica das chaves
     Main_DispatchSwitches();
 
     // 4. Laco infinito de despacho periodico
@@ -237,17 +249,29 @@ static void Main_DispatchSwitches(void)
     // SW1: Overdrive
     bool sw1Active = pedalSwitches.IsActive(ePEDAL_SWITCHES_SW1);
     pedalLeds.Set(ePEDAL_LEDS_OVERDRIVE, sw1Active);
-    dspEngine.SetOverdriveEnable(sw1Active);
+    {
+        const u32 primask = Main_EnterCritical();
+        dspEngine.SetOverdriveEnable(sw1Active);
+        Main_ExitCritical(primask);
+    }
 
     // SW2: Equalizador 3-Bandas
     bool sw2Active = pedalSwitches.IsActive(ePEDAL_SWITCHES_SW2);
     pedalLeds.Set(ePEDAL_LEDS_EQUALIZER, sw2Active);
-    dspEngine.SetEqualizerEnable(sw2Active);
+    {
+        const u32 primask = Main_EnterCritical();
+        dspEngine.SetEqualizerEnable(sw2Active);
+        Main_ExitCritical(primask);
+    }
 
     // SW3: Delay
     bool sw3Active = pedalSwitches.IsActive(ePEDAL_SWITCHES_SW3);
     pedalLeds.Set(ePEDAL_LEDS_DELAY, sw3Active);
-    dspEngine.SetDelayEnable(sw3Active);
+    {
+        const u32 primask = Main_EnterCritical();
+        dspEngine.SetDelayEnable(sw3Active);
+        Main_ExitCritical(primask);
+    }
 
     // SW4: Master Mute; no audio is released before transport exists.
     bool sw4Active = pedalSwitches.IsActive(ePEDAL_SWITCHES_SW4);
@@ -311,7 +335,9 @@ static void Main_DispatchUart(void)
                             if(paramId == dPARAM_GLOBAL_MASTER_VOLUME)
                             {
                                 float volNorm = (float)paramVal * 0.01f;
+                                const u32 primask = Main_EnterCritical();
                                 dspEngine.SetMasterVolume(volNorm);
+                                Main_ExitCritical(primask);
                                 if(codecCs4272.IsInitialized() == true)
                                 {
                                     codecCs4272.SetMasterVolume(paramVal);
@@ -320,7 +346,9 @@ static void Main_DispatchUart(void)
                             else if(paramId == dPARAM_GLOBAL_MASTER_BYPASS)
                             {
                                 bool isBypass = (paramVal != 0U);
+                                const u32 primask = Main_EnterCritical();
                                 dspEngine.SetMasterBypass(isBypass);
+                                Main_ExitCritical(primask);
                             }
                             else if(paramId == dPARAM_GLOBAL_MASTER_MUTE)
                             {
@@ -330,6 +358,7 @@ static void Main_DispatchUart(void)
                         }
                         else if(module == dMODULE_OVERDRIVE)
                         {
+                            const u32 primask = Main_EnterCritical();
                             if(paramId == dPARAM_OVERDRIVE_ENABLE)
                             {
                                 dspEngine.SetOverdriveEnable(paramVal != 0U);
@@ -346,10 +375,12 @@ static void Main_DispatchUart(void)
                             {
                                 dspEngine.SetOverdriveLevel((float)paramVal * 0.01f);
                             }
+                            Main_ExitCritical(primask);
                         }
                         else if(module == dMODULE_EQUALIZER)
                         {
                             s8 gainDb = (s8)paramVal; // Faixa com sinal [-12 dB a +12 dB]
+                            const u32 primask = Main_EnterCritical();
                             if(paramId == dPARAM_EQUALIZER_ENABLE)
                             {
                                 dspEngine.SetEqualizerEnable(paramVal != 0U);
@@ -366,19 +397,24 @@ static void Main_DispatchUart(void)
                             {
                                 dspEngine.SetEqualizerTreble((float)gainDb);
                             }
+                            Main_ExitCritical(primask);
                         }
                         else if(module == dMODULE_DELAY)
                         {
                             if(paramId == dPARAM_DELAY_ENABLE)
                             {
+                                const u32 primask = Main_EnterCritical();
                                 dspEngine.SetDelayEnable(paramVal != 0U);
+                                Main_ExitCritical(primask);
                             }
                             else if(paramId == dPARAM_DELAY_TIME)
                             {
                                 if(payloadLength >= 4U)
                                 {
                                     u16 timeMs = (u16)payloadBuffer[2] | ((u16)payloadBuffer[3] << 8U);
+                                    const u32 primask = Main_EnterCritical();
                                     dspEngine.SetDelayTimeMs((float)timeMs);
+                                    Main_ExitCritical(primask);
                                 }
                                 else
                                 {
@@ -391,11 +427,15 @@ static void Main_DispatchUart(void)
                             }
                             else if(paramId == dPARAM_DELAY_FEEDBACK)
                             {
+                                const u32 primask = Main_EnterCritical();
                                 dspEngine.SetDelayFeedback((float)paramVal * 0.01f);
+                                Main_ExitCritical(primask);
                             }
                             else if(paramId == dPARAM_DELAY_MIX)
                             {
+                                const u32 primask = Main_EnterCritical();
                                 dspEngine.SetDelayMix((float)paramVal * 0.01f);
+                                Main_ExitCritical(primask);
                             }
                         }
 
@@ -455,6 +495,79 @@ static void Main_DispatchHeartbeat(void)
     Bsp::LedOnboardToggle();
 
     interMcuUart.SendPacket((u8)eINTER_MCU_UART_CMD_HEARTBEAT, nullptr, 0U);
+}
+
+/******************************************************************************/
+/** @brief Entra em secao critica curta mascarando interrupcoes via PRIMASK.
+ * @param Nenhum.
+ * @retval u32: Estado anterior de PRIMASK para posterior restauracao.
+ ******************************************************************************/
+static inline u32 Main_EnterCritical(void)
+{
+    u32 primask = __get_PRIMASK();
+    __disable_irq();
+    return primask;
+}
+
+/******************************************************************************/
+/** @brief Restaura o estado anterior das interrupcoes a partir de PRIMASK.
+ * @param primask: Estado retornado por Main_EnterCritical.
+ * @retval Nenhum.
+ ******************************************************************************/
+static inline void Main_ExitCritical(u32 primask)
+{
+    if(primask == 0U)
+    {
+        __enable_irq();
+    }
+}
+
+/******************************************************************************/
+/** @brief Callback invocado pelo BDMA a cada metade do buffer (64 amostras).
+ * @param pRx: Ponteiro para bloco recebido da SAI4_Block_B (24-bit em slot 32-bit).
+ * @param pTx: Ponteiro para bloco de transmissao para SAI4_Block_A.
+ * @param frameCount: Quantidade de quadros estereo (64).
+ * @retval Nenhum.
+ ******************************************************************************/
+static void Main_AudioBlockCallback(const s32 *pRx, s32 *pTx, u32 frameCount)
+{
+    if((codecCs4272.IsInitialized() == false) || (dspEngine.IsMasterMuted() == true))
+    {
+        for(u32 i = 0U; i < (frameCount * dBSP_AUDIO_CHANNELS); i++)
+        {
+            pTx[i] = 0;
+        }
+        return;
+    }
+
+    constexpr float kInvScale24 = 1.0f / 8388608.0f;
+    constexpr float kScale24 = 8388607.0f;
+
+    for(u32 i = 0U; i < frameCount; i++)
+    {
+        const u32 raw24 = (u32)pRx[i * dBSP_AUDIO_CHANNELS] & 0x00FFFFFFUL;
+        const s32 signed24 = (s32)((raw24 ^ 0x00800000UL) - 0x00800000L);
+        s_audioInBlock[i] = (float)signed24 * kInvScale24;
+    }
+
+    dspEngine.ProcessBlock(s_audioInBlock, s_audioOutBlock, frameCount);
+
+    for(u32 i = 0U; i < frameCount; i++)
+    {
+        float outSample = s_audioOutBlock[i];
+        if(outSample > 1.0f)
+        {
+            outSample = 1.0f;
+        }
+        else if(outSample < -1.0f)
+        {
+            outSample = -1.0f;
+        }
+
+        const s32 rawOut = (s32)(outSample * kScale24);
+        pTx[i * dBSP_AUDIO_CHANNELS] = rawOut;
+        pTx[(i * dBSP_AUDIO_CHANNELS) + 1U] = rawOut;
+    }
 }
 
 /** @} DOXYGEN GROUP TAG END OF FILE */

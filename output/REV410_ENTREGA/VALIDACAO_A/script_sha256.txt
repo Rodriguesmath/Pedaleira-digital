@@ -1,0 +1,1 @@
+529ec5cf11bbaead8c68b7f1dc083f88843e59a8f7ce9cbe4b48dabac243f4ee  docs/hardware/rev4_10/validar_alimentacao.py

@@ -1,0 +1,17 @@
+test_brownout_not_false_logic_guarantee (__main__.TestInterfacesIndependent.test_brownout_not_false_logic_guarantee) ... ok
+test_iso_all_local_logic_margins (__main__.TestInterfacesIndependent.test_iso_all_local_logic_margins) ... ok
+test_iso_budget_and_input_loading (__main__.TestInterfacesIndependent.test_iso_budget_and_input_loading) ... ok
+test_iso_eight_states_independent_of_analog (__main__.TestInterfacesIndependent.test_iso_eight_states_independent_of_analog) ... ok
+test_iso_own_source_logic_no_cross_supply_comparison (__main__.TestInterfacesIndependent.test_iso_own_source_logic_no_cross_supply_comparison) ... ok
+test_iso_receiver_margins_worst (__main__.TestInterfacesIndependent.test_iso_receiver_margins_worst) ... ok
+test_iso_timing_under_named_capacitive_test_load (__main__.TestInterfacesIndependent.test_iso_timing_under_named_capacitive_test_load) ... ok
+test_iso_transitions_coverage_only (__main__.TestInterfacesIndependent.test_iso_transitions_coverage_only) ... ok
+test_lvc_dc_conditional_corners (__main__.TestInterfacesIndependent.test_lvc_dc_conditional_corners) ... ok
+test_lvc_off_leakage_only_at_named_conditions (__main__.TestInterfacesIndependent.test_lvc_off_leakage_only_at_named_conditions) ... ok
+test_lvc_rc_against_bit_period_conditional (__main__.TestInterfacesIndependent.test_lvc_rc_against_bit_period_conditional) ... ok
+test_primary_source_files (__main__.TestInterfacesIndependent.test_primary_source_files) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.014s
+
+OK

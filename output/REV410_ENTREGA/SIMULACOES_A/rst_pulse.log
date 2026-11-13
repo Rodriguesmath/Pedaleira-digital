@@ -1,0 +1,33 @@
+--- STDOUT ---
+
+Note: No compatibility mode selected!
+
+
+Circuit: * reset interlock pulse and rise time
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+v33                                        3.3
+va_ok                                        5
+pd10                                         0
+codec_rst                          1.60222e-11
+rst_clamp_b                           0.015665
+q2_b                                  0.666371
+vpd10#branch                       1.60222e-14
+vok#branch                        -0.000196983
+v33#branch                        -0.000698795
+
+
+No. of Data Rows : 1023
+ngspice-47 done
+
+--- STDERR ---
+Warning: can't find the initialization file spinit.
+

@@ -1,0 +1,426 @@
+[
+  {
+    "from": "000",
+    "to": "001",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "000",
+    "to": "010",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "000",
+    "to": "100",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "001",
+    "to": "000",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "001",
+    "to": "011",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "001",
+    "to": "101",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "010",
+    "to": "000",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "010",
+    "to": "011",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "010",
+    "to": "110",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "011",
+    "to": "001",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "011",
+    "to": "010",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "011",
+    "to": "111",
+    "source_changed": "USB_STM",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "100",
+    "to": "000",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "100",
+    "to": "101",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "100",
+    "to": "110",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "101",
+    "to": "001",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "101",
+    "to": "100",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "101",
+    "to": "111",
+    "source_changed": "USB_ESP",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "110",
+    "to": "010",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "110",
+    "to": "100",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "110",
+    "to": "111",
+    "source_changed": "12V",
+    "direction": "ON",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "risks_after": [],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "111",
+    "to": "011",
+    "source_changed": "USB_STM",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  },
+  {
+    "from": "111",
+    "to": "101",
+    "source_changed": "USB_ESP",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [],
+    "transient_risks": [
+      "UART por barreira de U6; lógica indeterminada no brownout, default HIGH apenas após condição PD especificada"
+    ]
+  },
+  {
+    "from": "111",
+    "to": "110",
+    "source_changed": "12V",
+    "direction": "OFF",
+    "automatic_containment_demonstrated": false,
+    "UART_DC_isolation_structural": true,
+    "risks_before": [],
+    "risks_after": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "transient_risks": [
+      "Capacitores retêm carga; ordem de queda VD/VL/VA não especificada",
+      "Reset software não antecipa perda abrupta de alimentação"
+    ]
+  }
+]

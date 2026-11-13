@@ -1,0 +1,266 @@
+[
+  {
+    "id": "000",
+    "usb_stm": false,
+    "usb_esp": false,
+    "12V": false,
+    "rails": {
+      "USB_STM_5V": false,
+      "USB_ESP_5V": false,
+      "RAW": false,
+      "VA_CW_5V": false,
+      "STM_3V3": false,
+      "ESP_3V3": false,
+      "VD_VL_STM": false
+    },
+    "risks": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "indeterminado, receptor OFF",
+    "uart_rx_esp": "indeterminado, receptor OFF",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": false,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "001",
+    "usb_stm": false,
+    "usb_esp": false,
+    "12V": true,
+    "rails": {
+      "USB_STM_5V": false,
+      "USB_ESP_5V": false,
+      "RAW": true,
+      "VA_CW_5V": true,
+      "STM_3V3": false,
+      "ESP_3V3": false,
+      "VD_VL_STM": false
+    },
+    "risks": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "indeterminado, receptor OFF",
+    "uart_rx_esp": "indeterminado, receptor OFF",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": false,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "010",
+    "usb_stm": false,
+    "usb_esp": true,
+    "12V": false,
+    "rails": {
+      "USB_STM_5V": false,
+      "USB_ESP_5V": true,
+      "RAW": false,
+      "VA_CW_5V": false,
+      "STM_3V3": false,
+      "ESP_3V3": true,
+      "VD_VL_STM": false
+    },
+    "risks": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "indeterminado, receptor OFF",
+    "uart_rx_esp": "HIGH após limiar PD e tDO",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": false,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "011",
+    "usb_stm": false,
+    "usb_esp": true,
+    "12V": true,
+    "rails": {
+      "USB_STM_5V": false,
+      "USB_ESP_5V": true,
+      "RAW": true,
+      "VA_CW_5V": true,
+      "STM_3V3": false,
+      "ESP_3V3": true,
+      "VD_VL_STM": false
+    },
+    "risks": [
+      "VA ativo e VD/VL ausentes: R13+Q1 mantem /RST LOW; sequenciamento interno codec ainda requer controle na fase B",
+      "Codec /RST mantido em <= 0.1 V por R13+Q1; sem retorno para +3V3_STM"
+    ],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "indeterminado, receptor OFF",
+    "uart_rx_esp": "HIGH após limiar PD e tDO",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": false,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "100",
+    "usb_stm": true,
+    "usb_esp": false,
+    "12V": false,
+    "rails": {
+      "USB_STM_5V": true,
+      "USB_ESP_5V": false,
+      "RAW": false,
+      "VA_CW_5V": false,
+      "STM_3V3": true,
+      "ESP_3V3": false,
+      "VD_VL_STM": true
+    },
+    "risks": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "HIGH após limiar PD e tDO",
+    "uart_rx_esp": "indeterminado, receptor OFF",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": true,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "101",
+    "usb_stm": true,
+    "usb_esp": false,
+    "12V": true,
+    "rails": {
+      "USB_STM_5V": true,
+      "USB_ESP_5V": false,
+      "RAW": true,
+      "VA_CW_5V": true,
+      "STM_3V3": true,
+      "ESP_3V3": false,
+      "VD_VL_STM": true
+    },
+    "risks": [],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "HIGH após limiar PD e tDO",
+    "uart_rx_esp": "indeterminado, receptor OFF",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": true,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "110",
+    "usb_stm": true,
+    "usb_esp": true,
+    "12V": false,
+    "rails": {
+      "USB_STM_5V": true,
+      "USB_ESP_5V": true,
+      "RAW": false,
+      "VA_CW_5V": false,
+      "STM_3V3": true,
+      "ESP_3V3": true,
+      "VD_VL_STM": true
+    },
+    "risks": [
+      "Saída analógica sem VA: contenção off-state SHUNT_EN ativa nos AIN quando +RAW presente/C44 carregado; mute fisico DAC pendente na fase B"
+    ],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "dados",
+    "uart_rx_esp": "dados",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": true,
+      "complete_system_authorized": false
+    }
+  },
+  {
+    "id": "111",
+    "usb_stm": true,
+    "usb_esp": true,
+    "12V": true,
+    "rails": {
+      "USB_STM_5V": true,
+      "USB_ESP_5V": true,
+      "RAW": true,
+      "VA_CW_5V": true,
+      "STM_3V3": true,
+      "ESP_3V3": true,
+      "VD_VL_STM": true
+    },
+    "risks": [],
+    "direct_SAI_I2C_supply_mismatch_candidate": false,
+    "reset_interlock_active_in_design": true,
+    "offstate_ain_containment_in_design": true,
+    "safe_complete_system": false,
+    "analysis_profile": "candidato 4.10A com F9 (fases B/C e bancada fisica ainda pendentes)",
+    "uart_remote_DC_signal_path_isolated": true,
+    "uart_rx_stm": "dados",
+    "uart_rx_esp": "dados",
+    "default_test_profile": {
+      "J5": "ABERTO ate CW caracterizado",
+      "codec": "REMOVIDO ate Fases B/C",
+      "VA": false,
+      "VD_VL_at_empty_adapter": true,
+      "complete_system_authorized": false
+    }
+  }
+]

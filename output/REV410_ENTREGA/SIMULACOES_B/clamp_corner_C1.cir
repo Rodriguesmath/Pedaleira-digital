@@ -1,0 +1,63 @@
+* Blocker 3 Corner C1: T=0C, VA=4.75V, BF=80
+.temp 0
+.model 2N3904 NPN (Is=14.34f Bf=80 Vaf=74.03 Ikf=.2847 Xtb=1.5 Br=6.092 Cjc=7.306p Cje=22.01p Rb=10 Rc=1)
+.model 2N3906 PNP (Is=1.41f Bf=80 Vaf=18.7 Ikf=80m Xtb=1.5 Br=4.977 Cjc=9.728p Cje=10.68p Rb=20 Rc=2.4)
+.model M2N7000 NMOS (Level=3 Vto=3.0 Kp=0.14 Rs=1.2 Rd=1.2 Cgso=60p Cgdo=10p Cbd=40p)
+
+Vva va 0 4.75
+Vshunt shunt_en 0 0
+
+* Divisor e Seguidor de Teto Alto (Q9 NPN follower)
+R48 va v_ref_hi 12k
+R49 v_ref_hi 0 150k
+C45 va v_ref_hi 100n
+Q9 va v_ref_hi v_bias_hi 2N3904
+R50 v_bias_hi 0 6.8k
+C46 v_bias_hi 0 100n
+
+* Divisor e Seguidor de Teto Baixo (Q10 PNP follower)
+R51 va v_ref_lo 150k
+R52 v_ref_lo 0 10k
+C47 v_ref_lo 0 100n
+Q10 0 v_ref_lo v_bias_lo 2N3906
+R53 va v_bias_lo 6.8k
+C48 v_bias_lo 0 100n
+
+* Clamps ativos em AINA_P e AINA_N (Q11..Q14)
+Q11 0 v_bias_hi ainp 2N3906
+Q12 va v_bias_lo ainp 2N3904
+Q13 0 v_bias_hi ainn 2N3906
+Q14 va v_bias_lo ainn 2N3904
+
+* Shunts Off-state (Folha 9)
+M5 ainp shunt_en 0 0 M2N7000
+M6 ainn shunt_en 0 0 M2N7000
+
+* Polarização CS4272 ADC_BIAS
+R27 va adc_bias 13k
+R28 adc_bias 0 12k
+C40 adc_bias 0 100u
+C41 adc_bias 0 100n
+R15 ainp adc_bias 100k
+R16 ainn adc_bias 100k
+C35 ainp 0 100p
+C36 ainn 0 100p
+C20 ainp ainn 680p
+Radc ainp ainn 37k
+
+* Fontes de surto acopladas via R18=1.5k e R20=1.5k
+Vdrv_p drv_p 0 DC 0
+R18 drv_p ainp 1.5k
+Vdrv_n drv_n 0 DC 0
+R20 drv_n ainn 1.5k
+
+.control
+dc Vdrv_p -15 20 0.5 Vdrv_n -15 20 0.5
+meas dc min_ainp MIN v(ainp)
+meas dc max_ainp MAX v(ainp)
+meas dc min_ainn MIN v(ainn)
+meas dc max_ainn MAX v(ainn)
+meas dc max_back_pump MAX -i(Vva)
+quit
+.endc
+.end

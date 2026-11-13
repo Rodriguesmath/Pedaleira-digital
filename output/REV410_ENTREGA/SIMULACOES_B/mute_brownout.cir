@@ -1,0 +1,91 @@
+* Blocker 4: Low Supply (10.5V) + Brownout Dip (8.2V for 300ms) + Recovery
+* Modelos Padronizados e Conexões Globais
+.include /home/rodrigues/Pedaleira-digital/output/auditoria_rev49/SIMULACOES/TL072_TI.301
+.model 2N3904 NPN (Is=14.34f Bf=255.9 Vaf=74.03 Ikf=.2847 Xtb=1.5 Br=6.092 Cjc=7.306p Cje=22.01p Rb=10 Rc=1)
+.model 2N3906 PNP (Is=1.41f Bf=180.7 Vaf=18.7 Ikf=80m Xtb=1.5 Br=4.977 Cjc=9.728p Cje=10.68p Rb=20 Rc=2.4)
+.model D4148 D (Is=2.5n N=1.75 Rs=.6 Cjo=4p Tt=4n)
+.model D1N5822 D (Is=50u N=1.05 Rs=0.05 Cjo=200p)
+.model DZ4V7 D (Is=1u N=1.5 Rs=10 Bv=4.7 Ibv=1m)
+.model M2N7000 NMOS (Level=3 Vto=3.0 Kp=0.14 Rs=1.2 Rd=1.2 Cgso=60p Cgdo=10p Cbd=40p)
+.model SW_NO SW (Ron=0.05 Roff=100G Vt=0.55 Vh=0.02)
+.model SW_NC SW (Ron=100G Roff=0.05 Vt=0.45 Vh=0.02)
+
+* Subcircuito TL431 Bounded Fisicamente Estável (Ref=1, Anode=2, Cathode=3)
+.subckt TL431 ref a k
+Gka k a VALUE='(V(k,a) > 0 ? 1 : 0) * ((V(k,a) * 0.1u) + max(0, V(k,a)-2.0) * (0.2u + 50m * 0.5 * (1 + tanh((V(ref,a)-2.495)/0.005))))'
+Rka k a 10Meg
+Rra ref a 10Meg
+Cka k a 10p
+.ends
+
+.options method=gear reltol=1e-3 abstol=1e-10 cshunt=1p
+
+Vwall wall 0 PWL(0 10.5 3.000 10.5 3.001 8.2 3.300 8.2 3.301 10.5 6.0 10.5)
+D1 wall raw D1N5822
+C33 raw 0 220u
+Rload_sys raw 0 60
+
+Bva va 0 V='max(0, min(5.0, V(raw) - 2.2))'
+Rva_sup va 0 85
+R33 va va_ref 9.1k
+R34 va_ref 0 11k
+XU7 va_ref 0 va_k TL431
+R35 va q3_b 2.2k
+R36 q3_b va_k 1.8k
+Q3 va_ok q3_b va 2N3906
+R37 va_ok 0 22k
+R38 va_ok va_ref 470k
+
+Vrst codec_rst 0 3.3
+
+R54 raw raw_ref 27k
+R55 raw_ref 0 10k
+XU8 raw_ref 0 raw_k TL431
+R56 raw q15_b 1.0k
+R57 q15_b raw_k 2.7k
+Q15 raw_ok q15_b raw 2N3906
+R58 raw_ok 0 2.2k
+R59 raw_ok raw_ref 1.0Meg
+
+Q17 q18_e q17_b 0 2N3904
+R65 va_ok q17_b 47k
+Q18 q19_e q18_b q18_e 2N3904
+R66 codec_rst q18_b 100k
+Q19 fault_gate q19_b q19_e 2N3904
+R67 raw_ok q19_b 22k
+R75 q19_b 0 2.2k
+R62 raw fault_gate 47k
+
+Q16 mute_cl fault_gate 0 2N3904
+R73 mute_arm mute_cl 47
+Q22 q20_b q22_b 0 2N3904
+R74 fault_gate q22_b 10k
+
+R60 raw_ok mute_arm 33k
+C49 mute_arm 0 47u
+
+D17 q20_z mute_arm DZ4V7
+R68 q20_z q20_b 10k
+R69 q20_b 0 33k
+Q20 q20_c q20_b 0 2N3904
+R70 raw q20_c 10k
+R72 q20_c q21_b 4.7k
+Q21 k1_coilp q21_b raw 2N3906
+R71 k1_coilp q20_b 1.5Meg
+
+Lcoil k1_coilp k1_mid 250m
+Rcoil k1_mid 0 960
+D16 0 k1_coilp D4148
+
+Bsw sw_target 0 V='0.5*(1 + tanh((I(Lcoil)-8.5m)/0.1m))'
+Rmech sw_target sw_state 1k
+Cmech sw_state 0 2u
+
+.control
+set noaskquit
+set wr_singlescale
+tran 500u 5.5 uic
+wrdata /home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/SIMULACOES_B/mute_brownout.txt v(raw) v(raw_ok) v(mute_arm) v(sw_state) i(Lcoil)
+quit
+.endc
+.end

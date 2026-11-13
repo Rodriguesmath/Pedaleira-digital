@@ -1,0 +1,7 @@
+4.10A candidate: 114 components; no approval implied
+PDF/BOM/physical model: 114 components, 61 nets
+{'all_physical_pins': 288, 'visible_connected_nets': 61, 'cross_net_intersections': 0, 'visible_routes_and_ports_equal_model': True}
+KiCad: functional blocks and connected circuits exported.
+Checkpoint A reports/connections written; BLOCKED remains explicit
+Executed: 11 power tests + 12 UART tests + 12 independent CAD tests; ERC 0.
+Full gate A remains BLOCKED. No phase B/C approval or physical tests.

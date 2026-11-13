@@ -1,0 +1,58 @@
+* Supervisor +5VA Hysteresis and Load Test
+* Modelos SPICE Padronizados Rev 4.10A
+.include "/home/rodrigues/Pedaleira-digital/output/auditoria_rev49/SIMULACOES/OP_STARTUP.lib"
+
+.model 2N3904 NPN (Is=14.34f Bf=255.9 Vaf=74.03 Ikf=.2847 Xtb=1.5 Br=6.092 Cjc=7.306p Cje=22.01p Rb=10 Rc=1)
+.model 2N3906 PNP (Is=1.41f Bf=180.7 Vaf=18.7 Ikf=80m Xtb=1.5 Br=4.977 Cjc=9.728p Cje=10.68p Rb=20 Rc=2.4)
+
+.subckt 2N7000 D G S
+M1 D G S S NMOS_INT
+Cgs G S 30p
+Cgd G D 10p
+Cds D S 25p
+D_body S D DBODY
+.model DBODY D(Is=1e-14 Rs=0.5)
+.model NMOS_INT NMOS (Level=1 Vto=2.1 Kp=0.25 Rd=1.2 Rs=1.2 Lambda=0.01)
+.ends
+
+.model D4148 D(Is=2.5n N=1.75 Rs=.6 Cjo=4p Tt=4n)
+.model DBAT85 D(Is=200n N=1.05 Rs=2 Cjo=10p)
+.model Dprot D(Is=1p N=1 Rs=1 Cjo=5p)
+.model DZ1V8 D(Is=1e-14 Bv=1.8 Ibv=1m N=1)
+
+.subckt TL431 K A REF
+Rref REF A 10Meg
+Cref REF A 2p
+Vref vr A 2.488
+Gerr A n_err REF vr 20m
+Rerr n_err A 10k
+Ccomp n_err A 100p
+D_hi n_err v_lim D4148
+V_lim v_lim A 4.0
+D_lo A n_err D4148
+R_b n_err q_b 100
+Q_out k_sat q_b A 2N3904
+Dz k_sat K DZ1V8
+C_k K A 20p
+.ends
+
+
+V_VA v5 0 PWL(0 0 10m 5.0 20m 5.0 30m 4.0 40m 5.0)
+
+R33 v5 ref_tl 9.1k
+R34 ref_tl 0 11k
+R38 va_ok ref_tl 470k
+XU7 u7_k 0 ref_tl TL431
+Q3 va_ok q3_b v5 2N3906
+R35 v5 q3_b 2.2k
+R36 q3_b u7_k 1.8k
+R37 va_ok 0 22k
+C_ok va_ok 0 10p
+
+.options reltol=1e-3 abstol=1e-9 trtol=1
+.control
+tran 20u 40m
+wrdata /home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/SIMULACOES_A/supervisor_hyst.txt v(v5) v(va_ok) v(ref_tl) v(u7_k) v(q3_b) i(V_VA)
+quit
+.endc
+.end

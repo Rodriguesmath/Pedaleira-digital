@@ -1,0 +1,76 @@
+ref,valor,folha,redes49,pinos,funcao
+J1,12 V DC,1,12V_IN;GND,"{""1"": ""12V_IN"", ""2"": ""GND""}","Fonte externa 12 V regulados, 1,5 A; centro positivo"
+D1,1N5822,1,+RAW;FUSED_IN,"{""1"": ""FUSED_IN"", ""2"": ""+RAW""}",Proteção de polaridade
+C33,220 uF,1,+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND""}",Reserva após proteção de polaridade
+J2,IN P10 mono,2,GND;JACK_IN,"{""1"": ""JACK_IN"", ""2"": ""GND""}",Tip = sinal; sleeve = GND
+R3,1 Mohm,2,HI_Z;VREF_OP,"{""1"": ""HI_Z"", ""2"": ""VREF_OP""}",Bias de alta impedância do buffer da guitarra
+U1,TL072,2,+RAW;DAC_BUF;DAC_N;DAC_P;GND;HI_Z;IN_BUF,"{""1"": ""IN_BUF"", ""2"": ""IN_BUF"", ""3"": ""HI_Z"", ""4"": ""GND"", ""5"": ""DAC_P"", ""6"": ""DAC_N"", ""7"": ""DAC_BUF"", ""8"": ""+RAW""}",U1A buffer de entrada; U1B receptor diferencial
+R2,49.9 kohm,4,DAC_P;VREF_OP,"{""1"": ""DAC_P"", ""2"": ""VREF_OP""}",Reutilizado: referência do receptor
+C4,2.2 nF,4,GND;LP1,"{""1"": ""LP1"", ""2"": ""GND""}","Primeiro polo do filtro, C0G/filme"
+C6,2.2 nF,4,GND;LP2,"{""1"": ""LP2"", ""2"": ""GND""}","Segundo polo do filtro, C0G/filme"
+R6,1 Mohm,4,GND;JACK_OUT,"{""1"": ""JACK_OUT"", ""2"": ""GND""}",Descarga do conector de saída
+J3,OUT P10 mono,4,GND;JACK_OUT,"{""1"": ""JACK_OUT"", ""2"": ""GND""}",Tip = sinal; sleeve = GND
+U2,CS4272,3,+3V3;+5V;ADC_DATA;AINA_N;AINA_P;AINB_CM;AOUTA_N;AOUTA_P;BCLK;CODEC_RST;DAC_DATA;FILT;GND;I2C_SCL;I2C_SDA;LRCK;MCLK;VCOM,"{""1"": null, ""2"": ""GND"", ""3"": ""MCLK"", ""4"": ""LRCK"", ""5"": ""BCLK"", ""6"": ""ADC_DATA"", ""7"": ""DAC_DATA"", ""8"": ""GND"", ""9"": ""+3V3"", ""10"": ""+3V3"", ""11"": ""I2C_SCL"", ""12"": ""I2C_SDA"", ""13"": ""GND"", ""14"": ""CODEC_RST"", ""15"": ""VCOM"", ""16"": ""AINA_N"", ""17"": ""AINA_P"", ""18"": ""AINB_CM"", ""19"": ""AINB_CM"", ""20"": ""+5V"", ""21"": ""GND"", ""22"": ""FILT"", ""23"": null, ""24"": ""AOUTA_N"", ""25"": ""AOUTA_P"", ""26"": null, ""27"": null, ""28"": null}",Codec físico em adaptador passivo TSSOP-28
+C12,47 uF,3,FILT;GND,"{""1"": ""FILT"", ""2"": ""GND""}",Reserva de FILT+; positivo no pino 22
+C13,100 nF,3,FILT;GND,"{""1"": ""FILT"", ""2"": ""GND""}",Desacoplamento de FILT+ junto ao pino 22
+C14,1 uF,3,GND;VCOM,"{""1"": ""VCOM"", ""2"": ""GND""}",Filtro de VCOM; não exceder 1 uF nominal
+C15,100 nF,3,GND;VCOM,"{""1"": ""VCOM"", ""2"": ""GND""}",Filtro local de VCOM junto ao pino 15
+R10,100 kohm,3,ADC_BIAS;AINB_CM,"{""1"": ""ADC_BIAS"", ""2"": ""AINB_CM""}",Bias do canal B sem uso em ADC_BIAS
+H_STM32,WeAct STM32H723 V1.2,5,+3V3;+5V;ADC_DATA;BCLK;CODEC_RST;DAC_DATA;GND;I2C_SCL;I2C_SDA;LED_DLY;LED_EQ;LED_OD;LED_STAT;LRCK;MCLK;SW_DLY;SW_EQ;SW_MUTE;SW_OD;UART_RX;UART_TX,"{""P1.4"": ""MCLK"", ""P2.5"": ""LRCK"", ""P2.6"": ""BCLK"", ""P2.7"": ""DAC_DATA"", ""P2.17"": ""ADC_DATA"", ""P1.6"": ""I2C_SCL"", ""P1.5"": ""I2C_SDA"", ""P1.38"": ""CODEC_RST"", ""P1.40"": ""UART_TX"", ""P1.39"": ""UART_RX"", ""P2.11"": ""SW_OD"", ""P2.12"": ""SW_EQ"", ""P2.13"": ""SW_DLY"", ""P2.14"": ""SW_MUTE"", ""P2.30"": ""LED_OD"", ""P2.31"": ""LED_EQ"", ""P2.32"": ""LED_DLY"", ""P2.38"": ""LED_STAT"", ""P1.2"": ""+5V"", ""P2.2"": ""+3V3"", ""P1.1"": ""GND""}",Placa de processamento existente
+H_ESP32,ESP32 DevKit V1,5,+5V;GND;UART_RX;UART_TX,"{""RX2"": ""UART_TX"", ""TX2"": ""UART_RX"", ""VIN"": ""+5V"", ""GND"": ""GND""}","UART de 3,3 V entre as placas"
+J4,5 V distribuição,5,+5V;GND,"{""1"": ""+5V"", ""2"": ""GND""}",Ponto de distribuição vindo do CW7805; NÃO é entrada USB
+R11,4.7 kohm,5,+3V3;I2C_SCL,"{""1"": ""+3V3"", ""2"": ""I2C_SCL""}",Pull-up externo SCL
+R12,4.7 kohm,5,+3V3;I2C_SDA,"{""1"": ""+3V3"", ""2"": ""I2C_SDA""}",Pull-up externo SDA
+R13,10 kohm,5,CODEC_RST;GND,"{""1"": ""CODEC_RST"", ""2"": ""GND""}",Mantém codec em reset durante boot
+R14,47 kohm,5,ADC_DATA;GND,"{""1"": ""ADC_DATA"", ""2"": ""GND""}",Define slave no intervalo stand-alone
+SW1,MTS-102,6,GND;SW_OD,"{""C"": ""SW_OD"", ""1"": ""GND"", ""2"": null}",Overdrive
+D2,LED Overdrive,6,D2_A;GND,"{""1"": ""D2_A"", ""2"": ""GND""}",Overdrive
+SW2,MTS-102,6,GND;SW_EQ,"{""C"": ""SW_EQ"", ""1"": ""GND"", ""2"": null}",Equalizador
+D3,LED Equalizador,6,D3_A;GND,"{""1"": ""D3_A"", ""2"": ""GND""}",Equalizador
+SW3,MTS-102,6,GND;SW_DLY,"{""C"": ""SW_DLY"", ""1"": ""GND"", ""2"": null}",Delay
+D4,LED Delay,6,D4_A;GND,"{""1"": ""D4_A"", ""2"": ""GND""}",Delay
+SW4,MTS-102,6,GND;SW_MUTE,"{""C"": ""SW_MUTE"", ""1"": ""GND"", ""2"": null}",Master mute
+D5,LED Mute / status,6,D5_A;GND,"{""1"": ""D5_A"", ""2"": ""GND""}",Master mute
+R15,100 kohm,2,ADC_BIAS;AINA_P,"{""1"": ""AINA_P"", ""2"": ""ADC_BIAS""}",Bias do ADC positivo em VCOM
+R16,100 kohm,2,ADC_BIAS;AINA_N,"{""1"": ""AINA_N"", ""2"": ""ADC_BIAS""}",Bias do ADC negativo em VCOM
+U3,TL072,2,+RAW;DRV_N;DRV_P;FB_N;FB_P;GND;IN_BUF;VREF_OP,"{""1"": ""DRV_P"", ""2"": ""FB_P"", ""3"": ""IN_BUF"", ""4"": ""GND"", ""5"": ""VREF_OP"", ""6"": ""FB_N"", ""7"": ""DRV_N"", ""8"": ""+RAW""}",Segundo TL072: dois drivers ADC
+U5,CW7805,1,+5V;+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND"", ""3"": ""+5V""}",5 V comum para VA e placas; CW sob confirmação
+C21,330 nF,1,+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND""}",Bypass de entrada de U5
+C22,100 nF,1,+5V;GND,"{""1"": ""+5V"", ""2"": ""GND""}",Bypass de saída de U5
+C23,100 nF,7,+5V;GND,"{""1"": ""+5V"", ""2"": ""GND""}",VA pino 20: cerâmico local
+C24,1 uF,7,+5V;GND,"{""1"": ""+5V"", ""2"": ""GND""}",VA pino 20: reserva local
+C25,100 nF,7,+3V3;GND,"{""1"": ""+3V3"", ""2"": ""GND""}",VD pino 9: cerâmico local
+C26,1 uF,7,+3V3;GND,"{""1"": ""+3V3"", ""2"": ""GND""}",VD pino 9: reserva local
+C27,100 nF,7,+3V3;GND,"{""1"": ""+3V3"", ""2"": ""GND""}",VL pino 10: cerâmico local
+C28,1 uF,7,+3V3;GND,"{""1"": ""+3V3"", ""2"": ""GND""}",VL pino 10: reserva local
+C29,100 nF,7,+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND""}",U1 pino 8: bypass local
+C30,10 uF,7,+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND""}",U1 pino 4: bypass local
+C31,100 nF,7,+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND""}",U3 pino 8: bypass local
+C32,10 uF,7,+RAW;GND,"{""1"": ""+RAW"", ""2"": ""GND""}",U3 pino 4: bypass local
+C34,100 nF,3,AINB_CM;GND,"{""1"": ""AINB_CM"", ""2"": ""GND""}",Bypass do par ADC B não utilizado
+R21,910 ohm,1,+5V;GND,"{""1"": ""+5V"", ""2"": ""GND""}","Carga mínima de 5,5 mA para ensaio isolado do regulador"
+D8,1N4007,1,+5V;+RAW,"{""1"": ""+5V"", ""2"": ""+RAW""}",Descarga reversa do regulador
+R22,2.2 kohm,1,+RAW;VREF_OP,"{""1"": ""+RAW"", ""2"": ""VREF_OP""}",Divisor de referência OP
+R23,2.2 kohm,1,GND;VREF_OP,"{""1"": ""VREF_OP"", ""2"": ""GND""}",Divisor de referência OP
+C38,470 uF,1,GND;VREF_OP,"{""1"": ""VREF_OP"", ""2"": ""GND""}",Filtragem da referência OP
+C39,100 nF,1,GND;VREF_OP,"{""1"": ""VREF_OP"", ""2"": ""GND""}",Desacoplamento HF da referência
+C37,1000 uF,1,+5V;GND,"{""1"": ""+5V"", ""2"": ""GND""}",Reserva de 5 V
+D7,1N4148,2,CLAMP_N;VREF_OP,"{""1"": ""VREF_OP"", ""2"": ""CLAMP_N""}",Clamp negativo da guitarra
+D13,1N4148,2,CLAMP_P;VREF_OP,"{""1"": ""CLAMP_P"", ""2"": ""VREF_OP""}",Segundo diodo de clamp positivo
+C35,100 pF,2,AINA_P;GND,"{""1"": ""AINA_P"", ""2"": ""GND""}",Filtro RF de modo comum do ADC
+C36,100 pF,2,AINA_N;GND,"{""1"": ""AINA_N"", ""2"": ""GND""}",Filtro RF de modo comum do ADC
+R27,13 kohm,1,+5V;ADC_BIAS,"{""1"": ""+5V"", ""2"": ""ADC_BIAS""}","Divisor ADC, ramo superior"
+R28,12 kohm,1,ADC_BIAS;GND,"{""1"": ""ADC_BIAS"", ""2"": ""GND""}","Divisor ADC, ramo inferior"
+C40,100 uF,1,ADC_BIAS;GND,"{""1"": ""ADC_BIAS"", ""2"": ""GND""}",Filtro do bias ADC
+C41,100 nF,1,ADC_BIAS;GND,"{""1"": ""ADC_BIAS"", ""2"": ""GND""}",Bypass HF do bias ADC
+D9,BAT85,2,+5V;AINA_P,"{""1"": ""AINA_P"", ""2"": ""+5V""}",Clamp externo do ADC
+D10,BAT85,2,AINA_P;GND,"{""1"": ""GND"", ""2"": ""AINA_P""}",Clamp externo do ADC
+D11,BAT85,2,+5V;AINA_N,"{""1"": ""AINA_N"", ""2"": ""+5V""}",Clamp externo do ADC
+D12,BAT85,2,AINA_N;GND,"{""1"": ""GND"", ""2"": ""AINA_N""}",Clamp externo do ADC
+TP1,+RAW,1,+RAW,"{""1"": ""+RAW""}",Ponto de teste +RAW
+TP2,+5V,1,+5V,"{""1"": ""+5V""}",Ponto de teste +5V
+TP3,+3V3,5,+3V3,"{""1"": ""+3V3""}",Ponto de teste +3V3
+TP4,VREF_OP,1,VREF_OP,"{""1"": ""VREF_OP""}",Ponto de teste VREF_OP
+TP5,VCOM,3,VCOM,"{""1"": ""VCOM""}",Ponto de teste VCOM
+TP10,GND,1,GND,"{""1"": ""GND""}",Ponto de teste GND
+TP11,ADC_BIAS,1,ADC_BIAS,"{""1"": ""ADC_BIAS""}",Ponto de teste ADC_BIAS

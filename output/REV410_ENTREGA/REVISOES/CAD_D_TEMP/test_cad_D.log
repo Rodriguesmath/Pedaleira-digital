@@ -1,0 +1,17 @@
+test_all_114_component_references_and_bom_values (__main__.AuditCAD.test_all_114_component_references_and_bom_values) ... ok
+test_codec_all_supply_pins_and_local_digital_pullups (__main__.AuditCAD.test_codec_all_supply_pins_and_local_digital_pullups) ... ok
+test_cw_analog_split_and_test_connector (__main__.AuditCAD.test_cw_analog_split_and_test_connector) ... ok
+test_cw_is_hypothesis_not_identified_regulator (__main__.AuditCAD.test_cw_is_hypothesis_not_identified_regulator) ... ok
+test_eight_sheets_every_model_terminal_rendered (__main__.AuditCAD.test_eight_sheets_every_model_terminal_rendered) ... ok
+test_erc_fresh_no_hidden_exclusions_no_electrical_errors (__main__.AuditCAD.test_erc_fresh_no_hidden_exclusions_no_electrical_errors) ... ok
+test_exact_net_partitions_not_just_labels (__main__.AuditCAD.test_exact_net_partitions_not_just_labels) ... ok
+test_iso_actual_footprint_not_package_note (__main__.AuditCAD.test_iso_actual_footprint_not_package_note) ... ok
+test_iso_bypass_bleeders_and_idle_pullups (__main__.AuditCAD.test_iso_bypass_bleeders_and_idle_pullups) ... ok
+test_iso_exact_d8_pin_mapping_and_no_parallel_uart (__main__.AuditCAD.test_iso_exact_d8_pin_mapping_and_no_parallel_uart) ... ok
+test_known_reset_and_analog_off_risks_remain_visible (__main__.AuditCAD.test_known_reset_and_analog_off_risks_remain_visible) ... ok
+test_no_external_connection_to_usb_5v_headers (__main__.AuditCAD.test_no_external_connection_to_usb_5v_headers) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.013s
+
+OK

@@ -1,0 +1,17 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * blocker 3 off-state compatibility (va=0v, shunt_en=8.2v)
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+v(ainp) = 3.014504e-02
+v(ainn) = -3.00817e-02
+i(vva) = -2.16947e-14
+ngspice-47 done
+
+Warning: can't find the initialization file spinit.

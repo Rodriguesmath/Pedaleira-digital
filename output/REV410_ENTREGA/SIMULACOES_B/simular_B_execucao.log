@@ -1,0 +1,56 @@
+======================================================================
+SUÍTE DE VERIFICAÇÃO NGSPICE - REVISÃO 4.10B (simular_B.py)
+======================================================================
+  [CAD Parity Guard] OK: 38/38 componentes Blocker 3 e 4 conferem 100% com circuito_rev4_10.json.
+[1/10] Testando Blocker 3: Clamp Ativo ADC em 4 Cantos (-15V..+20V bi-canal)...
+  [C1] AIN_P: [0.298V, 4.497V], AIN_N: [0.298V, 4.497V] vs [-0.3V, 5.050V]
+        Back-pumping em +5VA: 0.0000 mA -> PASS
+  [C2] AIN_P: [0.316V, 4.739V], AIN_N: [0.316V, 4.739V] vs [-0.3V, 5.300V]
+        Back-pumping em +5VA: 0.0000 mA -> PASS
+  [C3] AIN_P: [0.299V, 4.523V], AIN_N: [0.299V, 4.523V] vs [-0.3V, 5.050V]
+        Back-pumping em +5VA: 0.0000 mA -> PASS
+  [C4] AIN_P: [0.328V, 4.991V], AIN_N: [0.328V, 4.991V] vs [-0.3V, 5.550V]
+        Back-pumping em +5VA: 0.0000 mA -> PASS
+[2/10] Testando Blocker 3: Linearidade e THD do Clamp Ativo (70°C, VA=4.75V, hFE=80)...
+  0 dBFS max linear swing (1.40 Vp @ 1kHz): THD = 0.000878% (Limite < 0.01%) -> PASS
+  Guitarra nominal (0.50 Vp @ 1kHz): THD = 0.000096% (Limite < 0.01%) -> PASS
+[3/10] Testando Blocker 3: Compatibilidade Off-State com Shunts NMOS Folha 9...
+  +12V In: AIN = 30.15 mV (< 50 mV), I_VA = -0.00 nA -> PASS
+  -12V In: AIN = -30.08 mV (< 50 mV), I_VA = -0.00 nA -> PASS
+[4/10] Testando Blocker 3: Comparação Numérica BAT85 vs Clamp Ativo...
+  BAT85: +20V -> 5.250V (Violação -49.5mV, Back-pump: 9.832mA)
+         -15V -> -0.313V (Violação 12.9mV)
+  ATIVO: +20V -> 4.742V (Margem 558.4mV, Back-pump: 0.00mA)
+         -15V -> 0.316V (Margem 615.9mV)
+[5/10] Testando Blocker 4: Partida Nominal 0..7.0s e Plug-pull Abrupto a 6.5s...
+  Unmute em: 5.899 s (Alvo ~5.9s) -> PASS
+  Tensão em mute: 0.0000 mV (== 0V) | Pop unmute: 1.2321 mV (< 5 mV)
+  Plug-pull: Corte da bobina em RAW=9.00V (>=8.5V), VA=5.00V intacto
+  Fechamento NC em: 8.26 ms (< 10 ms) | Pós-abertura: 0.0000 mV (< 2 mV)
+  Flyback da bobina: 12.30V (limitado por D16) -> PASS
+[6/10] Testando Blocker 4: Alimentação Baixa (10.5V) e Brownout Dip (8.2V, 300ms)...
+  Corrente bobina @ 10.5V: 10.64 mA (>= 10 mA) -> PASS
+  Mute durante dip 8.2V: 0.0000 V (< 0.1V) | C49 drenado para: 0.0040 V (< 0.1V)
+  Re-espera anti-pop após recuperação: 1.152 s (Alvo ~1.0s) -> PASS
+[7/10] Testando Blocker 4: Mute Imediato por Queda de CODEC_RST e VA_OK...
+  Queda CODEC_RST: Mute em 2.49 ms (< 5 ms) | C49: 0.0272 V (< 0.1V) -> PASS
+  Queda VA_OK:    Mute em 2.20 ms (< 5 ms) | C49: 0.0272 V (< 0.1V) -> PASS
+[8/10] Testando Blocker 4: Áudio (THD R6=47k||100k vs 1M, Ganho 20Hz e Atenuação OFF)...
+  Ganho @ 20Hz (R6=47k||100k): -0.0027 dB (Limite > -0.05 dB) -> PASS
+  Ganho @ 20Hz (R6=1M||100k):  -0.0003 dB
+  Atenuação em Mute @ 1kHz:    -185.61 dB (Limite < -80 dB) -> PASS
+  THD em condução (1Vp @ 1kHz):0.000066% (< 0.01%) -> PASS
+[9/10] Testando B3/B4: Ganhos Nominais U1A (+1), U3A (+1), U3B (-1), U1B_DAC (0.499)...
+  U1A (Seguidor):       1.0000 (Nominal +1.000, Erro 0.003%) -> PASS
+  U3A (Seguidor ADC+):  0.9999 (Nominal +1.000, Erro 0.006%) -> PASS
+  U3B (Inversor ADC-): -1.0000 (Nominal -1.000, Erro 0.004%) -> PASS
+  U1B (Receptor DAC):   0.4990 (Nominal 0.499,  Erro 0.002%) -> PASS
+[10/10] Testando B3/B4: Headroom dos TL072 (RAW=10.5V e 12.6V, 0.5Vp e 1.4Vp, Rload>=100k)...
+  RAW=10.5V, Guitarra nominal 0.50 Vp: Margem V+ = 4.75V, Margem GND = 4.75V (>= 1.5V) -> PASS
+  RAW=10.5V, Excursão máxima linear 1.40 Vp (0 dBFS): Margem V+ = 3.85V, Margem GND = 3.85V (>= 1.5V) -> PASS
+  RAW=12.6V, Guitarra nominal 0.50 Vp: Margem V+ = 5.80V, Margem GND = 5.80V (>= 1.5V) -> PASS
+  RAW=12.6V, Excursão máxima linear 1.40 Vp (0 dBFS): Margem V+ = 4.90V, Margem GND = 4.90V (>= 1.5V) -> PASS
+======================================================================
+VERIFICAÇÃO FASE 4.10B CONCLUÍDA: 17/17 cenários PASSED com sucesso!
+Resumo JSON gerado em: /home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/SIMULACOES_B/resumo_B.json
+======================================================================

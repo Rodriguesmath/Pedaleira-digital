@@ -1,0 +1,57 @@
+* Reset Interlock Pulse and Rise Time
+* Modelos SPICE Padronizados Rev 4.10A
+.include "/home/rodrigues/Pedaleira-digital/output/auditoria_rev49/SIMULACOES/OP_STARTUP.lib"
+
+.model 2N3904 NPN (Is=14.34f Bf=255.9 Vaf=74.03 Ikf=.2847 Xtb=1.5 Br=6.092 Cjc=7.306p Cje=22.01p Rb=10 Rc=1)
+.model 2N3906 PNP (Is=1.41f Bf=180.7 Vaf=18.7 Ikf=80m Xtb=1.5 Br=4.977 Cjc=9.728p Cje=10.68p Rb=20 Rc=2.4)
+
+.subckt 2N7000 D G S
+M1 D G S S NMOS_INT
+Cgs G S 30p
+Cgd G D 10p
+Cds D S 25p
+D_body S D DBODY
+.model DBODY D(Is=1e-14 Rs=0.5)
+.model NMOS_INT NMOS (Level=1 Vto=2.1 Kp=0.25 Rd=1.2 Rs=1.2 Lambda=0.01)
+.ends
+
+.model D4148 D(Is=2.5n N=1.75 Rs=.6 Cjo=4p Tt=4n)
+.model DBAT85 D(Is=200n N=1.05 Rs=2 Cjo=10p)
+.model Dprot D(Is=1p N=1 Rs=1 Cjo=5p)
+.model DZ1V8 D(Is=1e-14 Bv=1.8 Ibv=1m N=1)
+
+.subckt TL431 K A REF
+Rref REF A 10Meg
+Cref REF A 2p
+Vref vr A 2.488
+Gerr A n_err REF vr 20m
+Rerr n_err A 10k
+Ccomp n_err A 100p
+D_hi n_err v_lim D4148
+V_lim v_lim A 4.0
+D_lo A n_err D4148
+R_b n_err q_b 100
+Q_out k_sat q_b A 2N3904
+Dz k_sat K DZ1V8
+C_k K A 20p
+.ends
+
+
+V33 v33 0 3.3
+Vok va_ok 0 5.0
+Vpd10 pd10 0 PWL(0 0 100u 0 100.01u 3.3 200u 3.3)
+
+R39 pd10 codec_rst 1.0k
+R13 codec_rst 0 10k
+C_codec codec_rst 0 20p
+Q1 codec_rst rst_clamp_b 0 2N3904
+R40 v33 rst_clamp_b 4.7k
+Q2 rst_clamp_b q2_b 0 2N3904
+R41 va_ok q2_b 22k
+
+.control
+tran 0.2u 200u
+wrdata /home/rodrigues/Pedaleira-digital/output/REV410_ENTREGA/SIMULACOES_A/rst_pulse.txt v(codec_rst) v(rst_clamp_b) v(pd10)
+quit
+.endc
+.end

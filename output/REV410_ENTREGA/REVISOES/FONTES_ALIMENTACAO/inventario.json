@@ -1,0 +1,19 @@
+[
+  {
+    "file": "SN74AXC2T245_TI.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/sn74axc2t245.pdf",
+    "sha256": "fd6cf4a6e830e80e76a2cbca4351f067dae9f8e3915d5086104a70e2d72e5d4f",
+    "bytes": 952932
+  },
+  {
+    "file": "SN74LVC1G125_TI.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g125.pdf",
+    "sha256": "1098d46e4565695e9823a08309bc581e2c9ead26b19e99a43a011a38642b27ca",
+    "bytes": 3056649
+  },
+  {
+    "file": "STM32H723_ST.pdf",
+    "url": "https://www.st.com.cn/resource/en/datasheet/stm32h723vg.pdf",
+    "error": "The read operation timed out"
+  }
+]
