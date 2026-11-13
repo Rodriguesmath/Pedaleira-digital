@@ -1,0 +1,12 @@
+idf_component_register(
+    SRCS
+        "../src/main.cpp"
+        "../src/inter_mcu_proto.c"
+        "../src/pedal_bridge.c"
+    INCLUDE_DIRS
+        "../include"
+    REQUIRES
+        driver
+        esp_timer
+        mqtt
+)
