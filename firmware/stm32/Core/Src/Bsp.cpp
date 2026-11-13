@@ -116,8 +116,20 @@
 I2C_HandleTypeDef hi2c1;
 static UartRxRing usart3RxRing;
 
+extern "C"
+{
+__attribute__((section(".ram_d3"), aligned(32)))
+s32 saiRxDmaBuf[dBSP_AUDIO_BUFFER_SIZE];
+
+__attribute__((section(".ram_d3"), aligned(32)))
+s32 saiTxDmaBuf[dBSP_AUDIO_BUFFER_SIZE];
+}
+
 bool Bsp::isInitialized_ = false;
 bool Bsp::ledOnboardState_ = false;
+bspAudioBlockCallback_t Bsp::audioBlockCallback_ = nullptr;
+volatile u32 Bsp::audioBlockCount_ = 0U;
+volatile u32 Bsp::audioHardwareErrors_ = 0U;
 
 /*******************************************************************************
  * PROTOTIPOS LOCAIS
@@ -158,6 +170,9 @@ bspStatus_t Bsp::Init(void)
     // 7. Inicializacao dos controladores de comunicacao de baixo nivel
     I2c1Config();
     Usart3Config();
+
+    // 8. Inicializacao do transporte de audio SAI4 + BDMA
+    Sai4Config();
 
     isInitialized_ = true;
 
@@ -276,6 +291,36 @@ u32 Bsp::Usart3RxHardwareErrors(void)
 }
 
 /******************************************************************************/
+/** @brief Define o callback de processamento de bloco de audio do SAI4.
+ * @param callback: Ponteiro para funcao de processamento.
+ * @retval Nenhum.
+ ******************************************************************************/
+void Bsp::SetAudioCallback(bspAudioBlockCallback_t callback)
+{
+    audioBlockCallback_ = callback;
+}
+
+/******************************************************************************/
+/** @brief Retorna o total de blocos de audio processados via BDMA.
+ * @param Nenhum.
+ * @retval u32: Contagem de interrupcoes de bloco (Half e Transfer Complete).
+ ******************************************************************************/
+u32 Bsp::AudioBlockCount(void)
+{
+    return audioBlockCount_;
+}
+
+/******************************************************************************/
+/** @brief Retorna o total de erros de hardware detectados no canal BDMA de audio.
+ * @param Nenhum.
+ * @retval u32: Contagem de eventos de Transfer Error.
+ ******************************************************************************/
+u32 Bsp::AudioHardwareErrors(void)
+{
+    return audioHardwareErrors_;
+}
+
+/******************************************************************************/
 /** @brief Tratador de erro critico de execucao de hardware da BSP.
  * @param Nenhum.
  * @retval Nenhum.
@@ -341,6 +386,49 @@ void USART3_IRQHandler(void)
         if((errors & (USART_ISR_FE | USART_ISR_NE)) == 0U)
         {
             usart3RxRing.PushByte(received);
+        }
+    }
+}
+
+void BDMA_Channel0_IRQHandler(void)
+{
+    const u32 isr = BDMA->ISR;
+
+    if((isr & BDMA_ISR_TEIF0) != 0U)
+    {
+        BDMA->IFCR = BDMA_IFCR_CTEIF0;
+        Bsp::audioHardwareErrors_++;
+    }
+
+    if(((SAI4_Block_A->SR & SAI_xSR_OVRUDR) != 0U) ||
+       ((SAI4_Block_B->SR & SAI_xSR_OVRUDR) != 0U))
+    {
+        SAI4_Block_A->CLRFR = SAI_xCLRFR_COVRUDR;
+        SAI4_Block_B->CLRFR = SAI_xCLRFR_COVRUDR;
+        Bsp::audioHardwareErrors_++;
+    }
+
+    if((isr & BDMA_ISR_HTIF0) != 0U)
+    {
+        BDMA->IFCR = BDMA_IFCR_CHTIF0;
+        Bsp::audioBlockCount_++;
+        if(Bsp::audioBlockCallback_ != nullptr)
+        {
+            Bsp::audioBlockCallback_(&saiRxDmaBuf[0],
+                                     &saiTxDmaBuf[0],
+                                     dBSP_AUDIO_BLOCK_SAMPLES);
+        }
+    }
+
+    if((isr & BDMA_ISR_TCIF0) != 0U)
+    {
+        BDMA->IFCR = BDMA_IFCR_CTCIF0;
+        Bsp::audioBlockCount_++;
+        if(Bsp::audioBlockCallback_ != nullptr)
+        {
+            Bsp::audioBlockCallback_(&saiRxDmaBuf[dBSP_AUDIO_BLOCK_WORDS],
+                                     &saiTxDmaBuf[dBSP_AUDIO_BLOCK_WORDS],
+                                     dBSP_AUDIO_BLOCK_SAMPLES);
         }
     }
 }
@@ -433,6 +521,21 @@ void Bsp::MpuConfig(void)
     mpuInitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
 
     HAL_MPU_ConfigRegion(&mpuInitStruct);
+
+    // Regiao 1: D3 SRAM4 (0x38000000, 16KB) Normal Non-Cacheable para buffers BDMA
+    mpuInitStruct.Enable = MPU_REGION_ENABLE;
+    mpuInitStruct.Number = MPU_REGION_NUMBER1;
+    mpuInitStruct.BaseAddress = 0x38000000UL;
+    mpuInitStruct.Size = MPU_REGION_SIZE_16KB;
+    mpuInitStruct.SubRegionDisable = 0x00U;
+    mpuInitStruct.TypeExtField = MPU_TEX_LEVEL1;
+    mpuInitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+    mpuInitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_DISABLE;
+    mpuInitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+    mpuInitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+    mpuInitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+    HAL_MPU_ConfigRegion(&mpuInitStruct);
     HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
 }
 
@@ -505,6 +608,11 @@ void Bsp::GpioConfig(void)
     gpioInitStruct.Pull = GPIO_PULLUP;
     gpioInitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOC, &gpioInitStruct);
+
+    // Fecha as chaves analogicas internas de PC2 e PC3 para roteamento dos pinos PC2_C/PC3_C
+    __HAL_RCC_SYSCFG_CLK_ENABLE();
+    HAL_SYSCFG_AnalogSwitchConfig(SYSCFG_SWITCH_PC2, SYSCFG_SWITCH_PC2_CLOSE);
+    HAL_SYSCFG_AnalogSwitchConfig(SYSCFG_SWITCH_PC3, SYSCFG_SWITCH_PC3_CLOSE);
 
     // 3. Reset de hardware do Codec CS4272 (PD10)
     gpioInitStruct.Pin = dPIN_CS4272_RST;
@@ -630,6 +738,127 @@ void Bsp::Usart3Config(void)
     HAL_NVIC_EnableIRQ(USART3_IRQn);
     USART3->CR1 = ((u32)USART_CR1_TE | (u32)USART_CR1_RE | (u32)USART_CR1_UE |
                    (u32)USART_CR1_RXNEIE_RXFNEIE);
+}
+
+/******************************************************************************/
+/** @brief Configura o transporte de audio SAI4 + BDMA em modo ping-pong 48 kHz.
+ * @param Nenhum.
+ * @retval Nenhum.
+ ******************************************************************************/
+void Bsp::Sai4Config(void)
+{
+    // 1. Configuracao da PLL3 para barramento SAI4 (49.152 MHz)
+    RCC_PeriphCLKInitTypeDef periphClkInit = {};
+    periphClkInit.PeriphClockSelection = RCC_PERIPHCLK_SAI4A | RCC_PERIPHCLK_SAI4B;
+    periphClkInit.Sai4AClockSelection = RCC_SAI4ACLKSOURCE_PLL3;
+    periphClkInit.Sai4BClockSelection = RCC_SAI4BCLKSOURCE_PLL3;
+    periphClkInit.PLL3.PLL3M = 5U;
+    periphClkInit.PLL3.PLL3N = 98U;
+    periphClkInit.PLL3.PLL3P = 10U;
+    periphClkInit.PLL3.PLL3Q = 10U;
+    periphClkInit.PLL3.PLL3R = 10U;
+    periphClkInit.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_2;
+    periphClkInit.PLL3.PLL3VCOSEL = RCC_PLL3VCOWIDE;
+    periphClkInit.PLL3.PLL3FRACN = 2490U;
+
+    if(HAL_RCCEx_PeriphCLKConfig(&periphClkInit) != HAL_OK)
+    {
+        ErrorHandler();
+    }
+
+    // 2. Habilita clocks de barramento para SAI4 e BDMA / DMAMUX2
+    __HAL_RCC_SAI4_CLK_ENABLE();
+    __HAL_RCC_BDMA_CLK_ENABLE();
+
+    // 3. Inicializa buffers em silencio
+    for(u32 i = 0U; i < dBSP_AUDIO_BUFFER_SIZE; i++)
+    {
+        saiRxDmaBuf[i] = 0;
+        saiTxDmaBuf[i] = 0;
+    }
+
+    // 4. Configuracao do DMAMUX2 para roteamento das requisicoes SAI4
+    DMAMUX2_Channel0->CCR = BDMA_REQUEST_SAI4_B;
+    DMAMUX2_Channel1->CCR = BDMA_REQUEST_SAI4_A;
+
+    // 5. Configuracao do BDMA Canal 0 (Recepcao: SAI4_Block_B->DR -> saiRxDmaBuf)
+    BDMA_Channel0->CCR = 0U;
+    while((BDMA_Channel0->CCR & BDMA_CCR_EN) != 0U)
+    {
+        // Aguarda desabilitacao do canal
+    }
+    BDMA->IFCR = (BDMA_IFCR_CGIF0 | BDMA_IFCR_CGIF1);
+    BDMA_Channel0->CPAR = (uint32_t)(&(SAI4_Block_B->DR));
+    BDMA_Channel0->CM0AR = (uint32_t)saiRxDmaBuf;
+    BDMA_Channel0->CNDTR = dBSP_AUDIO_BUFFER_SIZE;
+    BDMA_Channel0->CCR = (BDMA_CCR_CIRC | BDMA_CCR_MINC |
+                          BDMA_CCR_PSIZE_1 | BDMA_CCR_MSIZE_1 |
+                          BDMA_CCR_PL_1 | BDMA_CCR_PL_0 |
+                          BDMA_CCR_HTIE | BDMA_CCR_TCIE | BDMA_CCR_TEIE |
+                          BDMA_CCR_EN);
+
+    // 6. Configuracao do BDMA Canal 1 (Transmissao: saiTxDmaBuf -> SAI4_Block_A->DR)
+    BDMA_Channel1->CCR = 0U;
+    while((BDMA_Channel1->CCR & BDMA_CCR_EN) != 0U)
+    {
+        // Aguarda desabilitacao do canal
+    }
+    BDMA_Channel1->CPAR = (uint32_t)(&(SAI4_Block_A->DR));
+    BDMA_Channel1->CM0AR = (uint32_t)saiTxDmaBuf;
+    BDMA_Channel1->CNDTR = dBSP_AUDIO_BUFFER_SIZE;
+    BDMA_Channel1->CCR = (BDMA_CCR_DIR | BDMA_CCR_CIRC | BDMA_CCR_MINC |
+                          BDMA_CCR_PSIZE_1 | BDMA_CCR_MSIZE_1 |
+                          BDMA_CCR_PL_1 |
+                          BDMA_CCR_EN);
+
+    // 7. Configuracao das interrupcoes do BDMA Canal 0 no NVIC
+    HAL_NVIC_SetPriority(BDMA_Channel0_IRQn, 6U, 0U);
+    HAL_NVIC_EnableIRQ(BDMA_Channel0_IRQn);
+
+    // 8. Configuracao do SAI4 Bloco A (Master TX Assincrono, 24 bits em slot 32 bits)
+    SAI4_Block_A->CR1 = 0U;
+    while((SAI4_Block_A->CR1 & SAI_xCR1_SAIEN) != 0U)
+    {
+        // Aguarda desabilitacao
+    }
+    SAI4_Block_A->CR2 = (SAI_xCR2_FTH_0 | SAI_xCR2_FFLUSH);
+    SAI4_Block_A->CLRFR = 0x7FUL;
+    SAI4_Block_A->FRCR = ((63U << SAI_xFRCR_FRL_Pos) |
+                          (31U << SAI_xFRCR_FSALL_Pos) |
+                          SAI_xFRCR_FSDEF |
+                          SAI_xFRCR_FSOFF);
+    SAI4_Block_A->SLOTR = ((0x0003UL << SAI_xSLOTR_SLOTEN_Pos) |
+                           (1U << SAI_xSLOTR_NBSLOT_Pos) |
+                           SAI_xSLOTR_SLOTSZ_1);
+    SAI4_Block_A->CR1 = ((4U << SAI_xCR1_MCKDIV_Pos) |
+                         SAI_xCR1_MCKEN |
+                         SAI_xCR1_OUTDRIV |
+                         SAI_xCR1_DMAEN |
+                         SAI_xCR1_CKSTR |
+                         SAI_xCR1_DS_2 |
+                         SAI_xCR1_DS_0);
+
+    // 9. Configuracao do SAI4 Bloco B (Slave RX Sincrono com Bloco A, 24 bits)
+    SAI4_Block_B->CR1 = 0U;
+    while((SAI4_Block_B->CR1 & SAI_xCR1_SAIEN) != 0U)
+    {
+        // Aguarda desabilitacao
+    }
+    SAI4_Block_B->CR2 = SAI_xCR2_FFLUSH;
+    SAI4_Block_B->CLRFR = 0x7FUL;
+    SAI4_Block_B->FRCR = SAI4_Block_A->FRCR;
+    SAI4_Block_B->SLOTR = SAI4_Block_A->SLOTR;
+    SAI4_Block_B->CR1 = (SAI_xCR1_MODE_1 |
+                         SAI_xCR1_MODE_0 |
+                         SAI_xCR1_SYNCEN_0 |
+                         SAI_xCR1_DMAEN |
+                         SAI_xCR1_CKSTR |
+                         SAI_xCR1_DS_2 |
+                         SAI_xCR1_DS_0);
+
+    // 10. Habilitacao dos blocos SAI: Slave B primeiro, Master A por ultimo
+    SAI4_Block_B->CR1 |= SAI_xCR1_SAIEN;
+    SAI4_Block_A->CR1 |= SAI_xCR1_SAIEN;
 }
 
 /** @} DOXYGEN GROUP TAG END OF FILE */

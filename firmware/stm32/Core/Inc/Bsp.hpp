@@ -47,6 +47,13 @@
 /// Codigo de erro padrao para falha critica de hardware
 #define dBSP_ERROR_CRITICAL                 0xFFFFFFFFUL
 
+/// Constantes do pipeline de audio SAI4 + BDMA
+#define dBSP_AUDIO_SAMPLE_RATE_HZ           48000.0f
+#define dBSP_AUDIO_BLOCK_SAMPLES            64U
+#define dBSP_AUDIO_CHANNELS                 2U
+#define dBSP_AUDIO_BLOCK_WORDS              (dBSP_AUDIO_BLOCK_SAMPLES * dBSP_AUDIO_CHANNELS)
+#define dBSP_AUDIO_BUFFER_SIZE              (dBSP_AUDIO_BLOCK_WORDS * 2U)
+
 /*******************************************************************************
  * TIPOS DE DADOS PUBLICOS
  ******************************************************************************/
@@ -57,8 +64,12 @@ typedef enum
     eBSP_STATUS_ERROR,
     eBSP_STATUS_CLOCK_ERROR,
     eBSP_STATUS_I2C_ERROR,
-    eBSP_STATUS_CODEC_ERROR
+    eBSP_STATUS_CODEC_ERROR,
+    eBSP_STATUS_SAI_ERROR
 } bspStatus_t;
+
+/// Tipo de ponteiro para funcao de callback de bloco de audio
+typedef void (*bspAudioBlockCallback_t)(const s32 *pRx, s32 *pTx, u32 frameCount);
 
 /*******************************************************************************
  * PROTOTIPOS PUBLICOS
@@ -70,6 +81,7 @@ extern "C"
 
 void SysTick_Handler(void);
 void USART3_IRQHandler(void);
+void BDMA_Channel0_IRQHandler(void);
 
 #ifdef __cplusplus
 }
@@ -99,14 +111,23 @@ public:
     static u32 Usart3RxDroppedBytes(void);
     static u32 Usart3RxHardwareErrors(void);
 
+    static void SetAudioCallback(bspAudioBlockCallback_t callback);
+    static u32 AudioBlockCount(void);
+    static u32 AudioHardwareErrors(void);
+
     static void ErrorHandler(void);
 
     static I2C_HandleTypeDef* GetI2c1Handle(void);
     static USART_TypeDef* GetUsart3Handle(void);
 
+    friend void ::BDMA_Channel0_IRQHandler(void);
+
 private:
     static bool isInitialized_;
     static bool ledOnboardState_;
+    static bspAudioBlockCallback_t audioBlockCallback_;
+    static volatile u32 audioBlockCount_;
+    static volatile u32 audioHardwareErrors_;
 
     static void SystemClockConfig(void);
     static void MpuConfig(void);
@@ -115,6 +136,7 @@ private:
     static void GpioConfig(void);
     static void I2c1Config(void);
     static void Usart3Config(void);
+    static void Sai4Config(void);
 };
 
 #endif /* _BSP_HPP_ */
