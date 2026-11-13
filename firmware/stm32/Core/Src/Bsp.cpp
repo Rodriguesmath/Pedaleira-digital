@@ -836,7 +836,7 @@ void Bsp::Sai4Config(void)
                          SAI_xCR1_DMAEN |
                          SAI_xCR1_CKSTR |
                          SAI_xCR1_DS_2 |
-                         SAI_xCR1_DS_0);
+                         SAI_xCR1_DS_1);
 
     // 9. Configuracao do SAI4 Bloco B (Slave RX Sincrono com Bloco A, 24 bits)
     SAI4_Block_B->CR1 = 0U;
@@ -854,7 +854,7 @@ void Bsp::Sai4Config(void)
                          SAI_xCR1_DMAEN |
                          SAI_xCR1_CKSTR |
                          SAI_xCR1_DS_2 |
-                         SAI_xCR1_DS_0);
+                         SAI_xCR1_DS_1);
 
     // 10. Habilitacao dos blocos SAI: Slave B primeiro, Master A por ultimo
     SAI4_Block_B->CR1 |= SAI_xCR1_SAIEN;
