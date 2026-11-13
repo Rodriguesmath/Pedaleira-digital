@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "mvpA") (type "KiCad") (uri "${KIPRJMOD}/mvp_revA.kicad_sym") (options "") (descr "MVP Rev. A"))
+)

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "filename": "esquematica_mvp_unificada.kicad_pro",
+    "version": 1
+  },
+  "erc": {
+    "erc_exclusions": [],
+    "rule_severities": {
+      "single_global_label": "warning",
+      "four_way_junction": "warning",
+      "simulation_model_issue": "warning",
+      "footprint_filter": "warning"
+    }
+  }
+}

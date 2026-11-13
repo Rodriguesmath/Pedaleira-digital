@@ -1,0 +1,3888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/rodrigues/Pedaleira-digital/output/MVP_REVA/kicad_unificada/esquematica_mvp_unificada.kicad_sch</source>
+    <date>2026-11-12T21:06:17</date>
+    <tool>Eeschema 10.0.8-1.fc44</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Pedaleira Digital MVP Rev. A — Esquemática Unificada</title>
+        <company>Rodrigues M. Lima</company>
+        <rev>MVP-A</rev>
+        <date/>
+        <source>esquematica_mvp_unificada.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C1" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e9b0ce5-f050-594f-9e2d-d1dfda5ebbac</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Eletrolítico radial &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C2" description=""/>
+      <property name="Package_note" value="Eletrolítico radial &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f4f974c-acf5-5242-ba63-39a958ec7a37</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>2.2 nF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C4" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b74511a0-520d-5769-a093-54410c4e6f62</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Radial eletrolítico ≥25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C5" description=""/>
+      <property name="Package_note" value="Radial eletrolítico ≥25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>23e02783-fb8e-52a9-9681-a1f1cbfd7d0c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>2.2 nF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C6" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9ff4fe8d-3466-5a9b-94b1-12df8ebe64dd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Eletrolítico radial &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C10" description=""/>
+      <property name="Package_note" value="Eletrolítico radial &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bce7b24e-0c25-5ab2-ac2a-ef84f2d75f87</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Eletrolítico radial &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C11" description=""/>
+      <property name="Package_note" value="Eletrolítico radial &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>353fbefd-f598-5ea3-8992-b11d16ad56fe</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>47 uF</value>
+      <fields>
+        <field name="Package_note">Radial eletrolítico, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C12" description=""/>
+      <property name="Package_note" value="Radial eletrolítico, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>96fcf57c-28fb-5a09-bbbe-1771089d8a86</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C13" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>64244b12-7b16-50de-9d80-e9d5f6c6c8b8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>1 uF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C14" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>65afc939-bb4b-561d-95f2-80fdbb202095</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C15" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4a620507-e505-59fc-bc68-536fcd6a73a6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C16">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Eletrolítico radial &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C16" description=""/>
+      <property name="Package_note" value="Eletrolítico radial &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93d0db84-fde6-5e26-af40-3c8187af50f4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C18">
+      <value>22 pF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico C0G/NP0, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C18" description=""/>
+      <property name="Package_note" value="Radial cerâmico C0G/NP0, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f62f14b-2aef-591f-b86a-fddb3d7e7696</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C19">
+      <value>22 pF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico C0G/NP0, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C19" description=""/>
+      <property name="Package_note" value="Radial cerâmico C0G/NP0, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b59a648a-f5ed-50c8-96b7-d35ede7e218a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C20">
+      <value>680 pF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C20" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1d36bd5b-c2a3-5168-9266-e2f77c558bf1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C21">
+      <value>330 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C21" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5c0fadae-804e-5a2d-81ff-0e1ff869f63d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C22" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a57a3027-3398-5e31-9ee6-733356b1c679</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C23">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C23" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0ea79cd6-fde5-52fb-90c2-6ad727d87309</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C24">
+      <value>1 uF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C24" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c5898de-cb17-504c-9f2e-7c32b0ac85d1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C25">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C25" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b305e151-9192-5a09-8e12-6d8f2fcc4d7c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C26">
+      <value>1 uF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C26" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5c057dab-5120-5e73-9cfa-a396b519f9b9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C27">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C27" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>13f3cad3-57eb-58d0-a595-3d609f7a5e39</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C28">
+      <value>1 uF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C28" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>940fc649-98a4-5dc0-ad2a-fee26c11fe5f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C29">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C29" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>53e1d85e-4dcd-5c51-bf70-84bc110895b4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C30">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Radial eletrolítico ≥25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C30" description=""/>
+      <property name="Package_note" value="Radial eletrolítico ≥25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>023c0411-b49b-5f6a-9995-1f8d0abf835f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C31">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C31" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0b33cb5d-59e7-5ce4-8b28-4c389da16587</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C32">
+      <value>10 uF</value>
+      <fields>
+        <field name="Package_note">Radial eletrolítico ≥25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C32" description=""/>
+      <property name="Package_note" value="Radial eletrolítico ≥25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ac807bad-103e-5974-9178-4e405290ec76</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C33">
+      <value>220 uF</value>
+      <fields>
+        <field name="Package_note">Radial eletrolítico, &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C33" description=""/>
+      <property name="Package_note" value="Radial eletrolítico, &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d6205a1e-276f-54f0-b617-15d103edece2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C34">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">Radial cerâmico X7R &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C34" description=""/>
+      <property name="Package_note" value="Radial cerâmico X7R &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8e67295e-4156-571d-b014-14587dacae35</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C35">
+      <value>100 pF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C35" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>394386ff-4f47-50a2-92f8-5eb5ea376927</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C36">
+      <value>100 pF</value>
+      <fields>
+        <field name="Package_note">Cerâmico &gt;=25 V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C36" description=""/>
+      <property name="Package_note" value="Cerâmico &gt;=25 V"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e8c0b684-8006-5e0f-a672-6d5c8ba586a1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C37">
+      <value>1000 uF</value>
+      <fields>
+        <field name="Package_note">Radial</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C37" description=""/>
+      <property name="Package_note" value="Radial"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e9b7834-3bee-5df8-9987-0dc2b29498d1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C38">
+      <value>470 uF</value>
+      <fields>
+        <field name="Package_note">Radial</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C38" description=""/>
+      <property name="Package_note" value="Radial"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>226a80f8-1e4b-56b4-a10b-f3afacfc54d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C39">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C39" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>de3f0bbb-c685-5709-9661-08e18ece5653</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C40">
+      <value>100 uF</value>
+      <fields>
+        <field name="Package_note">Radial</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C40" description=""/>
+      <property name="Package_note" value="Radial"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6180f5be-c46a-5b88-9769-5483eb49aba0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C41">
+      <value>100 nF</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="C41" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ed89f9ad-4550-55b4-87a3-d449b01d892c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>1N4007</value>
+      <fields>
+        <field name="Package_note">DO-41</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D1" description=""/>
+      <property name="Package_note" value="DO-41"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>416d9a7a-e490-57c9-9773-6111818f245d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>LED Overdrive</value>
+      <fields>
+        <field name="Package_note">LED THT 3/5 mm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D2" description=""/>
+      <property name="Package_note" value="LED THT 3/5 mm"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6270660f-1be8-5e93-9c5b-ef00b77d76e2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>LED Equalizador</value>
+      <fields>
+        <field name="Package_note">LED THT 3/5 mm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D3" description=""/>
+      <property name="Package_note" value="LED THT 3/5 mm"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>37c8d915-f4e4-51e5-b5bc-35900642b23f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>LED Delay</value>
+      <fields>
+        <field name="Package_note">LED THT 3/5 mm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D4" description=""/>
+      <property name="Package_note" value="LED THT 3/5 mm"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d2664a9d-09d1-5cc4-b219-1ed3f611888f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D5">
+      <value>LED Mute / status</value>
+      <fields>
+        <field name="Package_note">LED THT 3/5 mm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D5" description=""/>
+      <property name="Package_note" value="LED THT 3/5 mm"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bcdb0fa9-d997-5457-a271-81bd3d2c53e7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D6">
+      <value>1N4007</value>
+      <fields>
+        <field name="Package_note">DO-41</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D6" description=""/>
+      <property name="Package_note" value="DO-41"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fb08583d-0ef7-5bb0-87e9-f59945dd3722</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D7">
+      <value>1N4007</value>
+      <fields>
+        <field name="Package_note">DO-41</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D7" description=""/>
+      <property name="Package_note" value="DO-41"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a47d2d4e-68e7-50ce-a3b5-5bad1c1d7c20</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D8">
+      <value>1N4007</value>
+      <fields>
+        <field name="Package_note">DO-41</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D8" description=""/>
+      <property name="Package_note" value="DO-41"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8b04c166-fdee-58f3-9cda-7620fc29a197</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D13">
+      <value>1N4007</value>
+      <fields>
+        <field name="Package_note">DO-41</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D13" description=""/>
+      <property name="Package_note" value="DO-41"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4211cd4d-2766-57ba-b818-367a8fdc8a59</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D14">
+      <value>1N4007</value>
+      <fields>
+        <field name="Package_note">DO-41</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="D14" description=""/>
+      <property name="Package_note" value="DO-41"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c425b201-33fb-52f0-b08d-8d4b709c1503</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H_ESP32">
+      <value>ESP32 DevKit V1</value>
+      <fields>
+        <field name="Package_note">DevKit ESP32-WROOM (não WROVER)</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="H_ESP32" description=""/>
+      <property name="Package_note" value="DevKit ESP32-WROOM (não WROVER)"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae2ae625-36f0-59fe-a129-1f02d230c50f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="RX2"/>
+            <pin num="TX2"/>
+            <pin num="VIN"/>
+            <pin num="3V3"/>
+            <pin num="GND"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H_STM32">
+      <value>WeAct STM32H723 V1.2</value>
+      <fields>
+        <field name="Package_note">WeAct V1.2, P1/P2 2x22</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="H_STM32" description=""/>
+      <property name="Package_note" value="WeAct V1.2, P1/P2 2x22"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ad912ed8-bbb4-5bf3-86ca-b96fc44a3c2d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="P1.4"/>
+            <pin num="P2.5"/>
+            <pin num="P2.6"/>
+            <pin num="P2.7"/>
+            <pin num="P2.17"/>
+            <pin num="P1.6"/>
+            <pin num="P1.5"/>
+            <pin num="P1.38"/>
+            <pin num="P1.2"/>
+            <pin num="P2.2"/>
+            <pin num="P1.1"/>
+            <pin num="P1.40"/>
+            <pin num="P1.39"/>
+            <pin num="P2.11"/>
+            <pin num="P2.12"/>
+            <pin num="P2.13"/>
+            <pin num="P2.14"/>
+            <pin num="P2.30"/>
+            <pin num="P2.31"/>
+            <pin num="P2.32"/>
+            <pin num="P2.38"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>IN P10 mono</value>
+      <fields>
+        <field name="Package_note">Conector THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="J2" description=""/>
+      <property name="Package_note" value="Conector THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>acaa8f87-0b03-5f8a-8257-a0cb4bfb5690</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>OUT P10 mono</value>
+      <fields>
+        <field name="Package_note">Conector THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="J3" description=""/>
+      <property name="Package_note" value="Conector THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5be5f1f7-6adc-50e2-a31d-b7ea726c7136</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>VA / aberto</value>
+      <fields>
+        <field name="Package_note">Header 1x02 2,54 mm + shunt removível</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="J5" description=""/>
+      <property name="Package_note" value="Header 1x02 2,54 mm + shunt removível"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2b61c10d-cc68-518e-a2c2-10f61a541de7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="PSU_12V">
+      <value>Bancada 12V</value>
+      <fields>
+        <field name="Package_note">Bornes / fios perfboard</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="PSU_12V" description=""/>
+      <property name="Package_note" value="Bornes / fios perfboard"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <property name="exclude_from_board"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b174f15d-78d7-56e1-9074-66b947b85ae2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>100 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R1" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b72d40c0-69a3-5e12-895f-4516814f4cd4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>49.9 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R2" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2791d0f4-63cc-5fc4-a7f0-bb6fcf834283</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>1 Mohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R3" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>380852fe-81e6-5573-a6f5-fabf3b4bf57e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>220 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R4" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>03e6090f-88fd-5280-aec3-cff27820b89c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>220 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R5" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4d509922-f93e-56ab-9720-5641e7dca7a6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>47 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R6" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f840f22-9391-5455-93bb-efb80f7ded51</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>100 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R7" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>adfe3093-26bf-5a94-a2b1-e88c23c288d9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>49.9 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R8" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d6de00e8-cd20-5cce-aeef-b79317daa6fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>100 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R10" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d76210e1-d624-5f7f-b083-52389d544afc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>4.7 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R11" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d76f0a83-1ed8-581c-9255-b2dcdf57eb6b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>4.7 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R12" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ddb4489e-9104-5b60-85e0-6a45cb151143</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>10 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R13" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1d61d409-5719-5e83-85db-7ffac70321a0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>47 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R14" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dd29bcca-7f61-5272-b12a-f98cde08f4f7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>100 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R15" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>296cc64f-c13b-5978-8899-5284e94e6a62</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>100 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R16" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4b100af2-eafe-5f5c-8b69-72b614866a95</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>10 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R17" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a63df99b-7874-5b05-8d1e-b9543f2d801f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>1.5 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R18" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9c49ebf2-2f95-5159-81e3-b48dafe2a230</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>10 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 0,1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R19" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 0,1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4e0b8c9-3e0d-5c8f-a586-05eaeac53bfa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>1.5 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R20" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>85642399-ecc2-591e-95bb-2ce209c1abfc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>910 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R21" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9904cdce-616d-5abe-9d84-ec4ca0692949</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>2.2 kohm</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R22" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a21e090a-3983-56e5-9064-27981237bef0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>2.2 kohm</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R23" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2831e203-e98c-5d09-a5a7-970caa5cb89b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>10 kohm</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R24" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c41f8247-ffd3-5fb1-bdb3-91dc92232ff3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R26">
+      <value>1 kohm</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R26" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d37c22c4-1249-5573-9a7e-58bdd610337b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R27">
+      <value>13 kohm</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R27" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c9848e96-df0d-5d9a-bef3-98ac2b2106b7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R28">
+      <value>12 kohm</value>
+      <fields>
+        <field name="Package_note">THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R28" description=""/>
+      <property name="Package_note" value="THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7bbbec59-520c-5f83-8881-512c25d74a9d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R_D2">
+      <value>330 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R_D2" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9c0d7729-7a2b-5f18-a854-9c113dbd57c6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R_D3">
+      <value>330 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R_D3" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ac88b01-0a39-5bca-bf52-272c1d289cb4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R_D4">
+      <value>330 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R_D4" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>143bedb6-b49b-5083-a80b-b69fb6b58b8e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R_D5">
+      <value>330 ohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R_D5" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2aa7f63d-04b3-52ac-9455-a19e66595fc7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R_URX">
+      <value>1 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R_URX" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2dcd814d-9172-5969-b7ee-223d70e7c255</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R_UTX">
+      <value>1 kohm</value>
+      <fields>
+        <field name="Package_note">Axial DIN0207, 1/4 W, 1%</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="R_UTX" description=""/>
+      <property name="Package_note" value="Axial DIN0207, 1/4 W, 1%"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8889e7a4-e7c9-59f1-95a4-6124658691e4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW1">
+      <value>MTS-102</value>
+      <fields>
+        <field name="Package_note">MTS-102 SPDT THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="SW1" description=""/>
+      <property name="Package_note" value="MTS-102 SPDT THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>63c4d518-5983-5431-b4f8-6fcf65b7c982</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="C"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW2">
+      <value>MTS-102</value>
+      <fields>
+        <field name="Package_note">MTS-102 SPDT THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="SW2" description=""/>
+      <property name="Package_note" value="MTS-102 SPDT THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>43725453-77b6-5712-8e09-82fa50654639</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="C"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW3">
+      <value>MTS-102</value>
+      <fields>
+        <field name="Package_note">MTS-102 SPDT THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="SW3" description=""/>
+      <property name="Package_note" value="MTS-102 SPDT THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>89527ac3-21ae-50f7-b7c0-122f7f8b6285</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="C"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW4">
+      <value>MTS-102</value>
+      <fields>
+        <field name="Package_note">MTS-102 SPDT THT</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="SW4" description=""/>
+      <property name="Package_note" value="MTS-102 SPDT THT"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5fa201e9-5016-5d8f-aa34-03ca3c4b79ca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="C"/>
+            <pin num="2"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>TL072</value>
+      <fields>
+        <field name="Package_note">DIP-8</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="U1" description=""/>
+      <property name="Package_note" value="DIP-8"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d6834d9e-cc27-5c2c-b851-a6ae284ad952 c4b750af-7c27-5cbe-bb51-5e84be0917e6 015d19a1-06b6-53ed-bce8-c235d44e09b6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+        <unit name="B">
+          <pins>
+            <pin num="6"/>
+            <pin num="5"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+        <unit name="C">
+          <pins>
+            <pin num="8"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>CS4272</value>
+      <fields>
+        <field name="Package_note">TSSOP-28, adaptador 0,65 mm já existente</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="U2" description=""/>
+      <property name="Package_note" value="TSSOP-28, adaptador 0,65 mm já existente"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fa754eff-854e-5ca1-983c-0743c30a0cd3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="7"/>
+            <pin num="6"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="14"/>
+            <pin num="13"/>
+            <pin num="2"/>
+            <pin num="1"/>
+            <pin num="8"/>
+            <pin num="21"/>
+            <pin num="20"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="15"/>
+            <pin num="22"/>
+            <pin num="17"/>
+            <pin num="16"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="25"/>
+            <pin num="24"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="23"/>
+            <pin num="28"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>TL072</value>
+      <fields>
+        <field name="Package_note">DIP-8</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="U3" description=""/>
+      <property name="Package_note" value="DIP-8"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ff6d86b8-5c3c-55da-abad-0fa789f5f303 f4d0fc2e-9d28-5021-8e6b-2944994d82fb 45208a05-86a8-5301-82c1-5cb3ceaa9d87</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="1"/>
+          </pins>
+        </unit>
+        <unit name="B">
+          <pins>
+            <pin num="6"/>
+            <pin num="5"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+        <unit name="C">
+          <pins>
+            <pin num="8"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U5">
+      <value>CW7805</value>
+      <fields>
+        <field name="Package_note">TO-220; fabricante e pinagem CW7805 a confirmar</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mvpA" part="U5" description=""/>
+      <property name="Package_note" value="TO-220; fabricante e pinagem CW7805 a confirmar"/>
+      <property name="Sheetname" value="esquematica_mvp_unificada"/>
+      <property name="Sheetfile" value="esquematica_mvp_unificada.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b9110b15-fde9-5682-9bab-e19c6c1c1243</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="mvpA" part="C1">
+      <fields>
+        <field name="Reference">C1</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C10">
+      <fields>
+        <field name="Reference">C10</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C11">
+      <fields>
+        <field name="Reference">C11</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C12">
+      <fields>
+        <field name="Reference">C12</field>
+        <field name="Value">47 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C13">
+      <fields>
+        <field name="Reference">C13</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C14">
+      <fields>
+        <field name="Reference">C14</field>
+        <field name="Value">1 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C15">
+      <fields>
+        <field name="Reference">C15</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C16">
+      <fields>
+        <field name="Reference">C16</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C18">
+      <fields>
+        <field name="Reference">C18</field>
+        <field name="Value">22 pF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C19">
+      <fields>
+        <field name="Reference">C19</field>
+        <field name="Value">22 pF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C2">
+      <fields>
+        <field name="Reference">C2</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C20">
+      <fields>
+        <field name="Reference">C20</field>
+        <field name="Value">680 pF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C21">
+      <fields>
+        <field name="Reference">C21</field>
+        <field name="Value">330 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C22">
+      <fields>
+        <field name="Reference">C22</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C23">
+      <fields>
+        <field name="Reference">C23</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C24">
+      <fields>
+        <field name="Reference">C24</field>
+        <field name="Value">1 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C25">
+      <fields>
+        <field name="Reference">C25</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C26">
+      <fields>
+        <field name="Reference">C26</field>
+        <field name="Value">1 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C27">
+      <fields>
+        <field name="Reference">C27</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C28">
+      <fields>
+        <field name="Reference">C28</field>
+        <field name="Value">1 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C29">
+      <fields>
+        <field name="Reference">C29</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C30">
+      <fields>
+        <field name="Reference">C30</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C31">
+      <fields>
+        <field name="Reference">C31</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C32">
+      <fields>
+        <field name="Reference">C32</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C33">
+      <fields>
+        <field name="Reference">C33</field>
+        <field name="Value">220 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C34">
+      <fields>
+        <field name="Reference">C34</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C35">
+      <fields>
+        <field name="Reference">C35</field>
+        <field name="Value">100 pF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C36">
+      <fields>
+        <field name="Reference">C36</field>
+        <field name="Value">100 pF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C37">
+      <fields>
+        <field name="Reference">C37</field>
+        <field name="Value">1000 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C38">
+      <fields>
+        <field name="Reference">C38</field>
+        <field name="Value">470 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C39">
+      <fields>
+        <field name="Reference">C39</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C4">
+      <fields>
+        <field name="Reference">C4</field>
+        <field name="Value">2.2 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C40">
+      <fields>
+        <field name="Reference">C40</field>
+        <field name="Value">100 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C41">
+      <fields>
+        <field name="Reference">C41</field>
+        <field name="Value">100 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C5">
+      <fields>
+        <field name="Reference">C5</field>
+        <field name="Value">10 uF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="C6">
+      <fields>
+        <field name="Reference">C6</field>
+        <field name="Value">2.2 nF</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D1">
+      <fields>
+        <field name="Reference">D1</field>
+        <field name="Value">1N4007</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D13">
+      <fields>
+        <field name="Reference">D13</field>
+        <field name="Value">1N4007</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D14">
+      <fields>
+        <field name="Reference">D14</field>
+        <field name="Value">1N4007</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D2">
+      <fields>
+        <field name="Reference">D2</field>
+        <field name="Value">LED Overdrive</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D3">
+      <fields>
+        <field name="Reference">D3</field>
+        <field name="Value">LED Equalizador</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D4">
+      <fields>
+        <field name="Reference">D4</field>
+        <field name="Value">LED Delay</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D5">
+      <fields>
+        <field name="Reference">D5</field>
+        <field name="Value">LED Mute / status</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D6">
+      <fields>
+        <field name="Reference">D6</field>
+        <field name="Value">1N4007</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D7">
+      <fields>
+        <field name="Reference">D7</field>
+        <field name="Value">1N4007</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="D8">
+      <fields>
+        <field name="Reference">D8</field>
+        <field name="Value">1N4007</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="H_ESP32">
+      <fields>
+        <field name="Reference">H_ESP32</field>
+        <field name="Value">ESP32 DevKit V1</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3V3" name="3V3_/_NC_externo" type="power_out"/>
+        <pin num="GND" name="GND" type="power_in"/>
+        <pin num="RX2" name="GPIO16_RX2" type="input"/>
+        <pin num="TX2" name="GPIO17_TX2" type="output"/>
+        <pin num="VIN" name="VIN_/_5V" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="H_STM32">
+      <fields>
+        <field name="Reference">H_STM32</field>
+        <field name="Value">WeAct STM32H723 V1.2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="P1.1" name="GND" type="power_in"/>
+        <pin num="P1.2" name="5V_header_/_NC_externo" type="power_in"/>
+        <pin num="P1.4" name="PE0_/_97_/_AF10" type="output"/>
+        <pin num="P1.5" name="PB9_/_96_/_AF4" type="bidirectional"/>
+        <pin num="P1.6" name="PB8_/_95_/_AF4" type="open_collector"/>
+        <pin num="P1.38" name="PD10_/_57_/_GPIO" type="output"/>
+        <pin num="P1.39" name="PD9_/_56_/_AF7" type="input"/>
+        <pin num="P1.40" name="PD8_/_55_/_AF7" type="output"/>
+        <pin num="P2.2" name="3V3_saída" type="power_out"/>
+        <pin num="P2.5" name="PE4_/_3_/_AF8" type="output"/>
+        <pin num="P2.6" name="PE5_/_4_/_AF8" type="output"/>
+        <pin num="P2.7" name="PE6_/_5_/_AF8" type="output"/>
+        <pin num="P2.11" name="PC0_/_15" type="input"/>
+        <pin num="P2.12" name="PC1_/_16" type="input"/>
+        <pin num="P2.13" name="PC2_C_/_17" type="input"/>
+        <pin num="P2.14" name="PC3_C_/_18" type="input"/>
+        <pin num="P2.17" name="PA0_/_22_/_AF10" type="input"/>
+        <pin num="P2.30" name="PE7_/_37" type="output"/>
+        <pin num="P2.31" name="PE8_/_38" type="output"/>
+        <pin num="P2.32" name="PE9_/_39" type="output"/>
+        <pin num="P2.38" name="PE15_/_45" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="J2">
+      <fields>
+        <field name="Reference">J2</field>
+        <field name="Value">IN P10 mono</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="J3">
+      <fields>
+        <field name="Reference">J3</field>
+        <field name="Value">OUT P10 mono</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="J5">
+      <fields>
+        <field name="Reference">J5</field>
+        <field name="Value">VA / aberto</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="PSU_12V">
+      <fields>
+        <field name="Reference">PSU_12V</field>
+        <field name="Value">Bancada 12V</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+12V" type="power_out"/>
+        <pin num="2" name="GND" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R1">
+      <fields>
+        <field name="Reference">R1</field>
+        <field name="Value">100 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R10">
+      <fields>
+        <field name="Reference">R10</field>
+        <field name="Value">100 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R11">
+      <fields>
+        <field name="Reference">R11</field>
+        <field name="Value">4.7 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R12">
+      <fields>
+        <field name="Reference">R12</field>
+        <field name="Value">4.7 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R13">
+      <fields>
+        <field name="Reference">R13</field>
+        <field name="Value">10 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R14">
+      <fields>
+        <field name="Reference">R14</field>
+        <field name="Value">47 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R15">
+      <fields>
+        <field name="Reference">R15</field>
+        <field name="Value">100 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R16">
+      <fields>
+        <field name="Reference">R16</field>
+        <field name="Value">100 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R17">
+      <fields>
+        <field name="Reference">R17</field>
+        <field name="Value">10 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R18">
+      <fields>
+        <field name="Reference">R18</field>
+        <field name="Value">1.5 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R19">
+      <fields>
+        <field name="Reference">R19</field>
+        <field name="Value">10 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R2">
+      <fields>
+        <field name="Reference">R2</field>
+        <field name="Value">49.9 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R20">
+      <fields>
+        <field name="Reference">R20</field>
+        <field name="Value">1.5 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R21">
+      <fields>
+        <field name="Reference">R21</field>
+        <field name="Value">910 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R22">
+      <fields>
+        <field name="Reference">R22</field>
+        <field name="Value">2.2 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R23">
+      <fields>
+        <field name="Reference">R23</field>
+        <field name="Value">2.2 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R24">
+      <fields>
+        <field name="Reference">R24</field>
+        <field name="Value">10 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R26">
+      <fields>
+        <field name="Reference">R26</field>
+        <field name="Value">1 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R27">
+      <fields>
+        <field name="Reference">R27</field>
+        <field name="Value">13 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R28">
+      <fields>
+        <field name="Reference">R28</field>
+        <field name="Value">12 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R3">
+      <fields>
+        <field name="Reference">R3</field>
+        <field name="Value">1 Mohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R4">
+      <fields>
+        <field name="Reference">R4</field>
+        <field name="Value">220 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R5">
+      <fields>
+        <field name="Reference">R5</field>
+        <field name="Value">220 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R6">
+      <fields>
+        <field name="Reference">R6</field>
+        <field name="Value">47 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R7">
+      <fields>
+        <field name="Reference">R7</field>
+        <field name="Value">100 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R8">
+      <fields>
+        <field name="Reference">R8</field>
+        <field name="Value">49.9 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R_D2">
+      <fields>
+        <field name="Reference">R_D2</field>
+        <field name="Value">330 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R_D3">
+      <fields>
+        <field name="Reference">R_D3</field>
+        <field name="Value">330 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R_D4">
+      <fields>
+        <field name="Reference">R_D4</field>
+        <field name="Value">330 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R_D5">
+      <fields>
+        <field name="Reference">R_D5</field>
+        <field name="Value">330 ohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R_URX">
+      <fields>
+        <field name="Reference">R_URX</field>
+        <field name="Value">1 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="R_UTX">
+      <fields>
+        <field name="Reference">R_UTX</field>
+        <field name="Value">1 kohm</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="SW1">
+      <fields>
+        <field name="Reference">SW1</field>
+        <field name="Value">MTS-102</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="SW2">
+      <fields>
+        <field name="Reference">SW2</field>
+        <field name="Value">MTS-102</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="SW3">
+      <fields>
+        <field name="Reference">SW3</field>
+        <field name="Value">MTS-102</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="SW4">
+      <fields>
+        <field name="Reference">SW4</field>
+        <field name="Value">MTS-102</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="C" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="U1">
+      <fields>
+        <field name="Reference">U1</field>
+        <field name="Value">TL072</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT_A" type="output"/>
+        <pin num="2" name="IN-_A" type="input"/>
+        <pin num="3" name="IN+_A" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="IN+_B" type="input"/>
+        <pin num="6" name="IN-_B" type="input"/>
+        <pin num="7" name="OUT_B" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="U2">
+      <fields>
+        <field name="Reference">U2</field>
+        <field name="Value">CS4272</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="XTO" type="output"/>
+        <pin num="2" name="XTI" type="input"/>
+        <pin num="3" name="MCLK" type="input"/>
+        <pin num="4" name="LRCK" type="input"/>
+        <pin num="5" name="SCLK" type="input"/>
+        <pin num="6" name="SDOUT" type="output"/>
+        <pin num="7" name="SDIN" type="input"/>
+        <pin num="8" name="DGND" type="power_in"/>
+        <pin num="9" name="VD" type="power_in"/>
+        <pin num="10" name="VL" type="power_in"/>
+        <pin num="11" name="SCL/CCLK" type="input"/>
+        <pin num="12" name="SDA/CDIN" type="bidirectional"/>
+        <pin num="13" name="AD0/CS" type="input"/>
+        <pin num="14" name="/RST" type="input"/>
+        <pin num="15" name="VCOM" type="output"/>
+        <pin num="16" name="AINA-" type="input"/>
+        <pin num="17" name="AINA+" type="input"/>
+        <pin num="18" name="AINB+" type="input"/>
+        <pin num="19" name="AINB-" type="input"/>
+        <pin num="20" name="VA" type="power_in"/>
+        <pin num="21" name="AGND" type="power_in"/>
+        <pin num="22" name="FILT+" type="output"/>
+        <pin num="23" name="AMUTEC" type="output"/>
+        <pin num="24" name="AOUTA-" type="output"/>
+        <pin num="25" name="AOUTA+" type="output"/>
+        <pin num="26" name="AOUTB+" type="output"/>
+        <pin num="27" name="AOUTB-" type="output"/>
+        <pin num="28" name="BMUTEC" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="U3">
+      <fields>
+        <field name="Reference">U3</field>
+        <field name="Value">TL072</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT_A" type="output"/>
+        <pin num="2" name="IN-_A" type="input"/>
+        <pin num="3" name="IN+_A" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="IN+_B" type="input"/>
+        <pin num="6" name="IN-_B" type="input"/>
+        <pin num="7" name="OUT_B" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mvpA" part="U5">
+      <fields>
+        <field name="Reference">U5</field>
+        <field name="Value">CW7805</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND_/_TAB" type="power_in"/>
+        <pin num="3" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="mvpA">
+      <uri>${KIPRJMOD}/mvp_revA.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+3V3_STM" class="Default">
+      <node ref="C25" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C26" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C27" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C28" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="H_STM32" pin="P2.2" pinfunction="3V3_saída_P2.2" pintype="power_out"/>
+      <node ref="R11" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R12" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="10" pinfunction="VL_10" pintype="power_in"/>
+      <node ref="U2" pin="9" pinfunction="VD_9" pintype="power_in"/>
+    </net>
+    <net code="2" name="/+5VA" class="Default">
+      <node ref="C23" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C24" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R27" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="20" pinfunction="VA_20" pintype="power_in"/>
+    </net>
+    <net code="3" name="/+5V_CW" class="Default">
+      <node ref="C22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C37" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="D8" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R21" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U5" pin="3" pinfunction="OUT_3" pintype="power_out"/>
+    </net>
+    <net code="4" name="/+RAW" class="Default">
+      <node ref="C21" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C29" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C30" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C31" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C32" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C33" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D8" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="R22" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="V+_8" pintype="power_in"/>
+      <node ref="U3" pin="8" pinfunction="V+_8" pintype="power_in"/>
+      <node ref="U5" pin="1" pinfunction="IN_1" pintype="power_in"/>
+    </net>
+    <net code="5" name="/12V_IN" class="Default">
+      <node ref="D1" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="PSU_12V" pin="1" pinfunction="+12V_1" pintype="power_out"/>
+    </net>
+    <net code="6" name="/ADC_BIAS" class="Default">
+      <node ref="C40" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C41" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R10" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R15" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R16" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R27" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R28" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="7" name="/ADC_DATA" class="Default">
+      <node ref="H_STM32" pin="P2.17" pinfunction="PA0_/_22_/_AF10_P2.17" pintype="input"/>
+      <node ref="R14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="SDOUT_6" pintype="output"/>
+    </net>
+    <net code="8" name="/ADC_N_AC" class="Default">
+      <node ref="C16" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="R20" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="9" name="/ADC_P_AC" class="Default">
+      <node ref="C2" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="R18" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="10" name="/AINA_N" class="Default">
+      <node ref="C16" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C20" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C36" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R16" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="16" pinfunction="AINA-_16" pintype="input"/>
+    </net>
+    <net code="11" name="/AINA_P" class="Default">
+      <node ref="C2" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C20" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C35" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R15" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="17" pinfunction="AINA+_17" pintype="input"/>
+    </net>
+    <net code="12" name="/AINB_CM" class="Default">
+      <node ref="C34" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R10" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U2" pin="18" pinfunction="AINB+_18" pintype="input"/>
+      <node ref="U2" pin="19" pinfunction="AINB-_19" pintype="input"/>
+    </net>
+    <net code="13" name="/AOUTA_N" class="Default">
+      <node ref="C11" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="U2" pin="24" pinfunction="AOUTA-_24" pintype="output"/>
+    </net>
+    <net code="14" name="/AOUTA_P" class="Default">
+      <node ref="C10" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="U2" pin="25" pinfunction="AOUTA+_25" pintype="output"/>
+    </net>
+    <net code="15" name="/BCLK" class="Default">
+      <node ref="H_STM32" pin="P2.6" pinfunction="PE5_/_4_/_AF8_P2.6" pintype="output"/>
+      <node ref="U2" pin="5" pinfunction="SCLK_5" pintype="input"/>
+    </net>
+    <net code="16" name="/CLAMP_N" class="Default">
+      <node ref="D14" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="D7" pin="2" pinfunction="K_2" pintype="passive"/>
+    </net>
+    <net code="17" name="/CLAMP_P" class="Default">
+      <node ref="D13" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="D6" pin="2" pinfunction="K_2" pintype="passive"/>
+    </net>
+    <net code="18" name="/CODEC_RST" class="Default">
+      <node ref="H_STM32" pin="P1.38" pinfunction="PD10_/_57_/_GPIO_P1.38" pintype="output"/>
+      <node ref="R13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="14" pinfunction="/RST_14" pintype="input"/>
+    </net>
+    <net code="19" name="/D2_A" class="Default">
+      <node ref="D2" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R_D2" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="20" name="/D3_A" class="Default">
+      <node ref="D3" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R_D3" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="21" name="/D4_A" class="Default">
+      <node ref="D4" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R_D4" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="22" name="/D5_A" class="Default">
+      <node ref="D5" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R_D5" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="23" name="/DAC_AC_N" class="Default">
+      <node ref="C11" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="R7" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="24" name="/DAC_AC_P" class="Default">
+      <node ref="C10" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="R1" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="25" name="/DAC_BUF" class="Default">
+      <node ref="R4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R8" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="OUT_B_7" pintype="output"/>
+    </net>
+    <net code="26" name="/DAC_DATA" class="Default">
+      <node ref="H_STM32" pin="P2.7" pinfunction="PE6_/_5_/_AF8_P2.7" pintype="output"/>
+      <node ref="U2" pin="7" pinfunction="SDIN_7" pintype="input"/>
+    </net>
+    <net code="27" name="/DAC_N" class="Default">
+      <node ref="R7" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R8" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="IN-_B_6" pintype="input"/>
+    </net>
+    <net code="28" name="/DAC_P" class="Default">
+      <node ref="R1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="IN+_B_5" pintype="input"/>
+    </net>
+    <net code="29" name="/DRV_N" class="Default">
+      <node ref="C19" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R19" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R20" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="7" pinfunction="OUT_B_7" pintype="output"/>
+    </net>
+    <net code="30" name="/DRV_P" class="Default">
+      <node ref="C18" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R17" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R18" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="OUT_A_1" pintype="output"/>
+    </net>
+    <net code="31" name="/ESP_UART_RX" class="Default">
+      <node ref="H_ESP32" pin="RX2" pinfunction="GPIO16_RX2_RX2" pintype="input"/>
+      <node ref="R_UTX" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="32" name="/ESP_UART_TX" class="Default">
+      <node ref="H_ESP32" pin="TX2" pinfunction="GPIO17_TX2_TX2" pintype="output"/>
+      <node ref="R_URX" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="33" name="/FB_N" class="Default">
+      <node ref="C19" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R19" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R24" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="6" pinfunction="IN-_B_6" pintype="input"/>
+    </net>
+    <net code="34" name="/FB_P" class="Default">
+      <node ref="C18" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R17" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U3" pin="2" pinfunction="IN-_A_2" pintype="input"/>
+    </net>
+    <net code="35" name="/FILT" class="Default">
+      <node ref="C12" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C13" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="22" pinfunction="FILT+_22" pintype="output"/>
+    </net>
+    <net code="36" name="/GND" class="Default">
+      <node ref="C12" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C14" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C15" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C23" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C24" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C25" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C26" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C27" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C28" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C29" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C30" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C31" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C32" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C33" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C34" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C35" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C36" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C37" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C38" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C39" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C40" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C41" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="C6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D4" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D5" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="H_ESP32" pin="GND" pinfunction="GND_GND" pintype="power_in"/>
+      <node ref="H_STM32" pin="P1.1" pinfunction="GND_P1.1" pintype="power_in"/>
+      <node ref="J2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="PSU_12V" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="R13" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R14" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R21" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R23" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R28" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R6" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="SW2" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="SW3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="SW4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="V-_4" pintype="power_in"/>
+      <node ref="U2" pin="13" pinfunction="AD0/CS_13" pintype="input"/>
+      <node ref="U2" pin="2" pinfunction="XTI_2" pintype="input"/>
+      <node ref="U2" pin="21" pinfunction="AGND_21" pintype="power_in"/>
+      <node ref="U2" pin="8" pinfunction="DGND_8" pintype="power_in"/>
+      <node ref="U3" pin="4" pinfunction="V-_4" pintype="power_in"/>
+      <node ref="U5" pin="2" pinfunction="GND_/_TAB_2" pintype="power_in"/>
+    </net>
+    <net code="37" name="/HI_Z" class="Default">
+      <node ref="D14" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D6" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R26" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="IN+_A_3" pintype="input"/>
+    </net>
+    <net code="38" name="/I2C_SCL" class="Default">
+      <node ref="H_STM32" pin="P1.6" pinfunction="PB8_/_95_/_AF4_P1.6" pintype="open_collector"/>
+      <node ref="R11" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U2" pin="11" pinfunction="SCL/CCLK_11" pintype="input"/>
+    </net>
+    <net code="39" name="/I2C_SDA" class="Default">
+      <node ref="H_STM32" pin="P1.5" pinfunction="PB9_/_96_/_AF4_P1.5" pintype="bidirectional"/>
+      <node ref="R12" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U2" pin="12" pinfunction="SDA/CDIN_12" pintype="bidirectional"/>
+    </net>
+    <net code="40" name="/INPUT_AC" class="Default">
+      <node ref="C1" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R26" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="41" name="/IN_BUF" class="Default">
+      <node ref="R24" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="OUT_A_1" pintype="output"/>
+      <node ref="U1" pin="2" pinfunction="IN-_A_2" pintype="input"/>
+      <node ref="U3" pin="3" pinfunction="IN+_A_3" pintype="input"/>
+    </net>
+    <net code="42" name="/JACK_IN" class="Default">
+      <node ref="C1" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="43" name="/LED_DLY" class="Default">
+      <node ref="H_STM32" pin="P2.32" pinfunction="PE9_/_39_P2.32" pintype="output"/>
+      <node ref="R_D4" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="44" name="/LED_EQ" class="Default">
+      <node ref="H_STM32" pin="P2.31" pinfunction="PE8_/_38_P2.31" pintype="output"/>
+      <node ref="R_D3" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="45" name="/LED_OD" class="Default">
+      <node ref="H_STM32" pin="P2.30" pinfunction="PE7_/_37_P2.30" pintype="output"/>
+      <node ref="R_D2" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="46" name="/LED_STAT" class="Default">
+      <node ref="H_STM32" pin="P2.38" pinfunction="PE15_/_45_P2.38" pintype="output"/>
+      <node ref="R_D5" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="47" name="/LP1" class="Default">
+      <node ref="C4" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R4" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R5" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="48" name="/LP2" class="Default">
+      <node ref="C5" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C6" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R5" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="49" name="/LRCK" class="Default">
+      <node ref="H_STM32" pin="P2.5" pinfunction="PE4_/_3_/_AF8_P2.5" pintype="output"/>
+      <node ref="U2" pin="4" pinfunction="LRCK_4" pintype="input"/>
+    </net>
+    <net code="50" name="/MCLK" class="Default">
+      <node ref="H_STM32" pin="P1.4" pinfunction="PE0_/_97_/_AF10_P1.4" pintype="output"/>
+      <node ref="U2" pin="3" pinfunction="MCLK_3" pintype="input"/>
+    </net>
+    <net code="51" name="/OUT_PRE" class="Default">
+      <node ref="C5" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R6" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="52" name="/STM_UART_RX" class="Default">
+      <node ref="H_STM32" pin="P1.39" pinfunction="PD9_/_56_/_AF7_P1.39" pintype="input"/>
+      <node ref="R_URX" pin="2" pinfunction="2_2" pintype="passive"/>
+    </net>
+    <net code="53" name="/STM_UART_TX" class="Default">
+      <node ref="H_STM32" pin="P1.40" pinfunction="PD8_/_55_/_AF7_P1.40" pintype="output"/>
+      <node ref="R_UTX" pin="1" pinfunction="1_1" pintype="passive"/>
+    </net>
+    <net code="54" name="/SW_DLY" class="Default">
+      <node ref="H_STM32" pin="P2.13" pinfunction="PC2_C_/_17_P2.13" pintype="input"/>
+      <node ref="SW3" pin="C" pinfunction="C_C" pintype="passive"/>
+    </net>
+    <net code="55" name="/SW_EQ" class="Default">
+      <node ref="H_STM32" pin="P2.12" pinfunction="PC1_/_16_P2.12" pintype="input"/>
+      <node ref="SW2" pin="C" pinfunction="C_C" pintype="passive"/>
+    </net>
+    <net code="56" name="/SW_MUTE" class="Default">
+      <node ref="H_STM32" pin="P2.14" pinfunction="PC3_C_/_18_P2.14" pintype="input"/>
+      <node ref="SW4" pin="C" pinfunction="C_C" pintype="passive"/>
+    </net>
+    <net code="57" name="/SW_OD" class="Default">
+      <node ref="H_STM32" pin="P2.11" pinfunction="PC0_/_15_P2.11" pintype="input"/>
+      <node ref="SW1" pin="C" pinfunction="C_C" pintype="passive"/>
+    </net>
+    <net code="58" name="/VCOM" class="Default">
+      <node ref="C14" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="C15" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="U2" pin="15" pinfunction="VCOM_15" pintype="output"/>
+    </net>
+    <net code="59" name="/VREF_OP" class="Default">
+      <node ref="C38" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C39" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="D13" pin="2" pinfunction="K_2" pintype="passive"/>
+      <node ref="D7" pin="1" pinfunction="A_1" pintype="passive"/>
+      <node ref="R2" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R22" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="R23" pin="1" pinfunction="1_1" pintype="passive"/>
+      <node ref="R3" pin="2" pinfunction="2_2" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="IN+_B_5" pintype="input"/>
+    </net>
+    <net code="60" name="unconnected-(H_ESP32-3V3_{slash}_NC_externo-Pad3V3)" class="Default">
+      <node ref="H_ESP32" pin="3V3" pinfunction="3V3_/_NC_externo_3V3" pintype="power_out+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(H_ESP32-VIN_{slash}_5V-PadVIN)" class="Default">
+      <node ref="H_ESP32" pin="VIN" pinfunction="VIN_/_5V_VIN" pintype="power_in+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(H_STM32-5V_header_{slash}_NC_externo-PadP1.2)" class="Default">
+      <node ref="H_STM32" pin="P1.2" pinfunction="5V_header_/_NC_externo_P1.2" pintype="power_in+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(SW1-Pad2)" class="Default">
+      <node ref="SW1" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="64" name="unconnected-(SW2-Pad2)" class="Default">
+      <node ref="SW2" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(SW3-Pad2)" class="Default">
+      <node ref="SW3" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(SW4-Pad2)" class="Default">
+      <node ref="SW4" pin="2" pinfunction="2_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(U2-AMUTEC-Pad23)" class="Default">
+      <node ref="U2" pin="23" pinfunction="AMUTEC_23" pintype="output+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(U2-AOUTB+-Pad26)" class="Default">
+      <node ref="U2" pin="26" pinfunction="AOUTB+_26" pintype="output+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(U2-AOUTB--Pad27)" class="Default">
+      <node ref="U2" pin="27" pinfunction="AOUTB-_27" pintype="output+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(U2-BMUTEC-Pad28)" class="Default">
+      <node ref="U2" pin="28" pinfunction="BMUTEC_28" pintype="output+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(U2-XTO-Pad1)" class="Default">
+      <node ref="U2" pin="1" pinfunction="XTO_1" pintype="output+no_connect"/>
+    </net>
+  </nets>
+</export>

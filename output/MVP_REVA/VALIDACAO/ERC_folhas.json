@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-12T21:06:16",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400",
+            "violations": []
+        },
+        {
+            "path": "/Fonte bancada 12 V, CW7805 e referências VREF_OP / ADC_BIAS/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/5e7358fd-e537-50b5-9f35-97bb97414a44",
+            "violations": []
+        },
+        {
+            "path": "/Entrada P10, buffer U1A, clamps 1N4007, drivers U3 e C35/C36 RF/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/ebc1558b-e95f-53e2-9cd5-659bc79012e9",
+            "violations": []
+        },
+        {
+            "path": "/Codec CS4272, FILT+, VCOM cerâmico e canal B polarizado/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/af6221bf-379f-57ce-8964-e28ebbe05061",
+            "violations": []
+        },
+        {
+            "path": "/Receptor DAC U1B, filtro RC e saída direta P10 (sem K1)/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/737f4801-c1a7-503f-9a4b-9b6390634be4",
+            "violations": []
+        },
+        {
+            "path": "/STM32H723, ESP32 DevKit, UART direta 2×1 kΩ e pull-ups/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/ff2197cb-5707-5edb-8bdb-c9f0be7423e7",
+            "violations": []
+        },
+        {
+            "path": "/Chaves SW1..SW4 e LEDs indicadores/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/4d36de7f-5365-570e-b80e-973825f8881b",
+            "violations": []
+        },
+        {
+            "path": "/Desacoplamento local do CS4272 e dos dois TL072/",
+            "uuid_path": "/c1d8f1d5-51e9-5cac-953c-ecaeed698400/bf268ebe-7574-5567-bbb9-dc25f2fac679",
+            "violations": []
+        }
+    ],
+    "source": "pedaleira_mvp_revA.kicad_sch"
+}
