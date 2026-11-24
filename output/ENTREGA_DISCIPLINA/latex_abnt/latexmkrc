@@ -1,0 +1,5 @@
+# Configuração latexmk para projetos abnTeX2 / ABNT
+$pdf_mode = 1;
+$pdflatex = 'pdflatex -interaction=nonstopmode -file-line-error -synctex=1 %O %S';
+$bibtex = 'bibtex %O %S';
+$max_repeat = 5;

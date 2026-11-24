@@ -1,0 +1,72 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v<VERSION> }
+
+\bibitem[{CIRRUS LOGIC} 2015]{cirrus2015cs4272}
+\abntrefinfo{{CIRRUS LOGIC}}{{CIRRUS LOGIC}}{2015}
+{{CIRRUS LOGIC}. \emph{CS4272: 24-Bit, 192 kHz Stereo Audio CODEC}.
+[S.l.], 2015. Dispon{\'\i}vel em:
+  \url{https://statics.cirrus.com/pubs/proDatasheet/CS4272\_F2.pdf}. Acesso em:
+  21 nov. 2026.}
+
+\bibitem[{ESPRESSIF SYSTEMS} 2023]{espressif2023esp32}
+\abntrefinfo{{ESPRESSIF SYSTEMS}}{{ESPRESSIF SYSTEMS}}{2023}
+{{ESPRESSIF SYSTEMS}. \emph{ESP32-WROOM-32 Datasheet}.
+[S.l.], 2023. Dispon{\'\i}vel em:
+  \url{https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32\_datasheet\_en.pdf}.
+  Acesso em: 21 nov. 2026.}
+
+\bibitem[{INSTITUTO FEDERAL DA PARA{\'I}BA} 2026]{ifpb2026roteiro}
+\abntrefinfo{{INSTITUTO FEDERAL DA PARA{\'I}BA}}{{INSTITUTO FEDERAL DA
+  PARA{\'I}BA}}{2026}
+{{INSTITUTO FEDERAL DA PARA{\'I}BA}. \emph{T{\'e}cnicas de Prototipagem:
+  Roteiro para Documenta{\c{c}}{\~a}o Inicial do Projeto}.
+Jo{\~a}o Pessoa, 2026. Material did{\'a}tico da disciplina de T{\'e}cnicas de
+  Prototipagem.}
+
+\bibitem[{OMRON} 2020]{omron2020g5v1}
+\abntrefinfo{{OMRON}}{{OMRON}}{2020}
+{{OMRON}. \emph{G5V-1 Ultra-Miniature SPDT Relay}.
+[S.l.], 2020. Dispon{\'\i}vel em:
+  \url{https://omronfs.omron.com/en\_US/ecb/products/pdf/en-g5v\_1.pdf}. Acesso
+  em: 21 nov. 2026.}
+
+\bibitem[{STMICROELECTRONICS} 2023]{st2023stm32h723}
+\abntrefinfo{{STMICROELECTRONICS}}{{STMICROELECTRONICS}}{2023}
+{{STMICROELECTRONICS}. \emph{STM32H723xE/G: Arm Cortex-M7 32-bit MCU+FPU, 550
+  MHz, 1MB Flash, 564KB RAM}.
+[S.l.], 2023. Dispon{\'\i}vel em:
+  \url{https://www.st.com/resource/en/datasheet/stm32h723vg.pdf}. Acesso em: 21
+  nov. 2026.}
+
+\bibitem[{TEXAS INSTRUMENTS} 2018]{ti2018tl431}
+\abntrefinfo{{TEXAS INSTRUMENTS}}{{TEXAS INSTRUMENTS}}{2018}
+{{TEXAS INSTRUMENTS}. \emph{TL431, TL432 Precision Programmable Reference}.
+[S.l.], 2018. Dispon{\'\i}vel em:
+  \url{https://www.ti.com/lit/ds/symlink/tl431.pdf}. Acesso em: 21 nov. 2026.}
+
+\bibitem[{TEXAS INSTRUMENTS} 2020]{ti2020iso7721}
+\abntrefinfo{{TEXAS INSTRUMENTS}}{{TEXAS INSTRUMENTS}}{2020}
+{{TEXAS INSTRUMENTS}. \emph{ISO7721 High-Speed, Robust-EMC Reinforced
+  Dual-Channel Digital Isolator}.
+[S.l.], 2020. Dispon{\'\i}vel em:
+  \url{https://www.ti.com/lit/ds/symlink/iso7721.pdf}. Acesso em: 21 nov.
+  2026.}
+
+\bibitem[{TEXAS INSTRUMENTS} 2024]{ti2015tl072}
+\abntrefinfo{{TEXAS INSTRUMENTS}}{{TEXAS INSTRUMENTS}}{2024}
+{{TEXAS INSTRUMENTS}. \emph{TL07xx Low-Noise FET-Input Operational Amplifiers}.
+[S.l.], 2024. Dispon{\'\i}vel em:
+  \url{https://www.ti.com/lit/ds/symlink/tl072.pdf}. Acesso em: 21 nov. 2026.}
+
+\bibitem[{WEACT STUDIO} 2022]{weact2022stm32h723}
+\abntrefinfo{{WEACT STUDIO}}{{WEACT STUDIO}}{2022}
+{{WEACT STUDIO}. \emph{MiniSTM32H723 V1.2 Hardware Schematic}. 2022.
+Dispon{\'\i}vel em:
+  \url{https://github.com/WeActStudio/WeActStudio.MiniSTM32H723}. Acesso em: 21
+  nov. 2026.}
+
+\end{thebibliography}

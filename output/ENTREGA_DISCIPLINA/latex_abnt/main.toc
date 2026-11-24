@@ -1,0 +1,65 @@
+\changetocdepth {4}
+\babel@toc {brazil}{}\relax 
+\babel@toc {brazil}{}\relax 
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução e Definição do Projeto}}{8}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Apresentação e Objetivo do Documento}{8}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Identificação do Projeto}{8}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Descrição da Ideia do Projeto}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Contexto e Justificativa}{9}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Definição do Problema}{9}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Pergunta de Projeto}{9}{subsection.1.5.1}%
+\contentsline {section}{\numberline {1.6}Público-Alvo}{10}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Objetivo Geral}{10}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Objetivos Específicos}{10}{section.1.8}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Especificação de Requisitos e Escopo}}{12}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Requisitos Funcionais (RF)}{12}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Requisitos Não Funcionais (RNF)}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Escopo Positivo (O que SERÁ implementado)}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Escopo Negativo (O que NÃO será implementado)}{13}{section.2.4}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Arquitetura do Sistema e Hardware}}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Diagrama Conceitual}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Arquitetura Preliminar}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Divisão em Subsistemas}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Seleção e Justificativa dos Componentes}{17}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Consulta aos Datasheets}{17}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Tecnologias de Software}{18}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Fluxo de Dados e Sistema de Alimentação}{18}{section.3.7}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Projeto Conceitual 3D do Gabinete}}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Especificação Mecânica e Modelagem Paramétrica}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Renderizações Conceituais do Gabinete}{20}{section.4.2}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Simulações Elétricas (SPICE) e Funcionais (DSP)}}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Síntese das Simulações Realizadas}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Validação Elétrica da Infraestrutura Analógica e Proteções (SPICE)}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Validação Funcional dos Algoritmos DSP (C++17, $f_s = 48\text { kHz}$)}{24}{section.5.3}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Gestão, Planejamento, Testes e Riscos}}{28}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Orçamento Inicial}{28}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Planejamento e Cronograma}{28}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Estratégia de Prototipagem}{29}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Plano Inicial de Testes}{29}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Riscos Técnicos}{29}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Organização da Equipe}{31}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Repositório do Projeto}{31}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Registro do Desenvolvimento e Próximos Passos}{31}{section.6.8}%
+\contentsline {section}{\numberline {6.9}Checklist para Entrega}{32}{section.6.9}%
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{33}{section*.12}%
+\cftinsert {AAA}
+\renewcommand *{\cftappendixname }{ANEXO \space }
+\setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
+\cftinsert {A}
+\contentsline {part}{\uppercase {Anexos}}{34}{section*.13}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Esquemático Elétrico Completo (10 Folhas KiCad)}}{35}{appendix.anexochapback.1}%

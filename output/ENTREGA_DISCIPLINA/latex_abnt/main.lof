@@ -1,0 +1,15 @@
+\babel@toc {brazil}{}\relax 
+\babel@toc {brazil}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagrama conceitual em blocos funcionais da pedaleira digital.}}{15}{figure.3.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Arquitetura técnica preliminar da pedaleira \texttt {PED-DIGITAL}.}}{16}{figure.3.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Vista isométrica externa do gabinete conceitual \texttt {PED-DIGITAL}.}}{21}{figure.4.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Vista explodida em quatro camadas da montagem interna prevista.}}{21}{figure.4.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Vista ortográfica superior com cotas e disposição de \texttt {SW1..SW4} e \texttt {D2..D5}.}}{22}{figure.4.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Vistas ortográficas dos conectores laterais P10 e painel traseiro (12~V DC e USBs).}}{22}{figure.4.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Simulação SPICE: sequenciamento de partida, supervisor \texttt {+5VA} e intertravamento \texttt {/RST}.}}{24}{figure.5.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Simulação SPICE: proteção ativa do ADC compensada por $V_{be}$ em cantos PVT e análise THD.}}{25}{figure.5.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Simulação SPICE: partida \textit {anti-pop} (0--7~s) e corte rápido de saída pelo relé \texttt {K1}.}}{25}{figure.5.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Simulação SPICE: diagrama de Bode e margens de \textit {headroom} da cadeia analógica.}}{26}{figure.5.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Simulação DSP C++17: curva \texttt {SoftLimit}, espectro FFT do \textit {Overdrive} e resposta do EQ 3 bandas.}}{26}{figure.5.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Simulação DSP C++17: comparação entre chaveamento abrupto e \textit {crossfade} de potência constante.}}{27}{figure.5.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Estratégia incremental de prototipagem em três ciclos (V0, V1 e V2).}}{29}{figure.6.13}%

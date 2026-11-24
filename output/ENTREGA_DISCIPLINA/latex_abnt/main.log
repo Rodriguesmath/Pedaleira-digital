@@ -1,0 +1,2033 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Alpine Linux) (preloaded format=pdflatex 2026.11.22)  22 NOV 2026 01:22
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/abntex/tex/latex/abntex2/abntex2.cls
+Document Class: abntex2 <CURRENT_DATE> v<VERSION> abnTeX2
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2025/11/04 v3.8.4b configurable book, report, article do
+cument class
+(/usr/share/texmf-dist/tex/latex/xpatch/xpatch.sty
+(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
+
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count275
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+
+(/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count276
+))
+\onelineskip=\skip49
+\lxvchars=\skip50
+\xlvchars=\skip51
+\@memcnta=\count277
+\c@@memmarkcntra=\count278
+
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+\trimtop=\skip52
+\trimedge=\skip53
+
+(/usr/share/texmf-dist/tex/latex/memoir/mem12.clo
+File: mem12.clo 2022/07/29 v0.5 memoir class 12pt size option
+)
+\binding=\skip54
+\spinemargin=\skip55
+\foremargin=\skip56
+\uppermargin=\skip57
+\lowermargin=\skip58
+\headdrop=\skip59
+\normalrulethickness=\skip60
+\mem@maxheadheight=\skip61
+\mem@maxfootheight=\skip62
+\headwidth=\skip63
+\c@storedpagenumber=\count279
+\memPD=\dimen148
+\m@mabparskip=\skip64
+\thanksmarkwidth=\skip65
+\thanksmarksep=\skip66
+\droptitle=\skip67
+\c@book=\count280
+\c@part=\count281
+\c@chapter=\count282
+\c@section=\count283
+\c@subsection=\count284
+\c@subsubsection=\count285
+\c@paragraph=\count286
+\c@subparagraph=\count287
+\beforechapskip=\skip68
+\midchapskip=\skip69
+\afterchapskip=\skip70
+\chapindent=\skip71
+\bottomsectionskip=\skip72
+\secindent=\skip73
+\beforesecskip=\skip74
+\aftersecskip=\skip75
+\subsecindent=\skip76
+\beforesubsecskip=\skip77
+\aftersubsecskip=\skip78
+\subsubsecindent=\skip79
+\beforesubsubsecskip=\skip80
+\aftersubsubsecskip=\skip81
+\paraindent=\skip82
+\beforeparaskip=\skip83
+\afterparaskip=\skip84
+\subparaindent=\skip85
+\beforesubparaskip=\skip86
+\aftersubparaskip=\skip87
+\pfbreakskip=\skip88
+\c@@ppsavesec=\count288
+\c@@ppsaveapp=\count289
+\ragrparindent=\dimen149
+\everylistparindent=\dimen150
+\parsepi=\skip89
+\topsepi=\skip90
+\itemsepi=\skip91
+\parsepii=\skip92
+\topsepii=\skip93
+\topsepiii=\skip94
+\itemsepii=\skip95
+\itemsepiii=\skip96
+\partopsepii=\skip97
+\partopsepiii=\skip98
+\m@msavetopsep=\skip99
+\m@msavepartopsep=\skip100
+\@enLab=\toks17
+\abstitleskip=\skip101
+\absleftindent=\skip102
+\abs@leftindent=\dimen151
+\absrightindent=\skip103
+\absparindent=\skip104
+\absparsep=\skip105
+\c@vslineno=\count290
+\c@poemline=\count291
+\c@modulo@vs=\count292
+\c@memfvsline=\count293
+\vleftskip=\skip106
+\vrightskip=\skip107
+\stanzaskip=\skip108
+\versewidth=\skip109
+\vgap=\skip110
+\vindent=\skip111
+\vleftmargin=\dimen152
+\c@verse=\count294
+\c@chrsinstr=\count295
+\beforepoemtitleskip=\skip112
+\afterpoemtitleskip=\skip113
+\c@poem=\count296
+\beforePoemTitleskip=\skip114
+\midPoemTitleskip=\skip115
+\afterPoemTitleskip=\skip116
+
+(/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen153
+\ar@mcellbox=\box53
+\extrarowheight=\dimen154
+\NC@list=\toks18
+\extratabsurround=\skip117
+\backup@length=\skip118
+\ar@cellbox=\box54
+)
+(/usr/share/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2025/10/21 v1.06 decimal alignment package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/tools/delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen155
+\TX@old@table=\dimen156
+\TX@old@col=\dimen157
+\TX@target=\dimen158
+\TX@delta=\dimen159
+\TX@cols=\count297
+\TX@ftn=\toks19
+)
+(/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen160
+\lightrulewidth=\dimen161
+\cmidrulewidth=\dimen162
+\belowrulesep=\dimen163
+\belowbottomsep=\dimen164
+\aboverulesep=\dimen165
+\abovetopsep=\dimen166
+\cmidrulesep=\dimen167
+\cmidrulekern=\dimen168
+\defaultaddspace=\dimen169
+\@cmidla=\count298
+\@cmidlb=\count299
+\@aboverulesep=\dimen170
+\@belowrulesep=\dimen171
+\@thisruleclass=\count300
+\@lastruleclass=\count301
+\@thisrulewidth=\dimen172
+)
+\ctableftskip=\skip119
+\ctabrightskip=\skip120
+\abovecolumnspenalty=\count302
+\@linestogo=\count303
+\@cellstogo=\count304
+\@cellsincolumn=\count305
+\crtok=\toks20
+\@mincolumnwidth=\dimen173
+\c@newflo@tctr=\count306
+\mem@margin@floatbox=\box55
+\@contcwidth=\skip121
+\@contindw=\skip122
+\abovecaptionskip=\skip123
+\belowcaptionskip=\skip124
+\subfloattopskip=\skip125
+\subfloatcapskip=\skip126
+\subfloatcaptopadj=\skip127
+\subfloatbottomskip=\skip128
+\subfloatlabelskip=\skip129
+\subfloatcapmargin=\dimen174
+\c@@contsubnum=\count307
+\m@mscap@capbox=\box56
+\m@mscap@fbox=\box57
+\sidecapsep=\dimen175
+\sidecapwidth=\dimen176
+\m@m@tempdima=\dimen177
+\m@mscapraise=\dimen178
+\sidecapraise=\dimen179
+\m@mscapmainwidth=\dimen180
+\m@mscaplkern=\dimen181
+\beforeepigraphskip=\skip130
+\afterepigraphskip=\skip131
+\epigraphwidth=\skip132
+\epigraphrule=\skip133
+
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+
+(/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+
+(/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+))
+(/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/usr/share/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+\c@section@level=\count308
+)
+\tocentryskip=\skip134
+\tocbaseline=\skip135
+\cftparskip=\skip136
+\cftbeforebookskip=\skip137
+\cftbookindent=\dimen182
+\cftbooknumwidth=\dimen183
+\cftbeforepartskip=\skip138
+\cftpartindent=\skip139
+\cftpartnumwidth=\skip140
+\cftbeforechapterskip=\skip141
+\cftchapterindent=\skip142
+\cftchapternumwidth=\skip143
+\cftbeforesectionskip=\skip144
+\cftsectionindent=\skip145
+\cftsectionnumwidth=\skip146
+\cftbeforesubsectionskip=\skip147
+\cftsubsectionindent=\skip148
+\cftsubsectionnumwidth=\skip149
+\cftbeforesubsubsectionskip=\skip150
+\cftsubsubsectionindent=\skip151
+\cftsubsubsectionnumwidth=\skip152
+\cftbeforeparagraphskip=\skip153
+\cftparagraphindent=\skip154
+\cftparagraphnumwidth=\skip155
+\cftbeforesubparagraphskip=\skip156
+\cftsubparagraphindent=\skip157
+\cftsubparagraphnumwidth=\skip158
+\prechapterprecisshift=\dimen184
+\c@maxsecnumdepth=\count309
+\bibindent=\dimen185
+\bibitemsep=\skip159
+\indexcolsep=\skip160
+\indexrule=\skip161
+\indexmarkstyle=\toks22
+\@indexbox=\insert252
+LaTeX Info: Redefining \raggedbottom on input line 8095.
+LaTeX Info: Redefining \flushbottom on input line 8099.
+\glossarycolsep=\dimen186
+\glossaryrule=\dimen187
+\sideparvshift=\skip162
+\sideins=\insert251
+\sidebartopsep=\skip163
+\sidebarhsep=\skip164
+\sidebarvsep=\skip165
+\sidebarwidth=\skip166
+\footmarkwidth=\skip167
+\footmarksep=\skip168
+\footparindent=\skip169
+\footinsdim=\skip170
+\footinsv@r=\insert250
+\@mpfootinsv@r=\insert249
+\m@m@k=\count310
+\m@m@h=\dimen188
+\m@mipn@skip=\skip171
+\sidefootins=\insert248
+\sidefootadjust=\skip172
+\sidefootheight=\skip173
+\sidefoothsep=\skip174
+\sidefootvsep=\skip175
+\sidefootwidth=\skip176
+\m@mdownsf=\skip177
+\c@sidefootnote=\count311
+\sidefootmarkwidth=\skip178
+\sidefootmarksep=\skip179
+\sidefootparindent=\skip180
+\c@pagenote=\count312
+\c@pagenoteshadow=\count313
+\mem@pn@lastkern=\skip181
+
+(/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks23
+\verbatim@line=\toks24
+\verbatim@in@stream=\read2
+)
+\verbatimindent=\skip182
+\verbatim@out=\write3
+
+(/usr/share/texmf-dist/tex/latex/base/shortvrb.sty
+Package: shortvrb 2024/12/25 v3.0q Standard LaTeX documentation package V3 (FMi
+)
+)
+\bvboxsep=\skip183
+\c@memfbvline=\count314
+\c@bvlinectr=\count315
+\bvnumlength=\skip184
+\fb@frw=\dimen189
+\fb@frh=\dimen190
+\FrameRule=\dimen191
+\FrameSep=\dimen192
+\c@cp@cntr=\count316
+\c@ism@mctr=\count317
+\c@xsm@mctr=\count318
+\c@csm@mctr=\count319
+\c@ksm@mctr=\count320
+\c@xksm@mctr=\count321
+\c@cksm@mctr=\count322
+\c@msm@mctr=\count323
+\c@xmsm@mctr=\count324
+\c@cmsm@mctr=\count325
+\c@bsm@mctr=\count326
+\c@workm@mctr=\count327
+\c@sheetsequence=\count328
+\c@lastsheet=\count329
+\c@lastpage=\count330
+\c@figure=\count331
+\c@lofdepth=\count332
+\cftbeforefigureskip=\skip185
+\cftfigureindent=\skip186
+\cftfigurenumwidth=\skip187
+\c@table=\count333
+\c@lotdepth=\count334
+\cftbeforetableskip=\skip188
+\cfttableindent=\skip189
+\cfttablenumwidth=\skip190
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+)
+(/usr/share/texmf-dist/tex/latex/textcase/textcase.sty
+Package: textcase 2025/02/16 v1.05 Text only upper/lower case changing (DPC)
+Package textcase Info: Defining Legacy names on input line 20.
+)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+
+(/usr/share/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/usr/share/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(/usr/share/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen193
+\Hy@linkcounter=\count335
+\Hy@pagecounter=\count336
+
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count337
+
+(/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count338
+
+(/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen194
+
+(/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count339
+\Field@Width=\dimen195
+\Fld@charsize=\dimen196
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count340
+\c@Item=\count341
+\c@Hfootnote=\count342
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
+\Fld@listcount=\count343
+\c@bookmark@seq@number=\count344
+
+(/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip191
+)
+(/usr/share/texmf-dist/tex/latex/memoir/memhfixc.sty
+Package: memhfixc 2025/09/16 v1.24 hyperref package fixes for memoir class
+\c@memhycontfloat=\count345
+\c@mem@Hpagenote=\count346
+)
+(/usr/share/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+
+(/usr/share/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
+)
+\BKM@id=\count347
+))
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2026/02/14 v26.3 The multilingual framework for LuaLaTeX, pdfLaT
+eX and XeLaTeX
+\babel@savecnt=\count348
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2078.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2080.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2082.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2083.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2084.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2086.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2111.
+\U@D=\dimen197
+\l@unhyphenated=\language6
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count349
+
+(/usr/share/texmf-dist/tex/generic/babel/locale/invalid/babel-brazil.tex)
+
+Package babel Warning: Name 'brazil' is deprecated.
+(babel)                Use 'brazilian' instead.
+(babel)                Reported on input line 4330.
+
+Package babel Info: Importing font and identification data for brazil
+(babel)             from babel-pt-BR.ini. Reported on input line 4330.
+(/usr/share/texmf-dist/tex/generic/babel-portuges/brazilian.ldf
+Language: portuges 2026/01/24 v1.2u Portuguese support from the babel system
+Package babel Info: Hyphen rules for 'brazil' set to \l@portuguese
+(babel)             (\language5). Reported on input line 100.
+Package babel Info: Making " an active character on input line 132.
+))
+(/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip192
+\enit@outerparindent=\dimen198
+\enit@toks=\toks25
+\enit@inbox=\box58
+\enit@count@id=\count350
+\enitdp@description=\count351
+)
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count352
+\calc@Bcount=\count353
+\calc@Adimen=\dimen199
+\calc@Bdimen=\dimen256
+\calc@Askip=\skip193
+\calc@Bskip=\skip194
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count354
+\calc@Cskip=\skip195
+)
+
+******************************************************
+Stock height and width: 845.04684pt by 597.50787pt
+Top and edge trims: 0pt and 0pt
+Page height and width: 845.04684pt by 597.50787pt
+Text height and width: 708pt by 455pt
+Spine and edge margins: 85.35826pt and 56.9055pt
+Upper and lower margins: 85.35826pt and 51.68858pt
+Headheight and headsep: 14.5pt and 19.8738pt
+Footskip: 30pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 42.9055pt
+Sidecapsep and sidecapwidth: 7pt and 42pt
+Sidebarhsep and sidebarwidth: 7pt and 42pt
+Sidebarvsep and sidebartopsep: 14.5pt and 0pt
+Sidebarheight: 590.14995pt
+Sidefoothsep and sidefootwidth: 7pt and 42pt
+Sidefootvsep and sidefootheight: 14.5pt and 590.14995pt
+******************************************************
+
+\c@abntex@bookmarkcounter=\count355
+\cftlastnumwidth=\skip196
+
+Class memoir Warning: \settocpreprocessor is marked deprecated and will be
+(memoir)              removed in 2026, the problem it tried to solve 
+(memoir)              (see manual, section 9.2.3),
+(memoir)              has been fixed in the kernel, and the feature is
+(memoir)              no longer needed. on input line 483.
+
+\chapternamenumlength=\skip197
+\ABNTEXcitacaorecuo=\skip198
+\c@alineasi=\count356
+\c@alineasii=\count357
+\enitdp@alineas=\count358
+\c@subalineasi=\count359
+\enitdp@subalineas=\count360
+\c@incisosi=\count361
+\enitdp@incisos=\count362
+\ABNTEXsignwidth=\skip199
+\ABNTEXsignthickness=\skip256
+\ABNTEXsignskip=\skip257
+) (/usr/share/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+6.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
+)
+(/usr/share/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
+\MT@toks=\toks28
+\MT@tempbox=\box59
+\MT@count=\count363
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
+LaTeX Info: Redefining \leftprotrusion on input line 1085.
+\MT@prot@toks=\toks29
+LaTeX Info: Redefining \rightprotrusion on input line 1104.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen257
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count364
+
+(/usr/share/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip258
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/share/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+)
+(/usr/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
+
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+)
+(/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen258
+\Gin@req@width=\dimen259
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip259
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks30
+\ex@=\dimen260
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen261
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count365
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count366
+\leftroot@=\count367
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count368
+\DOTSCASE@=\count369
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box60
+\strutbox@=\box61
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen262
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count370
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count371
+\dotsspace@=\muskip18
+\c@parentequation=\count372
+\dspbrk@lvl=\count373
+\tag@help=\toks31
+\row@=\count374
+\column@=\count375
+\maxfields@=\count376
+\andhelp@=\toks32
+\eqnshift@=\dimen263
+\alignsep@=\dimen264
+\tagshift@=\dimen265
+\tagwidth@=\dimen266
+\totwidth@=\dimen267
+\lineht@=\dimen268
+\@envbody=\toks33
+\multlinegap=\skip260
+\multlinetaggap=\skip261
+\mathdisplay@stack=\toks34
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count377
+\float@exts=\toks35
+\float@box=\box62
+\@float@everytoks=\toks36
+\@floatcapt=\box63
+)
+(/usr/share/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2025/07/23 v0.6g Insert pages of external PDF documents (AM)
+
+(/usr/share/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2025/12/10 v3.0d eso-pic (RN)
+\ESO@tempdima=\dimen269
+\ESO@tempdimb=\dimen270
+)
+\AM@pagewidth=\dimen271
+\AM@pageheight=\dimen272
+\AM@fboxrule=\dimen273
+
+(/usr/share/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2025/07/23 v0.6g Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count378
+\AM@pagebox=\box64
+\AM@global@opts=\toks37
+\AM@pagecnt=\count379
+\AM@toc@title=\toks38
+\AM@lof@heading=\toks39
+\c@AM@survey=\count380
+\AM@templatesizebox=\box65
+)
+(/usr/share/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks40
+\pgfutil@tempdima=\dimen274
+\pgfutil@tempdimb=\dimen275
+)
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box66
+)
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks41
+\pgfkeys@temptoks=\toks42
+
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.te
+x
+\pgfkeys@tmptoks=\toks43
+))
+\pgf@x=\dimen276
+\pgf@y=\dimen277
+\pgf@xa=\dimen278
+\pgf@ya=\dimen279
+\pgf@xb=\dimen280
+\pgf@yb=\dimen281
+\pgf@xc=\dimen282
+\pgf@yc=\dimen283
+\pgf@xd=\dimen284
+\pgf@yd=\dimen285
+\w@pgf@writea=\write4
+\r@pgf@reada=\read4
+\c@pgf@counta=\count381
+\c@pgf@countb=\count382
+\c@pgf@countc=\count383
+\c@pgf@countd=\count384
+\t@pgf@toka=\toks44
+\t@pgf@tokb=\toks45
+\t@pgf@tokc=\toks46
+\pgf@sys@id@count=\count385
+ (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count386
+\pgfsyssoftpath@bigbuffer@items=\count387
+)
+(/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
+
+(/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen286
+\pgfmath@count=\count388
+\pgfmath@box=\box67
+\pgfmath@toks=\toks47
+\pgfmath@stack@operand=\toks48
+\pgfmath@stack@operation=\toks49
+)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code
+.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.te
+x) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics
+.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count389
+))
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen287
+\pgf@picmaxx=\dimen288
+\pgf@picminy=\dimen289
+\pgf@picmaxy=\dimen290
+\pgf@pathminx=\dimen291
+\pgf@pathmaxx=\dimen292
+\pgf@pathminy=\dimen293
+\pgf@pathmaxy=\dimen294
+\pgf@xx=\dimen295
+\pgf@xy=\dimen296
+\pgf@yx=\dimen297
+\pgf@yy=\dimen298
+\pgf@zx=\dimen299
+\pgf@zy=\dimen300
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen301
+\pgf@path@lasty=\dimen302
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen303
+\pgf@shorten@start@additional=\dimen304
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box68
+\pgf@hbox=\box69
+\pgf@layerbox@main=\box70
+\pgf@picture@serial@count=\count390
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen305
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.t
+ex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen306
+\pgf@pt@y=\dimen307
+\pgf@pt@temp=\dimen308
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.te
+x
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen309
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen310
+\pgf@sys@shading@range@num=\count391
+\pgf@shadingcount=\count392
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box71
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box72
+)
+(/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen311
+\pgf@nodesepend=\dimen312
+)
+(/usr/share/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen313
+\pgffor@skip=\dimen314
+\pgffor@stack=\toks50
+\pgffor@toks=\toks51
+))
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.te
+x
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count393
+\pgfplotmarksize=\dimen315
+)
+\tikz@lastx=\dimen316
+\tikz@lasty=\dimen317
+\tikz@lastxsaved=\dimen318
+\tikz@lastysaved=\dimen319
+\tikz@lastmovetox=\dimen320
+\tikz@lastmovetoy=\dimen321
+\tikzleveldistance=\dimen322
+\tikzsiblingdistance=\dimen323
+\tikz@figbox=\box73
+\tikz@figbox@bg=\box74
+\tikz@tempbox=\box75
+\tikz@tempbox@bg=\box76
+\tikztreelevel=\count394
+\tikznumberofchildren=\count395
+\tikznumberofcurrentchild=\count396
+\tikz@fig@count=\count397
+ (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count398
+\pgfmatrixcurrentcolumn=\count399
+\pgf@matrix@numberofcolumns=\count400
+)
+\tikz@expandcount=\count401
+
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+topaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen324
+\pgfarrowlength=\dimen325
+\pgfarrowwidth=\dimen326
+\pgfarrowlinewidth=\dimen327
+)
+(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
+positioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (/abntex/tex/latex/abntex2/abntex2cite.sty
+Package: abntex2cite <CURRENT_DATE> v<VERSION> abnTeX2
+
+(/abntex/tex/latex/abntex2/abntex2abrev.sty)
+\minimumbiblabelwidth=\skip262
+\ABCIauxlen=\skip263
+\c@ABCIaux=\count402
+\c@ABCImax=\count403
+
+(/usr/share/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+(/usr/share/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\biblabelsep=\skip264
+LaTeX Info: Redefining \newblock on input line 591.
+LaTeX Info: Redefining \cite on input line 618.
+\ABCItoken=\toks52
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 14.
+ (./main.aux
+Package babel Info: 'brazil' activates 'portuges' shorthands.
+(babel)             Reported on input line 12.
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+Package hyperref Info: Link coloring ON on input line 27.
+\myptabbox=\box77
+\myptabboxwidth=\skip265
+LaTeX Info: Redefining \microtypecontext on input line 27.
+Package microtype Info: Applying patch `item' on input line 27.
+Package microtype Info: Applying patch `toc' on input line 27.
+Package microtype Info: Applying patch `eqnum' on input line 27.
+Package microtype Info: Applying patch `footnote' on input line 27.
+Package microtype Info: Applying patch `verbatim' on input line 27.
+LaTeX Info: Redefining \microtypesetup on input line 27.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+Package microtype Info: Patching command `\showhyphens'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+
+(/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count404
+\scratchdimen=\dimen328
+\scratchbox=\box78
+\nofMPsegments=\count405
+\nofMParguments=\count406
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count407
+\MPscratchDim=\dimen329
+\MPnumerator=\count408
+\makeMPintoPDFobject=\count409
+\everyMPtoPDFconversion=\toks54
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2025-06-23 v0.14 Display of landscape pages in PDF
+
+(/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2025-06-23 v0.14 Display of landscape pages in PD
+F (HO)
+
+(/usr/share/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 3
+0.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+0.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 30.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [1
+
+{/usr/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist
+/fonts/enc/dvips/lm/lm-ec.enc}]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 32.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+2.
+ (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+2.
+
+(/usr/share/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+32.
+
+(/usr/share/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+32.
+
+(/usr/share/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 32.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 32.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.32 
+      [1
+
+
+
+]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 34.
+ [2
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+(./main.lof) [3
+
+] (./main.lot) [4
+
+] [5
+
+
+] (./main.toc [6
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 61.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 61.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 61.
+) [7]
+Cap\'{\i }tulo 1.
+[8
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.107 
+      ]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 131.
+Package babel Info: 'brazil' activates 'portuges' shorthands.
+(babel)             Reported on input line 132.
+ [9{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}
+pdfTeX warning (ext4): destination with the same identifier (name{table.1.2}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.132 \end{citacao}
+                   ] [10
+pdfTeX warning (ext4): destination with the same identifier (name{table.1.3}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.157   \item \textbf
+                     {Dimensionar e simular a infraestrutura elétrica de su...
+] [11]
+Cap\'{\i }tulo 2.
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd)
+Overfull \hbox (4.33553pt too wide) in paragraph at lines 201--201
+ []|\T1/lmr/bx/n/10 (-20) RNF01| 
+ []
+
+
+Overfull \hbox (4.33553pt too wide) in paragraph at lines 201--201
+ []|\T1/lmr/bx/n/10 (-20) RNF02| 
+ []
+
+
+Overfull \hbox (4.33553pt too wide) in paragraph at lines 201--201
+ []|\T1/lmr/bx/n/10 (-20) RNF03| 
+ []
+
+
+Overfull \hbox (4.33553pt too wide) in paragraph at lines 201--201
+ []|\T1/lmr/bx/n/10 (-20) RNF04| 
+ []
+
+
+Overfull \hbox (4.33553pt too wide) in paragraph at lines 201--201
+ []|\T1/lmr/bx/n/10 (-20) RNF05| 
+ []
+
+
+Overfull \hbox (4.33553pt too wide) in paragraph at lines 201--201
+ []|\T1/lmr/bx/n/10 (-20) RNF06| 
+ []
+
+[12
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.2.4}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.208   \item \textbf
+                     {Ponte IoT e Aplicação Web/MQTT}: Firmware \texttt{ES...
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [13
+pdfTeX warning (ext4): destination with the same identifier (name{table.2.5}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.218   \item \textbf
+                     {Sem efeitos dependentes de SDRAM externa}: Algoritmos ...
+] [14]
+Cap\'{\i }tulo 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 243.
+
+Package pgf Warning: Returning node center instead of a point on node border. D
+id you specify a point identical to the center of node ``comm''? on input line 
+254.
+
+
+Overfull \hbox (25.75662pt too wide) in paragraph at lines 259--260
+ [][] 
+ []
+
+
+Overfull \hbox (65.59082pt too wide) in paragraph at lines 299--300
+ [][] 
+ []
+
+[15
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.347 
+      ] [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.347 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.347 
+      ]
+Overfull \hbox (13.2252pt too wide) in paragraph at lines 367--367
+[]|\T1/lmr/bx/n/9 (-20) STM32H723VG|  
+ []
+
+
+Overfull \hbox (5.44003pt too wide) in paragraph at lines 372--388
+[]\T1/lmr/m/n/12 (-20) A Ta-bela [][]9[][] re-sume a pi-lha de soft-ware ado-ta
+da no firmware e na in-ter-face Web/MQTT.
+ []
+
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.388 
+      ] [18
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.8}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.393   \item \textbf
+                     {Configuração via Rede (Web $\leftrightarrow$ MQTT $\...
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.9}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.393   \item \textbf
+                     {Configuração via Rede (Web $\leftrightarrow$ MQTT $\...
+] [19]
+Cap\'{\i }tulo 4.
+<figuras/render1_isometrica_externa.png, id=380, 1445.4pt x 963.6pt>
+File: figuras/render1_isometrica_externa.png Graphic file (type png)
+<use figuras/render1_isometrica_externa.png>
+Package pdftex.def Info: figuras/render1_isometrica_externa.png  used on input 
+line 424.
+(pdftex.def)             Requested size: 382.19833pt x 254.79405pt.
+<figuras/render2_vista_explodida_interna.png, id=381, 1445.4pt x 963.6pt>
+File: figuras/render2_vista_explodida_interna.png Graphic file (type png)
+<use figuras/render2_vista_explodida_interna.png>
+Package pdftex.def Info: figuras/render2_vista_explodida_interna.png  used on i
+nput line 427.
+(pdftex.def)             Requested size: 382.19833pt x 254.79405pt.
+<figuras/render3_painel_superior.png, id=382, 1445.4pt x 963.6pt>
+File: figuras/render3_painel_superior.png Graphic file (type png)
+<use figuras/render3_painel_superior.png>
+Package pdftex.def Info: figuras/render3_painel_superior.png  used on input lin
+e 430.
+(pdftex.def)             Requested size: 382.19833pt x 254.79405pt.
+<figuras/render4_conectores_laterais.png, id=383, 1445.4pt x 963.6pt>
+File: figuras/render4_conectores_laterais.png Graphic file (type png)
+<use figuras/render4_conectores_laterais.png>
+Package pdftex.def Info: figuras/render4_conectores_laterais.png  used on input
+ line 433.
+(pdftex.def)             Requested size: 382.19833pt x 254.79405pt.
+[20
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.10}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \chapter
+              {Simulações Elétricas (SPICE) e Funcionais (DSP)}] [21
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \chapter
+              {Simulações Elétricas (SPICE) e Funcionais (DSP)}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \chapter
+              {Simulações Elétricas (SPICE) e Funcionais (DSP)} <./figuras/r
+ender1_isometrica_externa.png (PNG copy)> <./figuras/render2_vista_explodida_in
+terna.png (PNG copy)>] [22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \chapter
+              {Simulações Elétricas (SPICE) e Funcionais (DSP)}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \chapter
+              {Simulações Elétricas (SPICE) e Funcionais (DSP)} <./figuras/r
+ender3_painel_superior.png (PNG copy)> <./figuras/render4_conectores_laterais.p
+ng (PNG copy)>]
+Cap\'{\i }tulo 5.
+[23
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.11}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.463   \item \textbf
+                     {Resposta em Frequência e Headroom (Figura~\ref{fig:si...
+]
+<figuras/sim1_sequenciamento_partida.png, id=424, 1806.75pt x 1124.2pt>
+File: figuras/sim1_sequenciamento_partida.png Graphic file (type png)
+<use figuras/sim1_sequenciamento_partida.png>
+Package pdftex.def Info: figuras/sim1_sequenciamento_partida.png  used on input
+ line 466.
+(pdftex.def)             Requested size: 400.40222pt x 249.12592pt.
+<figuras/sim2_clamp_ativo_adc.png, id=425, 1806.75pt x 1124.2pt>
+File: figuras/sim2_clamp_ativo_adc.png Graphic file (type png)
+<use figuras/sim2_clamp_ativo_adc.png>
+Package pdftex.def Info: figuras/sim2_clamp_ativo_adc.png  used on input line 4
+69.
+(pdftex.def)             Requested size: 400.40222pt x 249.12592pt.
+<figuras/sim3_mute_antipop_plugpull.png, id=426, 1806.75pt x 1124.2pt>
+File: figuras/sim3_mute_antipop_plugpull.png Graphic file (type png)
+<use figuras/sim3_mute_antipop_plugpull.png>
+Package pdftex.def Info: figuras/sim3_mute_antipop_plugpull.png  used on input 
+line 472.
+(pdftex.def)             Requested size: 400.40222pt x 249.12592pt.
+<figuras/sim4_bode_cadeia_analogica.png, id=427, 1806.75pt x 1124.2pt>
+File: figuras/sim4_bode_cadeia_analogica.png Graphic file (type png)
+<use figuras/sim4_bode_cadeia_analogica.png>
+Package pdftex.def Info: figuras/sim4_bode_cadeia_analogica.png  used on input 
+line 475.
+(pdftex.def)             Requested size: 400.40222pt x 249.12592pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <17.28> on input line 478.
+
+Overfull \hbox (5.03258pt too wide) in paragraph at lines 478--478
+[]\T1/lmss/m/n/17.28 (-20) Valida��o Fun-ci-o-nal dos Al-go-rit-mos DSP (C++17,
+ $\OML/lmm/m/it/17.28 f[] \OT1/lmr/m/n/17.28 (-20) = 48[]$\T1/lmss/m/n/17.28 (-
+20) ) 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 478.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 478.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 478.
+
+<figuras/sim5_dsp_overdrive_eq.png, id=430, 1806.75pt x 1124.2pt>
+File: figuras/sim5_dsp_overdrive_eq.png Graphic file (type png)
+<use figuras/sim5_dsp_overdrive_eq.png>
+Package pdftex.def Info: figuras/sim5_dsp_overdrive_eq.png  used on input line 
+485.
+(pdftex.def)             Requested size: 400.40222pt x 249.12592pt.
+[24
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.486 ...borado pelos autores (2026).}\end{figure}
+                                                   <./figuras/sim1_sequenciamen
+to_partida.png (PNG copy)>] [25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.8}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.486 ...borado pelos autores (2026).}\end{figure}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.486 ...borado pelos autores (2026).}\end{figure}
+                                                   <./figuras/sim2_clamp_ativo_
+adc.png (PNG copy)> <./figuras/sim3_mute_antipop_plugpull.png (PNG copy)>]
+<figuras/sim6_dsp_crossfade_antipop.png, id=441, 1806.75pt x 1124.2pt>
+File: figuras/sim6_dsp_crossfade_antipop.png Graphic file (type png)
+<use figuras/sim6_dsp_crossfade_antipop.png>
+Package pdftex.def Info: figuras/sim6_dsp_crossfade_antipop.png  used on input 
+line 488.
+(pdftex.def)             Requested size: 400.40222pt x 249.12592pt.
+
+[26
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.10})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.491 \chapter
+              {Gestão, Planejamento, Testes e Riscos}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.11})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.491 \chapter
+              {Gestão, Planejamento, Testes e Riscos} <./figuras/sim4_bode_cad
+eia_analogica.png (PNG copy)> <./figuras/sim5_dsp_overdrive_eq.png (PNG copy)>]
+[27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.12})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.491 \chapter
+              {Gestão, Planejamento, Testes e Riscos} <./figuras/sim6_dsp_cros
+sfade_antipop.png (PNG copy)>]
+Cap\'{\i }tulo 6.
+
+Overfull \hbox (3.3408pt too wide) in paragraph at lines 517--517
+ []|\T1/lmr/bx/n/10 (-20) Item| 
+ []
+
+
+Overfull \hbox (6.37004pt too wide) in paragraph at lines 538--538
+[]|\T1/lmr/m/n/10 (-20) Arquitetura/CAD|  
+ []
+
+[28
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.6.12}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.570 
+      ]
+Overfull \hbox (10.83325pt too wide) in paragraph at lines 610--610
+ []|\T1/lmr/bx/n/10 (-20) Sev./Prob.| 
+ []
+
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{table.6.13}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.630 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.13})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.630 
+      ] [30
+pdfTeX warning (ext4): destination with the same identifier (name{table.6.14}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.630 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{table.6.15}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.630 
+      ]
+Overfull \hbox (24.93202pt too wide) in paragraph at lines 632--633
+[]\T1/lmr/m/n/12 (-20) O c�digo-fonte e a do-cu-men-ta-��o encontram-se em [][]
+$<[]https : / / github . com / Rodriguesmath /
+ []
+
+
+Overfull \hbox (20.47523pt too wide) in paragraph at lines 635--635
+[]\T1/lmtt/m/n/12 |-- docs/                     # Requisitos, escopo, protocolo
+s e esquematicos[] 
+ []
+
+
+Overfull \hbox (14.30023pt too wide) in paragraph at lines 637--637
+[]\T1/lmtt/m/n/12 |-- app/                      # Aplicacao Web e servico MQTT 
+de configuracao[] 
+ []
+
+
+Overfull \hbox (20.47523pt too wide) in paragraph at lines 638--638
+[]\T1/lmtt/m/n/12 |-- output/ENTREGA_DISCIPLINA/# Documentacao tecnica, renders
+ 3D e simulacoes[] 
+ []
+
+[31
+pdfTeX warning (ext4): destination with the same identifier (name{table.6.16}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.684 
+      ] (./main.bbl [32
+pdfTeX warning (ext4): destination with the same identifier (name{table.6.17}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
+                                                  ]
+bibitemlist
+) [33
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uppercase' on input line 694.
+
+[34
+
+
+]
+ANEXO A.
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=569, 845.1575pt x 597.23
+125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf  use
+d on input line 698.
+(pdftex.def)             Requested size: 845.15544pt x 597.22978pt.
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=571, page=1, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 1>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge1 used on input line 698.
+(pdftex.def)             Requested size: 845.15544pt x 597.22978pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 1>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge1 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+[35
+
+]
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 1>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge1 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 1>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge1 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 1>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge1 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [36
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=595, page=2, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 2>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge2 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 2>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge2 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 2>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge2 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [37
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=600, page=3, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 3>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge3 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 3>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge3 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 3>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge3 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [38
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=605, page=4, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 4>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge4 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 4>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge4 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 4>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge4 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [39
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=610, page=5, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 5>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge5 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 5>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge5 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 5>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge5 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [40
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=615, page=6, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 6>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge6 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 6>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge6 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 6>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge6 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [41
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=620, page=7, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 7>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge7 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 7>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge7 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 7>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge7 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [42
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=626, page=8, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 8>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge8 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 8>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge8 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 8>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge8 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [43
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=631, page=9, 845.1575pt 
+x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 9>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge9 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 9>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge9 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 9>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge9 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [44
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+<figuras/pedaleira_digital_rev4_10_esquematico.pdf, id=636, page=10, 845.1575pt
+ x 597.23125pt>
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 10>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge10 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 10>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge10 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+File: figuras/pedaleira_digital_rev4_10_esquematico.pdf Graphic file (type pdf)
+
+<use figuras/pedaleira_digital_rev4_10_esquematico.pdf, page 10>
+Package pdftex.def Info: figuras/pedaleira_digital_rev4_10_esquematico.pdf , pa
+ge10 used on input line 698.
+(pdftex.def)             Requested size: 597.61578pt x 422.30568pt.
+ [45
+
+ <./figuras/pedaleira_digital_rev4_10_esquematico.pdf>]
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+\tf@lot=\write6
+\openout6 = `main.lot'.
+
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+ (./main.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2020/03/25>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 31214 strings out of 469488
+ 559926 string characters out of 5469815
+ 1049573 words of memory out of 5000000
+ 58863 multiletter control sequences out of 15000+600000
+ 763951 words of font info for 283 fonts, out of 8000000 for 9000
+ 16 hyphenation exceptions out of 8191
+ 99i,17n,107p,1597b,874s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm
+/lmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></
+usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fon
+ts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi9
+.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/l
+m/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/t
+exmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri9.pfb>
+</usr/share/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/
+fonts/type1/public/lm/lmss17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
+mssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share
+/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></
+usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fo
+nts/type1/public/lm/lmtt8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt
+9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (46 pages, 3202122 bytes).
+PDF statistics:
+ 971 PDF objects out of 1000 (max. 8388607)
+ 755 compressed objects within 8 object streams
+ 153 named destinations out of 1000 (max. 500000)
+ 80387 words of extra memory for PDF output out of 89155 (max. 10000000)
+
